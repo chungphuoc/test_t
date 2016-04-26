@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: admin
+  host: localhost
+  pool: 5
+
+development:
+  <<: *default
+  database: toned_development
+
+test:
+  <<: *default
+  database: toned_test
+
+production:
+  <<: *default
+  database: toned_production
+  username: <%= ENV["USERNAME"] %>
+  password: <%= ENV["PASSWORD"] %>
