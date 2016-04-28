@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  root 'static#home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -68,5 +70,5 @@ Rails.application.routes.draw do
     resources :station_studios, :only => [:show, :create, :destroy]
     resources :exercise_studios, :only => [:show, :create, :destroy]
   end
-  
+
 end
