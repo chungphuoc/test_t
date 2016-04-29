@@ -1,78 +1,49 @@
 Rails.application.routes.draw do
-  devise_for :users#, controllers: {sessions: "users/sessions"}
-  get 'studio_manage/index'
-
   root 'static#home'
+  devise_for :users
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
   resources :studios, only: [:new, :create, :show]
   resources :customers, only: [:new, :create, :show]
+
+  resources :courses, only: [:show] do
+    get :search, on: :collection
+    member do
+      put :rate
+      put :like
+      put :unlike
+      post :book
+      post :cancel
+    end
+  end
 
   namespace :admin do
     resources :stations
     resources :exercises
     resources :customers
     resources :studios
-    resources :classes
+    resources :courses
     resources :teachers
   end
 
   namespace :my do
-
+    resources :accounts, only: [:show, :edit, :update]
+    resources :courses, only: [:index] do
+      collection do
+        get :past
+        get :favourite
+      end
+    end
   end
 
   namespace :manage do
-    resources :studio , :only => [:show, :edit]
-    resources :teachers, :only => [:show, :index, :edit, :create, :destroy]
-    resources :class, :only => [:show, :index, :edit, :create, :destroy]
-    resources :station_studios, :only => [:show, :create, :destroy]
-    resources :exercise_studios, :only => [:show, :create, :destroy]
+    resources :studios , :only => [:show, :edit, :update]
+    resources :teachers
+    resources :courses do
+      collection do
+        get :booked
+        get :past
+      end
+    end
   end
 
 end
