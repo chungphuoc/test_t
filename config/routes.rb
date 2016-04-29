@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'studio_manage/index'
+
   root 'static#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -73,4 +75,11 @@ Rails.application.routes.draw do
     resources :exercise_studios, :only => [:show, :create, :destroy]
   end
 
+<<<<<<< HEAD
+=======
+  get 'login' => "session#new"
+  post 'login' => "session#create"
+  get 'logout' => "session#destroy"
+
+>>>>>>> add login page, add homepage, add studio manage page, create seed for Studio
 end

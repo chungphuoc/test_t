@@ -5,5 +5,4 @@ class Studio < ActiveRecord::Base
   has_many :classes
   has_many :exercise_studios
   has_many :teachers
-  #accepts_nested_attributes_for :user
 end

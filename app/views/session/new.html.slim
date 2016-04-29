@@ -1,0 +1,19 @@
+.background
+  = image_tag 'bg-exercise.jpg'
+.container.login-section
+  .row
+    = form_for @user, url: login_path, html: {class: "form login-form form-horizontal"} do |f|
+      .row.title
+        h2 Login
+      .row.body
+        .form-group.left-inner-addon
+            i.glyphicon.glyphicon-envelope
+            = f.text_field :email, class: "form-control", placeholder: "email"
+        .form-group.left-inner-addon
+            i.glyphicon.glyphicon-lock
+            = f.password_field :password, class: "form-control", placeholder: "password"
+        .form-group
+          = f.submit "Submit", class: "btn btn-primary btn-sm"
+        = link_to "Forgot password", root_path
+        = link_to root_path, title: "back", class: "back-button" do
+          span.glyphicon.glyphicon-circle-arrow-left.back-icon

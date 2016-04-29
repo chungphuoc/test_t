@@ -6,7 +6,6 @@ class StudiosController < ApplicationController
 
   def create
     @studio = Studio.new(studio_params)
-    byebug
     if @studio.save
       flash[:notice] = "Account Successfully Created!, Please Login to Continue"
       redirect_to root_path

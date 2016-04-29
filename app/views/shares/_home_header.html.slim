@@ -6,9 +6,16 @@
           h1 STONE
         .col-lg-9
           ul class='nav navbar-right navbar-nav'
-            li
-              = link_to new_studio_path
-                p Sign up
-            li
-              = link_to root_path
-                p Login
+            - if current_user
+              li
+                p.display-user-name #{current_user.name}
+              li
+                = link_to logout_path
+                  p Logout
+            -else
+              li
+                = link_to new_studio_path
+                  p Sign up
+              li
+                = link_to login_path
+                  p Login
