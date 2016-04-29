@@ -53,7 +53,6 @@ gem 'figaro'
 gem 'high_voltage'
 gem 'pg'
 gem 'sendgrid'
-gem 'simple_form'
 gem 'slim-rails'
 
 group :development do
