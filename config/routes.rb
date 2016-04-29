@@ -49,6 +49,8 @@ Rails.application.routes.draw do
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
+  resources :studios, only: [:new, :create, :show]
+  resources :customers, only: [:new, :create, :show]
 
   namespace :admin do
     resources :stations

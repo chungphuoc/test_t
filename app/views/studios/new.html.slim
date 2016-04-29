@@ -1,0 +1,24 @@
+= render "shares/home_header"
+.container-fluid
+  .row
+    .background-image
+      = image_tag 'bg-exercise.jpg'
+  = form_for @studio , :url => studios_path, :method => :post, :html => {:class => "registration-form"} do |f|
+    = f.fields_for :user, @studio.user do |user_form|
+      .form-group
+        = user_form.text_field :name, :class => "form form-control", :placeholder => "Your name"
+      .form-group
+        = user_form.text_field :email, :class => "form form-control", :placeholder => "Your email"
+      .form-group
+        = user_form.password_field :password, :class => "form form-control", :placeholder => "password"
+      .form-group
+        = user_form.password_field :password_confirmation, :class => "form form-control", :placeholder => "password confirmation"
+      .form-group
+        = user_form.text_field :address, :class => "form form-control", :placeholder => "Address"
+      // .form-group
+      //   = user_form.text_field :contact_number, :class => "form form-control", :placeholder => "phone"
+    .form-group
+      = f.text_field :cover_img, :class => "form form-control", :placeholder => "link to image"
+    = link_to "Back", root_path, :class => "btn btn-primary btn-sm"
+    = f.submit "Register", :class => "btn btn-primary btn-sm"
+
