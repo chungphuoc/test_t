@@ -7,7 +7,7 @@ class StudiosController < ApplicationController
   def create
     @studio = Studio.new(studio_params)
     if @studio.save
-      flash[:notice] = "Account Successfully Created!, Please Login to Continue"
+      flash[:notice] = "Account successfully created!, please login to continue"
       redirect_to root_path
     else  
       render :new
@@ -17,6 +17,6 @@ class StudiosController < ApplicationController
   private
 
   def studio_params
-    params.require(:studio).permit(:cover_img, :user_attributes => [:name, :email, :contact_number, :address, :avatar, :password, :password_confirmation])
+    params.require(:studio).permit(:cover_img, user_attributes: [:name, :email, :contact_number, :address, :avatar, :password, :password_confirmation])
   end
 end
