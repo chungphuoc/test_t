@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'studio_manage/index'
+
+  get 'login' => "session#new"
+  post 'login' => "session#create"
+  get 'logout' => "session#destroy"
+
+  root 'static#home'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -47,6 +55,8 @@ Rails.application.routes.draw do
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
+  resources :studios, only: [:new, :create, :show]
+  resources :customers, only: [:new, :create, :show]
 
   namespace :admin do
     resources :stations
@@ -68,5 +78,5 @@ Rails.application.routes.draw do
     resources :station_studios, :only => [:show, :create, :destroy]
     resources :exercise_studios, :only => [:show, :create, :destroy]
   end
-  
+
 end

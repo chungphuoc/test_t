@@ -46,7 +46,7 @@ group :development do
 end
 
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'devise_invitable'
 gem 'figaro'
