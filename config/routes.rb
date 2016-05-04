@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'customers/new'
+
   devise_for :users
   get 'studio_manage/index'
 
