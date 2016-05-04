@@ -1,4 +1,4 @@
 class Teacher < ActiveRecord::Base
-  belongs_to :studio
   has_many :courses
+  has_many :studio, through: :courses
 end
