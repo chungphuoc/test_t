@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   namespace :manage do
     resources :studios , :only => [:show, :edit, :update]
     resources :teachers
+    resources :stations
     resources :courses do
       collection do
         get :booked

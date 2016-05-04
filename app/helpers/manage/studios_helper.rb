@@ -1,0 +1,2 @@
+module Manage::StudiosHelper
+end

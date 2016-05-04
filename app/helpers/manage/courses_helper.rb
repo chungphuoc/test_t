@@ -1,0 +1,2 @@
+module Manage::CoursesHelper
+end
