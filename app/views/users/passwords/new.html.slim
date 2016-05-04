@@ -1,0 +1,15 @@
+.background
+  = image_tag 'bg-exercise.jpg'
+.container.login-section
+  .row
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form login-form form-horizontal"}) do |f|
+      .row.title
+        h2 Forgot your password?
+      .row.body
+        = devise_error_messages!
+        .form-group.left-inner-addon
+            i.glyphicon.glyphicon-lock
+            = f.password_field :password, class: "form-control", placeholder: "password", autofocus: true
+        .form-group
+          = f.submit "Send me reset password instructions", class: "btn btn-primary btn-sm"
+        = render "users/shared/links"
