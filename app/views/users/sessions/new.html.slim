@@ -2,18 +2,24 @@
   = image_tag 'bg-exercise.jpg'
 .container.login-section
   .row
-    = form_for @user, url: login_path, html: {class: "form login-form form-horizontal"} do |f|
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form login-form form-horizontal"}) do |f|
       .row.title
         h2 Login
       .row.body
         .form-group.left-inner-addon
             i.glyphicon.glyphicon-envelope
-            = f.text_field :email, class: "form-control", placeholder: "email"
+            = f.email_field :email, class: "form-control", placeholder: "email"
         .form-group.left-inner-addon
             i.glyphicon.glyphicon-lock
             = f.password_field :password, class: "form-control", placeholder: "password"
+
+        - if devise_mapping.rememberable?
+          .form-group
+            = f.check_box :remember_me
+            = f.label :remember_me
+
         .form-group
-          = f.submit "Submit", class: "btn btn-primary btn-sm"
-        = link_to "Forgot password", root_path
+          = f.submit "Login", class: "btn btn-primary btn-sm"
+        = render "users/shared/links"
         = link_to root_path, title: "back", class: "back-button" do
           span.glyphicon.glyphicon-circle-arrow-left.back-icon
