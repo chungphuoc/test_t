@@ -1,0 +1,61 @@
+.background-image{
+  img{
+    width: 100%;
+  }
+}
+.registration-form{
+  position: absolute;
+  text-align: center;
+  top: 150px;
+  right: 100px;
+  background-color: white;
+  width: 400px;
+  .btn{
+    margin: 0px 5px;
+  }
+  .title{
+    background-color: #20a7e5;
+    margin: 0px;
+    h2{
+      color: white;
+    }
+  }
+  .body{
+    padding: 30px 20px 20px 20px;
+    margin: 0px;
+    .btn{
+      margin: 5px;
+    }
+    .form-group{
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+}
+
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    left: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
