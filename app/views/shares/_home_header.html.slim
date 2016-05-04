@@ -10,12 +10,12 @@
               li
                 p.display-user-name #{current_user.name}
               li
-                = link_to logout_path
+                = link_to destroy_user_session_path, method: :delete
                   p Logout
             -else
               li
                 = link_to new_studio_path
                   p Sign up
               li
-                = link_to login_path
+                = link_to new_user_session_path
                   p Login

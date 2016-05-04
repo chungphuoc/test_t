@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users#, controllers: {sessions: "users/sessions"}
   get 'studio_manage/index'
-
-  get 'login' => "session#new"
-  post 'login' => "session#create"
-  get 'logout' => "session#destroy"
 
   root 'static#home'
 
