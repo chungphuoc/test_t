@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504162255) do
+ActiveRecord::Schema.define(version: 20160504171534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,12 +57,9 @@ ActiveRecord::Schema.define(version: 20160504162255) do
     t.integer  "gender"
     t.date     "birthday"
     t.boolean  "receive_sms"
-    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
-
-  add_index "customers", ["user_id"], name: "index_customers_on_user_id", using: :btree
 
   create_table "enrollments", force: :cascade do |t|
     t.integer  "course_id"
@@ -97,12 +94,9 @@ ActiveRecord::Schema.define(version: 20160504162255) do
 
   create_table "studios", force: :cascade do |t|
     t.string   "cover_img"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "studios", ["user_id"], name: "index_studios_on_user_id", using: :btree
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name"
@@ -127,13 +121,13 @@ ActiveRecord::Schema.define(version: 20160504162255) do
     t.string   "address"
     t.string   "contact_number"
     t.string   "avatar"
+    t.integer  "role_id"
+    t.string   "role_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "customers", "users"
   add_foreign_key "enrollments", "customers"
   add_foreign_key "enrollments", "studios", column: "course_id"
-  add_foreign_key "studios", "users"
 end
