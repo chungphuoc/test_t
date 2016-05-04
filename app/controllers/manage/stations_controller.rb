@@ -1,2 +1,2 @@
-class Manage::StationsController < ApplicationController
+class Manage::StationsController < Manage::BaseController
 end

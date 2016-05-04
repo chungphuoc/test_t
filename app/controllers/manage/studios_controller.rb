@@ -1,2 +1,2 @@
-class Manage::StudiosController < ApplicationController
+class Manage::StudiosController < Manage::BaseController
 end

@@ -1,2 +1,2 @@
-class Manage::TeachersController < ApplicationController
+class Manage::TeachersController < Manage::BaseController
 end
