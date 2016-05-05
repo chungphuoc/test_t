@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   #validates :name, presence: true, length: {in: 8..32}
   enum user_type: {admin: "Admin", studio: "Studio", customer: "Customer"}
 
+  after_create do
+    Signup.to_admin(self).deliver_later
+  end
+
   def self.user_type
     [["Studio", :studio], ["Customer", :customer]]
   end
