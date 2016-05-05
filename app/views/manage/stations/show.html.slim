@@ -1,0 +1,7 @@
+h1 Show
+p
+  span Name:
+  span = @station.name
+= link_to 'Delete', manage_station_path(@station), method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'Edit', edit_manage_station_path(@station)
+= link_to 'Index', manage_stations_path
