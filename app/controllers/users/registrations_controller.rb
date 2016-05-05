@@ -10,10 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    if !params[:provider].blank?
+    if params[:provider].present?
       resource.provider = params[:provider]
     end
-    if !params[:uid].blank?
+    if !params[:uid].present?
       resource.uid = params[:uid]
     end
     if params[:user_type] == "customer"
