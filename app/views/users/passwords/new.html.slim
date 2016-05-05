@@ -6,10 +6,11 @@
       .row.title
         h2 Forgot your password?
       .row.body
-        = devise_error_messages!
         .form-group.left-inner-addon
-            i.glyphicon.glyphicon-lock
-            = f.password_field :password, class: "form-control", placeholder: "password", autofocus: true
+          i.glyphicon.glyphicon-lock
+          = f.email_field :email, class: "form-control", placeholder: "email", required: "", autofocus: true
+          - resource.errors.messages[:email].each do |msg|
+            p.error-text #{msg}
         .form-group
           = f.submit "Send me reset password instructions", class: "btn btn-primary btn-sm"
         = render "users/shared/links"

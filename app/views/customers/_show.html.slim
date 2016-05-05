@@ -1,0 +1,32 @@
+.container
+  .row
+    .col-lg-6
+      h1 My page
+    .col-lg-6
+      = image_tag ''
+  .row
+    .col-lg-6
+      span Calories burnt
+      br
+      span Point
+    .col-lg-6
+      = select_tag options_for_select(['dayly', 'weekly', 'monthly']), {}, {class: "form-control"}
+  .row
+    .col-lg-3
+      = label_tag :name, "Name"
+    .col-lg-9
+      span #{current_user.name}
+  .row
+    .col-lg-3
+      = label_tag :email, "Email"
+    .col-lg-9
+      span #{current_user.email}
+  .row
+    .col-lg-3
+      = label_tag :email, "Address"
+    .col-lg-9
+  .row
+    .col-lg-3
+      = label_tag :email, "Contact Number"
+    .col-lg-9
+  = link_to "Edit", edit_my_account_path

@@ -1,0 +1,47 @@
+= render "shares/home_header"
+.container-fluid
+  .row
+    .background-image
+      = image_tag 'bg-exercise.jpg'
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "registration-form"}) do |f|
+  .row.title
+    h2 Sign up
+  .row.body
+    .form-group.left-inner-addon
+      i.glyphicon.glyphicon-user
+      - if session["devise.facebook_data"]
+        = f.text_field :name, value: session["devise.facebook_data"]["info"]["name"], required: "", class: "form form-control"
+      -else
+        = f.text_field :name, class: "form form-control", required: "", placeholder: "name"
+      - resource.errors.messages[:name].each do |msg|
+        p.error-text #{msg}
+    .form-group.left-inner-addon
+      i.glyphicon.glyphicon-envelope
+      - if session["devise.facebook_data"]
+        = f.text_field :email, value: session["devise.facebook_data"]["info"]["email"], required: "", class: "form form-control"
+      -else
+        = f.text_field :email, class: "form form-control", required: "", placeholder: "email"
+      - resource.errors.messages[:email].each do |msg|
+        p.error-text #{msg}
+    .form-group.left-inner-addon
+      i.glyphicon.glyphicon-lock
+      = f.password_field :password, class: "form form-control", required: "", placeholder: "password"
+      - resource.errors.messages[:password].each do |msg|
+        p.error-text #{msg}
+    .form-group.left-inner-addon
+      i.glyphicon.glyphicon-lock
+      = f.password_field :password_confirmation, class: "form form-control", required: "", placeholder: "confirm password"
+      - resource.errors.messages[:password_confirmation].each do |msg|
+        p.error-text #{msg}
+    .form-group
+      = select_tag :user_type, options_for_select(User.user_type), {class: "form-control"}
+    - if session["devise.facebook_data"]
+      = hidden_field_tag :provider, session["devise.facebook_data"]["provider"]
+      = hidden_field_tag :uid, session["devise.facebook_data"]["uid"]
+    .form-group
+      = link_to "Back", root_path, class: "btn btn-primary btn-sm"
+      = f.submit "Register", class: "btn btn-primary btn-sm"
+    = render "users/shared/links"
+
+

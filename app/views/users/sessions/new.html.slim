@@ -7,12 +7,15 @@
         h2 Login
       .row.body
         .form-group.left-inner-addon
-            i.glyphicon.glyphicon-envelope
-            = f.email_field :email, class: "form-control", placeholder: "email"
+          i.glyphicon.glyphicon-envelope
+          = f.email_field :email, class: "form-control", required: "", placeholder: "email"
+          - resource.errors.messages[:email].each do |msg|
+            p.error-text #{msg}
         .form-group.left-inner-addon
-            i.glyphicon.glyphicon-lock
-            = f.password_field :password, class: "form-control", placeholder: "password"
-
+          i.glyphicon.glyphicon-lock
+          = f.password_field :password, class: "form-control", required: "", placeholder: "password"
+          - resource.errors.messages[:password].each do |msg|
+            p.error-text #{msg}
         - if devise_mapping.rememberable?
           .form-group
             = f.check_box :remember_me
