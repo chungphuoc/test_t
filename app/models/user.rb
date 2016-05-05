@@ -23,10 +23,6 @@ class User < ActiveRecord::Base
     #   user.name = auth.info.name   # assuming the user model has a name
     #   #user.image = auth.info.image # assuming the user model has an image
     # end
-    @user = User.find_by_provider_and_uid(auth.provider, auth.uid)
-    if @user.nil?
-      @user = User.new
-    end
-    @user
+    @user = User.find_by_provider_and_uid(auth.provider, auth.uid) || User.new
   end
 end

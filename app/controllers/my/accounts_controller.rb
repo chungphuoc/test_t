@@ -4,7 +4,6 @@ class My::AccountsController < ApplicationController
   end
 
   def edit
-    @user = User.last
   end
 
   def update
