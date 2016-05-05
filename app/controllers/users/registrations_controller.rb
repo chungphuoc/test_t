@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if params[:provider].present?
       resource.provider = params[:provider]
     end
-    if !params[:uid].present?
+    if params[:uid].present?
       resource.uid = params[:uid]
     end
     if params[:user_type] == "customer"
