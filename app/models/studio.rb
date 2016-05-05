@@ -1,8 +1,11 @@
 class Studio < ActiveRecord::Base
-  belongs_to :user
-  has_many :station_studios
-  has_many :customer_courses
-  has_many :classes
-  has_many :exercise_studios
-  has_many :teachers
+  has_one :user, as: :role
+  has_many :courses, dependent: :destroy
+  has_many :contracts, dependent: :destroy
+  has_many :teachers, through: :contracts
+  has_many :branches, dependent: :destroy
+  has_many :stations, through: :branches
+  has_many :services, dependent: :destroy
+  has_many :exercises, through: :services
+  accepts_nested_attributes_for :user
 end

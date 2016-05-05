@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160428065238) do
+ActiveRecord::Schema.define(version: 20160504171534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "branches", force: :cascade do |t|
+    t.integer  "studio_id"
+    t.integer  "station_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contracts", force: :cascade do |t|
+    t.integer  "studio_id"
+    t.integer  "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -31,17 +45,11 @@ ActiveRecord::Schema.define(version: 20160428065238) do
     t.date     "start_day"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-  end
-
-  create_table "customer_courses", force: :cascade do |t|
+    t.integer  "teacher_id"
+    t.integer  "station_id"
     t.integer  "studio_id"
-    t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "exercise_id"
   end
-
-  add_index "customer_courses", ["customer_id"], name: "index_customer_courses_on_customer_id", using: :btree
-  add_index "customer_courses", ["studio_id"], name: "index_customer_courses_on_studio_id", using: :btree
 
   create_table "customers", force: :cascade do |t|
     t.integer  "point"
@@ -49,22 +57,19 @@ ActiveRecord::Schema.define(version: 20160428065238) do
     t.integer  "gender"
     t.date     "birthday"
     t.boolean  "receive_sms"
-    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "customers", ["user_id"], name: "index_customers_on_user_id", using: :btree
-
-  create_table "exercise_studios", force: :cascade do |t|
+  create_table "enrollments", force: :cascade do |t|
     t.integer  "course_id"
-    t.integer  "exercise_id"
+    t.integer  "customer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "exercise_studios", ["course_id"], name: "index_exercise_studios_on_course_id", using: :btree
-  add_index "exercise_studios", ["exercise_id"], name: "index_exercise_studios_on_exercise_id", using: :btree
+  add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id", using: :btree
+  add_index "enrollments", ["customer_id"], name: "index_enrollments_on_customer_id", using: :btree
 
   create_table "exercises", force: :cascade do |t|
     t.string   "name"
@@ -73,15 +78,12 @@ ActiveRecord::Schema.define(version: 20160428065238) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "station_studios", force: :cascade do |t|
-    t.integer  "station_id"
+  create_table "services", force: :cascade do |t|
     t.integer  "studio_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "exercise_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
-
-  add_index "station_studios", ["station_id"], name: "index_station_studios_on_station_id", using: :btree
-  add_index "station_studios", ["studio_id"], name: "index_station_studios_on_studio_id", using: :btree
 
   create_table "stations", force: :cascade do |t|
     t.string   "name"
@@ -92,12 +94,9 @@ ActiveRecord::Schema.define(version: 20160428065238) do
 
   create_table "studios", force: :cascade do |t|
     t.string   "cover_img"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "studios", ["user_id"], name: "index_studios_on_user_id", using: :btree
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name"
@@ -122,17 +121,13 @@ ActiveRecord::Schema.define(version: 20160428065238) do
     t.string   "address"
     t.string   "contact_number"
     t.string   "avatar"
+    t.integer  "role_id"
+    t.string   "role_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "customer_courses", "customers"
-  add_foreign_key "customer_courses", "studios"
-  add_foreign_key "customers", "users"
-  add_foreign_key "exercise_studios", "courses"
-  add_foreign_key "exercise_studios", "exercises"
-  add_foreign_key "station_studios", "stations"
-  add_foreign_key "station_studios", "studios"
-  add_foreign_key "studios", "users"
+  add_foreign_key "enrollments", "customers"
+  add_foreign_key "enrollments", "studios", column: "course_id"
 end
