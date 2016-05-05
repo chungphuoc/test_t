@@ -10,10 +10,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    if sign_up_params[:user_type] == "customer"
-      resource.build_customer
+    if !params[:provider].blank?
+      resource.provider = params[:provider]
+    end
+    if !params[:uid].blank?
+      resource.uid = params[:uid]
+    end
+    if params[:user_type] == "customer"
+      @customer = Customer.new
+      resource.role = @customer
+      @customer.save
     else
-      resource.build_studio
+      @studio = Studio.new
+      resource.role = @studio
+      @studio.save
     end
     resource.save
     yield resource if block_given?
@@ -44,7 +54,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     # If you have extra params to permit, append them to the sanitizer.
    def configure_sign_up_params
-      devise_parameter_sanitizer.for(:sign_up) << :name << :email << :password << :password_confirmation << :user_type
+      devise_parameter_sanitizer.for(:sign_up) << :name << :email << :password << :password_confirmation << :provider << :uid
    end
 
   # If you have extra params to permit, append them to the sanitizer.

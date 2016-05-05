@@ -35,11 +35,13 @@
       - resource.errors.messages[:password_confirmation].each do |msg|
         p.error-text #{msg}
     .form-group
-      = f.select :user_type, options_for_select(User.user_type), {}, {class: "form-control"}
+      = select_tag :user_type, options_for_select(User.user_type), {class: "form-control"}
+    - if session["devise.facebook_data"]
+      = hidden_field_tag :provider, session["devise.facebook_data"]["provider"]
+      = hidden_field_tag :uid, session["devise.facebook_data"]["uid"]
     .form-group
       = link_to "Back", root_path, class: "btn btn-primary btn-sm"
       = f.submit "Register", class: "btn btn-primary btn-sm"
-    //= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
     = render "users/shared/links"
 
 
