@@ -1,0 +1,5 @@
+= render "my/navigation"
+- if current_user.customer?
+  = render "customers/edit"
+- elsif current_user.studio
+  = render "studios/edit"

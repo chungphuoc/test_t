@@ -1,0 +1,21 @@
+.div.navbar.navbar-custom
+  .div.container-fluid
+    .div.collapse.navbar-collapse
+      .row
+        .col-lg-3
+          h1 TONE
+        .col-lg-9
+          ul class='nav navbar-right navbar-nav'
+            - if current_user
+              li
+                p.display-user-name #{current_user.name}
+              li
+                = link_to destroy_user_session_path, method: :delete
+                  p Logout
+            -else
+              li
+                = link_to new_user_registration_path
+                  p Sign up
+              li
+                = link_to new_user_session_path
+                  p Login
