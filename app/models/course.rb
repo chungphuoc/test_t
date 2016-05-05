@@ -7,7 +7,9 @@ class Course < ActiveRecord::Base
   has_many :customers, through: :enrollments
 
   validates :name, presence: true
-  validates :phone_number, presence: true
+  validates :phone_number, presence: true,
+    format: { with:  /\A[+-]?\d+\Z/, message: "is invalid format" },
+    length: { minimum: 10, maximum: 12 }
   validates :num_slot, presence: true
   validates :start_date, presence: true
   validates :teacher, presence: true

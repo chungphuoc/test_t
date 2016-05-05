@@ -1,0 +1,51 @@
+= form_for [:manage, @course], class: 'form-horizontal' do |f|
+  .form-group
+    label.control-label.col-sm-2 = f.label :name
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :cover_img
+    .col-sm-10
+      = f.file_field :cover_img, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :phone_number
+    .col-sm-10
+      = f.text_field :phone_number, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :website
+    .col-sm-10
+      = f.text_field :website, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :description
+    .col-sm-10
+      = f.text_area :description, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :num_slot
+    .col-sm-10
+      = f.text_field :num_slot, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :start_date
+    .col-sm-10
+      = f.text_field :start_date, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :start_time
+    .col-sm-10
+      = f.text_field :start_time, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :end_time
+    .col-sm-10
+      = f.text_field :end_time, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :teacher
+    .col-sm-10
+      = f.select :teacher_id, options_from_collection_for_select(@studio.teachers, :id, :name), {}, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :station
+    .col-sm-10
+      = f.select :station_id, options_from_collection_for_select(@studio.stations, :id,  :name), {}, class: 'form-control'
+  .form-group
+    label.control-label.col-sm-2 = f.label :exercise
+    .col-sm-10
+      = f.select :exercise_id, options_from_collection_for_select(@studio.exercises, :id, :name), {}, class: 'form-control'
+  = f.submit
+end

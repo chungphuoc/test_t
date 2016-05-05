@@ -1,0 +1,7 @@
+h1 Show
+p
+  span Name:
+  span = @course.name
+= link_to 'Delete', manage_course_path(@course), method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'Edit', edit_manage_course_path(@course)
+= link_to 'Index', manage_courses_path
