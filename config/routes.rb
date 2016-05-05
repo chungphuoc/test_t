@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     resources :studios , :only => [:show, :edit, :update]
     resources :teachers
     resources :stations
+    resources :exercises
     resources :courses do
       collection do
         get :booked
