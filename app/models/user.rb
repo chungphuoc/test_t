@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
          :omniauthable
   belongs_to :role, polymorphic: true
 
+  after_create do
+    Signup.to_admin(self).deliver_later
+  end
+
   def self.user_type
     [["Studio", :studio], ["Customer", :customer]]
   end
