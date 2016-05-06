@@ -15,7 +15,7 @@ class Manage::CoursesController < Manage::BaseController
       flash[:success] = 'Course has been successfully created'
       redirect_to manage_course_path(@course)
     else
-      flash.now[:error] = @course.errors.full_messages.join("<br>")
+      flash.now[:error] = 'Error!'
       render :new
     end
   end
@@ -32,7 +32,7 @@ class Manage::CoursesController < Manage::BaseController
       flash[:success] = 'Course has been successfully updated'
       redirect_to manage_course_path(@course)
     else
-      flash.now[:error] = @course.errors.full_messages.join("<br>")
+      flash.now[:error] = 'Error!'
       render :edit
     end
   end

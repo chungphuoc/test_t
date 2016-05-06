@@ -19,7 +19,7 @@ class Manage::ExercisesController < Manage::BaseController
       flash[:success] = 'Exercise has been successfully created'
       redirect_to manage_exercise_path(@exercise)
     else
-      flash.now[:error] = @exercise.errors.full_messages
+      flash.now[:error] = 'Error!'
       render :new
     end
   end
@@ -33,7 +33,7 @@ class Manage::ExercisesController < Manage::BaseController
       flash[:success] = 'Exercise has been successfully updated'
       redirect_to manage_exercise_path(@exercise)
     else
-      flash.now[:error] = @exercise.errors.full_messages
+      flash.now[:error] = 'Error!'
       render :edit
     end
   end

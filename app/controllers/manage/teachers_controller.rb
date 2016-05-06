@@ -19,7 +19,7 @@ class Manage::TeachersController < Manage::BaseController
       flash[:success] = 'Teacher has been successfully created'
       redirect_to manage_teacher_path(@teacher)
     else
-      flash.now[:error] = @teacher.errors.full_messages
+      flash.now[:error] = 'Error!'
       render :new
     end
   end
@@ -33,7 +33,7 @@ class Manage::TeachersController < Manage::BaseController
       flash[:success] = 'Teacher has been successfully updated'
       redirect_to manage_teacher_path(@teacher)
     else
-      flash.now[:error] = @teacher.errors.full_messages
+      flash.now[:error] = 'Error!'
       render :edit
     end
   end

@@ -19,7 +19,7 @@ class Manage::StationsController < Manage::BaseController
       flash[:success] = 'Station has been successfully created'
       redirect_to manage_station_path(@station)
     else
-      flash.now[:error] = @station.errors.full_messages
+      flash.now[:error] = 'Error!'
       render :new
     end
   end
@@ -33,7 +33,7 @@ class Manage::StationsController < Manage::BaseController
       flash[:success] = 'Station has been successfully updated'
       redirect_to manage_station_path(@station)
     else
-      flash.now[:error] = @station.errors.full_messages
+      flash.now[:error] = 'Error!'
       render :edit
     end
   end
