@@ -55,6 +55,10 @@ gem 'high_voltage'
 gem 'pg'
 gem 'sendgrid'
 gem 'slim-rails'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'rmagick'
+gem 'config'
 
 group :development do
   gem 'better_errors'

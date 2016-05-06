@@ -1,0 +1,8 @@
+h1 Exercises
+ul
+  - @exercises.each do |exercise|
+    li
+      = exercise.name
+      = link_to 'Show', manage_exercise_path(exercise)
+
+= link_to 'New exercise', new_manage_exercise_path

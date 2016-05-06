@@ -1,0 +1,8 @@
+h1 Courses
+ul
+  - @courses.each do |course|
+    li
+      = course.name
+      = link_to 'Show', manage_course_path(course)
+
+= link_to 'New course', new_manage_course_path

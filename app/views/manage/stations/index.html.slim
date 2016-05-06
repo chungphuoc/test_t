@@ -1,0 +1,8 @@
+h1 Stations
+ul
+  - @stations.each do |station|
+    li
+      = station.name
+      = link_to 'Show', manage_station_path(station)
+
+= link_to 'New station', new_manage_station_path

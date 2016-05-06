@@ -1,0 +1,15 @@
+= form_for [:manage, @exercise], class: 'form-horizontal' do |f|
+  .form-group
+    label.control-label.col-sm-2 = f.label :name
+    .col-sm-10
+      = f.text_field :name, class: 'form-control'
+      .error-text
+        = @exercise.errors[:name].to_sentence
+  .form-group
+    label.control-label.col-sm-2 = f.label :description
+    .col-sm-10
+      = f.text_area :description, class: 'form-control'
+      .error-text
+        = @exercise.errors[:description].to_sentence
+  = f.submit
+end
