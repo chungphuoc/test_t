@@ -9,12 +9,12 @@ class Course < ActiveRecord::Base
 
   validates :name, presence: true
   validates :phone_number, presence: true,
-    format: { with:  /\A[+-]?\d+\Z/, message: "is invalid format" },
+    format: { with: Settings.regexp.phone },
     length: { minimum: 10, maximum: 12 }
   validates :num_slot, presence: true
   validates :start_date, presence: true
   validates :teacher, presence: true
   validates :station, presence: true
   validates :exercise, presence: true
-  validates :website, format: { with: /\A^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?\z/ix }, allow_blank: true
+  validates :website, format: { with: Settings.regexp.url }, allow_blank: true
 end

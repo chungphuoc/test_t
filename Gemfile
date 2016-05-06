@@ -58,6 +58,7 @@ gem 'slim-rails'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'rmagick'
+gem 'config'
 
 group :development do
   gem 'better_errors'

@@ -85,3 +85,6 @@ pickle-email-*.html
 
 # byebug
 .byebug_history
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
