@@ -14,11 +14,11 @@
                   span.caret
                 ul.dropdown-menu
                   li
-                    - if current_user.role_type = "Studio"
+                    - if current_user.role_type == "Studio"
                       = link_to my_studio_path
                         p My Account
                     - else
-                      = link_to my_customer_path
+                      = link_to my_customer_path  
                         p My Account
                   li
                     = link_to destroy_user_session_path, method: :delete

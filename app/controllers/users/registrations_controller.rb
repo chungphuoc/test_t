@@ -55,7 +55,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    byebug
     devise_parameter_sanitizer.for(:account_update) << :password << :password_confirmation
   end
 

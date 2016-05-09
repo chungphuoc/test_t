@@ -13,10 +13,9 @@ class My::CustomersController < ApplicationController
 
   def update
     @customer.user.update_attributes(user_params)
-    customer_params[:birthday] = DateTime.new(params[:customer]["birthday(1i)"].to_i, params[:customer]["birthday(2i)"].to_i, params[:customer]["birthday(3i)"].to_i)
     if @customer.update_attributes(customer_params)
       flash[:notice] = "Update successfuly!"
-      redirect_to root_path
+      redirect_to my_customer_path
     else
       render :edit
     end

@@ -14,7 +14,7 @@ class My::StudiosController < ApplicationController
   def update
     @studio.user.update_attributes(user_params)
     if @studio.update_attributes(studio_params)
-      redirect_to root_path
+      redirect_to my_studio_path
       flash[:notice] = "Update successfuly!"
     else
       render :edit
