@@ -358,7 +358,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   selenium-webdriver
   sendgrid
-  shoulda-matchers (= 2.5.0)
+  shoulda-matchers
   slim-rails
   spring
   spring-commands-rspec
