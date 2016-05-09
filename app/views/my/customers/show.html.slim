@@ -1,0 +1,36 @@
+= render 'my/navigation'
+.container
+  .row
+    .col-lg-6
+      p = @customer.user.name
+    .col-lg-6
+      = image_tag @customer.user.avatar
+  .row
+    .col-lg-6
+      p Address
+    .col-lg-6
+      p = @customer.user.address
+  .row
+    .col-lg-6
+      p Address
+    .col-lg-6
+      p = @customer.user.contact_number
+  .row
+    .col-lg-6
+      p Gender
+    .col-lg-6
+      p = @customer.gender
+  .row
+    .col-lg-6
+      p Birthday
+    .col-lg-6
+      p = @customer.birthday
+  .row
+    .col-lg-6
+      p Receive sms
+    .col-lg-6
+      p = @customer.receive_sms
+  .row
+    = link_to edit_my_customer_path, class: "btn btn-primary"
+      span Edit
+

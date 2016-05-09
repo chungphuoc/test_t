@@ -44,10 +44,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def edit
-    super
-  end
-
   def destroy
     super
   end
@@ -59,11 +55,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
+    byebug
     devise_parameter_sanitizer.for(:account_update) << :password << :password_confirmation
   end
 
   private
   def registration_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :user_type)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

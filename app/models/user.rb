@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
+  mount_uploader :avatar, ImageUploader
+  validates :password, :presence => true, :on => :create
+  validates :password_confirmation, :presence => true, :on => :create
   belongs_to :role, polymorphic: true
 
   after_create do

@@ -3,4 +3,9 @@ class Customer < ActiveRecord::Base
   has_many :enrollments, dependent: :destroy
   has_many :courses, through: :enrollments
   accepts_nested_attributes_for :user
+  enum gender: {male: "Male", female: "Female"}
+
+  def self.gender
+    [["Male", :male], ["Female", :female]]
+  end
 end
