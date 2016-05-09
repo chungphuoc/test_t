@@ -8,12 +8,29 @@
           ul class='nav navbar-right navbar-nav'
             - if current_user
               li
-                .avatar
-                  = image_tag current_user.avatar
-                p.display-user-name #{current_user.name}
-              li
-                = link_to destroy_user_session_path, method: :delete
-                  p Logout
+                .row
+                  .col-lg-4
+                    .avatar
+                      = image_tag current_user.avatar
+                  .col-lg-8
+                    p.display-user-name #{current_user.name}
+              li.dropdown
+                a.dropdown-toggle type="button" data-toggle="dropdown"
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    - if current_user.role_type == "Studio"
+                      = link_to edit_my_studio_path
+                        span Basic info
+                    - else
+                      = link_to edit_my_customer_path
+                        span Basic info
+                  li
+                    = link_to edit_user_registration_path
+                      span Edit Account
+                  li
+                    = link_to destroy_user_session_path, method: :delete
+                      p Logout
             -else
               li
                 = link_to new_user_registration_path

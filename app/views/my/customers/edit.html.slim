@@ -1,0 +1,45 @@
+= render 'my/navigation'
+.row
+  .col-lg-3.content-section
+    = render "my/sidebar"
+  .col-lg-6.content-section
+    h1 Edit
+    .row
+      = form_for [:my, @customer], class: "form-horizontal" do |f|
+        = f.fields_for :user do |user_form|
+          .form-group
+            = user_form.label :name
+            = user_form.text_field :name, class: "form-control"
+          .form-group
+            = user_form.label :contact_number
+            = user_form.text_field :contact_number, class: "form-control"
+          .form-group
+            = user_form.label :address
+            = user_form.text_field :address, class: "form-control"
+          .form-group
+            = user_form.label :avatar
+            br
+            = image_tag @customer.user.avatar, alt: "No preview"
+            = user_form.file_field :avatar
+        .form-group
+          = f.label :gender
+          = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control"
+        .form-group
+          = f.label :receive_sms
+          .radio-button-inline
+            = f.radio_button :receive_sms, true, checked: true
+            = f.label :receive_sms, "Yes"
+          .radio-button-inline
+            = f.radio_button :receive_sms, false
+            = f.label :receive_sms, "No"
+        .form-group.date_select
+          = f.label :birthday
+          .row
+            .col-lg-6.col-sm-12
+              = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year
+        .form-group 
+          = link_to my_customer_path, class: "btn btn-primary"
+            span Back
+          = f.submit "Submit", class: "btn btn-primary"
+  .col-lg-3.content-section
+    = render "my/invite_friend"

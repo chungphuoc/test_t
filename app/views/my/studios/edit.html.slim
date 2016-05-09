@@ -1,0 +1,32 @@
+= render 'my/navigation'
+.row
+  .col-lg-3.content-section
+    = render "my/sidebar"
+  .col-lg-6.content-section
+    h1 Edit
+    .row
+      = form_for [:my, @studio], class: "form-horizontal" do |f|
+        .form-group
+          = f.label :cover_img, "Cover Image"
+          br
+          = image_tag @studio.cover_img, alt: "No preview"
+          = f.file_field :cover_img
+        = f.fields_for :user do |user_form|
+          .form-group
+            = user_form.label :name
+            = user_form.text_field :name, class: "form-control"
+          .form-group
+            = user_form.label :contact_number
+            = user_form.text_field :contact_number, class: "form-control"
+          .form-group
+            = user_form.label :address
+            = user_form.text_field :address, class: "form-control"
+          .form-group
+            = user_form.label :avatar
+            br
+            = image_tag @studio.user.avatar, alt: "No preview"
+            = user_form.file_field :avatar
+        .form-group
+          = f.submit "Submit", class: "btn btn-primary"
+  .col-lg-3.content-section
+    = render "my/invite_friend"

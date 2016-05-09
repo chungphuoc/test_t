@@ -1,3 +1,33 @@
-// Place all the styles related to the my/accounts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.content-section{
+  margin: 0px !important;
+  padding: 0px;
+}
+.left-side-bar{
+  border-top: 4px solid #357b1b;
+  margin: 20px;
+  .info-section{
+    text-align: center;
+    img{
+      border: 2px solid gray;
+      width: 150px;
+      height: 150px;
+      margin: 20px;
+    }
+  }
+  .navi-section{
+
+  }
+}
+
+.invite_friend_side{
+  background-color: #f7f7f7;
+  text-align: center;
+  padding: 20px;
+  h4{
+    color: #e24492;
+    font-weight: bold;
+  }
+  .btn-send{
+    margin: 15px;
+  }
+}
