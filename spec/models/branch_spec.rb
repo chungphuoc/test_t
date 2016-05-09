@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Branch, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to :studio }
+  it { should belong_to :station }
 end
