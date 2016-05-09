@@ -1,0 +1,26 @@
+= render 'my/navigation'
+.container
+  .row
+    .col-lg-6
+      p = @studio.user.name
+    .col-lg-6
+      = image_tag @studio.user.avatar
+  .row
+    .col-lg-6
+      p Cover image
+    .col-lg-6
+      = image_tag @studio.cover_img
+  .row
+    .col-lg-6
+      p Address
+    .col-lg-6
+      p = @studio.user.address
+  .row
+    .col-lg-6
+      p Address
+    .col-lg-6
+      p = @studio.user.contact_number
+  .row
+    = link_to edit_my_studio_path, class: "btn btn-primary"
+      span Edit
+

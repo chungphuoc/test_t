@@ -44,10 +44,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  def edit
-    super
-  end
-
   def destroy
     super
   end
@@ -64,6 +60,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   private
   def registration_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :user_type)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

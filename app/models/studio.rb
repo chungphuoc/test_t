@@ -8,4 +8,5 @@ class Studio < ActiveRecord::Base
   has_many :services, dependent: :destroy
   has_many :exercises, through: :services
   accepts_nested_attributes_for :user
+  mount_uploader :cover_img, ImageUploader
 end

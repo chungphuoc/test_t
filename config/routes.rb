@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   end
 
   namespace :my do
-    resources :accounts, only: [:show, :edit, :update]
+    resource :studio, only: [:show, :edit, :update]
+    resource :customer, only: [:show, :edit, :update]
     resources :courses, only: [:index] do
       collection do
         get :past
