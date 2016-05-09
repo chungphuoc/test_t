@@ -1,0 +1,23 @@
+.left-side-bar
+  .info-section
+    = image_tag "example-logo.png"
+    h4 User name
+    p Calories burnt
+    p point
+  .navi-section
+    ul.nav.sidebar-nav.nav-personal
+      li.active
+        = image_tag 'home.png'
+        = link_to 'Trang chủ cá nhân', partner_path
+      li 
+        = image_tag 'listsv.png'
+        = link_to 'Danh sách sinh viên', students_path
+      li 
+        = image_tag 'listsv.png'
+        = link_to 'Lịch sử giao dịch', partner_transaction_history_path
+      li
+        = image_tag 'qa.png'
+        = link_to 'Thắc mắc/ Hỏi đáp', partner_faq_path
+      li
+        = image_tag 'promotion.png'
+        = link_to 'Promotion', new_promotion_path

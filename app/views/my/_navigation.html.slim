@@ -8,6 +8,8 @@
           ul class='nav navbar-right navbar-nav'
             - if current_user
               li
+                .avatar
+                  = image_tag current_user.avatar
                 p.display-user-name #{current_user.name}
               li
                 = link_to destroy_user_session_path, method: :delete
