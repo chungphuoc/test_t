@@ -21,4 +21,8 @@ class Course < ActiveRecord::Base
   def self.booked
     where(self.arel_table[:enrollments_count].gt(0))
   end
+
+  def self.past
+    where(self.arel_table[:start_date].lt(Time.zone.now))
+  end
 end

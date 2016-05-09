@@ -46,6 +46,10 @@ class Manage::CoursesController < Manage::BaseController
     @booked_courses = Course.booked
   end
 
+  def past
+    @past_courses = Course.past
+  end
+
   private
     def prepare_course
       @course = Course.find(params[:id])
