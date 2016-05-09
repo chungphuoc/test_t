@@ -1,0 +1,6 @@
+h1 Booked courses
+ul
+  - @booked_courses.each do |course|
+    li
+      = course.name
+      = link_to 'Show', manage_course_path(course)

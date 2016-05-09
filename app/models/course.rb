@@ -17,4 +17,8 @@ class Course < ActiveRecord::Base
   validates :station, presence: true
   validates :exercise, presence: true
   validates :website, format: { with: Settings.regexp.url }, allow_blank: true
+
+  def self.booked
+    where(self.arel_table[:enrollments_count].gt(0))
+  end
 end

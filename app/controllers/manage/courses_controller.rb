@@ -42,6 +42,10 @@ class Manage::CoursesController < Manage::BaseController
     redirect_to manage_courses_url
   end
 
+  def booked
+    @booked_courses = Course.booked
+  end
+
   private
     def prepare_course
       @course = Course.find(params[:id])
