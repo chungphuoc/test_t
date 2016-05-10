@@ -1,0 +1,46 @@
+#addsClassModal.modal.fade role="dialog" 
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button"  ×
+        h4.modal-title Class detail
+      .modal-body id='model-body'
+        p 
+          b Start Date
+        p #{@course.start_date}
+        p
+          b Start time
+        p #{@course.start_time}
+        p
+          b End time
+        p #{@course.end_time}
+      .modal-footer
+        p Do you want to add this class?
+        = form_tag personal_enrollments_path, method: :post do
+          = hidden_field_tag :course_id, @course.id
+          = submit_tag "Submit", class: "btn btn-primary"
+          button.btn.btn-default data-dismiss="modal" type="button"  Cancel
+
+.container
+  h2 Course detail
+  .row
+    .col-lg-3
+      span Name
+    .col-lg-6
+      p #{@course.name}
+  .row
+    .col-lg-3
+      span Number Phone
+    .col-lg-6
+      p #{@course.phone_number}
+  .row
+    .col-lg-3
+      span Website
+    .col-lg-6
+      p #{@course.website}
+  .row
+    .col-lg-3
+      span Description
+    .col-lg-6
+      p #{@course.description}
+  button.btn.btn-primary.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" Add

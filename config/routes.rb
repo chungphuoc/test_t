@@ -38,6 +38,11 @@ Rails.application.routes.draw do
         get :favourite
       end
     end
+    resources :enrollments, only: [:create, :index, :destroy] do
+      collection do
+        get :cancel
+      end
+    end
   end
 
   namespace :manage do
