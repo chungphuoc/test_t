@@ -48,7 +48,9 @@ Rails.application.routes.draw do
   namespace :manage do
     resources :studios , only: [:show, :edit, :update]
     resources :contracts, path: 'teachers', only: [:new, :index, :create, :destroy]
-    resources :branches, path: 'stations', only: [:new, :index, :create, :destroy]
+    resources :stations, only: :index do
+      put :update, on: :collection
+    end
     resources :exercises, only: :index do
       put :update, on: :collection
     end
