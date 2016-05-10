@@ -1,8 +1,0 @@
-h1 Teachers
-ul
-  - @teachers.each do |teacher|
-    li
-      = teacher.name
-      = link_to 'Show', manage_teacher_path(teacher)
-
-= link_to 'New teacher', new_manage_teacher_path

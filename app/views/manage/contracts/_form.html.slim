@@ -1,0 +1,10 @@
+= form_for [:manage, @contract], html: { class: 'form-horizontal' } do |f|
+  = f.fields_for :teacher do |teacher_form|
+    .form-group
+      label.control-label.col-sm-2 = teacher_form.label :name
+      .col-sm-8
+        = teacher_form.text_field :name, class: 'form-control'
+        .error-text
+          = @contract.errors[:teacher].to_sentence
+  .col-sm-10.col-sm-offset-2
+    = f.submit 'Add', class: 'btn btn-primary'
