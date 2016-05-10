@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   belongs_to :role, polymorphic: true
   delegate :enrollments, to: :role
 
+  delegate :enrollments, to: :role, allow_nil: true
+
   after_create do
     Signup.to_admin(self).deliver_later
   end
@@ -34,5 +36,9 @@ class User < ActiveRecord::Base
     #   #user.image = auth.info.image # assuming the user model has an image
     # end
     @user = User.find_by_provider_and_uid(auth.provider, auth.uid) || User.new
+  end
+
+  def studio?
+    role_type == 'Studio'
   end
 end

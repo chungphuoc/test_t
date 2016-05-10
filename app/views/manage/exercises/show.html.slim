@@ -1,7 +1,0 @@
-h1 Show
-p
-  span Name:
-  span = @exercise.name
-= link_to 'Delete', manage_exercise_path(@exercise), method: :delete, data: { confirm: 'Are you sure?' }
-= link_to 'Edit', edit_manage_exercise_path(@exercise)
-= link_to 'Index', manage_exercises_path

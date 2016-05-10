@@ -1,8 +1,8 @@
 h1 Exercises
-ul
-  - @exercises.each do |exercise|
-    li
-      = exercise.name
-      = link_to 'Show', manage_exercise_path(exercise)
-
-= link_to 'New exercise', new_manage_exercise_path
+= form_tag manage_exercises_path, method: :put do
+  - Exercise.all.each do |exercise|
+    .checkbox
+      label
+        = check_box_tag 'exercise_ids[]', exercise.id, @exercises.include?(exercise)
+        = exercise.name
+  = submit_tag 'Update', class: "btn btn-primary"

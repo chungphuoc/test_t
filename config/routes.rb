@@ -49,7 +49,9 @@ Rails.application.routes.draw do
     resources :studios , only: [:show, :edit, :update]
     resources :contracts, path: 'teachers', only: [:new, :index, :create, :destroy]
     resources :branches, path: 'stations', only: [:new, :index, :create, :destroy]
-    resources :services, path: 'exercises', only: [:new, :index, :create, :destroy]
+    resources :exercises, only: :index do
+      put :update, on: :collection
+    end
     resources :courses do
       collection do
         get :booked
