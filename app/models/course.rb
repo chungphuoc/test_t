@@ -18,6 +18,10 @@ class Course < ActiveRecord::Base
   validates :exercise, presence: true
   validates :website, format: { with: Settings.regexp.url }, allow_blank: true
 
+  delegate :name, to: :teacher, prefix: true
+  delegate :location, to: :station, prefix: true
+  delegate :name, to: :exercise, prefix: true
+
   def self.booked
     where(self.arel_table[:enrollments_count].gt(0))
   end
