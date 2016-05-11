@@ -3,6 +3,6 @@ h1 Stations
   - Station.all.each do |station|
     .checkbox
       label
-        = check_box_tag 'station_ids[]', station.id, @stations.include?(station)
+        = check_box_tag 'station_ids[]', station.id, @station_ids.include?(station.id)
         = station.name
   = submit_tag 'Update', class: "btn btn-primary"

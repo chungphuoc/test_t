@@ -1,17 +1,12 @@
 class Manage::ExercisesController < Manage::BaseController
   def index
-    @exercises = @studio.exercises
+    @exercise_ids = @studio.exercises.pluck(:id)
   end
 
   def update
-    exercise_listing = ExerciseListing.new(exercise_listing_params)
-    exercise_listing.save
+    StudioExerciseService.new(@studio).update_exercises(params[:exercise_ids].to_a)
     flash[:success] = 'Exercise listing has been successfully updated.'
     redirect_to manage_exercises_path
   end
 
-  private
-    def exercise_listing_params
-      { studio: @studio, exercise_ids: params[:exercise_ids] || [] }
-    end
 end

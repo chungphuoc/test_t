@@ -38,7 +38,4 @@ class User < ActiveRecord::Base
     @user = User.find_by_provider_and_uid(auth.provider, auth.uid) || User.new
   end
 
-  def studio?
-    role_type == 'Studio'
-  end
 end

@@ -1,17 +1,12 @@
 class Manage::StationsController < Manage::BaseController
   def index
-    @stations = @studio.stations
+    @station_ids = @studio.stations.pluck(:id)
   end
 
   def update
-    station_listing = StationListing.new(station_listing_params)
-    station_listing.save
+    StudioStationService.new(@studio).update_stations(params[:station_ids].to_a)
     flash[:success] = 'Station listing has been successfully updated.'
     redirect_to manage_stations_path
   end
 
-  private
-    def station_listing_params
-      { studio: @studio, station_ids: params[:station_ids] || [] }
-    end
 end

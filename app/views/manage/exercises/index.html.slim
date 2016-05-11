@@ -3,6 +3,6 @@ h1 Exercises
   - Exercise.all.each do |exercise|
     .checkbox
       label
-        = check_box_tag 'exercise_ids[]', exercise.id, @exercises.include?(exercise)
+        = check_box_tag 'exercise_ids[]', exercise.id, @exercise_ids.include?(exercise.id)
         = exercise.name
   = submit_tag 'Update', class: "btn btn-primary"
