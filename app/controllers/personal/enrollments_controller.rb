@@ -1,18 +1,18 @@
-class Personal::EnrollmentsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :authenticate_customer!
+class Personal::EnrollmentsController < Personal::BaseController
 
   def index
-    @enrollments = Enrollment.all.where(customer_id: current_user.role_id)
+    #@enrollments = Enrollment.all.where(customer_id: current_user.role_id)
+    #@enrollments = current_user.role.enrollments
+    @enrollments = current_user.enrollments
   end
 
   def create
-    @enrollment = Enrollment.new(customer: current_user.role, course: Course.find(params[:course_id]))
+    @enrollment = current_user.enrollments.new(course_id: params[:course_id])
     if @enrollment.save
       flash[:notice] = "Add class successful!"  
       redirect_to personal_enrollments_path
     else
-      flash[:notice] = "Error!"  
+      flash[:notice] = @enrollment.errors.full_messages[0]  
       redirect_to personal_enrollments_path
     end
   end
@@ -27,12 +27,4 @@ class Personal::EnrollmentsController < ApplicationController
     render nothing: true
   end
 
-  private
-
-  def authenticate_customer!
-    unless current_user.role_type == 'Customer'
-      flash[:notice] = "Access Denied"
-      redirect_to root_path
-    end
-  end
 end

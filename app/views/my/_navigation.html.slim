@@ -18,7 +18,7 @@
                 a.dropdown-toggle type="button" data-toggle="dropdown"
                   span.caret
                 ul.dropdown-menu
-                  - if current_user.role_type == "Studio"
+                  - if current_user.studio?
                     li
                       = link_to edit_my_studio_path
                         span Basic info
