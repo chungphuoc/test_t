@@ -59,6 +59,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'rmagick'
 gem 'config'
+gem 'bootstrap-datepicker-rails'
 
 group :development do
   gem 'better_errors'

@@ -1,3 +1,15 @@
 // Place all the styles related to the manage/courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#js_schedule .table-condensed {
+    width: 100%;
+}
+
+#js_schedule .datepicker.datepicker-inline {
+    width: 100%;
+}
+
+#js_schedule .datepicker.datepicker-inline > .datepicker.datepicker-inline {
+    display: none !important;
+}
