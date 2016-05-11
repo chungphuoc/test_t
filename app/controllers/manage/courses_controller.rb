@@ -3,6 +3,9 @@ class Manage::CoursesController < Manage::BaseController
 
   def index
     @courses = @studio.courses
+    if params[:start_date]
+      @courses = @courses.where(start_date: params[:start_date])
+    end
   end
 
   def new

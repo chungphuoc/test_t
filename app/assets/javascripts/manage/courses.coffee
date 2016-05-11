@@ -5,5 +5,6 @@ $('.datepicker').datepicker
   autoclose: true
   format: 'yyyy-mm-dd'
 
-$('#js_schedule').datepicker
-  todayHighlight: true
+$('#js_schedule').datepicker(todayHighlight: true).on 'changeDate', (e) ->
+  date = e.date.getDate()+'-'+(e.date.getMonth()+1)+'-'+e.date.getFullYear()
+  window.location = window.location.pathname + '?start_date=' + date
