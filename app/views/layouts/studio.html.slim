@@ -1,0 +1,59 @@
+doctype html
+html
+  head
+    title Toned
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+body
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand href="#" Toned
+      #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            = link_to current_user.email, '#'
+          li
+            = link_to 'Logout', destroy_user_session_path, method: :delete
+  .flash-wrapper
+    = flash_messages
+  .content
+    .container
+      .row
+        .col-md-3
+          .panel.panel-success
+            .panel-heading.panel-border
+            .panel-body
+              img.avatar src="http://www.chinesefn.com/viproom/assets/pages/media/profile/profile_user.jpg"
+              .text-center
+                h1.studio-name.gray Studio Name
+                h4.gray Jan 2016
+              ul.list-group
+                li.list-group-item
+                  = link_to 'Schedule', manage_courses_path
+                li.list-group-item
+                  = link_to 'Booked Classes', booked_manage_courses_path
+                li.list-group-item
+                  = link_to 'Past Classes', past_manage_courses_path
+                li.list-group-item
+                  = link_to 'Teachers', manage_contracts_path
+                li.list-group-item
+                  = link_to 'Exercises', manage_exercises_path
+                li.list-group-item
+                  = link_to 'Stations', manage_stations_path
+                li.list-group-item
+                  = link_to 'Profile', my_studio_path
+                li.list-group-item
+                  = link_to 'Contact Us', '#'
+        .col-md-9
+          .panel.panel-success
+            .panel-heading
+            .panel-body
+              = yield

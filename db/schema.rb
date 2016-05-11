@@ -42,12 +42,13 @@ ActiveRecord::Schema.define(version: 20160510044031) do
     t.time     "start_time"
     t.time     "end_time"
     t.date     "start_date"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "teacher_id"
     t.integer  "station_id"
     t.integer  "studio_id"
     t.integer  "exercise_id"
+    t.integer  "enrollments_count", default: 0
   end
 
   create_table "customers", force: :cascade do |t|

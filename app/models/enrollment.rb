@@ -1,6 +1,6 @@
 class Enrollment < ActiveRecord::Base
   belongs_to :customer
-  belongs_to :course
+  belongs_to :course, counter_cache: true
   validates_uniqueness_of :customer_id, :scope => [:course_id]
   delegate :studio, to: :course
 
@@ -19,7 +19,7 @@ class Enrollment < ActiveRecord::Base
   end
 
   def cancel?
-    self["status"] && self["status"] == Enrollment::STATUS_CANCEL  
+    self["status"] && self["status"] == Enrollment::STATUS_CANCEL
   end
 
   def book_class_mailer
@@ -29,4 +29,5 @@ class Enrollment < ActiveRecord::Base
   def cancel_class_mailer
     EnrollmentNotiMailer.cancel_class(self).deliver_later
   end
+
 end

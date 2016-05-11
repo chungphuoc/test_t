@@ -1,7 +1,41 @@
 h1 Show
-p
-  span Name:
-  span = @course.name
-= link_to 'Delete', manage_course_path(@course), method: :delete, data: { confirm: 'Are you sure?' }
-= link_to 'Edit', edit_manage_course_path(@course)
-= link_to 'Index', manage_courses_path
+table.table.table-stripped
+  tr
+    th Name
+    td = @course.name
+  tr
+    th Cover
+    td = image_tag @course.cover_img
+  tr
+    th Phone
+    td = @course.phone_number
+  tr
+    th Website
+    td = @course.website
+  tr
+    th Description
+    td = @course.description
+  tr
+    th Num slot
+    td = @course.num_slot
+  tr
+    th Start date
+    td = @course.start_date
+  tr
+    th Start time
+    td = @course.start_time
+  tr
+    th End time
+    td = @course.end_time
+  tr
+    th Teacher
+    td = @course.teacher_name
+  tr
+    th Station
+    td = @course.station_location
+  tr
+    th Exercise
+    td = @course.exercise_name
+
+= link_to 'Back', manage_courses_path, class: "btn btn-primary"
+= link_to 'Edit', edit_manage_course_path(@course), class: "btn btn-primary"

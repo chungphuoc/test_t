@@ -2,6 +2,7 @@ class Manage::BaseController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_studio!
   before_action :prepare_studio
+  layout 'studio'
 
   private
     def prepare_studio

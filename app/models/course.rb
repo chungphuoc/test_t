@@ -17,4 +17,16 @@ class Course < ActiveRecord::Base
   validates :station, presence: true
   validates :exercise, presence: true
   validates :website, format: { with: Settings.regexp.url }, allow_blank: true
+
+  delegate :name, to: :teacher, prefix: true
+  delegate :location, to: :station, prefix: true
+  delegate :name, to: :exercise, prefix: true
+
+  def self.booked
+    where(self.arel_table[:enrollments_count].gt(0))
+  end
+
+  def self.past
+    where(self.arel_table[:start_date].lt(Time.zone.now))
+  end
 end

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :studios, only: [:new, :create, :show]
   resources :customers, only: [:new, :create, :show]
 
-  resources :courses, only: [:show] do
+  resources :courses, only: :show do
     get :search, on: :collection
     member do
       put :rate
@@ -46,10 +46,14 @@ Rails.application.routes.draw do
   end
 
   namespace :manage do
-    resources :studios , :only => [:show, :edit, :update]
-    resources :teachers
-    resources :stations
-    resources :exercises
+    resources :studios , only: [:show, :edit, :update]
+    resources :contracts, path: 'teachers', only: [:new, :index, :create, :destroy]
+    resources :stations, only: :index do
+      put :update, on: :collection
+    end
+    resources :exercises, only: :index do
+      put :update, on: :collection
+    end
     resources :courses do
       collection do
         get :booked
