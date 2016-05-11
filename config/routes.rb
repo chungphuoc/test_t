@@ -29,10 +29,18 @@ Rails.application.routes.draw do
   namespace :my do
     resource :studio, only: [:show, :edit, :update]
     resource :customer, only: [:show, :edit, :update]
-    resources :courses, only: [:index] do
+  end
+
+  namespace :personal do
+    resources :courses, only: [:index, :show] do
       collection do
         get :past
         get :favourite
+      end
+    end
+    resources :enrollments, only: [:create, :index, :destroy] do
+      collection do
+        get :cancel
       end
     end
   end

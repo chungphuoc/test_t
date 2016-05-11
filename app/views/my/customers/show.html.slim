@@ -1,36 +1,39 @@
 = render 'my/navigation'
-.container
-  .row
-    .col-lg-6
-      p = @customer.user.name
-    .col-lg-6
-      = image_tag @customer.user.avatar
-  .row
-    .col-lg-6
-      p Address
-    .col-lg-6
-      p = @customer.user.address
-  .row
-    .col-lg-6
-      p Address
-    .col-lg-6
-      p = @customer.user.contact_number
-  .row
-    .col-lg-6
-      p Gender
-    .col-lg-6
-      p = @customer.gender
-  .row
-    .col-lg-6
-      p Birthday
-    .col-lg-6
-      p = @customer.birthday
-  .row
-    .col-lg-6
-      p Receive sms
-    .col-lg-6
-      p = @customer.receive_sms
-  .row
+.row
+  .col-lg-3.content-section
+    = render "my/sidebar"
+  .col-lg-6.content-section
+    h2 Edit Profile
+    = select_tag :frequency, options_for_select(["Daily", "Weekly", "Monthly"]), class: "form-control"
+    .row.content-section
+      = form_for [:my, @customer], class: "form-horizontal" do |f|
+        = f.fields_for :user do |user_form|
+          .form-group
+            = user_form.label :name
+            = user_form.text_field :name, class: "form-control", disabled: true
+          .form-group
+            = user_form.label :contact_number
+            = user_form.text_field :contact_number, class: "form-control", disabled: true
+          .form-group
+            = user_form.label :address
+            = user_form.text_field :address, class: "form-control", disabled: true
+        .form-group
+          = f.label :gender
+          = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control", disabled: true
+        .form-group
+          = f.label :receive_sms
+          .radio-button-inline
+            = f.radio_button :receive_sms, true, checked: true, disabled: true
+            = f.label :receive_sms, "Yes"
+          .radio-button-inline
+            = f.radio_button :receive_sms, false, disabled: true
+            = f.label :receive_sms, "No"
+        .form-group.date_select
+          = f.label :birthday
+          .row
+            .col-lg-6.col-sm-12
+              = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year, disabled: true
     = link_to edit_my_customer_path, class: "btn btn-primary"
-      span Edit
-
+      span Edit Profile
+  .col-lg-3.content-section
+    = render "my/invite_friend"

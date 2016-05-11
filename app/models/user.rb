@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :password, :presence => true, :on => :create
   validates :password_confirmation, :presence => true, :on => :create
   belongs_to :role, polymorphic: true
+  delegate :enrollments, to: :role
 
   after_create do
     Signup.to_admin(self).deliver_later
@@ -15,6 +16,14 @@ class User < ActiveRecord::Base
 
   def self.user_type
     [["Studio", :studio], ["Customer", :customer]]
+  end
+
+  def customer?
+    self.role_type == "Customer"
+  end
+
+  def studio?
+    self.role_type == "Studio"
   end
 
   def self.from_omniauth(auth)

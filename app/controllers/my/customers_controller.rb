@@ -24,7 +24,7 @@ class My::CustomersController < ApplicationController
   private
 
   def authenticate_customer!
-    unless current_user.role_type == 'Customer'
+    unless current_user.customer?
       flash[:notice] = "Access Denied"
       redirect_to root_path
     end

@@ -8,7 +8,12 @@
           ul class='nav navbar-right navbar-nav'
             - if current_user
               li
-                p.display-user-name #{current_user.name}
+                .row
+                  .col-lg-4
+                    .avatar
+                      = image_tag current_user.avatar
+                  .col-lg-8
+                    p.display-user-name #{current_user.name}
               li.dropdown
                 a.dropdown-toggle type="button" data-toggle="dropdown"
                   span.caret

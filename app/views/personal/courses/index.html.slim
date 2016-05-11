@@ -1,0 +1,8 @@
+h2 Class
+- @courses.each do |course|
+  .row
+    .col-lg-3
+      span #{course.name}
+    .col-lg-6
+      = link_to personal_course_path(course.id), class: "btn btn-primary"
+        span Detail

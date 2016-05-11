@@ -1,0 +1,18 @@
+.left-side-bar
+  .info-section
+    = image_tag current_user.avatar
+    h4 User name
+    p Calories burnt
+    p point
+  .navi-section
+    ul.nav.sidebar-nav.nav-personal
+      li.active
+        = link_to 'Trang chủ cá nhân', root_path
+      li 
+        = link_to 'Danh sách sinh viên', root_path
+      li 
+        = link_to 'Lịch sử giao dịch', root_path
+      li
+        = link_to 'Thắc mắc/ Hỏi đáp', root_path
+      li
+        = link_to 'Promotion', root_path
