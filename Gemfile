@@ -60,6 +60,7 @@ gem 'cloudinary'
 gem 'rmagick'
 gem 'config'
 gem 'bootstrap-datepicker-rails'
+gem 'momentjs-rails'
 
 group :development do
   gem 'better_errors'

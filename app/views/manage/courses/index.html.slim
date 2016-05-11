@@ -3,7 +3,7 @@ h2 Courses
   .col-sm-12
     #js_schedule
 = link_to 'New course', new_manage_course_path, class: 'btn btn-primary'
-table.table.table-stripped
+table.table.table-stripped data-course-date="#{ @courses.map { |course| course.start_date.strftime('%Y-%m-%d') } }"
   tr
     th Name
     th Phone

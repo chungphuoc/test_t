@@ -3,8 +3,14 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $('.datepicker').datepicker
   autoclose: true
-  format: 'yyyy-mm-dd'
+  format: 'YYYY-MM-DD'
 
-$('#js_schedule').datepicker(todayHighlight: true).on 'changeDate', (e) ->
-  date = e.date.getDate()+'-'+(e.date.getMonth()+1)+'-'+e.date.getFullYear()
+dates = $('table').data('course-date')
+$('#js_schedule').datepicker(
+  todayHighlight: true,
+  beforeShowDay: (date) ->
+    if $.inArray(moment(date).format('YYYY-MM-DD', date), dates) > -1
+      return 'highlighted-date'
+).on 'changeDate', (e) ->
+  date = moment(e.date).format('DD-MM-YYYY')
   window.location = window.location.pathname + '?start_date=' + date
