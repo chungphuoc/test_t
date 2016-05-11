@@ -4,7 +4,7 @@ class Enrollment < ActiveRecord::Base
   validates_uniqueness_of :customer_id, :scope => [:course_id]
   delegate :studio, to: :course
 
-  enum status: {waiting: "Waiting", paid: "Paid", cancel: "Cancel", passed: "Passed"}
+  enum status: [:waiting, :paid, :cancel, :passed]
   STATUS = ["Waiting", "Paid", "Cancel", "Passed"]
   STATUS_CANCEL = 2
   after_create :book_class_mailer

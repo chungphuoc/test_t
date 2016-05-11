@@ -20,8 +20,7 @@ class Personal::EnrollmentsController < Personal::BaseController
   def cancel
     @enrollment = Enrollment.find(params[:enrollment_id])
     if @enrollment
-      @enrollment["status"] = 2
-      @enrollment.save
+      @enrollment.update_attributes(status: :cancel)
       @enrollment.cancel_class_mailer
     end
     render nothing: true
