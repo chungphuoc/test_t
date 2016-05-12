@@ -1,26 +1,19 @@
-= render 'my/navigation'
+h1 Edit
 .row
-  .col-lg-3.content-section
-    = render "my/sidebar"
-  .col-lg-6.content-section
-    h1 Edit
-    .row
-      = form_for [:my, @studio], class: "form-horizontal" do |f|
-        .form-group
-          = f.label :cover_img, "Cover Image"
-          br
-          = image_tag @studio.cover_img, alt: "No preview"
-        = f.fields_for :user do |user_form|
-          .form-group
-            = user_form.label :name
-            = user_form.text_field :name, class: "form-control", disabled: true
-          .form-group
-            = user_form.label :contact_number
-            = user_form.text_field :contact_number, class: "form-control", disabled: true
-          .form-group
-            = user_form.label :address
-            = user_form.text_field :address, class: "form-control", disabled: true
-      = link_to edit_my_studio_path, class: "btn btn-primary"
-        span Edit Profile
-  .col-lg-3.content-section
-    = render "my/invite_friend"
+  = form_for [:my, @studio], class: "form-horizontal" do |f|
+    .form-group
+      = f.label :cover_img, "Cover Image"
+      br
+      = image_tag @studio.cover_img, alt: "No preview"
+    = f.fields_for :user do |user_form|
+      .form-group
+        = user_form.label :name
+        = user_form.text_field :name, class: "form-control", disabled: true
+      .form-group
+        = user_form.label :contact_number
+        = user_form.text_field :contact_number, class: "form-control", disabled: true
+      .form-group
+        = user_form.label :address
+        = user_form.text_field :address, class: "form-control", disabled: true
+  = link_to edit_my_studio_path, class: "btn btn-primary"
+    span Edit Profile

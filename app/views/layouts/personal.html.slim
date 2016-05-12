@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Toned
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+body
+  .flash-wrapper
+    = flash_messages
+  .navigation
+    = render 'my/navigation'
+  .row
+    .col-lg-3.content-section
+      .left-side-bar
+        .navi-section
+          ul.nav.sidebar-nav.nav-personal
+            li.active
+              = link_to 'All Class', root_path
+            li 
+              = link_to 'Booked Class', root_path
+            li 
+              = link_to 'Passed Class', root_path
+            li
+              = link_to 'My List', root_path
+            li
+              = link_to 'Contact Us', root_path
+    .col-lg-9.content-section
+      = yield

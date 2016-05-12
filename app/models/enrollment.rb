@@ -1,7 +1,7 @@
 class Enrollment < ActiveRecord::Base
   belongs_to :customer
   belongs_to :course, counter_cache: true
-  validates_uniqueness_of :customer_id, :scope => [:course_id]
+  validates_uniqueness_of :customer_id, :scope => [:course_id], message: "Class has been booked!"
   delegate :studio, to: :course
 
   enum status: [:waiting, :paid, :cancel, :passed]

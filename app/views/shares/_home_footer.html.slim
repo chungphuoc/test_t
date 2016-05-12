@@ -1,21 +1,26 @@
-.row
-  .col-lg-3
-    .logo-img
-      = image_tag "example-logo.png"
-  .col-lg-3
-    ul.list-unstyled
-      li
-        p
-          h4 Contact
-      li
-        span.glyphicon.glyphicon-earphone 
-        span 0123456789
-      li 
-        span.glyphicon.glyphicon-map-marker
-        span Singapore, Singapore
-  .col-lg-3
-    .about-us
-      h4 About Us
-  .col-lg-3
-    .copy-right
-      p @2016 Copyright - Toned Ple Ld
+.container
+  .row
+    .col-lg-6
+      h1 TONE
+      p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+      ul.list-unstyledsssss
+        li
+          span.glyphicon.glyphicon-earphone 
+          span 0123456789
+        li 
+          span.glyphicon.glyphicon-map-marker
+          span Singapore, Singapore
+        li 
+          span.glyphicon.glyphicon-envelope
+          span example@tone.com
+    .col-lg-6
+      = form_tag "static/feedback", class: "feed-back-form" do |f|
+        h3.title Feedback
+        .form-group
+          = text_field_tag :name, "", class: "form-control", placeholder: "Name"
+        .form-group
+          = text_field_tag :title, "", class: "form-control", placeholder: "Title"
+        .form-group
+          = text_area_tag :message, "", class: "form-control", placeholder: "Message"
+        .form-group
+          button.btn.btn-primary Send
