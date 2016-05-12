@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'omniauth-facebook'
 
+gem 'ratyrate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

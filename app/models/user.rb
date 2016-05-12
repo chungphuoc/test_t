@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
   mount_uploader :avatar, ImageUploader
+  ratyrate_rater
   validates :password, :presence => true, :on => :create
   validates :password_confirmation, :presence => true, :on => :create
   belongs_to :role, polymorphic: true

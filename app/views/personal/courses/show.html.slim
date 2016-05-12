@@ -43,4 +43,6 @@
       span Description
     .col-lg-6
       p #{@course.description}
+  .row
+    = rating_for @course, "quality" 
   button.btn.btn-primary.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" Add
