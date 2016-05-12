@@ -2,6 +2,7 @@ class My::CustomersController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_customer!
   before_action :prepare_customer
+  layout 'account'
 
   def show
     

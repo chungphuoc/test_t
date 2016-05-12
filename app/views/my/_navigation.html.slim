@@ -8,11 +8,14 @@
           ul class='nav navbar-right navbar-nav'
             - if current_user
               li
-                .row
-                  .col-lg-4
-                    .avatar
-                      = image_tag current_user.avatar
-                  .col-lg-8
+                .avatar
+                  = image_tag current_user.avatar, class: "img-circle"
+              li
+                - if current_user.studio?
+                  = link_to my_studio_path
+                    p.display-user-name #{current_user.name}
+                - else
+                  = link_to my_customer_path
                     p.display-user-name #{current_user.name}
               li.dropdown
                 a.dropdown-toggle type="button" data-toggle="dropdown"

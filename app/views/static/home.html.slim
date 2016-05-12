@@ -1,60 +1,47 @@
 .header-section
   = render "shares/home_header"
+  = image_tag "yoga.jpg"
+  .header-content
+    h1 Be Toned
+    h2 A new way to book fitness
+    -if current_user
+      - if current_user.studio?
+        = link_to manage_courses_path, class: "btn btn-primary"
+          span Get Started
+      - elsif current_user.customer?
+        = link_to personal_courses_path, class: "btn btn-primary"
+          span Get Started
+      - else
+        = button.btn.btn-primary Get Started
+    - else
+      = link_to new_user_registration_path, class: "btn btn-primary"
+          span Get Started
 .body-section
-  = image_tag "lc-gym-001.jpg"
-  .container.introduction
+  .section.container.welcome
     .row.align-center
-      h2 Lorem ipsum dolor sit amet
+      h1 Welcome! Lorem ipsum dolor sit amet
     .row
-      .col-lg-4.text_center
+      .text_center
         .div_col_target
-          h5.target_title
-            b LOREM IPSUM
           p.p_target_content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-      .col-lg-4.text_center
-        .div_col_target
-          h5.target_title
-            b LOREM IPSUM
-          p.p_target_content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-      .col-lg-4.text_center
-        .div_col_target
-          h5.target_title
-            b LOREM IPSUM
-          p.p_target_content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-  .container.introduction
+  hr
+  .section.container.instruction
+    .row
+      .col-lg-4
+        = image_tag "phone.png"
+      .col-lg-4
+        = image_tag "phone.png"
+      .col-lg-4
+        = image_tag "phone.png"
+  .section.introduction
     .row.align-center
-      h2 Popular Class
-    .row
-      .col-lg-4
-        .popular-course
-          .img-cover
-            = image_tag 'gym.jpg', class: 'img_class'
-            span.class_name Class1
-      .col-lg-4
-        .popular-course
-          .img-cover
-            = image_tag 'gym.jpg', class: 'img_class'
-            span.class_name Class1
-      .col-lg-4
-        .popular-course
-          .img-cover
-            = image_tag 'gym.jpg', class: 'img_class'
-            span.class_name Class1
-    .row
-      .col-lg-4
-        .popular-course
-          .img-cover
-            = image_tag 'gym.jpg', class: 'img_class'
-            span.class_name Class1
-      .col-lg-4
-        .popular-course
-          .img-cover
-            = image_tag 'gym.jpg', class: 'img_class'
-            span.class_name Class1
-      .col-lg-4
-        .popular-course
-          .img-cover
-            = image_tag 'gym.jpg', class: 'img_class'
-            span.class_name Class1
+      h1 Popular Class
+      .row
+        = render "popular_class"
+        = render "popular_class"
+        = render "popular_class"
+        = render "popular_class"
+        = render "popular_class"
+        = render "popular_class"
 .footer-section
   = render "shares/home_footer"

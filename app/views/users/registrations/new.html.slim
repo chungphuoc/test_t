@@ -1,8 +1,7 @@
-= render "shares/home_header"
 .container-fluid
   .row
     .background-image
-      = image_tag 'bg-exercise.jpg'
+      = image_tag 'yoga.jpg'
 
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "registration-form"}) do |f|
   .row.title
@@ -43,5 +42,7 @@
       = link_to "Back", root_path, class: "btn btn-primary btn-sm"
       = f.submit "Register", class: "btn btn-primary btn-sm"
     = render "users/shared/links"
+    = link_to :back, title: "back", class: "back-button" do
+      span.glyphicon.glyphicon-circle-arrow-left.back-icon
 
 
