@@ -6,8 +6,10 @@
 .registration-form{
   position: absolute;
   text-align: center;
-  top: 150px;
-  right: 100px;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  margin: 10% auto;
   background-color: white;
   width: 400px;
   .btn{
@@ -36,6 +38,11 @@
       color: red;
       height: 30px;
     }
+  }
+  .back-button{
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
   }
 }
 

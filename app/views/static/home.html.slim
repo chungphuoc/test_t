@@ -4,12 +4,16 @@
   .header-content
     h1 Be Toned
     h2 A new way to book fitness
-    - if current_user.studio?
-      = link_to manage_courses_path, class: "btn btn-primary"
-        span Get Started
+    -if current_user
+      - if current_user.studio?
+        = link_to manage_courses_path, class: "btn btn-primary"
+          span Get Started
+      - else
+        = link_to personal_courses_path, class: "btn btn-primary"
+          span Get Started
     - else
-      = link_to personal_courses_path, class: "btn btn-primary"
-        span Get Started
+      = link_to new_user_registration_path, class: "btn btn-primary"
+          span Get Started
 .body-section
   .section.container.welcome
     .row.align-center
