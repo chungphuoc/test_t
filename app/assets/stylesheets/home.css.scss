@@ -1,6 +1,4 @@
 .header-section{
-  .navbar-nav{
-  }
   .navbar-nav li a:hover{
     background-color: transparent;
     color: orange;
@@ -91,8 +89,8 @@
       margin: 10px 10px;
       padding: 20px;
       .img_class{
-          width: 200px;
-          height: 200px;
+        width: 200px;
+        height: 200px;
         padding: 20px;
         display: block;
         margin-left: auto;
@@ -149,9 +147,6 @@
       color: #eea236;
     }
     background-color: white;
-    .form-control{
-      //background-color: #eff0f1;
-    }
   }
 }
 .website-navbar-scroll{

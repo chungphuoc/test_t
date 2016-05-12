@@ -8,9 +8,11 @@
       - if current_user.studio?
         = link_to manage_courses_path, class: "btn btn-primary"
           span Get Started
-      - else
+      - elsif current_user.customer?
         = link_to personal_courses_path, class: "btn btn-primary"
           span Get Started
+      - else
+        = button.btn.btn-primary Get Started
     - else
       = link_to new_user_registration_path, class: "btn btn-primary"
           span Get Started
