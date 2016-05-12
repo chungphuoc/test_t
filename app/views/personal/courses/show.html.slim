@@ -5,44 +5,73 @@
         button.close data-dismiss="modal" type="button"  ×
         h4.modal-title Class detail
       .modal-body id='model-body'
-        p 
-          b Start Date
-        p #{@course.start_date}
-        p
-          b Start time
-        p #{@course.start_time}
-        p
-          b End time
-        p #{@course.end_time}
+        .row
+          .col-lg-3
+            p 
+              b Start Date
+          .col-lg-6
+            p #{@course.start_date}
+        .row
+          .col-lg-3
+            p
+              b Start time
+          .col-lg-6
+            p #{@course.start_time}
+        .row
+          .col-lg-3
+            p
+              b End time
+          .col-lg-6
+            p #{@course.end_time}
+        .row
+          .col-lg-3
+            p
+              b Price
+          .col-lg-6
+            p 
       .modal-footer
         p Do you want to add this class?
         = form_tag personal_enrollments_path, method: :post do
           = hidden_field_tag :course_id, @course.id
-          = submit_tag "Submit", class: "btn btn-primary"
+          = submit_tag "Add", class: "btn btn-primary"
           button.btn.btn-default data-dismiss="modal" type="button"  Cancel
 
-.container
-  h2 Course detail
-  .row
-    .col-lg-3
-      span Name
-    .col-lg-6
-      p #{@course.name}
-  .row
-    .col-lg-3
-      span Number Phone
-    .col-lg-6
-      p #{@course.phone_number}
-  .row
-    .col-lg-3
-      span Website
-    .col-lg-6
-      p #{@course.website}
-  .row
-    .col-lg-3
-      span Description
-    .col-lg-6
-      p #{@course.description}
-  .row
-    = rating_for @course, "quality" 
-  button.btn.btn-primary.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" Add
+h2 Class detail
+table.table.table-stripped
+  tr
+    th Name
+    td = @course.name
+  tr
+    th Phone
+    td = @course.phone_number
+  tr
+    th Website
+    td = @course.website
+  tr
+    th Description
+    td = @course.description
+  tr
+    th Num slot
+    td = @course.num_slot
+  tr
+    th Start date
+    td = @course.start_date
+  tr
+    th Start time
+    td = @course.start_time
+  tr
+    th End time
+    td = @course.end_time
+  tr
+    th Teacher
+    td = @course.teacher_name
+  tr
+    th Station
+    td = @course.station_location
+  tr
+    th Exercise
+    td = @course.exercise_name
+  tr
+    th Rating
+    td = rating_for @course, "quality", disable_after_rate: false
+button.btn.btn-primary.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" Add

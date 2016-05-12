@@ -1,8 +1,24 @@
 h2 Class
-- @courses.each do |course|
-  .row
-    .col-lg-3
-      span #{course.name}
-    .col-lg-6
-      = link_to personal_course_path(course.id), class: "btn btn-primary"
-        span Detail
+table.table.table-stripped
+  thead
+    tr
+      th 
+      th Name
+      th Teacher
+      th Number slot
+      th Start Date
+      th Rating
+      th Action
+  tbody
+    - @courses.each.with_index do |course, index|
+      tr 
+        td #{index}
+        td #{course.name}
+        td #{course.teacher_name}
+        td #{course.num_slot}
+        td #{course.start_date}
+        td 
+          = rating_for course, "quality", disable_after_rate: false
+        td 
+          = link_to personal_course_path(course.id), class: "btn btn-primary"
+            span Detail
