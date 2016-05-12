@@ -59,7 +59,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'rmagick'
 gem 'config'
-gem 'bootstrap-datepicker-rails'
+gem 'jquery-ui-rails'
 gem 'momentjs-rails'
 
 group :development do

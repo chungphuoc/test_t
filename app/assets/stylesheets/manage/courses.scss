@@ -2,18 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#js_schedule .table-condensed {
-    width: 100%;
+.ui-datepicker-inline {
+    width: 100% !important;
 }
 
-#js_schedule .datepicker.datepicker-inline {
-    width: 100%;
-}
-
-#js_schedule .datepicker.datepicker-inline > .datepicker.datepicker-inline {
-    display: none !important;
-}
-
-.highlighted-date {
-  background-color: green;
+.highlight {
+  background-color: #0037FF;
 }

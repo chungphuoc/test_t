@@ -3,8 +3,10 @@ class Manage::CoursesController < Manage::BaseController
 
   def index
     @courses = @studio.courses
+    @course_date_data = @courses.group(:start_date).count.to_json
     if params[:start_date]
-      @courses = @courses.where(start_date: params[:start_date])
+      start_date = Date.strptime(params[:start_date], '%d-%m-%Y') rescue nil
+      @courses = @courses.where(start_date: start_date) if start_date
     end
   end
 
