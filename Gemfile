@@ -59,6 +59,8 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'rmagick'
 gem 'config'
+gem 'jquery-ui-rails'
+gem 'momentjs-rails'
 
 group :development do
   gem 'better_errors'
