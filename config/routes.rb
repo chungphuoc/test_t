@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks"}
 
   root 'static#home'
+  post "static/feedback" => "static#feedback"
 
   resources :studios, only: [:new, :create, :show]
   resources :customers, only: [:new, :create, :show]

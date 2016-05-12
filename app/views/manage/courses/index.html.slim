@@ -1,6 +1,9 @@
 h2 Courses
+.row
+  .col-sm-12
+    #js_schedule
 = link_to 'New course', new_manage_course_path, class: 'btn btn-primary'
-table.table.table-stripped
+table.table.table-stripped data-course-date="#{ @course_date_data }" data-default-date="#{ params[:start_date] }"
   tr
     th Name
     th Phone
