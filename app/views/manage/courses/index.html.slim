@@ -23,4 +23,7 @@ table.table.table-stripped data-course-date="#{ @course_date_data }" data-defaul
       td
         = link_to 'Show', manage_course_path(course), class: "btn btn-primary"
         = link_to 'Edit', edit_manage_course_path(course), class: "btn btn-primary"
-        = link_to 'Delete', manage_course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"
+        - if course.active?
+          = link_to 'Close', close_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"
+        - else
+          = link_to 'Re-open', reopen_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-success"

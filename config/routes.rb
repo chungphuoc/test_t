@@ -60,6 +60,10 @@ Rails.application.routes.draw do
         get :booked
         get :past
       end
+      member do
+        put :close
+        put :reopen
+      end
     end
   end
 
