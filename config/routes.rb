@@ -45,6 +45,12 @@ Rails.application.routes.draw do
         get :cancel
       end
     end
+    resources :favourite_classes, only: [] do
+      collection do
+        post :delete_favourite
+        post :create_favourite
+      end
+    end
   end
 
   namespace :manage do

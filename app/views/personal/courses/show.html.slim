@@ -74,4 +74,8 @@ table.table.table-stripped
   tr
     th Rating
     td = rating_for @course, "quality", disable_after_rate: false
+  tr
+    th Add to favourite
+    td  
+      = render "personal/favourite_classes/add_to_favourite_wrapper", course_id: @course.id, user: current_user
 button.btn.btn-primary.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" Add

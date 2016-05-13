@@ -1,0 +1,7 @@
+$("#course_<%= @course_id%>").html(
+  "<%= 
+    j render('personal/favourite_classes/add_to_favourite_btn', 
+              course_id: @course_id, 
+              user: current_user) 
+  %>"
+);
