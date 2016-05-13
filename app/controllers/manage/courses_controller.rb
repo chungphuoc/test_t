@@ -1,8 +1,8 @@
 class Manage::CoursesController < Manage::BaseController
-  before_action :prepare_course, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_course, only: [:show, :edit, :update, :destroy, :close, :reopen]
 
   def index
-    @courses = @studio.courses
+    @courses = @studio.courses.order(start_date: :asc)
     @course_date_data = @courses.group(:start_date).count.to_json
     if params[:start_date]
       start_date = Date.strptime(params[:start_date], '%d-%m-%Y') rescue nil
@@ -44,6 +44,16 @@ class Manage::CoursesController < Manage::BaseController
 
   def destroy
     @course.destroy
+    redirect_to manage_courses_url
+  end
+
+  def close
+    @course.inactive!
+    redirect_to manage_courses_url
+  end
+
+  def reopen
+    @course.active!
     redirect_to manage_courses_url
   end
 
