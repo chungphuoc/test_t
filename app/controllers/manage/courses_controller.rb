@@ -58,11 +58,11 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def booked
-    @booked_courses = Course.booked
+    @booked_courses = @studio.courses.booked
   end
 
   def past
-    @past_courses = Course.past
+    @past_courses = @studio.courses.past
   end
 
   private
