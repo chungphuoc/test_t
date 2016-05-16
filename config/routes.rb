@@ -45,7 +45,7 @@ Rails.application.routes.draw do
         get :cancel
       end
     end
-    resources :favourite_classes, only: [] do
+    resources :favourite_courses, only: [] do
       collection do
         post :delete_favourite
         post :create_favourite

@@ -22,7 +22,7 @@ table.table.table-stripped
         td 
           .row
             .col-lg-6
-              = render= render "personal/favourite_classes/add_to_favourite_wrapper", course_id: course.id, user: current_user
+              = render= render "personal/favourite_courses/add_to_favourite_wrapper", course_id: course.id, user: current_user
             .col-lg-6
               = link_to personal_course_path(course.id), class: "btn btn-primary"
                 span Detail
