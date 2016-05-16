@@ -20,11 +20,11 @@ body
               = link_to 'All Class', personal_courses_path
             li 
               = link_to 'Booked Class', personal_enrollments_path
-            li 
-              = link_to 'Passed Class', root_path
             li
-              = link_to 'My List', root_path
+              = link_to 'Passed Class', '#'
             li
-              = link_to 'Contact Us', root_path
+              = link_to 'My List', '#'
+            li
+              = link_to 'Contact Us', '#'
     .col-lg-9.content-section
       = yield

@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   ratyrate_rateable "quality"
+  enum status: [:active, :inactive]
   mount_uploader :cover_img, ImageUploader
   belongs_to :teacher
   belongs_to :station
