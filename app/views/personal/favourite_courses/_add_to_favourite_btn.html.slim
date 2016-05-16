@@ -1,12 +1,12 @@
 .add-to-fav-item
   - if user.customer?
     - if  FavouriteCourse.added?(user, course_id)
-      = link_to delete_favourite_personal_favourite_courses_path(customer_id: user.id, course_id: course_id), method: :post, remote: true do
+      = link_to remove_personal_favourite_courses_path(customer_id: user.id, course_id: course_id), method: :post, remote: true do
         button.btn-fav-cancel
           i.glyphicon.glyphicon-heart
       end
     - else
-      = link_to create_favourite_personal_favourite_courses_path(course_id: course_id), method: :post, remote: true do
+      = link_to add_personal_favourite_courses_path(course_id: course_id), method: :post, remote: true do
         button.btn-fav-add 
           i.glyphicon.glyphicon-heart
       end

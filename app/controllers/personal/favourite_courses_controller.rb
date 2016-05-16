@@ -1,12 +1,13 @@
 class Personal::FavouriteCoursesController < Personal::BaseController
-  before_action :require_permission!, only: :delete_favourite
+  before_action :require_permission!, only: :remove
+  before_action :prepare_favourite_course, only: :remove
 
-  def create_favourite
+  def add
     @course_id = params[:course_id]
     current_user.favourite_courses.create(course_id: params[:course_id])
   end
 
-  def delete_favourite
+  def remove
     if @favourite_course
       @course_id = params[:course_id]
       @favourite_course.destroy
@@ -15,11 +16,7 @@ class Personal::FavouriteCoursesController < Personal::BaseController
 
   private
   def require_permission!
-    if current_user.role_id != params[:customer_id].to_i
-      redirect_to :back
-      return
-    end
-    prepare_favourite_course
+    return redirect_to :back if current_user.role_id != params[:customer_id].to_i
   end
 
   def prepare_favourite_course
