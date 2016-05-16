@@ -15,10 +15,10 @@ class Personal::FavouriteClassesController < Personal::BaseController
 
   private
   def require_permission!
-    prepare_favourite_class
     if current_user.role_id != params[:customer_id].to_i
       redirect_to :back
     end
+    prepare_favourite_class
   end
 
   def prepare_favourite_class

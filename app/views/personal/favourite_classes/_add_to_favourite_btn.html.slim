@@ -1,6 +1,6 @@
 .add-to-fav-item
   - if user.customer?
-    - if  FavouriteClass.is_added?(user, course_id)
+    - if  FavouriteClass.added?(user, course_id)
       = link_to delete_favourite_personal_favourite_classes_path(customer_id: user.id, course_id: course_id), method: :post, remote: true do
         button.btn-fav-cancel
           i.glyphicon.glyphicon-heart
