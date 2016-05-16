@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require moment
 //= require bootstrap
+//= require jquery.raty
+//= require ratyrate
 //= require jquery-ui/datepicker
 //= require manage/courses
 //= require_tree .

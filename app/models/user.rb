@@ -5,11 +5,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
   mount_uploader :avatar, ImageUploader
-  validates :password, :presence => true, :on => :create
-  validates :password_confirmation, :presence => true, :on => :create
+  ratyrate_rater
+  validates :password, presence: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
   belongs_to :role, polymorphic: true
   delegate :enrollments, to: :role
-
+  delegate :id, to: :role
+  delegate :favourite_courses, to: :role
   delegate :enrollments, to: :role, allow_nil: true
 
   after_create do

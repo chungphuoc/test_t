@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 
 gem 'omniauth-facebook'
 
+gem 'ratyrate'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -57,10 +59,12 @@ gem 'sendgrid'
 gem 'slim-rails'
 gem 'carrierwave'
 gem 'cloudinary'
-gem 'rmagick'
+gem 'mini_magick'
 gem 'config'
 gem 'jquery-ui-rails'
 gem 'momentjs-rails'
+
+gem 'draper', '~> 1.3'
 
 group :development do
   gem 'better_errors'
