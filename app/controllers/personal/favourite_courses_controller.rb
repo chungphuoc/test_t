@@ -17,6 +17,7 @@ class Personal::FavouriteCoursesController < Personal::BaseController
   def require_permission!
     if current_user.role_id != params[:customer_id].to_i
       redirect_to :back
+      return
     end
     prepare_favourite_course
   end
