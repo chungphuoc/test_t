@@ -1,0 +1,22 @@
+.add-to-fav-item-wrapper{
+  .add-to-fav-item{
+    width: 40px;
+    .round-btn{
+      border-radius: 30px;
+      border: 0px;
+      height: 30px;
+      width: 30px;
+      background-color: #ffcc08;
+      padding-top: 3px;
+      margin: 5px;
+    }
+    .btn-fav-add{
+      @extend .round-btn;
+      color: white;
+    }
+    .btn-fav-cancel{
+      @extend .round-btn;
+      color: red;
+    }
+  }
+}

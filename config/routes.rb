@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks"}
 
   root 'static#home'
@@ -42,6 +43,12 @@ Rails.application.routes.draw do
     resources :enrollments, only: [:create, :index, :destroy] do
       collection do
         get :cancel
+      end
+    end
+    resources :favourite_courses, only: [] do
+      collection do
+        post :remove
+        post :add
       end
     end
   end
