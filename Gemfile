@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 ruby '2.3.0'
 gem 'rails', '4.2.6'
@@ -49,7 +48,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
 
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
@@ -101,4 +99,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '2.7.0', require: false
 end
-

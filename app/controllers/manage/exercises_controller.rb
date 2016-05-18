@@ -8,5 +8,4 @@ class Manage::ExercisesController < Manage::BaseController
     flash[:success] = 'Exercise listing has been successfully updated.'
     redirect_to manage_exercises_path
   end
-
 end

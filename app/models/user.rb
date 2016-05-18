@@ -20,15 +20,15 @@ class User < ActiveRecord::Base
   end
 
   def self.user_type
-    [["Studio", :studio], ["Customer", :customer]]
+    [['Studio', :studio], ['Customer', :customer]]
   end
 
   def customer?
-    self.role_type == "Customer"
+    role_type == 'Customer'
   end
 
   def studio?
-    self.role_type == "Studio"
+    role_type == 'Studio'
   end
 
   def self.from_omniauth(auth)
@@ -40,5 +40,4 @@ class User < ActiveRecord::Base
     # end
     @user = User.find_by_provider_and_uid(auth.provider, auth.uid) || User.new
   end
-
 end

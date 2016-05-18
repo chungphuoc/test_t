@@ -1,5 +1,4 @@
 class Manage::ContractsController < Manage::BaseController
-
   def index
     @contracts = @studio.contracts.includes(:teacher)
   end
@@ -28,7 +27,8 @@ class Manage::ContractsController < Manage::BaseController
   end
 
   private
-    def contract_params
-      params.require(:contract).permit(teacher_attributes: [:name])
-    end
+
+  def contract_params
+    params.require(:contract).permit(teacher_attributes: [:name])
+  end
 end

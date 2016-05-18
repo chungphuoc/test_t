@@ -1,5 +1,5 @@
 class FavouriteCourse < ActiveRecord::Base
-  validates_uniqueness_of :customer_id, :scope => [:course_id]
+  validates_uniqueness_of :customer_id, scope: [:course_id]
   belongs_to :customer
   belongs_to :course
 

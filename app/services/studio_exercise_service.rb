@@ -1,5 +1,4 @@
 class StudioExerciseService
-
   def initialize(studio)
     @studio = studio
   end
@@ -10,5 +9,4 @@ class StudioExerciseService
     @studio.exercises.destroy(destroyed_exercises)
     new_exercises.each { |exercise| @studio.exercises << exercise }
   end
-
 end

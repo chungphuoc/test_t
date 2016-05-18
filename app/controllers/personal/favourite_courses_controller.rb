@@ -4,7 +4,7 @@ class Personal::FavouriteCoursesController < Personal::BaseController
 
   def index
     @courses = CoursesQuery.new(current_user).favourite_courses
-                           .paginate(:page => params[:page], :per_page => 9)
+                           .paginate(page: params[:page], per_page: 9)
   end
 
   def add
@@ -20,6 +20,7 @@ class Personal::FavouriteCoursesController < Personal::BaseController
   end
 
   private
+
   def require_permission!
     return redirect_to :back if current_user.role_id != params[:customer_id].to_i
   end
