@@ -1,0 +1,13 @@
+.course-detail
+  .row
+    .col-lg-4.cover-section
+      = image_tag @course.cover_img
+    .col-lg-8.action-section
+      h1.title #{@course.name}
+      span
+        b
+          i Start Day : 
+        span
+          i #{@course.start_date}
+      = rating_for @course, "quality", disable_after_rate: false
+  = render "course_detail"

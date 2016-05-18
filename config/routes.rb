@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :studios, only: [:new, :create, :show]
   resources :customers, only: [:new, :create, :show]
 
-  resources :courses, only: :show do
+  resources :courses, only: [:show, :index] do
     get :search, on: :collection
     member do
       put :rate
@@ -45,7 +45,7 @@ Rails.application.routes.draw do
         get :cancel
       end
     end
-    resources :favourite_courses, only: [] do
+    resources :favourite_courses, only: [:index] do
       collection do
         post :remove
         post :add

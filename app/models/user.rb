@@ -10,8 +10,9 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, on: :create
   belongs_to :role, polymorphic: true
   delegate :enrollments, to: :role
-  delegate :id, to: :role
   delegate :favourite_courses, to: :role
+  delegate :courses_favourites, to: :role
+  delegate :courses_enrollments, to: :role
   delegate :enrollments, to: :role, allow_nil: true
 
   after_create do

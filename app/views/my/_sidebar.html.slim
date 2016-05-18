@@ -10,6 +10,9 @@
         = link_to 'All Class', personal_courses_path
       li 
         = link_to 'Booked Class', personal_enrollments_path
+      -if current_user.customer?
+        li 
+          = link_to 'Favourite Class', personal_favourite_courses_path
       li
         = link_to 'Passed Class', '#'
       li

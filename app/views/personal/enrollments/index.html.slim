@@ -1,27 +1,31 @@
-h2 Class
-.list-enrollment-section
-  .row.item-section
-        .col-lg-3
-        .col-lg-3
-          p 
-            b Name
-        .col-lg-3
-          p  
-            b Status
-        .col-lg-3
-          p
-            b Action
-  - @enrollments.each do |enrollment|
-    .row.item-section
-      .col-lg-3
-        = image_tag enrollment.course.cover_img
-      .col-lg-3
-        p #{enrollment.course.name}
-      .col-lg-3
-        p 
-        = Enrollment::STATUS[enrollment["status"]]
-      .col-lg-3
-        - unless enrollment.cancel?
-          button.btn.btn-warning id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" Cancel
-        - else
-          button.btn.btn-warning id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" disabled = true Cancel
+= render "shares/course"
+= will_paginate @courses
+
+
+// h2 Class
+// .list-enrollment-section
+//   .row.item-section
+//         .col-lg-3
+//         .col-lg-3
+//           p 
+//             b Name
+//         .col-lg-3
+//           p  
+//             b Status
+//         .col-lg-3
+//           p
+//             b Action
+//   - @enrollments.each do |enrollment|
+//     .row.item-section
+//       .col-lg-3
+//         = image_tag enrollment.course.cover_img
+//       .col-lg-3
+//         p #{enrollment.course.name}
+//       .col-lg-3
+//         p 
+//         = Enrollment::STATUS[enrollment["status"]]
+//       .col-lg-3
+//         - unless enrollment.cancel?
+//           button.btn.btn-warning id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" Cancel
+//         - else
+//           button.btn.btn-warning id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" disabled = true Cancel

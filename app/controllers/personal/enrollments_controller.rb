@@ -1,9 +1,9 @@
 class Personal::EnrollmentsController < Personal::BaseController
 
   def index
-    #@enrollments = Enrollment.all.where(customer_id: current_user.role_id)
-    #@enrollments = current_user.role.enrollments
-    @enrollments = current_user.enrollments
+    #@enrollments = current_user.enrollments
+    @courses = CoursesQuery.new(current_user).enrollments_statuses(params[:statuses]||[])
+                           .paginate(:page => params[:page], :per_page => 9)
   end
 
   def create

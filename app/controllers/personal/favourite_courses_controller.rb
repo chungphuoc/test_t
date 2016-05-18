@@ -2,6 +2,11 @@ class Personal::FavouriteCoursesController < Personal::BaseController
   before_action :require_permission!, only: :remove
   before_action :prepare_favourite_course, only: :remove
 
+  def index
+    @courses = CoursesQuery.new(current_user).favourite_courses
+    @courses = @courses.paginate(:page => params[:page], :per_page => 9)
+  end
+
   def add
     @course_id = params[:course_id]
     current_user.favourite_courses.create(course_id: params[:course_id])

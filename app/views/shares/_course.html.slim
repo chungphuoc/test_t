@@ -1,0 +1,21 @@
+- @courses.each do |course|
+  .col-lg-4.course-item
+    = link_to personal_course_path(course) do
+      = image_tag course.cover_img
+    end
+    .detail-bacground
+    .detail
+      - if current_user && current_user.customer?
+        - enrollment = Enrollment.find_by_customer_id_and_course_id(current_user.role, course)
+        - if enrollment
+          .status
+            span #{enrollment.status}
+      h3.title #{course.name}
+      - if current_user && current_user.customer?
+        = link_to personal_course_path(course), class: "btn btn-warning"
+          span See More
+      - else
+        = link_to course_path(course), class: "btn btn-warning"
+          span See More
+      = rating_for course, "quality", disable_after_rate: true
+end
