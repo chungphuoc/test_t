@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
- before_action :configure_sign_up_params, only: [:create]
- before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
@@ -10,13 +10,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     build_resource(sign_up_params)
-    if params[:provider].present?
-      resource.provider = params[:provider]
-    end
-    if params[:uid].present?
-      resource.uid = params[:uid]
-    end
-    if params[:user_type] == "customer"
+    resource.provider = params[:provider] if params[:provider].present?
+    resource.uid = params[:uid] if params[:uid].present?
+    if params[:user_type] == 'customer'
       @customer = Customer.new
       resource.role = @customer
       @customer.save
@@ -48,17 +44,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-    # If you have extra params to permit, append them to the sanitizer.
-   def configure_sign_up_params
-      devise_parameter_sanitizer.for(:sign_up) << :name << :email << :password << :password_confirmation << :provider << :uid
-   end
+  # If you have extra params to permit, append them to the sanitizer.
+  def configure_sign_up_params
+    devise_parameter_sanitizer.for(:sign_up) << :name << :email << :password 
+                                             << :password_confirmation << :provider << :uid
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.for(:account_update) << :password << :password_confirmation
+    devise_parameter_sanitizer.for(:account_update) << :password 
+                                                    << :password_confirmation
   end
 
   private
+
   def registration_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end

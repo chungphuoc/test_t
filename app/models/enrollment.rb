@@ -1,11 +1,11 @@
 class Enrollment < ActiveRecord::Base
   belongs_to :customer
   belongs_to :course, counter_cache: true
-  validates_uniqueness_of :customer_id, :scope => [:course_id], message: "Class has been booked!"
+  validates_uniqueness_of :customer_id, scope: [:course_id], message: 'Class has been booked!'
   delegate :studio, to: :course
 
   enum status: [:waiting, :paid, :cancel, :passed]
-  STATUS = ["Waiting", "Paid", "Cancel", "Passed"]
+  STATUS = %w(Waiting Paid Cancel Passed).freeze
   STATUS_CANCEL = 2
   after_create :book_class_mailer
   before_create do
@@ -13,13 +13,11 @@ class Enrollment < ActiveRecord::Base
   end
 
   def change_status(status)
-    if self.update_attributes(status: status)
-      cancel_class_mailer(self)
-    end
+    cancel_class_mailer(self) if update_attributes(status: status)
   end
 
   def cancel?
-    self["status"] && self["status"] == Enrollment::STATUS_CANCEL
+    self['status'] && self['status'] == Enrollment::STATUS_CANCEL
   end
 
   def book_class_mailer
@@ -29,5 +27,4 @@ class Enrollment < ActiveRecord::Base
   def cancel_class_mailer
     EnrollmentNotiMailer.cancel_class(self).deliver_later
   end
-
 end

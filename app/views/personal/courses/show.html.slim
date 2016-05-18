@@ -35,47 +35,18 @@
           = hidden_field_tag :course_id, @course.id
           = submit_tag "Add", class: "btn btn-primary"
           button.btn.btn-default data-dismiss="modal" type="button"  Cancel
-
-h2 Class detail
-table.table.table-stripped
-  tr
-    th Name
-    td = @course.name
-  tr
-    th Phone
-    td = @course.phone_number
-  tr
-    th Website
-    td = @course.website
-  tr
-    th Description
-    td = @course.description
-  tr
-    th Num slot
-    td = @course.num_slot
-  tr
-    th Start date
-    td = @course.start_date
-  tr
-    th Start time
-    td = @course.start_time
-  tr
-    th End time
-    td = @course.end_time
-  tr
-    th Teacher
-    td = @course.teacher_name
-  tr
-    th Station
-    td = @course.station_location
-  tr
-    th Exercise
-    td = @course.exercise_name
-  tr
-    th Rating
-    td = rating_for @course, "quality", disable_after_rate: false
-  tr
-    th Add to favourite
-    td  
-      = render "personal/favourite_courses/add_to_favourite_wrapper", course_id: @course.id, user: current_user
-button.btn.btn-primary.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" Add
+.course-detail
+  .row
+    .col-lg-4.cover-section
+      = image_tag @course.cover_img
+    .col-lg-8.action-section
+      h1.title #{@course.name}
+      span
+        b
+          i Start Day : 
+        span
+          i #{@course.start_date}
+      = rating_for @course, "quality", disable_after_rate: false
+      = render "personal/favourite_courses/add_to_favourite_wrapper", course_id: @course.id, user: current_user     
+      button.btn.btn-primary.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" Add
+  = render "courses/course_detail"

@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
-  ratyrate_rateable "quality"
+  paginates_per 9
+  ratyrate_rateable 'quality'
   enum status: [:active, :inactive]
   mount_uploader :cover_img, ImageUploader
   belongs_to :teacher
@@ -11,8 +12,8 @@ class Course < ActiveRecord::Base
 
   validates :name, presence: true
   validates :phone_number, presence: true,
-    format: { with: Settings.regexp.phone },
-    length: { minimum: 10, maximum: 12 }
+                           format: { with: Settings.regexp.phone },
+                           length: { minimum: 10, maximum: 12 }
   validates :num_slot, presence: true
   validates :start_date, presence: true
   validates :teacher, presence: true
@@ -25,10 +26,10 @@ class Course < ActiveRecord::Base
   delegate :name, to: :exercise, prefix: true
 
   def self.booked
-    where(self.arel_table[:enrollments_count].gt(0))
+    where(arel_table[:enrollments_count].gt(0))
   end
 
   def self.past
-    where(self.arel_table[:start_date].lt(Time.zone.now))
+    where(arel_table[:start_date].lt(Time.zone.now))
   end
 end

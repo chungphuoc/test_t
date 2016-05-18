@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations', omniauth_callbacks: "users/omniauth_callbacks"}
+  devise_for :users, controllers: { sessions: 'users/sessions', 
+                                    registrations: 'users/registrations', 
+                                    omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'static#home'
-  post "static/feedback" => "static#feedback"
+  post 'static/feedback' => 'static#feedback'
 
   resources :studios, only: [:new, :create, :show]
   resources :customers, only: [:new, :create, :show]
 
-  resources :courses, only: :show do
+  resources :courses, only: [:show, :index] do
     get :search, on: :collection
     member do
       put :rate
@@ -45,7 +47,7 @@ Rails.application.routes.draw do
         get :cancel
       end
     end
-    resources :favourite_courses, only: [] do
+    resources :favourite_courses, only: [:index] do
       collection do
         post :remove
         post :add
@@ -54,7 +56,7 @@ Rails.application.routes.draw do
   end
 
   namespace :manage do
-    resources :studios , only: [:show, :edit, :update]
+    resources :studios, only: [:show, :edit, :update]
     resources :contracts, path: 'teachers', only: [:new, :index, :create, :destroy]
     resources :stations, only: :index do
       put :update, on: :collection
@@ -73,5 +75,4 @@ Rails.application.routes.draw do
       end
     end
   end
-
 end

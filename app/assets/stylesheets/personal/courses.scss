@@ -1,0 +1,45 @@
+.course-detail{
+  .title{
+    color: #f397ef;
+  }
+  .btn-add{
+    border-radius: 30px;
+    border: 0px;
+    height: 50px;
+    width: 50px;
+    background-color: #f397ef;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+  .cover-section{
+    text-align: center;
+    img{
+      width: 300px;
+      height: 300px
+    }
+  }
+  .action-section{
+    text-align: center;
+    .star{
+      margin: 20px;
+      img{
+        height: 20px;
+        width: 20px;
+      }
+    }
+    .add-to-fav-item-wrapper{
+      text-align: center;
+      .add-to-fav-item{
+        margin: 0px auto;
+      }
+    }
+  }
+  table{
+    font-size: 18px;
+  }
+  .table th, .table td{
+    border-top: none !important;
+    text-align: center !important;
+  }
+}

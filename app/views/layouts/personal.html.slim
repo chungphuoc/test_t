@@ -11,7 +11,7 @@ body
     = flash_messages
   .navigation
     = render 'my/navigation'
-  .row
+  .row.zero-margin
     .col-lg-3.content-section
       .left-side-bar
         .navi-section
@@ -20,6 +20,8 @@ body
               = link_to 'All Class', personal_courses_path
             li 
               = link_to 'Booked Class', personal_enrollments_path
+            li 
+              = link_to 'Favourite Class', personal_favourite_courses_path
             li
               = link_to 'Passed Class', '#'
             li

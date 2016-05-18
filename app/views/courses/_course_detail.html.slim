@@ -1,0 +1,36 @@
+table.table.table-striped
+  tr
+    th Name
+    td = @course.name
+  tr
+    th Phone
+    td = @course.phone_number
+  tr
+    th Website
+    td 
+      = link_to 
+        = @course.website
+  tr
+    th Description
+    td = @course.description
+  tr
+    th Num slot
+    td = @course.num_slot
+  tr
+    th Start date
+    td = @course.start_date
+  tr
+    th Start time
+    td = @course.start_time.strftime("%I:%M %p")
+  tr
+    th End time
+    td = @course.end_time.strftime("%I:%M %p")
+  tr
+    th Teacher
+    td = @course.teacher_name
+  tr
+    th Station
+    td = @course.station_location
+  tr
+    th Exercise
+    td = @course.exercise_name

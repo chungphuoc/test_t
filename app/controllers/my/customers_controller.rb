@@ -5,17 +5,15 @@ class My::CustomersController < ApplicationController
   layout 'account'
 
   def show
-    
   end
 
   def edit
-    
   end
 
   def update
     @customer.user.update_attributes(user_params)
     if @customer.update_attributes(customer_params)
-      flash[:notice] = "Update successfuly!"
+      flash[:notice] = 'Update successfuly!'
       redirect_to my_customer_path
     else
       render :edit
@@ -26,7 +24,7 @@ class My::CustomersController < ApplicationController
 
   def authenticate_customer!
     unless current_user.customer?
-      flash[:notice] = "Access Denied"
+      flash[:notice] = 'Access Denied'
       redirect_to root_path
     end
   end
@@ -38,6 +36,7 @@ class My::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:gender, :birthday, :receive_sms)
   end
+
   def user_params
     params.require(:customer).require(:user_attributes).permit(:name, :contact_number, :address, :avatar)
   end

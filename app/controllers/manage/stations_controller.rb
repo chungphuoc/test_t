@@ -8,5 +8,4 @@ class Manage::StationsController < Manage::BaseController
     flash[:success] = 'Station listing has been successfully updated.'
     redirect_to manage_stations_path
   end
-
 end

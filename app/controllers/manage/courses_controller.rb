@@ -5,7 +5,11 @@ class Manage::CoursesController < Manage::BaseController
     @courses = @studio.courses.order(start_date: :asc)
     @course_date_data = @courses.group(:start_date).count.to_json
     if params[:start_date]
-      start_date = Date.strptime(params[:start_date], '%d-%m-%Y') rescue nil
+      start_date = begin
+                     Date.strptime(params[:start_date], '%d-%m-%Y')
+                   rescue
+                     nil
+                   end
       @courses = @courses.where(start_date: start_date) if start_date
     end
   end
@@ -66,11 +70,12 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   private
-    def prepare_course
-      @course = Course.find(params[:id])
-    end
 
-    def course_params
-      params.require(:course).permit(:name, :cover_img, :phone_number, :website, :description, :rating, :kcal, :num_slot, :start_time, :end_time, :start_date, :teacher_id, :station_id, :exercise_id)
-    end
+  def prepare_course
+    @course = Course.find(params[:id])
+  end
+
+  def course_params
+    params.require(:course).permit(:name, :cover_img, :phone_number, :website, :description, :rating, :kcal, :num_slot, :start_time, :end_time, :start_date, :teacher_id, :station_id, :exercise_id)
+  end
 end

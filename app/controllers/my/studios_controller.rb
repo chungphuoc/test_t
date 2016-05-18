@@ -5,27 +5,26 @@ class My::StudiosController < ApplicationController
   layout 'account'
 
   def show
-    
   end
 
   def edit
-    
   end
 
   def update
     @studio.user.update_attributes(user_params)
     if @studio.update_attributes(studio_params)
       redirect_to my_studio_path
-      flash[:notice] = "Update successfuly!"
+      flash[:notice] = 'Update successfuly!'
     else
       render :edit
     end
   end
 
   private
+
   def authenticate_studio!
     unless current_user.studio?
-      flash[:notice] = "Access Denied"
+      flash[:notice] = 'Access Denied'
       redirect_to root_path
     end
   end
@@ -37,6 +36,7 @@ class My::StudiosController < ApplicationController
   def studio_params
     params.require(:studio).permit(:cover_img)
   end
+
   def user_params
     params.require(:studio).require(:user_attributes).permit(:name, :contact_number, :address, :avatar)
   end

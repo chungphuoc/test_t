@@ -1,18 +1,16 @@
 class Personal::EnrollmentsController < Personal::BaseController
-
   def index
-    #@enrollments = Enrollment.all.where(customer_id: current_user.role_id)
-    #@enrollments = current_user.role.enrollments
-    @enrollments = current_user.enrollments
+    @courses = CoursesQuery.new(current_user).enrollments_statuses(params[:statuses] || [])
+                           .page params[:page]
   end
 
   def create
     @enrollment = current_user.enrollments.new(course_id: params[:course_id])
     if @enrollment.save
-      flash[:notice] = "Add class successful!"  
+      flash[:notice] = 'Add class successful!'
       redirect_to personal_enrollments_path
     else
-      flash[:notice] = @enrollment.errors.full_messages[0]  
+      flash[:notice] = @enrollment.errors.full_messages[0]
       redirect_to personal_enrollments_path
     end
   end
@@ -25,5 +23,4 @@ class Personal::EnrollmentsController < Personal::BaseController
     end
     render nothing: true
   end
-
 end

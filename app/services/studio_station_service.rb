@@ -1,5 +1,4 @@
 class StudioStationService
-
   def initialize(studio)
     @studio = studio
   end
@@ -10,5 +9,4 @@ class StudioStationService
     @studio.stations.destroy(destroyed_stations)
     new_stations.each { |station| @studio.stations << station }
   end
-
 end
