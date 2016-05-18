@@ -1,5 +1,4 @@
 class CoursesController < ApplicationController
-  paginates_per 12
   def index
     @courses = Course.page params[:page]
   end
