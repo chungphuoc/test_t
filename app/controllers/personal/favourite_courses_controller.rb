@@ -4,7 +4,7 @@ class Personal::FavouriteCoursesController < Personal::BaseController
 
   def index
     @courses = CoursesQuery.new(current_user).favourite_courses
-                           .paginate(page: params[:page], per_page: 9)
+                           .page params[:page]
   end
 
   def add

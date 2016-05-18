@@ -1,7 +1,7 @@
 class Personal::EnrollmentsController < Personal::BaseController
   def index
     @courses = CoursesQuery.new(current_user).enrollments_statuses(params[:statuses] || [])
-                           .paginate(page: params[:page], per_page: 9)
+                           .page params[:page]
   end
 
   def create

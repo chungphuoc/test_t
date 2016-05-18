@@ -1,4 +1,5 @@
 class Course < ActiveRecord::Base
+  paginates_per 9
   ratyrate_rateable 'quality'
   enum status: [:active, :inactive]
   mount_uploader :cover_img, ImageUploader
