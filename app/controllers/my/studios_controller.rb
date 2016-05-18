@@ -23,10 +23,9 @@ class My::StudiosController < ApplicationController
   private
 
   def authenticate_studio!
-    unless current_user.studio?
-      flash[:notice] = 'Access Denied'
-      redirect_to root_path
-    end
+    return if current_user.studio?
+    flash[:notice] = 'Access Denied'
+    redirect_to root_path
   end
 
   def prepare_studio

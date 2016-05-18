@@ -1,2 +1,4 @@
-module Manage::ExercisesHelper
+module Manage
+  class ExercisesHelper
+  end
 end
