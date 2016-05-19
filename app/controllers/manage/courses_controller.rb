@@ -76,6 +76,9 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def course_params
-    params.require(:course).permit(:name, :cover_img, :phone_number, :website, :description, :rating, :kcal, :num_slot, :start_time, :end_time, :start_date, :teacher_id, :station_id, :exercise_id)
+    params.require(:course).permit(:name, :cover_img, :phone_number, :website,
+                                   :description, :rating, :kcal, :num_slot,
+                                   :start_time, :end_time, :start_date,
+                                   :teacher_id, :station_id, :exercise_id)
   end
 end

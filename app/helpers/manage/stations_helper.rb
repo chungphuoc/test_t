@@ -1,2 +1,4 @@
-module Manage::StationsHelper
+module Manage
+  class StationsHelper
+  end
 end

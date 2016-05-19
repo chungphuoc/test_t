@@ -1,2 +1,4 @@
-module Manage::StudiosHelper
+module Manage
+  class StudiosHelper
+  end
 end

@@ -1,2 +1,4 @@
-module Manage::CoursesHelper
+module Manage
+  class CoursesHelper
+  end
 end

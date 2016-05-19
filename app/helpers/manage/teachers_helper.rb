@@ -1,2 +1,4 @@
-module Manage::TeachersHelper
+module Manage
+  class TeachersHelper
+  end
 end
