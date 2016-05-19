@@ -7,7 +7,7 @@ class Manage::CoursesController < Manage::BaseController
     if params[:start_date]
       start_date = begin
                      Date.strptime(params[:start_date], '%d-%m-%Y')
-                   rescue
+                   rescue ArgumentError
                      nil
                    end
       @courses = @courses.where(start_date: start_date) if start_date
