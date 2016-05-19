@@ -11,9 +11,8 @@ class Manage::BaseController < ApplicationController
   end
 
   def authenticate_studio!
-    unless current_user.role_type == 'Studio'
-      flash[:notice] = 'Access Denied'
-      redirect_to root_path
-    end
+    return if current_user.studio?
+    flash[:notice] = 'Access Denied'
+    redirect_to root_path
   end
 end

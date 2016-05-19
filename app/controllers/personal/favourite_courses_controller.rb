@@ -13,10 +13,9 @@ class Personal::FavouriteCoursesController < Personal::BaseController
   end
 
   def remove
-    if @favourite_course
-      @course_id = params[:course_id]
-      @favourite_course.destroy
-    end
+    return unless @favourite_course
+    @course_id = params[:course_id]
+    @favourite_course.destroy
   end
 
   private
