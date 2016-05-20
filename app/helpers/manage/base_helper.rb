@@ -1,4 +1,2 @@
-module Manage
-  class BaseHelper
-  end
+module Manage::BaseHelper
 end

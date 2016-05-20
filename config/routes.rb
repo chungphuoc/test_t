@@ -4,8 +4,11 @@ Rails.application.routes.draw do
                                     registrations: 'users/registrations',
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
 
-  root 'static#home'
-  post 'static/feedback' => 'static#feedback'
+  root 'static_pages#home'
+
+  resource :static_pages, only: [] do
+    post :feedback
+  end
 
   resources :studios, only: [:new, :create, :show]
   resources :customers, only: [:new, :create, :show]
@@ -62,7 +65,7 @@ Rails.application.routes.draw do
 
   namespace :manage do
     resources :studios, only: [:show, :edit, :update]
-    resources :contracts, path: 'teachers', only: [:new, :index, :create, :destroy]
+    resources :contracts, path: :teachers, only: [:new, :index, :create, :destroy]
     resources :stations, only: :index do
       put :update, on: :collection
     end

@@ -1,0 +1,20 @@
+h2 Search Courses
+= form_tag search_courses_path, class: 'form-horizontal', method: :get
+  h3 Stations
+  .row
+    - Station.all.each do |station|
+      .checkbox.col-md-3
+        label
+          = check_box_tag 'station_ids[]', station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s) do |b|
+          = station.name
+  h3 Exercises
+  .row
+    - Exercise.all.each do |exercise|
+      .checkbox.col-md-3
+        label
+          = check_box_tag 'exercise_ids[]', exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s) do |b|
+          = exercise.name
+  = submit_tag 'Search', class: 'btn btn-primary'
+h3 Results
+= render "shares/course"
+= paginate @courses

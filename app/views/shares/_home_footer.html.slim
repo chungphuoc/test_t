@@ -5,16 +5,16 @@
       p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
       ul.list-unstyledsssss
         li
-          span.glyphicon.glyphicon-earphone 
+          span.glyphicon.glyphicon-earphone
           span 0123456789
-        li 
+        li
           span.glyphicon.glyphicon-map-marker
           span Singapore, Singapore
-        li 
+        li
           span.glyphicon.glyphicon-envelope
           span example@tone.com
     .col-lg-6
-      = form_tag "static/feedback", class: "feed-back-form" do |f|
+      = form_tag feedback_static_pages_path, class: "feed-back-form" do |f|
         h3.title Feedback
         .form-group
           = text_field_tag :name, "", class: "form-control", placeholder: "Name"
