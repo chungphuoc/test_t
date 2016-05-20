@@ -32,4 +32,11 @@ class Course < ActiveRecord::Base
   def self.past
     where(arel_table[:start_date].lt(Time.zone.now))
   end
+
+  def waiting?(user)
+    @enrollment = Enrollment.by_customer_and_course(user.role, self)
+    return true if @enrollment && @enrollment.waiting?
+    return false
+  end
+
 end

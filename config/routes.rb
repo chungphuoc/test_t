@@ -53,6 +53,11 @@ Rails.application.routes.draw do
         post :add
       end
     end
+    resources :checkouts, only: [] do
+      collection do
+        post :process
+      end
+    end
   end
 
   namespace :manage do

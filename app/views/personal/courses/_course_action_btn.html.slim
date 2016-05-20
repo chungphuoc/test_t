@@ -1,0 +1,8 @@
+- @enrollment = Enrollment.by_customer_and_course(current_user.role, @course)
+- if @enrollment
+  - if @course.waiting?(current_user)
+      button.btn.btn-primary.btn-add id="enrollment_#{@enrollment.id}" onClick="cancel_class(#{@enrollment.id})" Cancel
+  - else
+      button.btn.btn-primary.btn-add type="button" #{@enrollment.status}
+- else
+  button.btn.btn-primary.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" Add
