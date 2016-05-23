@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     end
     resources :checkouts, only: [] do
       collection do
-        post :process
+        post :process_payment
       end
     end
   end

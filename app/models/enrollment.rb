@@ -18,20 +18,12 @@ class Enrollment < ActiveRecord::Base
     cancel_class_mailer if update_attributes(status: status)
   end
 
-  def cancel?
-    self['status'] && self['status'] == Enrollment::STATUS_CANCEL
-  end
-
   def book_class_mailer
     EnrollmentNotiMailer.book_class(self).deliver_later
   end
 
   def cancel_class_mailer
     EnrollmentNotiMailer.cancel_class(self).deliver_later
-  end
-
-  def waiting?
-    self['status'] && self['status'] == Enrollment::STATUS_WAITING
   end
 
   def self.by_customer_and_course(customer, course)
