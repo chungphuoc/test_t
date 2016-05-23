@@ -35,8 +35,7 @@ class Course < ActiveRecord::Base
 
   def waiting?(user)
     @enrollment = Enrollment.by_customer_and_course(user.role, self)
-    return true if @enrollment && @enrollment.waiting?
-    return false
+    @enrollment && @enrollment.waiting?
   end
 
   def self.search(params = {})
