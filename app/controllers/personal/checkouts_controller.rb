@@ -1,7 +1,7 @@
 class Personal::CheckoutsController < ApplicationController
-  def process(variable)
+  def process(*)
     customer = Stripe::Customer.create email: params[:stripeEmail],
-                                       card: params[:stripeToken] 
+                                       card: params[:stripeToken]
     Stripe::Charge.create customer: customer.id,
                           amount: params[:tuition].to_i * 100,
                           description: params[:course_name],
@@ -11,4 +11,3 @@ class Personal::CheckoutsController < ApplicationController
     redirect_to :back
   end
 end
-
