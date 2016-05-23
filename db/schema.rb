@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516034100) do
+ActiveRecord::Schema.define(version: 20160523093125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,9 @@ ActiveRecord::Schema.define(version: 20160516034100) do
     t.integer  "exercise_id"
     t.integer  "enrollments_count", default: 0
     t.integer  "status",            default: 0
+    t.integer  "tuition"
+    t.string   "currency"
+    t.integer  "booked_slot"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -69,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160516034100) do
     t.boolean  "receive_sms"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "card_token"
   end
 
   create_table "enrollments", force: :cascade do |t|
@@ -176,8 +180,12 @@ ActiveRecord::Schema.define(version: 20160516034100) do
     t.string   "role_type"
     t.string   "provider"
     t.string   "uid"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
