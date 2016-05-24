@@ -2,8 +2,9 @@
   .info-section
     = image_tag current_user.avatar
     h4 User name
-    p Calories burnt
-    p point
+    - if current_user.customer?
+      p Calories burnt: #{current_user.calo_burnt}
+      p point: #{current_user.point}
   .navi-section
     ul.nav.sidebar-nav.nav-personal
       li.active

@@ -9,6 +9,8 @@ class Customer < ActiveRecord::Base
   has_many :favourite_courses
   has_many :courses_favourites, through: :favourite_courses, source: :course
   accepts_nested_attributes_for :user
+  LOYALTY_POINT = 2
+  LOYALTY_CUSTOMER = 1
   enum gender: { male: 'Male', female: 'Female' }
 
   def self.gender

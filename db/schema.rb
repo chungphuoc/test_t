@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524030828) do
+ActiveRecord::Schema.define(version: 20160524044403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,11 +70,12 @@ ActiveRecord::Schema.define(version: 20160524030828) do
     t.integer  "gender"
     t.date     "birthday"
     t.boolean  "receive_sms"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "card_token"
-    t.integer  "total_point",   default: 0
-    t.integer  "customer_type", default: 0
+    t.integer  "total_point",    default: 0
+    t.integer  "customer_type",  default: 0
+    t.integer  "total_attended", default: 0
   end
 
   create_table "enrollments", force: :cascade do |t|
