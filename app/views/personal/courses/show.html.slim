@@ -52,7 +52,7 @@
       = render "course_action_btn"
       .map-wrapper style="width: 100%"
         .map#js_google_map style="height: 300px"
-  = render "courses/course_detail"
+  = render "course_detail"
 script src="//maps.googleapis.com/maps/api/js"
 javascript:
   var position = new google.maps.LatLng(#{@course.station.latitude}, #{@course.station.longitude})
