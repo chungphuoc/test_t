@@ -118,12 +118,6 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
-    haml-rails (0.9.0)
-      actionpack (>= 4.0.1)
-      activesupport (>= 4.0.1)
-      haml (>= 4.0.6, < 5.0)
-      html2haml (>= 1.0.1)
-      railties (>= 4.0.1)
     haml2slim (0.4.7)
       haml (>= 3.0)
       nokogiri
@@ -359,7 +353,6 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
-  haml-rails
   haml2slim
   high_voltage
   html2haml
@@ -396,6 +389,9 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   web-console (~> 2.0)
+
+RUBY VERSION
+   ruby 2.3.0p0
 
 BUNDLED WITH
    1.12.2

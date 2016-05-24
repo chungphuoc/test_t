@@ -1,4 +1,4 @@
-#addsClassModal.modal.fade role="dialog" 
+#addsClassModal.modal.fade role="dialog"
   .modal-dialog.modal-lg
     .modal-content
       .modal-header
@@ -7,7 +7,7 @@
       .modal-body id='model-body'
         .row
           .col-lg-3
-            p 
+            p
               b Start Date
           .col-lg-6
             p #{@course.start_date}
@@ -28,7 +28,7 @@
             p
               b Price
           .col-lg-6
-            p 
+            p
       .modal-footer
         p Do you want to add this class?
         = form_tag personal_enrollments_path, method: :post do
@@ -43,11 +43,26 @@
       h1.title #{@course.name}
       span
         b
-          i Start Day : 
+          i Start Day :
         span
           i #{@course.start_date}
       = rating_for @course, "quality", disable_after_rate: false
       = render "personal/favourite_courses/add_to_favourite_wrapper", course_id: @course.id, user: current_user
       = render "personal/checkouts/checkout_btn"
       = render "course_action_btn"
+      .map-wrapper style="width: 100%"
+        .map#js_google_map style="height: 300px"
   = render "courses/course_detail"
+script src="http://maps.googleapis.com/maps/api/js"
+javascript:
+  var position = new google.maps.LatLng(#{@course.station.latitude}, #{@course.station.longitude})
+  var mapProp = {
+    center: position,
+    zoom: 16,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById("js_google_map"), mapProp)
+  var marker = new google.maps.Marker({
+    position: position,
+  })
+  marker.setMap(map)
