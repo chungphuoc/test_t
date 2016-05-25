@@ -33,6 +33,11 @@ class Course < ActiveRecord::Base
     where(arel_table[:start_date].lt(Time.zone.now))
   end
 
+  def waiting?(user)
+    @enrollment = Enrollment.by_customer_and_course(user.role, self)
+    @enrollment && @enrollment.waiting?
+  end
+
   def self.search(params = {})
     results = all
     results = results.where(station_id: params[:station_ids]) if params[:station_ids]
