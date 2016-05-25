@@ -1,5 +1,6 @@
 class Signup < ActionMailer::Base
   default from: 'admin@tone.com'
+  
   def to_admin(user)
     @user = user
     subject = 'New user signup'

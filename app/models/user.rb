@@ -3,11 +3,15 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable
+         :omniauthable, :confirmable
   mount_uploader :avatar, ImageUploader
   ratyrate_rater
   validates :password, presence: true, on: :create
   validates :password_confirmation, presence: true, on: :create
+  validates :contact_number, format: { with: Settings.regexp.phone },
+                             length: { minimum: 10, maximum: 12 },
+                             on: :update
+  validates :address, length: { minimum: 20, maximum: 120 }, on: :update
   belongs_to :role, polymorphic: true
   delegate :enrollments, to: :role
   delegate :favourite_courses, to: :role
