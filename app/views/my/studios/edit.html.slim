@@ -17,6 +17,9 @@ h1 Edit
         = user_form.label :address
         = user_form.text_field :address, class: "form-control"
       .form-group
+        = user_form.label :locale, "Language"
+        = user_form.select :locale, User::LANGUAGES, {}, class: "form-control"
+      .form-group
         = user_form.label :avatar
         br
         = image_tag @studio.user.avatar, alt: "No preview"

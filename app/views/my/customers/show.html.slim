@@ -13,6 +13,9 @@ h2 Edit Profile
       .form-group
         = user_form.label :address
         = user_form.text_field :address, class: "form-control", disabled: true
+      .form-group
+        = user_form.label :locale, "Language"
+        = user_form.select :locale, User::LANGUAGES, {}, class: "form-control", disabled: true
     .form-group
       = f.label :gender
       = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control", disabled: true
