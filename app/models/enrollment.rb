@@ -4,6 +4,7 @@ class Enrollment < ActiveRecord::Base
   validates_uniqueness_of :customer_id, scope: [:course_id], message: 'Class has been booked!'
   delegate :studio, to: :course
   delegate :name, to: :course
+  delegate :kcal, to: :course
 
   enum status: [:waiting, :paid, :cancel, :passed]
   STATUS = %w(Waiting Paid Canceled Passed).freeze

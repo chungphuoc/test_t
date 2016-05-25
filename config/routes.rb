@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     resources :enrollments, only: [:create, :index, :destroy] do
       collection do
         get :cancel
+        get :calories_burnt
       end
     end
     resources :favourite_courses, only: [:index] do

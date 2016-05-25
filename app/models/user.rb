@@ -17,8 +17,6 @@ class User < ActiveRecord::Base
   delegate :favourite_courses, to: :role
   delegate :courses_favourites, to: :role
   delegate :courses_enrollments, to: :role
-  delegate :calo_burnt, to: :role
-  delegate :total_attended, to: :role
   delegate :point, to: :role
   delegate :enrollments, to: :role, allow_nil: true
 

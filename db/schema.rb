@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160525050214) do
     t.integer  "num_slot"
     t.time     "start_time"
     t.time     "end_time"
+    t.date     "start_date"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "teacher_id"
@@ -61,7 +62,6 @@ ActiveRecord::Schema.define(version: 20160525050214) do
     t.integer  "tuition"
     t.string   "currency"
     t.integer  "booked_slot"
-    t.date     "start_date"
     t.integer  "days_of_week",      default: [],              array: true
   end
 

@@ -1,6 +1,6 @@
 
 h2 Edit Profile
-= select_tag :frequency, options_for_select(["Daily", "Weekly", "Monthly"]), class: "form-control"
+= select_tag :frequency_calories_burnt, options_for_select([["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"]]), onchange: "calories_burnt()", class: "form-control"
 .row.content-section
   = form_for [:my, @customer], class: "form-horizontal" do |f|
     = f.fields_for :user do |user_form|
