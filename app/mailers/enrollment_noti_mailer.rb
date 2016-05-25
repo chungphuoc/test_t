@@ -1,6 +1,5 @@
 class EnrollmentNotiMailer < ActionMailer::Base
   default from: 'admin@tone.com'
-  content_type 'multipart/alternative'
   def to_studio_book(enrollment)
     @enrollment = enrollment
     @studio = @enrollment.studio

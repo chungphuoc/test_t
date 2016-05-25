@@ -1,6 +1,6 @@
 class InviteFriendMailer < ActionMailer::Base
   default from: 'admin@tone.com'
-  content_type 'multipart/alternative'
+
   def to_friend(user, friend_name, friend_mail)
     @user = user
     @friend_mail = friend_mail
