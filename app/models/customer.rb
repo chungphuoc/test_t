@@ -8,6 +8,8 @@ class Customer < ActiveRecord::Base
   end
   has_many :favourite_courses
   has_many :courses_favourites, through: :favourite_courses, source: :course
+  delegate :email, to: :user
+  delegate :name, to: :user
   accepts_nested_attributes_for :user
   LOYALTY_POINT = 2
   LOYALTY_CUSTOMER = 1

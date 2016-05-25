@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     post :feedback
   end
 
+  resource :invite_friend, only: [] do
+    post :send_email
+  end
+
   resources :studios, only: [:new, :create, :show]
   resources :customers, only: [:new, :create, :show]
 
