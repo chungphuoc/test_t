@@ -146,8 +146,10 @@ ActiveRecord::Schema.define(version: 20160524044403) do
   create_table "stations", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.float    "latitude",   default: 0.0
+    t.float    "longitude",  default: 0.0
   end
 
   create_table "studios", force: :cascade do |t|

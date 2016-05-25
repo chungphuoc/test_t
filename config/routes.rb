@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :customers, only: [:new, :create, :show]
 
   resources :courses, only: [:show, :index] do
-    get :search, on: :collection
     member do
       put :rate
       put :like
@@ -41,6 +40,7 @@ Rails.application.routes.draw do
   namespace :personal do
     resources :courses, only: [:index, :show] do
       collection do
+        get :search
         get :past
         get :favourite
       end
@@ -65,7 +65,7 @@ Rails.application.routes.draw do
 
   namespace :manage do
     resources :studios, only: [:show, :edit, :update]
-    resources :contracts, path: :teachers, only: [:new, :index, :create, :destroy]
+    resources :contracts, path: :teachers, except: :show
     resources :stations, only: :index do
       put :update, on: :collection
     end

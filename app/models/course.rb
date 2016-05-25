@@ -25,7 +25,7 @@ class Course < ActiveRecord::Base
   delegate :location, to: :station, prefix: true
   delegate :name, to: :exercise, prefix: true
 
-  MAX_ATTENDED = 4
+  MAX_ATTENDED = 1
 
   def self.booked
     where(arel_table[:enrollments_count].gt(0))
