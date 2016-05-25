@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524044403) do
+ActiveRecord::Schema.define(version: 20160525043542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,16 +66,13 @@ ActiveRecord::Schema.define(version: 20160524044403) do
 
   create_table "customers", force: :cascade do |t|
     t.integer  "point"
-    t.decimal  "calo_burnt"
     t.integer  "gender"
     t.date     "birthday"
     t.boolean  "receive_sms"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "card_token"
-    t.integer  "total_point",    default: 0
-    t.integer  "customer_type",  default: 0
-    t.integer  "total_attended", default: 0
+    t.integer  "total_point", default: 0
   end
 
   create_table "enrollments", force: :cascade do |t|
@@ -84,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160524044403) do
     t.datetime "updated_at",  null: false
     t.integer  "course_id"
     t.integer  "status"
+    t.date     "join_date"
   end
 
   add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id", using: :btree
