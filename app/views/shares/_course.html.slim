@@ -11,11 +11,7 @@
           .status
             span #{enrollment.status}
       h3.title #{course.name}
-      - if current_user && current_user.customer?
-        = link_to personal_course_path(course), class: "btn btn-warning"
-          span See More
-      - else
-        = link_to course_path(course), class: "btn btn-warning"
-          span See More
+      = link_to personal_course_path(course), class: "btn btn-warning"
+        span See More
       = rating_for course, "quality", disable_after_rate: true
 end
