@@ -36,7 +36,7 @@ h1 Edit
       .row
         .col-lg-6.col-sm-12
           = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year
-    .form-group 
+    .form-group
       = link_to my_customer_path, class: "btn btn-primary"
         span Back
       = f.submit "Submit", class: "btn btn-primary"
