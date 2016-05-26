@@ -2,6 +2,9 @@ class Enrollment < ActiveRecord::Base
   belongs_to :customer
   belongs_to :course, counter_cache: true
   validates_uniqueness_of :customer_id, scope: [:course_id], message: 'Class has been booked!'
+  validates_uniqueness_of :customer_id, scope: [:join_date], message: 'Class has been booked!'
+  validate :num_slot_less_than_maximum
+
   delegate :studio, to: :course
   delegate :name, to: :course
   delegate :kcal, to: :course
@@ -11,9 +14,18 @@ class Enrollment < ActiveRecord::Base
   STATUS_WAITING = 0
   STATUS_PAID = 1
   STATUS_CANCEL = 2
+  
   after_create :book_class_mailer
   before_create do
     self.status = :waiting
+  end
+
+  def num_slot_less_than_maximum
+    @course = self.course
+    @enrollment_count = @course.enrollments.where("join_date = ?", self.join_date).count
+    if @enrollment_count >= @course.num_slot
+      errors.add("This class is full! Please choose another time.")
+    end
   end
 
   def change_status(status)

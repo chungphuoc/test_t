@@ -47,7 +47,9 @@ class Course < ActiveRecord::Base
     end
     days.collect do |day|
       newday = Date.today.beginning_of_week + day.days
-      [Date::DAYNAMES[(newday.wday)] + ", " + newday.to_s, newday]
+      if Date.today.wday > day
+        [Date::DAYNAMES[(newday.wday)] + ", " + newday.to_s, newday]
+      end
     end
   end
 
