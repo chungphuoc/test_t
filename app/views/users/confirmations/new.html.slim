@@ -2,9 +2,9 @@
   = image_tag 'yoga.jpg'
 .container.login-section
   .row
-    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form login-form form-horizontal"}) do |f|
+  = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "form login-form form-horizontal"}) do |f|
       .row.title
-        h2 Forgot your password?
+        h2 Resend confirmation instructions?
       .row.body
         .form-group.left-inner-addon
           i.glyphicon.glyphicon-lock
@@ -12,7 +12,8 @@
           - resource.errors.messages[:email].each do |msg|
             p.error-text #{msg}
         .form-group
-          = f.submit "Send me reset password instructions", class: "btn btn-primary"
+          = f.submit "Resend confirmation instructions", class: "btn btn-primary"
         = link_to :back, title: "back", class: "back-button" do
           span.glyphicon.glyphicon-circle-arrow-left.back-icon
         = render "users/shared/links"
+
