@@ -13,9 +13,8 @@ class Enrollment < ActiveRecord::Base
 
   enum status: [:paid, :cancel, :passed]
   STATUS = %w(Paid Canceled Passed).freeze
-  STATUS_WAITING = 0
-  STATUS_PAID = 1
-  STATUS_CANCEL = 2
+  STATUS_PAID = 0
+  STATUS_CANCEL = 1
   
   after_create :book_class_mailer
   before_create do
