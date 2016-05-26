@@ -21,6 +21,8 @@ body
             = link_to current_user.name, '#'
           li
             = link_to 'Logout', destroy_user_session_path, method: :delete
+          li
+            = link_to_switch_language
   .flash-wrapper
     = flash_messages
   .content

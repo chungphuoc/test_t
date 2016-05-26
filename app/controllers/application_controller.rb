@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
 
-  private
-
   def after_sign_in_path_for(resource)
     if resource.studio?
       manage_courses_path
@@ -15,10 +13,12 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
-    I18n.locale = if user_signed_in?
-      current_user.locale
-    else
-      I18n.default_locale
-    end
+    I18n.locale = params[:locale] || I18n.default_locale
+  rescue I18n::InvalidLocale
+    I18n.locale = I18n.default_locale
+  end
+
+  def default_url_options(options = {})
+    { locale: I18n.locale }.merge(options)
   end
 end

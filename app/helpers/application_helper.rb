@@ -17,4 +17,12 @@ module ApplicationHelper
     end
     nil
   end
+
+  def link_to_switch_language
+    if I18n.locale == :en
+      link_to t('language', locale: :ja), locale: :ja
+    else
+      link_to t('language', locale: :en), locale: :en
+    end
+  end
 end
