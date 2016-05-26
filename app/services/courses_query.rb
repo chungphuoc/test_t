@@ -4,6 +4,7 @@ class CoursesQuery
     @result = nil
   end
 
+  # get course by enrollment status
   def enrollments_statuses(statuses)
     @result = if statuses.empty?
                 @user.courses_enrollments

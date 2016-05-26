@@ -29,11 +29,11 @@
               b Price
           .col-lg-6
             p
-            
-        // = form_tag personal_enrollments_path, method: :post do
-        //   = hidden_field_tag :course_id, @course.id
-        = render "personal/checkouts/checkout_btn"
-        button.btn.btn-default data-dismiss="modal" type="button"  Cancel
+        .row
+          .col-lg-3
+            = render "personal/checkouts/checkout_btn"
+          .col-lg-3
+            button.btn.btn-default data-dismiss="modal" type="button"  Cancel
       .modal-footer
 .course-detail
   .row

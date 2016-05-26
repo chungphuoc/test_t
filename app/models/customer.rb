@@ -11,8 +11,6 @@ class Customer < ActiveRecord::Base
   delegate :email, to: :user
   delegate :name, to: :user
   accepts_nested_attributes_for :user
-  LOYALTY_POINT = 2
-  LOYALTY_CUSTOMER = 1
   enum gender: { male: 'Male', female: 'Female' }
 
   def self.gender

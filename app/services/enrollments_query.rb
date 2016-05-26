@@ -4,6 +4,15 @@ class EnrollmentsQuery
     @result = nil
   end
 
+  #get enrollments of specific user by statuses
+  def by_statuses(statuses)
+    @result = if statuses.empty?
+                @user.enrollments
+              else
+                @user.enrollments.where("status IN (?)", statuses)
+              end
+  end
+
   def by_course(course)
     @result = Enrollment.find_by_customer_id_and_course_id(@user.role, course.id)
   end

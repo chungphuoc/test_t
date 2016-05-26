@@ -1,0 +1,29 @@
+h2 Booked Class
+table.table.table-striped.table-booked-class
+  tr
+    th Index
+    th Cover Image
+    th Class Name
+    th Date
+    th Start Time
+    th End Time
+    th Status
+    th Action
+  - @enrollments.each_with_index do |enrollment, index|
+    tr
+      td #{index}
+      td
+        = image_tag enrollment.cover_img
+      td #{enrollment.course_name}
+      td #{enrollment.start_date}
+      td #{enrollment.start_time.strftime("%I:%M %p")}
+      td #{enrollment.end_time.strftime("%I:%M %p")}
+      td id="status_#{enrollment.id}" #{enrollment.status}
+      td
+        - if enrollment.paid?
+          button.btn.btn-primary id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" Cancel
+        - else
+          button.btn.btn-primary disabled = "disabled" Cancel
+        = link_to personal_course_path(enrollment.course), class: "btn btn-primary"
+          span Show
+  end

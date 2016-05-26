@@ -8,9 +8,11 @@ class Enrollment < ActiveRecord::Base
   delegate :studio, to: :course
   delegate :name, to: :course
   delegate :kcal, to: :course
+  delegate :name, to: :course, prefix: true
+  delegate :cover_img, :start_date, :start_time, :end_time, to: :course
 
-  enum status: [:waiting, :paid, :cancel, :passed]
-  STATUS = %w(Waiting Paid Canceled Passed).freeze
+  enum status: [:paid, :cancel, :passed]
+  STATUS = %w(Paid Canceled Passed).freeze
   STATUS_WAITING = 0
   STATUS_PAID = 1
   STATUS_CANCEL = 2
