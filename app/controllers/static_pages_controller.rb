@@ -8,4 +8,7 @@ class StaticPagesController < ApplicationController
     flash[:notice] = "Your feedback has been sent."
     redirect_to :back
   end
+
+  def about_us
+  end
 end

@@ -1,6 +1,9 @@
 .div.navbar.navbar-custom
   .div
     .div.collapse.navbar-collapse
+      .navbar-header
+        = link_to root_path, class: "navbar-brand"
+          span TONE
       ul.nav.navbar-right.navbar-nav
         - if current_user
           li
