@@ -7,10 +7,9 @@ class Personal::CheckoutsController < ApplicationController
       @payment_service.save_payment_info(params)
       @payment_service.update_customer_info(params)
       flash[:notice] = 'Book class successful!'
-      redirect_to :back
     else
-      flash[:notice] = 'Cannot book this class!'
-      redirect_to :back
+      flash[:notice] = @enrollment.errors.full_messages[0]
     end
+    redirect_to :back
   end
 end
