@@ -5,4 +5,7 @@ class StaticPagesController < ApplicationController
 
   def feedback
   end
+
+  def about_us
+  end
 end
