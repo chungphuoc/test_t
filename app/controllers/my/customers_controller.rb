@@ -37,6 +37,6 @@ class My::CustomersController < ApplicationController
   end
 
   def user_params
-    params.require(:customer).require(:user_attributes).permit(:name, :contact_number, :address, :avatar, :locale)
+    params.require(:customer).require(:user_attributes).permit(:name, :contact_number, :address, :avatar)
   end
 end

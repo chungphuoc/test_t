@@ -37,6 +37,6 @@ class My::StudiosController < ApplicationController
   end
 
   def user_params
-    params.require(:studio).require(:user_attributes).permit(:name, :contact_number, :address, :avatar, :locale)
+    params.require(:studio).require(:user_attributes).permit(:name, :contact_number, :address, :avatar)
   end
 end

@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
   delegate :courses_enrollments, to: :role
   delegate :enrollments, to: :role, allow_nil: true
 
-  LANGUAGES = [['English', :en], ['Japanese', :ja]]
-
   after_create do
     Signup.to_admin(self).deliver_later
   end

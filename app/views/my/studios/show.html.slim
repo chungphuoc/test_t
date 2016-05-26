@@ -15,8 +15,5 @@ h1 Edit
       .form-group
         = user_form.label :address
         = user_form.text_field :address, class: "form-control", disabled: true
-      .form-group
-        = user_form.label :locale, "Language"
-        = user_form.select :locale, User::LANGUAGES, {}, class: "form-control", disabled: true
   = link_to edit_my_studio_path, class: "btn btn-primary"
     span Edit Profile

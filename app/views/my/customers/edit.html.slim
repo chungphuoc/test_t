@@ -20,9 +20,6 @@ h1 Edit
         br
         = image_tag @customer.user.avatar, alt: "No preview"
         = user_form.file_field :avatar
-      .form-group
-        = user_form.label :locale, "Language"
-        = user_form.select :locale, User::LANGUAGES, {}, class: "form-control"
     .form-group
       = f.label :gender
       = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control"
