@@ -45,8 +45,7 @@ class Enrollment < ActiveRecord::Base
     Enrollment.find_by_customer_id_and_course_id(customer, course)
   end
   def self.update_status
-    #Enrollment.where("status = ? AND join_date < ?", Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
-    Course.first.update_attributes(num_slot: 1001)
+    Enrollment.where("status = ? AND join_date < ?", Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
     Rails.logger.info("Update status at #{Time.now}")
   end
 end
