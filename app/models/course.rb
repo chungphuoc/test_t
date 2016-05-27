@@ -45,12 +45,13 @@ class Course < ActiveRecord::Base
     Course::MAX_SCHEDULE.times do |time|
       days += self.days_of_week.collect{ |day| day + time * 7}
     end
-    days.collect do |day|
-      newday = Date.today.beginning_of_week + day.days
-      if Date.today.wday > day
-        [newday.strftime("%a, %m-%d-%y"), newday]
-      end
-    end
+    newdays = days.collect do |day|
+                newday = Date.today.beginning_of_week + day.days
+                if Date.today.wday > day
+                  [newday.strftime("%a, %m-%d-%y"), newday]
+                end
+              end
+    newdays.compact
   end
 
   def full?(time)
