@@ -7,10 +7,15 @@ Customer.delete_all
 Studio.delete_all
 User.delete_all
 
+admin = Admin.create!
 studio = Studio.create!
 studio_goldenowl = Studio.create!
 customer = Customer.create!
 customer_toan = Customer.create!
+
+User.create!(email: 'admin@tone.com', name: 'Admin', password: '12345678',
+            password_confirmation: '12345678', role_id: admin.id, role_type: 'Admin',
+            avatar: Rails.root.join('app/assets/images/user1.jpeg').open)
 customer_user = User.create!(email: 'customer@tone.com', name: 'Customer', password: '12345678', 
             password_confirmation: '12345678', role_id: customer.id, role_type: 'Customer',
             avatar: Rails.root.join('app/assets/images/user1.jpeg').open)

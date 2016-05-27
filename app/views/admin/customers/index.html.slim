@@ -1,0 +1,17 @@
+h2 Customer
+table.table.table-striped
+  tr
+    th Index
+    th Name
+    th Email
+    th Action
+  - @customers.each_with_index do |customer, index|
+    tr
+      td #{index}
+      td #{customer.name}
+      td #{customer.email}
+      td
+        = link_to admin_studio_path(customer), class: "btn btn-primary"
+          span Show
+        = link_to "Edit", "#", class: "btn btn-primary"
+        = link_to "Delete", "#", class: "btn btn-danger"
