@@ -31,8 +31,6 @@ gem 'stripe'
 
 gem 'whenever', :require => false
 
-gem 'fog'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
