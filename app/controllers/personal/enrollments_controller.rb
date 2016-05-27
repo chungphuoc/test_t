@@ -25,8 +25,7 @@ class Personal::EnrollmentsController < Personal::BaseController
   end
 
   def calories_burnt
-    frequency = params[:frequency]
-    calories_burnt = EnrollmentsQuery.new(current_user).calories_burnt(frequency)
+    calories_burnt = EnrollmentsQuery.new(current_user).calories_burnt(params[:frequency])
     render text: calories_burnt.to_s
   end
 end

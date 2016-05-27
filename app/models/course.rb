@@ -48,13 +48,13 @@ class Course < ActiveRecord::Base
     days.collect do |day|
       newday = Date.today.beginning_of_week + day.days
       if Date.today.wday > day
-        [Date::DAYNAMES[(newday.wday)] + ", " + newday.to_s, newday]
+        [newday.strftime("%a, %m-%d-%y"), newday]
       end
     end
   end
 
   def full?(time)
-    @enrollments = Enrollment.where("course_id = ? AND join_date = ?", self.id, time)
+    @enrollments = Enrollment.where(course_id: self.id, join_date: time)
     @enrollments.count >= self.num_slot
   end
 

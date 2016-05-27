@@ -30,17 +30,14 @@ class EnrollmentsQuery
   private
 
   def daily_calories_burnt
-    kcal = @user.enrollments.where("join_date = ?", Date.today).inject(0){|sum, e| sum + e.course.kcal}
-    return kcal
+    @user.enrollments.where("join_date = ?", Date.today).inject(0){|sum, e| sum + e.kcal}
   end
 
   def weekly_calories_burnt
-    kcal = @user.enrollments.where(join_date: Date.today.beginning_of_week..Date.today).inject(0){|sum, e| sum + e.course.kcal}
-    return kcal
+    @user.enrollments.where(join_date: Date.today.beginning_of_week..Date.today).inject(0){|sum, e| sum + e.kcal}
   end
 
   def monthly_calories_burnt
-    kcal = @user.enrollments.where(join_date: Date.today.beginning_of_month..Date.today).inject(0){|sum, e| sum + e.course.kcal}
-    return kcal
+    @user.enrollments.where(join_date: Date.today.beginning_of_month..Date.today).inject(0){|sum, e| sum + e.kcal}
   end
 end

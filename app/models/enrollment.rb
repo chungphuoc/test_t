@@ -13,12 +13,10 @@ class Enrollment < ActiveRecord::Base
 
   enum status: [:paid, :cancel, :passed]
   STATUS = %w(Paid Canceled Passed).freeze
-  STATUS_PAID = 0
-  STATUS_CANCEL = 1
   
   after_create :book_class_mailer
   before_create do
-    self.status = :waiting
+    self.status = :paid
   end
 
   def num_slot_less_than_maximum
