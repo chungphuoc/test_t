@@ -1,6 +1,6 @@
 class Personal::EnrollmentsController < Personal::BaseController
   def index
-    @courses = CoursesQuery.new(current_user).enrollments_statuses(params[:statuses] || [])
+    @enrollments = EnrollmentsQuery.new(current_user).by_statuses(params[:statuses] || [])
                            .page params[:page]
   end
 
@@ -22,5 +22,10 @@ class Personal::EnrollmentsController < Personal::BaseController
       @enrollment.cancel_class_mailer
     end
     render nothing: true
+  end
+
+  def calories_burnt
+    calories_burnt = EnrollmentsQuery.new(current_user).calories_burnt(params[:frequency])
+    render text: calories_burnt.to_s
   end
 end

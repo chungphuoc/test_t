@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   delegate :favourite_courses, to: :role
   delegate :courses_favourites, to: :role
   delegate :courses_enrollments, to: :role
+  delegate :point, to: :role
   delegate :enrollments, to: :role, allow_nil: true
 
   after_create do

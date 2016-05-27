@@ -1,7 +1,8 @@
-- if current_user && current_user.customer? && @course.waiting?(current_user)
+- if current_user.customer?
   = form_tag('/personal/checkouts/process_payment',{method: :post}) do
     = hidden_field_tag :course_name, @course.name
     = hidden_field_tag :tuition, @course.tuition
     = hidden_field_tag :currency, @course.currency
     = hidden_field_tag :course_id, @course.id
+    = select_tag :join_date, options_for_select(@course.slot_time)
     script.stripe-button src = "https://checkout.stripe.com/checkout.js" data-key = "#{Rails.configuration.stripe[:publishable_key]}" data-amount = "#{@course.tuition * 100}" data-email = "#{current_user.email}" data-currency = 'USD'

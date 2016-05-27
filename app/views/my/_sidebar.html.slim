@@ -2,8 +2,18 @@
   .info-section
     = image_tag current_user.avatar
     h4 User name
-    p Calories burnt
-    p point
+    - if current_user.customer?
+      .row
+        .col-lg-6
+          p Calories burnt:
+        .col-lg-6
+          - @enrollments_query = EnrollmentsQuery.new(current_user)
+          p#calories_burnt #{@enrollments_query.calories_burnt("daily")}
+      .row
+        .col-lg-6
+          p point:
+        .col-lg-6
+          p #{current_user.point}
   .navi-section
     ul.nav.sidebar-nav.nav-personal
       li.active
@@ -14,7 +24,7 @@
         li 
           = link_to 'Favourite Class', personal_favourite_courses_path
       li
-        = link_to 'Passed Class', '#'
+        = link_to 'Passed Class', personal_enrollments_path(statuses: [2])
       li
         = link_to 'My List', '#'
       li

@@ -4,6 +4,18 @@ function cancel_class(enrollment_id){
     data: {enrollment_id: enrollment_id},
     success: function(result){
       $("#enrollment_" + enrollment_id).prop("disabled", true);
+      $("#status_" + enrollment_id).text("paid");
+    }
+  });
+}
+
+function calories_burnt(type){
+  frequency = $("#frequency_calories_burnt").find(":selected").val();
+  $.ajax({
+    url: "/personal/enrollments/calories_burnt",
+    data: {frequency: frequency},
+    success: function(result){
+      $("#calories_burnt").text(result)
     }
   });
 }

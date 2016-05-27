@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160525050214) do
     t.integer  "num_slot"
     t.time     "start_time"
     t.time     "end_time"
+    t.date     "start_date"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "teacher_id"
@@ -61,7 +62,6 @@ ActiveRecord::Schema.define(version: 20160525050214) do
     t.integer  "tuition"
     t.string   "currency"
     t.integer  "booked_slot"
-    t.date     "start_date"
     t.integer  "days_of_week",      default: [],              array: true
   end
 
@@ -69,13 +69,13 @@ ActiveRecord::Schema.define(version: 20160525050214) do
 
   create_table "customers", force: :cascade do |t|
     t.integer  "point"
-    t.decimal  "calo_burnt"
     t.integer  "gender"
     t.date     "birthday"
     t.boolean  "receive_sms"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "card_token"
+    t.integer  "total_point", default: 0
   end
 
   create_table "enrollments", force: :cascade do |t|
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160525050214) do
     t.datetime "updated_at",  null: false
     t.integer  "course_id"
     t.integer  "status"
+    t.date     "join_date"
   end
 
   add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id", using: :btree

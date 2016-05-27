@@ -25,6 +25,8 @@ class Course < ActiveRecord::Base
   delegate :location, to: :station, prefix: true
   delegate :name, to: :exercise, prefix: true
 
+  MAX_SCHEDULE = 2
+
   def self.booked
     where(arel_table[:enrollments_count].gt(0))
   end
@@ -36,6 +38,24 @@ class Course < ActiveRecord::Base
   def waiting?(user)
     @enrollment = Enrollment.by_customer_and_course(user.role, self)
     @enrollment && @enrollment.waiting?
+  end
+
+  def slot_time
+    days = []
+    Course::MAX_SCHEDULE.times do |time|
+      days += self.days_of_week.collect{ |day| day + time * 7}
+    end
+    days.collect do |day|
+      newday = Date.today.beginning_of_week + day.days
+      if Date.today.wday > day
+        [newday.strftime("%a, %m-%d-%y"), newday]
+      end
+    end
+  end
+
+  def full?(time)
+    @enrollments = Enrollment.where(course_id: self.id, join_date: time)
+    @enrollments.count >= self.num_slot
   end
 
   def self.search(params = {})

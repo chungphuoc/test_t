@@ -29,12 +29,12 @@
               b Price
           .col-lg-6
             p
+        .row
+          .col-lg-3
+            = render "personal/checkouts/checkout_btn"
+          .col-lg-3
+            button.btn.btn-default data-dismiss="modal" type="button"  Cancel
       .modal-footer
-        p Do you want to add this class?
-        = form_tag personal_enrollments_path, method: :post do
-          = hidden_field_tag :course_id, @course.id
-          = submit_tag "Add", class: "btn btn-primary"
-          button.btn.btn-default data-dismiss="modal" type="button"  Cancel
 .course-detail
   .row
     .col-lg-4.cover-section
@@ -48,7 +48,6 @@
           i #{@course.start_date}
       = rating_for @course, "quality", disable_after_rate: false
       = render "personal/favourite_courses/add_to_favourite_wrapper", course_id: @course.id, user: current_user
-      = render "personal/checkouts/checkout_btn"
       = render "course_action_btn"
       .map-wrapper style="width: 100%"
         .map#js_google_map style="height: 300px"

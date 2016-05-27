@@ -1,13 +1,15 @@
 class Personal::CheckoutsController < ApplicationController
   def process_payment
-    customer = Stripe::Customer.create(email: params[:stripeEmail],
-                                       card: params[:stripeToken])
-    Stripe::Charge.create(customer: customer.id,
-                          amount: params[:tuition].to_i * 100,
-                          description: params[:course_name],
-                          currency: params[:currency])
-    @enrollment = Enrollment.by_customer_and_course(current_user.role, Course.find(params[:course_id]))
-    @enrollment.change_status(Enrollment::STATUS_PAID)
+    @enrollment = current_user.enrollments.new(course_id: params[:course_id],
+                                               join_date: params[:join_date])
+    @payment_service = PaymentService.new(current_user)
+    if @enrollment.save
+      @payment_service.save_payment_info(params)
+      @payment_service.update_customer_info(params)
+      flash[:notice] = 'Book class successful!'
+    else
+      flash[:notice] = @enrollment.errors.full_messages[0]
+    end
     redirect_to :back
   end
 end
