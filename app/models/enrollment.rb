@@ -21,7 +21,7 @@ class Enrollment < ActiveRecord::Base
 
   def num_slot_less_than_maximum
     @course = self.course
-    @enrollment_count = @course.enrollments.where("join_date = ?", self.join_date).count
+    @enrollment_count = @course.enrollments.where(join_date: self.join_date).count
     if @enrollment_count >= @course.num_slot
       errors.add("This class is full! Please choose another time.")
     end
@@ -43,5 +43,10 @@ class Enrollment < ActiveRecord::Base
 
   def self.by_customer_and_course(customer, course)
     Enrollment.find_by_customer_id_and_course_id(customer, course)
+  end
+  def self.update_status
+    #Enrollment.where("status = ? AND join_date < ?", Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
+    Course.first.update_attributes(num_slot: 1001)
+    Rails.logger.info("Update status at #{Time.now}")
   end
 end
