@@ -8,12 +8,6 @@ class Personal::CoursesController < Personal::BaseController
   end
 
   def search
-    @courses = Course.search(search_params).page(params[:page])
-  end
-
-  private
-
-  def search_params
-    params.slice(:station_ids, :exercise_ids)
+    @courses = CoursesSearchService.new(params).execute.page(params[:page])
   end
 end
