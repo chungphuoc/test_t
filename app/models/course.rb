@@ -54,9 +54,8 @@ class Course < ActiveRecord::Base
     newdays.compact
   end
 
-  def full?(time)
-    @enrollments = Enrollment.where(course_id: self.id, join_date: time)
-    @enrollments.count >= self.num_slot
+  def full?(date)
+    self.full_dates.include?(date)
   end
 
   def self.search(params = {})
@@ -64,5 +63,9 @@ class Course < ActiveRecord::Base
     results = results.where(station_id: params[:station_ids]) if params[:station_ids]
     results = results.where(exercise_id: params[:exercise_ids]) if params[:exercise_ids]
     results
+  end
+
+  def self.available(date)
+    where.not("? = ANY(full_dates)", date)
   end
 end

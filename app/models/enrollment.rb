@@ -3,7 +3,7 @@ class Enrollment < ActiveRecord::Base
   belongs_to :course, counter_cache: true
   validates_uniqueness_of :customer_id, scope: [:course_id], message: 'Class has been booked!'
   validates_uniqueness_of :customer_id, scope: [:course_id, :join_date], message: 'Class has been booked!'
-  validate :num_slot_less_than_maximum
+  validate :num_slot_less_than_maximum, on: :create
 
   delegate :studio, to: :course
   delegate :name, to: :course
@@ -13,11 +13,13 @@ class Enrollment < ActiveRecord::Base
 
   enum status: [:paid, :cancel, :passed]
   STATUS = %w(Paid Canceled Passed).freeze
-  
+
   after_create :book_class_mailer
   before_create do
     self.status = :paid
   end
+
+  after_save :update_course_full_dates
 
   def num_slot_less_than_maximum
     @course = self.course
@@ -41,11 +43,22 @@ class Enrollment < ActiveRecord::Base
     EnrollmentNotiMailer.to_user_cancel(self).deliver_later
   end
 
+  def update_course_full_dates
+    if course.enrollments.where.not(status: Enrollment.statuses[:cancel]).where(join_date: join_date).count >= course.num_slot
+      course.full_dates << join_date
+    else
+      course.full_dates.delete(join_date)
+    end
+    course.save
+  end
+
   def self.by_customer_and_course(customer, course)
     Enrollment.find_by_customer_id_and_course_id(customer, course)
   end
+
   def self.update_status
     Enrollment.where("status = ? AND join_date < ?", Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
     Rails.logger.info("Update status at #{Time.now}")
   end
+
 end

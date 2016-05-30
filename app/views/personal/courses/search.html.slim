@@ -5,15 +5,19 @@ h2 Search Courses
     - Station.all.each do |station|
       .checkbox.col-md-3
         label
-          = check_box_tag 'station_ids[]', station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s) do |b|
+          = check_box_tag 'station_ids[]', station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s)
           = station.name
   h3 Exercises
   .row
     - Exercise.all.each do |exercise|
       .checkbox.col-md-3
         label
-          = check_box_tag 'exercise_ids[]', exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s) do |b|
+          = check_box_tag 'exercise_ids[]', exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s)
           = exercise.name
+  .form-group
+    label.control-label.col-md-1 Date
+    .col-md-5
+      = text_field_tag :date, params[:date], class: 'datepicker form-control'
   = submit_tag 'Search', class: 'btn btn-primary'
 h3 Results
 = render "shares/course"
