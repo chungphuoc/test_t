@@ -1,4 +1,6 @@
 h2 Studio
+= link_to new_admin_studio_path, class: "btn btn-primary"
+  span New Studio
 table.table.table-striped
   tr
     th Index
@@ -13,5 +15,7 @@ table.table.table-striped
       td
         = link_to admin_studio_path(studio), class: "btn btn-primary"
           span Show
-        = link_to "Edit", "#", class: "btn btn-primary"
-        = link_to "Delete", "#", class: "btn btn-danger"
+        = link_to edit_admin_studio_path(studio), class: "btn btn-primary"
+          span Edit
+        = link_to admin_studio_path(studio), method: "delete", class: "btn btn-danger"
+          span Delete
