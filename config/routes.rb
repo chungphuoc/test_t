@@ -39,10 +39,10 @@ Rails.application.routes.draw do
 
   namespace :my do
     resource :studio, only: [:show, :edit, :update]
-    resource :customer, only: [:show, :edit, :update]
+    resource :customer, path: :account, only: [:show, :edit, :update]
   end
 
-  namespace :personal do
+  namespace :personal, path: :my do
     resources :courses, only: [:index, :show] do
       collection do
         get :search

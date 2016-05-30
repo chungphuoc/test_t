@@ -8,10 +8,9 @@ class User < ActiveRecord::Base
   ratyrate_rater
   validates :password, presence: true, on: :create
   validates :password_confirmation, presence: true, on: :create
-  # validates :contact_number, format: { with: Settings.regexp.phone },
-  #                            length: { minimum: 10, maximum: 12 },
-  #                            on: :update
-  # validates :address, length: { minimum: 20, maximum: 120 }, on: :update
+  validates :contact_number, format: { with: Settings.regexp.phone },
+                              on: :update
+  validates :address, length: { maximum: 120 }, on: :update
   belongs_to :role, polymorphic: true
   delegate :enrollments, to: :role
   delegate :favourite_courses, to: :role

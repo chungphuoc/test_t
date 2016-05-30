@@ -13,7 +13,6 @@ table.table.table-striped
       td #{customer.name}
       td #{customer.email}
       td
-        = link_to admin_customer_path(customer), class: "btn btn-primary"
-          span Show
+        = link_to "Show", admin_customer_path(customer), class: "btn btn-primary"
         = link_to "Edit", edit_admin_customer_path(customer), class: "btn btn-primary"
-        = link_to "Delete", "#", class: "btn btn-danger"
+        = link_to "Delete", admin_customer_path(customer), method: "delete", class: "btn btn-danger"

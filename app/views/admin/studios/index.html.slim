@@ -13,9 +13,6 @@ table.table.table-striped
       td #{studio.name}
       td #{studio.email}
       td
-        = link_to admin_studio_path(studio), class: "btn btn-primary"
-          span Show
-        = link_to edit_admin_studio_path(studio), class: "btn btn-primary"
-          span Edit
-        = link_to admin_studio_path(studio), method: "delete", class: "btn btn-danger"
-          span Delete
+        = link_to "Show", admin_studio_path(studio), class: "btn btn-primary"
+        = link_to "Edit", edit_admin_studio_path(studio), class: "btn btn-primary"
+        = link_to "Delete", admin_studio_path(studio), method: "delete", class: "btn btn-danger"
