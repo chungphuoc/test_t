@@ -81,7 +81,7 @@ Rails.application.routes.draw do
   namespace :manage do
     resources :studios, only: [:show, :edit, :update]
     resources :contracts, path: :teachers, except: :show
-    resources :stations, only: :index do
+    resources :stations, except: :show do
       put :update, on: :collection
     end
     resources :exercises, only: :index do

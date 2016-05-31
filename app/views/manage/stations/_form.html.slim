@@ -1,0 +1,26 @@
+= form_for [:manage, @station], class: 'form-horizontal' do |f|
+  .form-group
+    label.control-label.col-md-3 Name
+    .col-md-9
+      = f.text_field :name, class: 'form-control'
+      .error-text
+        = @station.errors[:name].to_sentence
+  .form-group
+    label.control-label.col-md-3 Location
+    .col-md-9
+      = f.text_area :location, class: 'form-control'
+      .error-text
+        = @station.errors[:location].to_sentence
+  .form-group
+    label.control-label.col-md-3 Latitude
+    .col-md-9
+      = f.text_field :latitude, class: 'form-control'
+      .error-text
+        = @station.errors[:latitude].to_sentence
+  .form-group
+    label.control-label.col-md-3 Longitude
+    .col-md-9
+      = f.text_field :longitude, class: 'form-control'
+      .error-text
+        = @station.errors[:longitude].to_sentence
+  = f.submit 'Submit', class: "btn btn-primary"
