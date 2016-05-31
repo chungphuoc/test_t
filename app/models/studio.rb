@@ -7,8 +7,12 @@ class Studio < ActiveRecord::Base
   has_many :stations, through: :branches
   has_many :services, dependent: :destroy
   has_many :exercises, through: :services
+  has_many :requested_stations, class_name: 'Station', foreign_key: :requester_id
+
   delegate :email, to: :user
   delegate :name, to: :user
+
   accepts_nested_attributes_for :user
+
   mount_uploader :cover_img, ImageUploader
 end
