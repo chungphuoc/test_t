@@ -47,7 +47,7 @@ class Course < ActiveRecord::Base
     end
     newdays = days.collect do |day|
                 newday = Date.today.beginning_of_week + day.days
-                if Date.today.wday > day
+                if Date.today.wday < day
                   [newday.strftime("%a, %m-%d-%y"), newday]
                 end
               end
@@ -56,6 +56,10 @@ class Course < ActiveRecord::Base
 
   def full?(date)
     self.full_dates.include?(date)
+  end
+
+  def name_with_initial
+    self.name
   end
 
   def self.search(params = {})

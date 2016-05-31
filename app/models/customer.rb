@@ -21,4 +21,8 @@ class Customer < ActiveRecord::Base
   def self.gender
     [['Male', :male], ['Female', :female]]
   end
+
+  def name_with_initial
+    self.name
+  end
 end

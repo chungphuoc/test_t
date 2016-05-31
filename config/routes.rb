@@ -35,6 +35,11 @@ Rails.application.routes.draw do
     resources :studios
     resources :courses
     resources :teachers
+    resources :enrollments do
+      collection do
+        get :change_course
+      end
+    end
   end
 
   namespace :my do

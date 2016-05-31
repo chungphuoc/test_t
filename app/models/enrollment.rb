@@ -1,7 +1,6 @@
 class Enrollment < ActiveRecord::Base
   belongs_to :customer
   belongs_to :course, counter_cache: true
-  validates_uniqueness_of :customer_id, scope: [:course_id], message: 'Class has been booked!'
   validates_uniqueness_of :customer_id, scope: [:course_id, :join_date], message: 'Class has been booked!'
   validate :num_slot_less_than_maximum, on: :create
 

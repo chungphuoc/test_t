@@ -1,0 +1,48 @@
+h2 Enrollment Detail
+h2 Customer detail
+table.table.table-striped
+  tr
+    th Class Name
+    td = @enrollment.course_name
+  tr
+    th Customer Name
+    td = @enrollment.customer.name
+  tr
+    th Customer Email
+    td = @enrollment.customer.email
+  tr
+    th Customer Nunber Phone
+    td 
+      = @enrollment.customer.contact_number
+  tr
+    th Start Date
+    td
+      = @enrollment.start_date
+  tr
+    th Start Time
+    td
+      = @enrollment.start_time.strftime("%I:%M %p")
+  tr
+    th End Time
+    td
+      = @enrollment.end_time.strftime("%I:%M %p")
+  tr
+    th Join Date
+    td
+      = @enrollment.join_date
+  tr
+    th Status
+    td
+      = @enrollment.status
+  tr
+    th Created at
+    td
+      = @enrollment.created_at.strftime("%I:%M %p, %b %d %Y")
+  tr
+    th Edited at
+    td
+      = @enrollment.updated_at.strftime("%I:%M %p, %b %d %Y")
+= link_to :back, class: "btn btn-primary"
+  span Back
+= link_to edit_admin_enrollment_path(@enrollment), class: "btn btn-primary"
+  span Edit
