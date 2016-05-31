@@ -1,0 +1,80 @@
+h2 Course Detail
+table.table.table-striped.table-courses
+  tr
+    th Class Name
+    td = @course.name
+  tr
+    th Cover Image
+    td 
+      = image_tag @course.cover_img
+  tr
+    th Phone Number
+    td = @course.phone_number
+  tr
+    th Website
+    td 
+      = @course.website
+  tr
+    th Num Slot
+    td
+      = @course.num_slot
+  tr
+    th Kcal
+    td
+      = @course.kcal
+  tr
+    th Start Time
+    td
+      = @course.start_time.strftime("%I:%M %p")
+  tr
+    th End Time
+    td
+      = @course.end_time.strftime("%I:%M %p")
+  tr
+    th Start Date
+    td
+      = @course.start_date
+  tr
+    th Tuition
+    td
+      = @course.tuition
+  tr
+    th Currency
+    td
+      = @course.currency
+  tr
+    th Teacher
+    td
+      = @course.teacher.name
+  tr
+    th Studio
+    td
+      = @course.studio.name
+  tr
+    th Station
+    td
+      = @course.station.name
+  tr
+    th Exercise
+    td
+      = @course.exercise.name
+  tr
+    th Days of week
+    td
+      = @course.days_of_week
+  tr
+    th Description
+    td
+      = @course.description
+  tr
+    th Created at
+    td
+      = @course.created_at.strftime("%I:%M %p, %b %d %Y")
+  tr
+    th Edited at
+    td
+      = @course.updated_at.strftime("%I:%M %p, %b %d %Y")
+= link_to :back, class: "btn btn-primary"
+  span Back
+= link_to edit_admin_course_path(@course), class: "btn btn-primary"
+  span Edit

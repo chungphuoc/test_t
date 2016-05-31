@@ -33,7 +33,11 @@ Rails.application.routes.draw do
     resources :exercises
     resources :customers
     resources :studios
-    resources :courses
+    resources :courses do
+      collection do
+        get :change_studio
+      end
+    end
     resources :teachers
     resources :enrollments do
       collection do

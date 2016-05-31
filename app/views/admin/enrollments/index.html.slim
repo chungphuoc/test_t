@@ -1,6 +1,6 @@
 h2 Enrollments
 = link_to "New Enrollment", new_admin_enrollment_path, class: "btn btn-primary"
-table.table.table-striped.table-booked-class
+table.table.table-striped.table-enrollment
   tr
     th Index
     th Cover Image
@@ -34,4 +34,3 @@ table.table.table-striped.table-booked-class
         = link_to "Show", admin_enrollment_path(enrollment), class: "btn btn-primary"
         = link_to "Edit", edit_admin_enrollment_path(enrollment), class: "btn btn-primary"
         = link_to "Delete", admin_enrollment_path(enrollment), method: "delete", class: "btn btn-danger"
-  end

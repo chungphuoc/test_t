@@ -14,7 +14,8 @@ class Course < ActiveRecord::Base
   validates :phone_number, presence: true,
                            format: { with: Settings.regexp.phone },
                            length: { minimum: 10, maximum: 12 }
-  validates :num_slot, presence: true
+  validates :num_slot, presence: true, numericality: {greater_than_or_equal_to: 0}
+  validates :kcal, numericality: {greater_than_or_equal_to: 0}
   validates :start_date, presence: true
   validates :teacher, presence: true
   validates :station, presence: true
@@ -24,6 +25,7 @@ class Course < ActiveRecord::Base
   delegate :name, to: :teacher, prefix: true
   delegate :location, to: :station, prefix: true
   delegate :name, to: :exercise, prefix: true
+  delegate :stations, :teachers, :exercises, to: :studio
 
   MAX_SCHEDULE = 2
 

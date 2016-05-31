@@ -14,4 +14,8 @@ class Studio < ActiveRecord::Base
   delegate :avatar, to: :user
   accepts_nested_attributes_for :user
   mount_uploader :cover_img, ImageUploader
+
+  def name_with_initial
+    self.name
+  end
 end

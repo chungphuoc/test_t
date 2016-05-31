@@ -1,0 +1,15 @@
+$("#course_station").empty().append(
+    "<%= 
+      j  render('station_option', options: @station_options, type: 'station')
+    %>"
+  );
+$("#course_teacher").empty().append(
+    "<%= 
+      j  render('station_option', options: @teacher_options, type: 'teacher')
+    %>"
+  );
+$("#course_exercise").empty().append(
+    "<%= 
+      j  render('station_option', options: @exercise_options, type: 'exercise')
+    %>"
+  );

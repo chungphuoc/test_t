@@ -1,0 +1,81 @@
+= form_for [:admin, @course], class: "form-horizontal" do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+    .error-text
+        = @course.errors[:name].to_sentence
+  .form-group
+    = f.label :cover_img
+    = f.file_field :cover_img
+  .form-group
+    = f.label :phone_number
+    = f.text_field :phone_number, class: "form-control"
+    .error-text
+        = @course.errors[:phone_number].to_sentence
+  .form-group
+    = f.label :website
+    = f.text_field :website, class: "form-control"
+    .error-text
+        = @course.errors[:website].to_sentence
+  .form-group
+    = f.label :num_slot
+    = f.number_field :num_slot, class: "form-control"
+    .error-text
+        = @course.errors[:num_slot].to_sentence
+  .form-group
+    = f.label :kcal
+    = f.number_field :kcal, class: "form-control"
+    .error-text
+        = @course.errors[:kcal].to_sentence
+  .form-group
+    = f.label :start_time
+    = f.time_select :start_time, class: "form-control"
+  .form-group
+    = f.label :end_time
+    = f.time_select :end_time, class: "form-control"
+  .form-group
+    = f.label :start_date
+    = f.date_select :start_date, class: "form-control"
+  .form-group
+    = f.label :currency
+    = f.select :currency, options_for_select(["usd", "yen"]), {}, class: "form-control"
+  .form-group
+    = f.label :studio
+    = collection_select :studio, :studio_id, Studio.all, :id, :name_with_initial, {prompt: true}, class: "form-control", onchange: "change_studio_option()"
+    .error-text
+        = @course.errors[:password].to_sentence
+  - if action_name == "edit"
+    .form-group
+      = f.label :station
+      = f.select :station, options_for_select(@course.stations.collect{|s| [s.name, s.id]}, @course.station_id), {}, class: "form-control"
+    .error-text
+        = @course.errors[:station].to_sentence
+    .form-group
+      = f.label :teacher
+      = f.select :teacher, options_for_select(@course.teachers.collect{|t| [t.name, t.id]}, @course.teacher_id), {}, class: "form-control"
+    .error-text
+        = @course.errors[:teacher].to_sentence
+    .form-group
+      = f.label :exercise
+      = f.select :exercise, options_for_select(@course.exercises.collect{|e| [e.name, e.id]}, @course.exercise_id), {}, class: "form-control"
+    .error-text
+        = @course.errors[:exercise].to_sentence
+  - else
+    .form-group
+      = f.label :station
+      = f.select :station, options_for_select([]), {}, class: "form-control"
+      .error-text
+        = @course.errors[:station].to_sentence
+    .form-group
+      = f.label :teacher
+      = f.select :teacher, options_for_select([]), {}, class: "form-control"
+      .error-text
+        = @course.errors[:teacher].to_sentence
+    .form-group
+      = f.label :exercise
+      = f.select :exercise, options_for_select([]), {}, class: "form-control"
+      .error-text
+        = @course.errors[:exercise].to_sentence
+  .form-group
+    = link_to "Back", admin_courses_path, class: "btn btn-primary"
+    = f.submit "Submit", class: "btn btn-primary"
