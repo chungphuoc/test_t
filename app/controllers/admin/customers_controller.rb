@@ -38,11 +38,11 @@ class Admin::CustomersController < Admin::BaseController
   end
 
   def destroy
-    if @customer.destroy
-      flash[:notice] = 'Delete Customer successful!'
-    else
-      flash[:notice] = 'Cannot delete Customer!'
-    end
+    flash[:notice] = if @customer.destroy
+                       'Delete Customer successful!'
+                     else
+                       'Cannot delete Customer!'
+                     end
     redirect_to :back
   end
 

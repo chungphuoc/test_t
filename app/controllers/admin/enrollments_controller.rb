@@ -25,11 +25,11 @@ class Admin::EnrollmentsController < Admin::BaseController
   end
 
   def destroy
-    if @enrollment.destroy
-      flash[:notice] = 'Delete Enrollment successful!'
-    else
-      flash[:notice] = 'Cannot delete Enrollment!'
-    end
+    flash[:notice] = if @enrollment.destroy
+                       'Delete Enrollment successful!'
+                     else
+                       'Cannot delete Enrollment!'
+                     end
     redirect_to :back
   end
 
@@ -46,11 +46,11 @@ class Admin::EnrollmentsController < Admin::BaseController
 
   def change_course
     @course = Course.find(params[:course_id])
-    if @course
-      @time_options = @course.slot_time
-    else
-      @time_options = []
-    end
+    @time_options = if @course
+                      @course.slot_time
+                    else
+                      @time_options = []
+                    end
   end
 
   private

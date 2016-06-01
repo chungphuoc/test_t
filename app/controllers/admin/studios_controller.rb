@@ -38,11 +38,11 @@ class Admin::StudiosController < Admin::BaseController
   end
 
   def destroy
-    if @studio.destroy
-      flash[:notice] = 'Delete Studio successful!'
-    else
-      flash[:notice] = 'Cannot delete Studio!'
-    end
+    flash[:notice] = if @studio.destroy
+                       'Delete Studio successful!'
+                     else
+                       'Cannot delete Studio!'
+                     end
     redirect_to :back
   end
 
@@ -58,7 +58,7 @@ class Admin::StudiosController < Admin::BaseController
       params[:studio][:user_attributes].delete(:password_confirmation)
     end
     params[:studio][:user_attributes].delete(:address) if params[:studio][:user_attributes][:address].blank?
-    params[:studio][:user_attributes].delete(:contact_number) if params[:studio][:user_attributes][:contact_number].blank? 
+    params[:studio][:user_attributes].delete(:contact_number) if params[:studio][:user_attributes][:contact_number].blank?
     params.require(:studio).permit(:cover_img, user_attributes: [:id, :name, :email, :contact_number, :password, :password_confirmation, :address, :avatar])
   end
 end
