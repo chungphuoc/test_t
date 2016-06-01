@@ -19,6 +19,6 @@ class Studio < ActiveRecord::Base
   mount_uploader :cover_img, ImageUploader
 
   def name_with_initial
-    self.name
+    name
   end
 end

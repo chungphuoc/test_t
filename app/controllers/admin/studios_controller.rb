@@ -6,7 +6,6 @@ class Admin::StudiosController < Admin::BaseController
   end
 
   def show
-    
   end
 
   def new
@@ -15,40 +14,40 @@ class Admin::StudiosController < Admin::BaseController
   end
 
   def edit
-    
   end
 
   def create
     @studio = Studio.new(studio_params)
     if @studio.save
-      flash[:notice] = "Successful create Studio." 
+      flash[:notice] = 'Successful create Studio.'
       redirect_to admin_studios_path
     else
-      flash[:notice] = "Cannot create Studio"
+      flash[:notice] = 'Cannot create Studio'
       render :new
     end
   end
 
   def update
     if @studio.update_attributes(studio_params)
-      flash[:notice] = "Successful update Studio." 
+      flash[:notice] = 'Successful update Studio.'
       redirect_to admin_studios_path
     else
-      flash[:notice] = "Cannot update Studio"
+      flash[:notice] = 'Cannot update Studio'
       render :edit
     end
   end
 
   def destroy
     if @studio.destroy
-      flash[:notice] = "Delete Studio successful!"
+      flash[:notice] = 'Delete Studio successful!'
     else
-      flash[:notice] = "Cannot delete Studio!"
+      flash[:notice] = 'Cannot delete Studio!'
     end
     redirect_to :back
   end
 
   private
+
   def prepare_studio
     @studio = Studio.find(params[:id])
   end

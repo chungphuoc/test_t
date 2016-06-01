@@ -8,9 +8,9 @@ class PaymentService
     customer = Stripe::Customer.create(email: params[:stripeEmail],
                                        card: params[:stripeToken])
     charge = Stripe::Charge.create(customer: customer.id,
-                          amount: params[:tuition].to_i * 100,
-                          description: params[:course_name],
-                          currency: params[:currency])
+                                    amount: params[:tuition].to_i * 100,
+                                    description: params[:course_name],
+                                    currency: params[:currency])
   end
 
   def update_customer_info(params)

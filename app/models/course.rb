@@ -14,8 +14,8 @@ class Course < ActiveRecord::Base
   validates :phone_number, presence: true,
                            format: { with: Settings.regexp.phone },
                            length: { minimum: 10, maximum: 12 }
-  validates :num_slot, presence: true, numericality: {greater_than_or_equal_to: 0}
-  validates :kcal, numericality: {greater_than_or_equal_to: 0}
+  validates :num_slot, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :kcal, numericality: { greater_than_or_equal_to: 0 }
   validates :start_date, presence: true
   validates :teacher, presence: true
   validates :station, presence: true
@@ -45,14 +45,14 @@ class Course < ActiveRecord::Base
   def slot_time
     days = []
     Course::MAX_SCHEDULE.times do |time|
-      days += self.days_of_week.collect{ |day| day + time * 7}
+      days += self.days_of_week.collect { |day| day + time * 7 }
     end
     newdays = days.collect do |day|
                 newday = Date.today.beginning_of_week + day.days
                 if Date.today.wday < day
-                  [newday.strftime("%a, %m-%d-%y"), newday]
+                  [newday.strftime('%a, %m-%d-%y'), newday]
                 end
-              end
+    end
     newdays.compact
   end
 
@@ -61,7 +61,7 @@ class Course < ActiveRecord::Base
   end
 
   def name_with_initial
-    self.name
+    name
   end
 
   def self.search(params = {})
@@ -72,6 +72,6 @@ class Course < ActiveRecord::Base
   end
 
   def self.available(date)
-    where.not("? = ANY(full_dates)", date)
+    where.not('? = ANY(full_dates)', date)
   end
 end

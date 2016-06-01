@@ -54,8 +54,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.for(:account_update) << :password << :password_confirmation
   end
 
-  protected
-
   private
 
   def registration_params

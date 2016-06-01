@@ -13,8 +13,8 @@ class Customer < ActiveRecord::Base
   delegate :address, to: :user
   delegate :contact_number, to: :user
   delegate :avatar, to: :user
-  validates :point, numericality: {greater_than_or_equal_to: 0}
-  validates :total_point, numericality: {greater_than_or_equal_to: 0}
+  validates :point, numericality: { greater_than_or_equal_to: 0 }
+  validates :total_point, numericality: { greater_than_or_equal_to: 0 }
   accepts_nested_attributes_for :user
   enum gender: [:male, :female]
 
@@ -23,6 +23,6 @@ class Customer < ActiveRecord::Base
   end
 
   def name_with_initial
-    self.name
+    name
   end
 end

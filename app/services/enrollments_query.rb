@@ -4,12 +4,12 @@ class EnrollmentsQuery
     @result = nil
   end
 
-  #get enrollments of specific user by statuses
+  # get enrollments of specific user by statuses
   def by_statuses(statuses)
     @result = if statuses.empty?
                 @user.enrollments
               else
-                @user.enrollments.where("status IN (?)", statuses)
+                @user.enrollments.where('status IN (?)', statuses)
               end
   end
 
@@ -22,7 +22,7 @@ class EnrollmentsQuery
       daily_calories_burnt
     elsif frequency == 'weekly'
       weekly_calories_burnt
-    else #monthly
+    else # monthly
       monthly_calories_burnt
     end
   end
@@ -30,14 +30,14 @@ class EnrollmentsQuery
   private
 
   def daily_calories_burnt
-    @user.enrollments.where("join_date = ?", Date.today).inject(0){|sum, e| sum + e.kcal}
+    @user.enrollments.where('join_date = ?', Date.today).inject(0) { |sum, e| sum + e.kcal }
   end
 
   def weekly_calories_burnt
-    @user.enrollments.where(join_date: Date.today.beginning_of_week..Date.today).inject(0){|sum, e| sum + e.kcal}
+    @user.enrollments.where(join_date: Date.today.beginning_of_week..Date.today).inject(0) { |sum, e| sum + e.kcal }
   end
 
   def monthly_calories_burnt
-    @user.enrollments.where(join_date: Date.today.beginning_of_month..Date.today).inject(0){|sum, e| sum + e.kcal}
+    @user.enrollments.where(join_date: Date.today.beginning_of_month..Date.today).inject(0) { |sum, e| sum + e.kcal }
   end
 end

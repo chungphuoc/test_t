@@ -16,28 +16,28 @@ customer_toan = Customer.create!
 User.create!(email: 'admin@tone.com', name: 'Admin', password: '12345678',
             password_confirmation: '12345678', role_id: admin.id, role_type: 'Admin',
             avatar: Rails.root.join('app/assets/images/user1.jpeg').open,
-            contact_number: "0123456789", confirmed_at: Time.now,
-            address: "497 Hoa Hao, district 10, Ho Chi Minh city")
+            contact_number: '0123456789', confirmed_at: Time.now,
+            address: '497 Hoa Hao, district 10, Ho Chi Minh city')
 customer_user = User.create!(email: 'customer@tone.com', name: 'Customer', password: '12345678', 
             password_confirmation: '12345678', role_id: customer.id, role_type: 'Customer',
             avatar: Rails.root.join('app/assets/images/user1.jpeg').open,
-            contact_number: "0123456789", confirmed_at: Time.now,
-            address: "497 Hoa Hao, district 10, Ho Chi Minh city")
+            contact_number: '0123456789', confirmed_at: Time.now,
+            address: '497 Hoa Hao, district 10, Ho Chi Minh city')
 User.create!(email: 'studio@tone.com', name: 'Studio', password: '12345678',
             password_confirmation: '12345678', role_id: studio.id, role_type: 'Studio',
             avatar: Rails.root.join('app/assets/images/user2.png').open,
-            contact_number: "0123456789", confirmed_at: Time.now,
-            address: "497 Hoa Hao, district 10, Ho Chi Minh city")
+            contact_number: '0123456789', confirmed_at: Time.now,
+            address: '497 Hoa Hao, district 10, Ho Chi Minh city')
 User.create!(email: 'golden.owl.test@gmail.com', name: 'Golden Owl', password: '12345678', 
             password_confirmation: '12345678', role_id: studio_goldenowl.id, role_type: 'Studio',
             avatar: Rails.root.join('app/assets/images/user3.jpeg').open,
-            contact_number: "0123456789", confirmed_at: Time.now,
-            address: "497 Hoa Hao, district 10, Ho Chi Minh city")
+            contact_number: '0123456789', confirmed_at: Time.now,
+            address: '497 Hoa Hao, district 10, Ho Chi Minh city')
 User.create!(email: 'ductoan593@gmail.com', name: 'Ductoan', password: '12345678', 
             password_confirmation: '12345678', role_id: customer_toan.id, role_type: 'Customer',
             avatar: Rails.root.join('app/assets/images/user4.jpeg').open,
-            contact_number: "0123456789", confirmed_at: Time.now,
-            address: "497 Hoa Hao, district 10, Ho Chi Minh city")
+            contact_number: '0123456789', confirmed_at: Time.now,
+            address: '497 Hoa Hao, district 10, Ho Chi Minh city')
 
 station1 = Station.create!(name: 'Parkson', location: 'district 10, Ho Chi Minh City', latitude: 10.762622, longitude: 106.660172)
 station2 = Station.create!(name: 'Lotteria', location: 'district 5, Ha Noi', latitude: 10.762622, longitude: 106.660172)

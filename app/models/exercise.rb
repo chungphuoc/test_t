@@ -5,6 +5,6 @@ class Exercise < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
   def name_with_initial
-    self.name
+    name
   end
 end

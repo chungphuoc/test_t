@@ -2,7 +2,6 @@ class Admin::CoursesController < Admin::BaseController
   before_action :prepare_course, only: [:show, :edit, :update, :destroy]
 
   def show
-    
   end
 
   def index
@@ -16,10 +15,10 @@ class Admin::CoursesController < Admin::BaseController
   def create
     @course = Course.new(course_params)
     if @courses.save
-      flash[:notice] = "Add Class successful!"
+      flash[:notice] = 'Add Class successful!'
       redirect_to admin_courses_path
     else
-      flash[:notice] = "Can not add Class!"
+      flash[:notice] = 'Can not add Class!'
       render :new
     end
   end
@@ -29,20 +28,20 @@ class Admin::CoursesController < Admin::BaseController
 
   def update
     if @course.update_attributes(course_params)
-      flash[:notice] = "Update Class successful!"
+      flash[:notice] = 'Update Class successful!'
       redirect_to admin_courses_path
     else
-      flash[:notice] = "Can not update class!"
+      flash[:notice] = 'Can not update class!'
       render :edit
     end
   end
 
   def destroy
     if @course.destroy
-      flash[:notice] = "Delete Class successful!"
+      flash[:notice] = 'Delete Class successful!'
       redirect_to admin_courses_path
     else
-      flash[:notice] = "Can not delete Class!"
+      flash[:notice] = 'Can not delete Class!'
       redirect_to :back
     end
   end
@@ -50,15 +49,16 @@ class Admin::CoursesController < Admin::BaseController
   def change_studio
     @studio = Studio.find(params[:studio_id])
     if @studio
-      @station_options = @studio.stations.collect{|station| [station.name, station.id]}
-      @teacher_options = @studio.teachers.collect{|teacher| [teacher.name, teacher.id]}
-      @exercise_options = @studio.exercises.collect{|exercise| [exercise.name, exercise.id]}
+      @station_options = @studio.stations.collect { |station| [station.name, station.id] }
+      @teacher_options = @studio.teachers.collect { |teacher| [teacher.name, teacher.id] }
+      @exercise_options = @studio.exercises.collect { |exercise| [exercise.name, exercise.id] }
     else
       @station_options = @teacher_options = @exercise_options = []
     end
   end
 
   private
+
   def prepare_course
     @course = Course.find(params[:id])
   end

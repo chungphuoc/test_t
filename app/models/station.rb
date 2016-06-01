@@ -11,6 +11,6 @@ class Station < ActiveRecord::Base
   validates :longitude, presence: true
 
   def name_with_initial
-    self.name
+    name
   end
 end

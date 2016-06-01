@@ -24,7 +24,7 @@ class Enrollment < ActiveRecord::Base
     @course = self.course
     @enrollment_count = @course.enrollments.where(join_date: self.join_date).count
     if @enrollment_count >= @course.num_slot
-      errors.add("This class is full! Please choose another time.")
+      errors.add('This class is full! Please choose another time.')
     end
   end
 
@@ -56,8 +56,7 @@ class Enrollment < ActiveRecord::Base
   end
 
   def self.update_status
-    Enrollment.where("status = ? AND join_date < ?", Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
+    Enrollment.where('status = ? AND join_date < ?', Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
     Rails.logger.info("Update status at #{Time.now}")
   end
-
 end

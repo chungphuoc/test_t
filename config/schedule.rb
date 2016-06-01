@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.hours do
-  runner "Enrollment.update_status"
+  runner 'Enrollment.update_status'
 end
