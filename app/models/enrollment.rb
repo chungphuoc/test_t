@@ -21,8 +21,8 @@ class Enrollment < ActiveRecord::Base
   after_save :update_course_full_dates
 
   def num_slot_less_than_maximum
-    @course = self.course
-    @enrollment_count = @course.enrollments.where(join_date: self.join_date).count
+    @course = course
+    @enrollment_count = @course.enrollments.where(join_date: join_date).count
     if @enrollment_count >= @course.num_slot
       errors.add('This class is full! Please choose another time.')
     end

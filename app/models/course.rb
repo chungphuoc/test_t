@@ -45,19 +45,19 @@ class Course < ActiveRecord::Base
   def slot_time
     days = []
     Course::MAX_SCHEDULE.times do |time|
-      days += self.days_of_week.collect { |day| day + time * 7 }
+      days += days_of_week.collect { |day| day + time * 7 }
     end
     newdays = days.collect do |day|
-                newday = Date.today.beginning_of_week + day.days
-                if Date.today.wday < day
-                  [newday.strftime('%a, %m-%d-%y'), newday]
-                end
+      newday = Date.today.beginning_of_week + day.days
+      if Date.today.wday < day
+        [newday.strftime('%a, %m-%d-%y'), newday]
+      end
     end
     newdays.compact
   end
 
   def full?(date)
-    self.full_dates.include?(date)
+    full_dates.include?(date)
   end
 
   def name_with_initial
