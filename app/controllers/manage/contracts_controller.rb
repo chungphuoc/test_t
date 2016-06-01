@@ -13,10 +13,10 @@ class Manage::ContractsController < Manage::BaseController
   def create
     @contract = @studio.contracts.new(contract_params)
     if @contract.save
-      flash[:success] = 'Teacher has been successfully added.'
+      set_flash_message :success, :added
       redirect_to manage_contracts_url
     else
-      flash.now[:error] = 'Error!'
+      set_flash_message :error, :error, now: true, scope: :error
       render :new
     end
   end
@@ -26,17 +26,17 @@ class Manage::ContractsController < Manage::BaseController
 
   def update
     if @contract.update_attributes(contract_params)
-      flash[:success] = 'Teacher has been successfully updated.'
+      set_flash_message :success, :updated
       redirect_to manage_contracts_url
     else
-      flash.now[:error] = 'Error!'
+      set_flash_message :error, :error, now: true, scope: :error
       render :edit
     end
   end
 
   def destroy
     @contract.destroy
-    flash[:success] = 'Teacher has been successfully removed.'
+    set_flash_message :success, :removed
     redirect_to manage_contracts_url
   end
 

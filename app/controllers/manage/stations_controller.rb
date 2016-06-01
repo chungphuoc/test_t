@@ -5,9 +5,9 @@ class Manage::StationsController < Manage::BaseController
     @station_ids = @studio.stations.pluck(:id)
   end
 
-  def update
+  def update_listing
     StudioStationService.new(@studio).update_stations(params[:station_ids].to_a)
-    flash[:success] = 'Station listing has been successfully updated.'
+    set_flash_message :success, :updated_listing
     redirect_to manage_stations_path
   end
 
@@ -18,7 +18,7 @@ class Manage::StationsController < Manage::BaseController
   def create
     @station = @studio.requested_stations.new(station_params)
     if @station.save
-      flash[:success] = 'Your station request has been successfully sent.'
+      set_flash_message :success, :created
       redirect_to manage_stations_path
     else
       render :new
@@ -30,7 +30,7 @@ class Manage::StationsController < Manage::BaseController
 
   def update
     if @station.update_attributes(station_params)
-      flash[:success] = 'Your station request has been successfully updated.'
+      set_flash_message :success, :updated
       redirect_to manage_stations_path
     else
       render :edit
@@ -39,7 +39,7 @@ class Manage::StationsController < Manage::BaseController
 
   def destroy
     @station.destroy
-    flash[:success] = 'Your station request has been successfully deleted.'
+    set_flash_message :success, :destroyed
     redirect_to manage_stations_path
   end
 
@@ -47,7 +47,10 @@ class Manage::StationsController < Manage::BaseController
 
   def prepare_requested_station
     @station = @studio.requested_stations.requested.find_by_id(params[:id])
-    redirect_to manage_stations_path, notice: 'Permission denied' unless @station
+    unless @station
+      set_flash_message :notice, :access_denied, scope: :error
+      redirect_to manage_stations_path
+    end
   end
 
   def station_params

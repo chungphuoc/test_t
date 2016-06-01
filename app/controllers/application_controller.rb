@@ -50,14 +50,14 @@ class ApplicationController < ActionController::Base
   def find_message(kind, options = {})
     options[:scope] ||= translation_scope
     options[:default] = Array(options[:default]).unshift(kind.to_sym)
-    I18n.t("#{kind}", options)
+    I18n.t(kind.to_s, options)
   end
 
   # Controllers inheriting ApplicationController are advised to override
   # this method so that other controllers inheriting from them would use
   # existing translations.
   def translation_scope
-    "#{controller_name}"
+    controller_name.to_s
   end
 
   def default_url_options(options = {})

@@ -13,8 +13,8 @@ class My::StudiosController < ApplicationController
   def update
     @studio.user.update_attributes(user_params)
     if @studio.update_attributes(studio_params)
+      set_flash_message :success, :updated
       redirect_to my_studio_path
-      flash[:notice] = 'Update successfuly!'
     else
       render :edit
     end
@@ -24,7 +24,7 @@ class My::StudiosController < ApplicationController
 
   def authenticate_studio!
     return if current_user.studio?
-    flash[:notice] = 'Access Denied'
+    set_flash_message :notice, :access_denied, scope: :error
     redirect_to root_path
   end
 
@@ -38,5 +38,9 @@ class My::StudiosController < ApplicationController
 
   def user_params
     params.require(:studio).require(:user_attributes).permit(:name, :contact_number, :address, :avatar)
+  end
+
+  def translation_scope
+    "my.#{controller_name}"
   end
 end
