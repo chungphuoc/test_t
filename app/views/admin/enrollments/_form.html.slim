@@ -1,10 +1,10 @@
 = form_for [:admin, @enrollment], class: "form-horizontal" do |f|
   .form-group
     = f.label :customer
-    = collection_select :enrollment, :customer_id, Customer.all, :id, :name_with_initial, {prompt: true}, class: "form-control"
+    = collection_select :enrollment, :customer_id, Customer.all, :id, :name_with_initial, {prompt: true}, class: "form-control", required: ""
   .form-group
     = f.label :course
-    = collection_select :enrollment, :course_id, Course.all, :id, :name_with_initial, {prompt: true}, class: "form-control", onchange: "change_join_day_option()"
+    = collection_select :enrollment, :course_id, Course.all, :id, :name_with_initial, {prompt: true}, class: "form-control", onchange: "change_join_day_option()", required: ""
   .form-group
     = f.label :join_date
     - if action_name == "edit"
