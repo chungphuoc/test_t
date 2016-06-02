@@ -1,8 +1,10 @@
 class Admin::StationsController < Admin::BaseController
-  before_action :prepare_station, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_station, only: [:show, :edit, :update, :destroy, :approve, :reject]
 
   def index
-    @stations = Station.all
+    @approved_stations = Station.approved
+    @rejected_stations = Station.rejected
+    @requested_stations = Station.requested
   end
 
   def show
@@ -39,6 +41,24 @@ class Admin::StationsController < Admin::BaseController
   def destroy
     if @station.destroy
       set_flash_message :success, :destroyed
+    else
+      set_flash_message :error, :error, now: true, scope: :error
+    end
+    redirect_to :back
+  end
+
+  def approve
+    if @station.approved!
+      set_flash_message :success, :approved
+    else
+      set_flash_message :error, :error, now: true, scope: :error
+    end
+    redirect_to :back
+  end
+
+  def reject
+    if @station.rejected!
+      set_flash_message :success, :rejected
     else
       set_flash_message :error, :error, now: true, scope: :error
     end

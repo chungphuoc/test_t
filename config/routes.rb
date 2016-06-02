@@ -29,7 +29,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :stations
+    resources :stations do
+      member do
+        put :approve
+        put :reject
+      end
+    end
     resources :exercises
     resources :customers
     resources :studios do

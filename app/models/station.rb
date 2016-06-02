@@ -1,5 +1,5 @@
 class Station < ActiveRecord::Base
-  enum status: [:approved, :requested]
+  enum status: [:approved, :requested, :rejected]
   has_many :courses
   has_many :branches, dependent: :destroy
   has_many :studios, through: :branches
