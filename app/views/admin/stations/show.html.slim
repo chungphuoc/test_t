@@ -1,0 +1,27 @@
+h2 Station detail
+table.table.table-striped
+  tr
+    th Name
+    td = @station.name
+  tr
+    th Location
+    td = @station.location
+  tr
+    th Longitude
+    td = @station.longitude
+  tr
+    th Latitude
+    td = @station.latitude
+  tr
+    th Status
+    td = @station.status
+  tr
+    th Created At
+    td = @station.created_at.strftime("%I:%M %p, %b %d %Y")
+  tr
+    th Updated At
+    td = @station.updated_at.strftime("%I:%M %p, %b %d %Y")
+= link_to :back, class: "btn btn-primary"
+  span Back
+= link_to edit_admin_station_path(@station), class: "btn btn-primary"
+  span Edit

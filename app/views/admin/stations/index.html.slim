@@ -1,0 +1,24 @@
+h2 Station
+= link_to new_admin_station_path, class: "btn btn-primary"
+  span New Station
+table.table.table-striped
+  tr
+    th Index
+    th Name
+    th Location
+    th Longitude
+    th Latitude
+    th Status
+    th Action
+  - @stations.each_with_index do |station, index|
+    tr
+      td #{index}
+      td #{station.name}
+      td #{station.location}
+      td #{station.longitude}
+      td #{station.latitude}
+      td #{station.status}
+      td
+        = link_to "Show", admin_station_path(station), class: "btn btn-primary"
+        = link_to "Edit", edit_admin_station_path(station), class: "btn btn-primary"
+        = link_to "Delete", admin_station_path(station), method: "delete", class: "btn btn-danger"

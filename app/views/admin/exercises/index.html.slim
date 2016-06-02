@@ -1,0 +1,18 @@
+h2 Exercises
+= link_to new_admin_station_path, class: "btn btn-primary"
+  span New Exercise
+table.table.table-striped
+  tr
+    th Index
+    th Name
+    th Description
+    th Action
+  - @exercises.each_with_index do |exercise, index|
+    tr
+      td #{index}
+      td #{exercise.name}
+      td #{exercise.description}
+      td
+        = link_to "Show", admin_exercise_path(exercise), class: "btn btn-primary"
+        = link_to "Edit", edit_admin_exercise_path(exercise), class: "btn btn-primary"
+        = link_to "Delete", admin_exercise_path(exercise), method: "delete", class: "btn btn-danger"

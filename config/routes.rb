@@ -32,7 +32,11 @@ Rails.application.routes.draw do
     resources :stations
     resources :exercises
     resources :customers
-    resources :studios
+    resources :studios do
+      resources :contracts, only: [:index, :create, :destroy]
+      resources :services, only: [:index, :create, :destroy]
+      resources :branches, only: [:index, :create, :destroy]
+    end
     resources :courses do
       collection do
         get :change_studio
