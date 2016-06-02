@@ -18,29 +18,29 @@ class Admin::StationsController < Admin::BaseController
   def create
     @station = Station.new(station_params)
     if @station.save
-      flash[:success] = 'Create Station successful!'
+      set_flash_message :success, :created
       redirect_to admin_stations_path
     else
-      flash[:error] = 'Can not create Station'
+      set_flash_message :error, :error, now: true, scope: :error
       render :new
     end
   end
 
   def update
     if @station.update_attributes(station_params)
-      flash[:success] = 'Update Station successful!'
+      set_flash_message :success, :updated
       redirect_to admin_stations_path
     else
-      flash[:error] = 'Can not update Station'
+      set_flash_message :error, :error, now: true, scope: :error
       render :edit
     end
   end
 
   def destroy
     if @station.destroy
-      flash[:success] = 'Create Station successful!'
+      set_flash_message :success, :destroyed
     else
-      flash[:error] = 'Can not create Station'
+      set_flash_message :error, :error, now: true, scope: :error
     end
     redirect_to :back
   end

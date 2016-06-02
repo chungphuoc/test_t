@@ -8,4 +8,8 @@ class Admin::BaseController < ApplicationController
     flash[:notice] = 'Access Denied'
     redirect_to root_path
   end
+
+  def translation_scope
+    "admin.#{controller_name}"
+  end
 end
