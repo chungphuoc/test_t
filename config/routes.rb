@@ -82,7 +82,7 @@ Rails.application.routes.draw do
     resources :studios, only: [:show, :edit, :update]
     resources :contracts, path: :teachers, except: :show
     resources :stations, except: :show do
-      put :update, on: :collection
+      put :update, action: :update_listing, on: :collection
     end
     resources :exercises, only: :index do
       put :update, on: :collection

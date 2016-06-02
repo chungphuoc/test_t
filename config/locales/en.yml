@@ -21,3 +21,39 @@
 
 en:
   language: "English"
+  error:
+    access_denied: 'Access Denied'
+    error: 'Error!'
+  manage:
+    contracts:
+      added: 'Teacher has been successfully added.'
+      updated: 'Teacher has been successfully updated.'
+      removed: 'Teacher has been successfully removed.'
+    courses:
+      created: 'Course has been successfully created'
+      updated: 'Course has been successfully updated'
+      destroyed: 'Course has been successfully destroyed'
+      closed: 'Course has been successfully closed'
+      reopened: 'Course has been successfully reopened'
+    exercises:
+      updated: 'Exercise listing has been successfully updated.'
+    stations:
+      created: 'Your station request has been successfully sent.'
+      updated: 'Your station request has been successfully updated.'
+      destroyed: 'Your station request has been successfully deleted.'
+      updated_listing: 'Station listing has been successfully updated.'
+  personal:
+    checkouts:
+      checkout_success: 'Book class successful!'
+    enrollments:
+      created: 'Class has been successfully added.'
+  my:
+    customers:
+      updated: 'Your profile has been successfully updated.'
+    studios:
+      updated: 'Your studio has been successfully updated.'
+  invite_friends:
+    sent: 'Invitation sent successfuly!'
+  static_pages:
+    feedback: 'Your feedback has been sent.'
+
