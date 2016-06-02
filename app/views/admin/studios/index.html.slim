@@ -15,4 +15,7 @@ table.table.table-striped
       td
         = link_to "Show", admin_studio_path(studio), class: "btn btn-primary"
         = link_to "Edit", edit_admin_studio_path(studio), class: "btn btn-primary"
+        = link_to 'All Teachers', admin_studio_contracts_path(studio), class: 'btn btn-primary'
+        = link_to 'All Staions', admin_studio_branches_path(studio), class: 'btn btn-primary'
+        = link_to 'All Exercises', admin_studio_services_path(studio), class: 'btn btn-primary'
         = link_to "Delete", admin_studio_path(studio), method: "delete", class: "btn btn-danger"

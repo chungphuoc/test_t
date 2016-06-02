@@ -6,7 +6,7 @@ class Station < ActiveRecord::Base
   belongs_to :requester, class_name: 'Studio'
 
   validates :location, presence: true, uniqueness: true
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :latitude, presence: true
   validates :longitude, presence: true
 

@@ -1,0 +1,18 @@
+h2 Exercise detail
+table.table.table-striped
+  tr
+    th Name
+    td = @exercise.name
+  tr
+    th Location
+    td = @exercise.description
+  tr
+    th Created At
+    td = @exercise.created_at.strftime("%I:%M %p, %b %d %Y")
+  tr
+    th Updated At
+    td = @exercise.updated_at.strftime("%I:%M %p, %b %d %Y")
+= link_to :back, class: "btn btn-primary"
+  span Back
+= link_to edit_admin_exercise_path(@exercise), class: "btn btn-primary"
+  span Edit
