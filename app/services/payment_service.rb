@@ -3,7 +3,7 @@ class PaymentService
     @user = user
     @customer = user.role
   end
-  
+
   def save_payment_info(params)
     customer = Stripe::Customer.create(email: params[:stripeEmail],
                                        card: params[:stripeToken])

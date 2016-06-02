@@ -30,5 +30,4 @@ class Admin::BranchesController < Admin::BaseController
   def prepare_studio
     @studio = Studio.find(params[:studio_id])
   end
-
 end
