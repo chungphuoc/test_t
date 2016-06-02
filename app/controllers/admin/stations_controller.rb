@@ -1,8 +1,10 @@
 class Admin::StationsController < Admin::BaseController
-  before_action :prepare_station, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_station, only: [:show, :edit, :update, :destroy, :approve, :reject]
 
   def index
-    @stations = Station.all
+    @approved_stations = Station.approved
+    @rejected_stations = Station.rejected
+    @requested_stations = Station.requested
   end
 
   def show
@@ -18,29 +20,47 @@ class Admin::StationsController < Admin::BaseController
   def create
     @station = Station.new(station_params)
     if @station.save
-      flash[:success] = 'Create Station successful!'
+      set_flash_message :success, :created
       redirect_to admin_stations_path
     else
-      flash[:error] = 'Can not create Station'
+      set_flash_message :error, :error, now: true, scope: :error
       render :new
     end
   end
 
   def update
     if @station.update_attributes(station_params)
-      flash[:success] = 'Update Station successful!'
+      set_flash_message :success, :updated
       redirect_to admin_stations_path
     else
-      flash[:error] = 'Can not update Station'
+      set_flash_message :error, :error, now: true, scope: :error
       render :edit
     end
   end
 
   def destroy
     if @station.destroy
-      flash[:success] = 'Create Station successful!'
+      set_flash_message :success, :destroyed
     else
-      flash[:error] = 'Can not create Station'
+      set_flash_message :error, :error, now: true, scope: :error
+    end
+    redirect_to :back
+  end
+
+  def approve
+    if @station.approved!
+      set_flash_message :success, :approved
+    else
+      set_flash_message :error, :error, now: true, scope: :error
+    end
+    redirect_to :back
+  end
+
+  def reject
+    if @station.rejected!
+      set_flash_message :success, :rejected
+    else
+      set_flash_message :error, :error, now: true, scope: :error
     end
     redirect_to :back
   end

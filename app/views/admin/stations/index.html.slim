@@ -1,24 +1,71 @@
-h2 Station
-= link_to new_admin_station_path, class: "btn btn-primary"
-  span New Station
-table.table.table-striped
-  tr
-    th Index
-    th Name
-    th Location
-    th Longitude
-    th Latitude
-    th Status
-    th Action
-  - @stations.each_with_index do |station, index|
+h2 Stations
+= link_to 'New station', new_admin_station_path, class: 'btn btn-primary'
+table.table.table-stripped
+  thead
     tr
-      td #{index}
-      td #{station.name}
-      td #{station.location}
-      td #{station.longitude}
-      td #{station.latitude}
-      td #{station.status}
-      td
-        = link_to "Show", admin_station_path(station), class: "btn btn-primary"
-        = link_to "Edit", edit_admin_station_path(station), class: "btn btn-primary"
-        = link_to "Delete", admin_station_path(station), method: "delete", class: "btn btn-danger"
+      th Name
+      th Location
+      th Latitude
+      th Longitude
+      th Status
+      th Action
+  tbody
+    - @approved_stations.each do |station|
+      tr
+        td = station.name
+        td = station.location
+        td = station.latitude
+        td = station.longitude
+        td = station.status
+        td
+
+          = link_to 'Reject', reject_admin_station_path(station), method: :put, class: "btn btn-primary"
+          = link_to "Show", admin_station_path(station), class: "btn btn-primary"
+          = link_to 'Edit', edit_admin_station_path(station), class: "btn btn-primary"
+          = link_to 'Delete', admin_station_path(station), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger"
+h2 Requested Stations
+table.table.table-stripped
+  thead
+    tr
+      th Name
+      th Location
+      th Latitude
+      th Longitude
+      th Status
+      th Action
+  tbody
+    - @requested_stations.each do |station|
+      tr
+        td = station.name
+        td = station.location
+        td = station.latitude
+        td = station.longitude
+        td = station.status
+        td
+          = link_to 'Approve', approve_admin_station_path(station), method: :put, class: "btn btn-primary"
+          = link_to 'Reject', reject_admin_station_path(station), method: :put, class: "btn btn-primary"
+          = link_to 'Edit', edit_admin_station_path(station), class: "btn btn-primary"
+          = link_to 'Delete', admin_station_path(station), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger"
+hr
+h2 Rejected Stations
+table.table.table-stripped
+  thead
+    tr
+      th Name
+      th Location
+      th Latitude
+      th Longitude
+      th Status
+      th
+  tbody
+    - @rejected_stations.each do |station|
+      tr
+        td = station.name
+        td = station.location
+        td = station.latitude
+        td = station.longitude
+        td = station.status
+        td
+          = link_to 'Approve', approve_admin_station_path(station), method: :put, class: "btn btn-primary"
+          = link_to 'Edit', edit_admin_station_path(station), class: "btn btn-primary"
+          = link_to 'Delete', admin_station_path(station), method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger"
