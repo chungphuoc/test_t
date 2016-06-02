@@ -32,17 +32,30 @@ Rails.application.routes.draw do
     resources :stations
     resources :exercises
     resources :customers
-    resources :studios
-    resources :courses
+    resources :studios do
+      resources :contracts, only: [:index, :create, :destroy]
+      resources :services, only: [:index, :create, :destroy]
+      resources :branches, only: [:index, :create, :destroy]
+    end
+    resources :courses do
+      collection do
+        get :change_studio
+      end
+    end
     resources :teachers
+    resources :enrollments do
+      collection do
+        get :change_course
+      end
+    end
   end
 
   namespace :my do
     resource :studio, only: [:show, :edit, :update]
-    resource :customer, only: [:show, :edit, :update]
+    resource :customer, path: :account, only: [:show, :edit, :update]
   end
 
-  namespace :personal do
+  namespace :personal, path: :my do
     resources :courses, only: [:index, :show] do
       collection do
         get :search
@@ -72,8 +85,8 @@ Rails.application.routes.draw do
   namespace :manage do
     resources :studios, only: [:show, :edit, :update]
     resources :contracts, path: :teachers, except: :show
-    resources :stations, only: :index do
-      put :update, on: :collection
+    resources :stations, except: :show do
+      put :update, action: :update_listing, on: :collection
     end
     resources :exercises, only: :index do
       put :update, on: :collection

@@ -1,0 +1,20 @@
+h2 All exercise
+= form_tag admin_studio_services_path(@studio), class: "feed-back-form" do
+  .row
+    .col-lg-9
+      .form-group
+        = collection_select :service, :exercise_id, Exercise.all, :id, :name_with_initial, {prompt: true}, class: "form-control", required: ""
+    .col-lg-3
+      .form-group
+        = submit_tag "Add station", class: "btn btn-primary"
+table.table.table-striped
+  tr
+    th Index
+    th Exercise
+    th Action
+  - @services.each_with_index do |service, index|
+    tr
+      td #{index}
+      td #{service.exercise.name}
+      td
+        = link_to "Delete", admin_studio_service_path(service.studio, service), method: "delete", class: "btn btn-danger"

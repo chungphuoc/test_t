@@ -1,0 +1,21 @@
+h2 Studio
+= link_to new_admin_studio_path, class: "btn btn-primary"
+  span New Studio
+table.table.table-striped
+  tr
+    th Index
+    th Name
+    th Email
+    th Action
+  - @studios.each_with_index do |studio, index|
+    tr
+      td #{index}
+      td #{studio.name}
+      td #{studio.email}
+      td
+        = link_to "Show", admin_studio_path(studio), class: "btn btn-primary"
+        = link_to "Edit", edit_admin_studio_path(studio), class: "btn btn-primary"
+        = link_to 'All Teachers', admin_studio_contracts_path(studio), class: 'btn btn-primary'
+        = link_to 'All Staions', admin_studio_branches_path(studio), class: 'btn btn-primary'
+        = link_to 'All Exercises', admin_studio_services_path(studio), class: 'btn btn-primary'
+        = link_to "Delete", admin_studio_path(studio), method: "delete", class: "btn btn-danger"

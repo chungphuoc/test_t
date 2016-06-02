@@ -13,7 +13,7 @@ class My::CustomersController < ApplicationController
   def update
     @customer.user.update_attributes(user_params)
     if @customer.update_attributes(customer_params)
-      flash[:notice] = 'Update successfuly!'
+      set_flash_message :success, :updated
       redirect_to my_customer_path
     else
       render :edit
@@ -24,7 +24,7 @@ class My::CustomersController < ApplicationController
 
   def authenticate_customer!
     return if current_user.customer?
-    flash[:notice] = 'Access Denied'
+    set_flash_message :notice, :access_denied, scope: :error
     redirect_to root_path
   end
 
@@ -38,5 +38,9 @@ class My::CustomersController < ApplicationController
 
   def user_params
     params.require(:customer).require(:user_attributes).permit(:name, :contact_number, :address, :avatar)
+  end
+
+  def translation_scope
+    "my.#{controller_name}"
   end
 end

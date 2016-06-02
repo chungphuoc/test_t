@@ -1,0 +1,42 @@
+h2 Customer detail
+table.table.table-striped
+  tr
+    th Name
+    td = @customer.name
+  tr
+    th Email
+    td = @customer.email
+  tr
+    th Address
+    td = @customer.address
+  tr
+    th Number Phone
+    td = @customer.contact_number
+  tr
+    th Avarta
+    td 
+      = image_tag @customer.avatar 
+  tr
+    th Point
+    td
+      = @customer.point
+  tr
+    th Total Point
+    td
+      = @customer.total_point
+  tr
+    th Birthday
+    td
+      = @customer.birthday.strftime("%b %d %Y")
+  tr
+    th Gender
+    td
+      = @customer.gender
+  tr
+    th Receive sms
+    td
+      = @customer.receive_sms
+= link_to :back, class: "btn btn-primary"
+  span Back
+= link_to edit_admin_customer_path(@customer), class: "btn btn-primary"
+  span Edit

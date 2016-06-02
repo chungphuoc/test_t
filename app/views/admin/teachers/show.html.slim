@@ -1,0 +1,15 @@
+h2 Teacher detail
+table.table.table-striped
+  tr
+    th Name
+    td = @teacher.name
+  tr
+    th Created At
+    td = @teacher.created_at.strftime("%I:%M %p, %b %d %Y")
+  tr
+    th Updated At
+    td = @teacher.updated_at.strftime("%I:%M %p, %b %d %Y")
+= link_to :back, class: "btn btn-primary"
+  span Back
+= link_to edit_admin_teacher_path(@teacher), class: "btn btn-primary"
+  span Edit

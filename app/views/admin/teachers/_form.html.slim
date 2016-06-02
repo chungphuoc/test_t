@@ -1,0 +1,10 @@
+= form_for [:admin, @teacher], class: "form-horizontal" do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+    .error-text
+        = @teacher.errors[:name].to_sentence
+  .form-group
+    = link_to admin_teachers_path, class: "btn btn-primary"
+      span Back
+    = f.submit "Submit", class: "btn btn-primary"

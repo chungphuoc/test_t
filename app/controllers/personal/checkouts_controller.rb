@@ -6,9 +6,9 @@ class Personal::CheckoutsController < ApplicationController
     if @enrollment.save
       @payment_service.save_payment_info(params)
       @payment_service.update_customer_info(params)
-      flash[:notice] = 'Book class successful!'
+      set_flash_message :success, :checkout_success
     else
-      flash[:notice] = @enrollment.errors.full_messages[0]
+      flash[:error] = @enrollment.errors.full_messages[0]
     end
     redirect_to :back
   end

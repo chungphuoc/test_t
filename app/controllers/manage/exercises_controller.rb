@@ -5,7 +5,7 @@ class Manage::ExercisesController < Manage::BaseController
 
   def update
     StudioExerciseService.new(@studio).update_exercises(params[:exercise_ids].to_a)
-    flash[:success] = 'Exercise listing has been successfully updated.'
+    set_flash_message :success, :updated
     redirect_to manage_exercises_path
   end
 end

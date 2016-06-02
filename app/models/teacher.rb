@@ -4,4 +4,7 @@ class Teacher < ActiveRecord::Base
   has_many :studios, through: :contracts
 
   validates :name, presence: true, uniqueness: true
+  def name_with_initial
+    name
+  end
 end

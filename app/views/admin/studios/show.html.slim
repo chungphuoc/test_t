@@ -1,0 +1,27 @@
+h2 Studio detail
+table.table.table-striped
+  tr
+    th Name
+    td = @studio.name
+  tr
+    th Email
+    td = @studio.email
+  tr
+    th Address
+    td = @studio.address
+  tr
+    th Number Phone
+    td = @studio.contact_number
+  tr
+    th Avarta
+    td 
+      = image_tag @studio.avatar 
+  tr
+    th Cover Image
+    td
+      = image_tag @studio.cover_img
+= link_to :back, class: "btn btn-primary"
+  span Back
+= link_to edit_admin_studio_path(@studio), class: "btn btn-primary"
+  span Edit
+= link_to 'All Teacher', admin_studio_contracts_path(@studio), class: 'btn btn-primary'

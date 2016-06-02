@@ -21,10 +21,10 @@ class Manage::CoursesController < Manage::BaseController
   def create
     @course = @studio.courses.new(course_params)
     if @course.save
-      flash[:success] = 'Course has been successfully created'
+      set_flash_message :success, :created
       redirect_to manage_course_path(@course)
     else
-      flash.now[:error] = 'Error!'
+      set_flash_message :error, :error, now: true, scope: :error
       render :new
     end
   end
@@ -38,26 +38,29 @@ class Manage::CoursesController < Manage::BaseController
   def update
     @course.assign_attributes(course_params)
     if @course.save
-      flash[:success] = 'Course has been successfully updated'
+      set_flash_message :success, :updated
       redirect_to manage_course_path(@course)
     else
-      flash.now[:error] = 'Error!'
+      set_flash_message :error, :error, now: true, scope: :error
       render :edit
     end
   end
 
   def destroy
     @course.destroy
+    set_flash_message :success, :destroyed
     redirect_to manage_courses_url
   end
 
   def close
     @course.inactive!
+    set_flash_message :success, :closed
     redirect_to manage_courses_url
   end
 
   def reopen
     @course.active!
+    set_flash_message :success, :reopened
     redirect_to manage_courses_url
   end
 

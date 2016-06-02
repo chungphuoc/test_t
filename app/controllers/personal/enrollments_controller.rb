@@ -1,16 +1,16 @@
 class Personal::EnrollmentsController < Personal::BaseController
   def index
     @enrollments = EnrollmentsQuery.new(current_user).by_statuses(params[:statuses] || [])
-                           .page params[:page]
+                                   .page params[:page]
   end
 
   def create
     @enrollment = current_user.enrollments.new(course_id: params[:course_id])
     if @enrollment.save
-      flash[:notice] = 'Add class successful!'
+      set_flash_message :success, :created
       redirect_to personal_enrollments_path
     else
-      flash[:notice] = @enrollment.errors.full_messages[0]
+      flash[:error] = @enrollment.errors.full_messages[0]
       redirect_to personal_enrollments_path
     end
   end

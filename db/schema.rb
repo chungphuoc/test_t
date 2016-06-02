@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525050214) do
+ActiveRecord::Schema.define(version: 20160602075940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -50,7 +55,6 @@ ActiveRecord::Schema.define(version: 20160525050214) do
     t.integer  "num_slot"
     t.time     "start_time"
     t.time     "end_time"
-    t.date     "start_date"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "teacher_id"
@@ -62,13 +66,16 @@ ActiveRecord::Schema.define(version: 20160525050214) do
     t.integer  "tuition"
     t.string   "currency"
     t.integer  "booked_slot"
+    t.date     "start_date"
     t.integer  "days_of_week",      default: [],              array: true
+    t.date     "full_dates",        default: [],              array: true
   end
 
   add_index "courses", ["days_of_week"], name: "index_courses_on_days_of_week", using: :gin
+  add_index "courses", ["full_dates"], name: "index_courses_on_full_dates", using: :gin
 
   create_table "customers", force: :cascade do |t|
-    t.integer  "point"
+    t.integer  "point",       default: 0
     t.integer  "gender"
     t.date     "birthday"
     t.boolean  "receive_sms"
@@ -147,10 +154,12 @@ ActiveRecord::Schema.define(version: 20160525050214) do
   create_table "stations", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.float    "latitude",   default: 0.0
-    t.float    "longitude",  default: 0.0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.float    "latitude",     default: 0.0
+    t.float    "longitude",    default: 0.0
+    t.integer  "status"
+    t.integer  "requester_id"
   end
 
   create_table "studios", force: :cascade do |t|

@@ -1,0 +1,20 @@
+h2 All teacher
+= form_tag admin_studio_contracts_path(@studio), class: "feed-back-form" do
+  .row
+    .col-lg-9
+      .form-group
+        = text_field_tag :teacher_name, nil, class: "form-control", placeholder: 'teacher name', required: ""
+    .col-lg-3
+      .form-group
+        = submit_tag "Add teacher", class: "btn btn-primary"
+table.table.table-striped
+  tr
+    th Index
+    th Teacher
+    th Action
+  - @contracts.each_with_index do |contract, index|
+    tr
+      td #{index}
+      td #{contract.teacher.name}
+      td
+        = link_to "Delete", admin_studio_contract_path(contract.studio, contract), method: "delete", class: "btn btn-danger"
