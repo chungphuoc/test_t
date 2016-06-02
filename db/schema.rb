@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531041405) do
+ActiveRecord::Schema.define(version: 20160602075940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20160531041405) do
     t.integer  "num_slot"
     t.time     "start_time"
     t.time     "end_time"
-    t.date     "start_date"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "teacher_id"
@@ -67,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160531041405) do
     t.integer  "tuition"
     t.string   "currency"
     t.integer  "booked_slot"
+    t.date     "start_date"
     t.integer  "days_of_week",      default: [],              array: true
     t.date     "full_dates",        default: [],              array: true
   end
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20160531041405) do
   add_index "courses", ["full_dates"], name: "index_courses_on_full_dates", using: :gin
 
   create_table "customers", force: :cascade do |t|
-    t.integer  "point"
+    t.integer  "point",       default: 0
     t.integer  "gender"
     t.date     "birthday"
     t.boolean  "receive_sms"
