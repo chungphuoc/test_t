@@ -1,0 +1,18 @@
+h2 Customer
+= link_to new_admin_customer_path, class: "btn btn-primary"
+  span New Customer
+table.table.table-striped
+  tr
+    th Index
+    th Name
+    th Email
+    th Action
+  - @customers.each_with_index do |customer, index|
+    tr
+      td #{index}
+      td #{customer.name}
+      td #{customer.email}
+      td
+        = link_to "Show", admin_customer_path(customer), class: "btn btn-primary"
+        = link_to "Edit", edit_admin_customer_path(customer), class: "btn btn-primary"
+        = link_to "Delete", admin_customer_path(customer), method: "delete", class: "btn btn-danger"

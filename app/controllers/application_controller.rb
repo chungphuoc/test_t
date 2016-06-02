@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def after_sign_in_path_for(resource)
-    if resource.studio?
+    if resource.admin?
+      admin_studios_path
+    elsif resource.studio?
       manage_courses_path
     else
       my_customer_path

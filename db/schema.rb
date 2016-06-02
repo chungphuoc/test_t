@@ -16,6 +16,11 @@ ActiveRecord::Schema.define(version: 20160531041405) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "admins", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"
@@ -50,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160531041405) do
     t.integer  "num_slot"
     t.time     "start_time"
     t.time     "end_time"
+    t.date     "start_date"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "teacher_id"
@@ -61,7 +67,6 @@ ActiveRecord::Schema.define(version: 20160531041405) do
     t.integer  "tuition"
     t.string   "currency"
     t.integer  "booked_slot"
-    t.date     "start_date"
     t.integer  "days_of_week",      default: [],              array: true
     t.date     "full_dates",        default: [],              array: true
   end

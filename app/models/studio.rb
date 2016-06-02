@@ -1,5 +1,5 @@
 class Studio < ActiveRecord::Base
-  has_one :user, as: :role
+  has_one :user, as: :role, dependent: :destroy
   has_many :courses, dependent: :destroy
   has_many :contracts, dependent: :destroy
   has_many :teachers, through: :contracts
@@ -9,8 +9,7 @@ class Studio < ActiveRecord::Base
   has_many :exercises, through: :services
   has_many :requested_stations, class_name: 'Station', foreign_key: :requester_id
 
-  delegate :email, to: :user
-  delegate :name, to: :user
+  delegate :email, :address, :contact_number, :avatar, :name, to: :user
 
   accepts_nested_attributes_for :user
 
