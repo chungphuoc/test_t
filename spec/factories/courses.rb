@@ -8,5 +8,6 @@ FactoryGirl.define do
     association :station, factory: :station
     association :exercise, factory: :exercise
     website Faker::Internet.url
+    kcal 10
   end
 end
