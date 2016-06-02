@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
 
   def feedback
     FeedbackMailer.to_admin(params[:name], params[:title], params[:message]).deliver_later
-    flash[:notice] = "Your feedback has been sent."
+    flash[:notice] = 'Your feedback has been sent.'
     redirect_to :back
   end
 

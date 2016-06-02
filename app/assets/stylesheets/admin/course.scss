@@ -1,0 +1,9 @@
+.table-courses{
+  img{
+    width: 60px;
+    height: 40px;
+  }
+}
+.table-enrollment{
+  @extend .table-courses;
+}

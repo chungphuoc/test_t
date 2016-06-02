@@ -1,0 +1,36 @@
+h2 Enrollments
+= link_to "New Enrollment", new_admin_enrollment_path, class: "btn btn-primary"
+table.table.table-striped.table-enrollment
+  tr
+    th Index
+    th Cover Image
+    th Class Name
+    th User Name
+    th User Email
+    th Date
+    th Start Time
+    th End Time
+    th Join Date
+    th Status
+    th Action
+  - @enrollments.each_with_index do |enrollment, index|
+    tr
+      td #{index}
+      td
+        = image_tag enrollment.cover_img
+      td 
+        = link_to admin_course_path(enrollment.course)
+          span #{enrollment.course_name}
+      td 
+        = link_to admin_customer_path(enrollment.customer)
+          span #{enrollment.customer.name}
+      td #{enrollment.customer.email}
+      td #{enrollment.start_date}
+      td #{enrollment.start_time.strftime("%I:%M %p")}
+      td #{enrollment.end_time.strftime("%I:%M %p")}
+      td #{enrollment.join_date}
+      td id="status_#{enrollment.id}" #{enrollment.status}
+      td
+        = link_to "Show", admin_enrollment_path(enrollment), class: "btn btn-primary"
+        = link_to "Edit", edit_admin_enrollment_path(enrollment), class: "btn btn-primary"
+        = link_to "Delete", admin_enrollment_path(enrollment), method: "delete", class: "btn btn-danger"

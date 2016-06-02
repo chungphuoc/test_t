@@ -9,4 +9,8 @@ class Station < ActiveRecord::Base
   validates :name, presence: true
   validates :latitude, presence: true
   validates :longitude, presence: true
+
+  def name_with_initial
+    name
+  end
 end

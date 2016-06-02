@@ -1,7 +1,6 @@
 class Enrollment < ActiveRecord::Base
   belongs_to :customer
   belongs_to :course, counter_cache: true
-  validates_uniqueness_of :customer_id, scope: [:course_id], message: 'Class has been booked!'
   validates_uniqueness_of :customer_id, scope: [:course_id, :join_date], message: 'Class has been booked!'
   validate :num_slot_less_than_maximum, on: :create
 
@@ -22,10 +21,10 @@ class Enrollment < ActiveRecord::Base
   after_save :update_course_full_dates
 
   def num_slot_less_than_maximum
-    @course = self.course
-    @enrollment_count = @course.enrollments.where(join_date: self.join_date).count
+    @course = course
+    @enrollment_count = @course.enrollments.where(join_date: join_date).count
     if @enrollment_count >= @course.num_slot
-      errors.add("This class is full! Please choose another time.")
+      errors.add('This class is full! Please choose another time.')
     end
   end
 
@@ -57,8 +56,7 @@ class Enrollment < ActiveRecord::Base
   end
 
   def self.update_status
-    Enrollment.where("status = ? AND join_date < ?", Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
+    Enrollment.where('status = ? AND join_date < ?', Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
     Rails.logger.info("Update status at #{Time.now}")
   end
-
 end

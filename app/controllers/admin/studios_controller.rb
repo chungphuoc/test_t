@@ -6,7 +6,6 @@ class Admin::StudiosController < Admin::BaseController
   end
 
   def show
-    
   end
 
   def new
@@ -15,40 +14,40 @@ class Admin::StudiosController < Admin::BaseController
   end
 
   def edit
-    
   end
 
   def create
     @studio = Studio.new(studio_params)
     if @studio.save
-      flash[:notice] = "Successful create Studio." 
+      flash[:success] = 'Successful create Studio.'
       redirect_to admin_studios_path
     else
-      flash[:notice] = "Cannot create Studio"
+      flash[:error] = 'Cannot create Studio'
       render :new
     end
   end
 
   def update
     if @studio.update_attributes(studio_params)
-      flash[:notice] = "Successful update Studio." 
+      flash[:success] = 'Successful update Studio.'
       redirect_to admin_studios_path
     else
-      flash[:notice] = "Cannot update Studio"
+      flash[:error] = 'Cannot update Studio'
       render :edit
     end
   end
 
   def destroy
     if @studio.destroy
-      flash[:notice] = "Delete Studio successful!"
+      flash[:success] = 'Delete Studio successful!'
     else
-      flash[:notice] = "Cannot delete Studio!"
+      flash[:error] = 'Cannot delete Studio!'
     end
     redirect_to :back
   end
 
   private
+
   def prepare_studio
     @studio = Studio.find(params[:id])
   end
@@ -59,7 +58,7 @@ class Admin::StudiosController < Admin::BaseController
       params[:studio][:user_attributes].delete(:password_confirmation)
     end
     params[:studio][:user_attributes].delete(:address) if params[:studio][:user_attributes][:address].blank?
-    params[:studio][:user_attributes].delete(:contact_number) if params[:studio][:user_attributes][:contact_number].blank? 
+    params[:studio][:user_attributes].delete(:contact_number) if params[:studio][:user_attributes][:contact_number].blank?
     params.require(:studio).permit(:cover_img, user_attributes: [:id, :name, :email, :contact_number, :password, :password_confirmation, :address, :avatar])
   end
 end

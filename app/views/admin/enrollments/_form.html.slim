@@ -1,0 +1,16 @@
+= form_for [:admin, @enrollment], class: "form-horizontal" do |f|
+  .form-group
+    = f.label :customer
+    = collection_select :enrollment, :customer_id, Customer.all, :id, :name_with_initial, {prompt: true}, class: "form-control"
+  .form-group
+    = f.label :course
+    = collection_select :enrollment, :course_id, Course.all, :id, :name_with_initial, {prompt: true}, class: "form-control", onchange: "change_join_day_option()"
+  .form-group
+    = f.label :join_date
+    - if action_name == "edit"
+      = f.select :join_date, options_for_select(@enrollment.course.slot_time, @enrollment.join_date), {}, class: "form-control"
+    - else
+      = f.select :join_date, options_for_select([]), {}, class: "form-control"
+  .form-group
+    = link_to "Back", admin_enrollments_path, class: "btn btn-primary"
+    = f.submit "Submit", class: "btn btn-primary"
