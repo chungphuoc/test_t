@@ -1,7 +1,7 @@
 = form_for [:admin, @course], class: "form-horizontal" do |f|
   .form-group
     = f.label :name
-    = f.text_field :name, class: "form-control"
+    = f.text_field :name, class: "form-control", required: ""
     .error-text
         = @course.errors[:name].to_sentence
   .form-group
@@ -19,12 +19,12 @@
         = @course.errors[:website].to_sentence
   .form-group
     = f.label :num_slot
-    = f.number_field :num_slot, class: "form-control"
+    = f.number_field :num_slot, class: "form-control", required: ""
     .error-text
         = @course.errors[:num_slot].to_sentence
   .form-group
     = f.label :kcal
-    = f.number_field :kcal, class: "form-control"
+    = f.number_field :kcal, class: "form-control", required: ""
     .error-text
         = @course.errors[:kcal].to_sentence
   .form-group
@@ -41,7 +41,7 @@
     = f.select :currency, options_for_select(["usd", "yen"]), {}, class: "form-control"
   .form-group
     = f.label :studio
-    = collection_select :course, :studio_id, Studio.all, :id, :name_with_initial, {prompt: true}, class: "form-control", onchange: "change_studio_option()"
+    = collection_select :course, :studio_id, Studio.all, :id, :name_with_initial, {prompt: true}, class: "form-control", onchange: "change_studio_option()", required: ""
     .error-text
         = @course.errors[:password].to_sentence
   - if action_name == "edit"
