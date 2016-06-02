@@ -16,30 +16,30 @@ class Admin::EnrollmentsController < Admin::BaseController
 
   def update
     if @enrollment.update_attributes(enrollment_params)
-      flash[:notice] = 'Enrollment successful updated!'
+      flash[:success] = 'Enrollment successful updated!'
       redirect_to :back
     else
-      flash[:notice] = 'Can not update Enrollment!'
+      flash[:error] = 'Can not update Enrollment!'
       render :edit
     end
   end
 
   def destroy
-    flash[:notice] = if @enrollment.destroy
-                       'Delete Enrollment successful!'
-                     else
-                       'Cannot delete Enrollment!'
-                     end
+    if @enrollment.destroy
+      flash[:success] = 'Delete Enrollment successful!'
+    else
+      flash[:error] = 'Cannot delete Enrollment!'
+    end
     redirect_to :back
   end
 
   def create
     @enrollment = Enrollment.new(enrollment_params)
     if @enrollment.save
-      flash[:notice] = 'Enrollment successful created!'
+      flash[:success] = 'Enrollment successful created!'
       redirect_to :back
     else
-      flash[:notice] = 'Can not create Enrollment!'
+      flash[:error] = 'Can not create Enrollment!'
       render :new
     end
   end

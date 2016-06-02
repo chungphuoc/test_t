@@ -18,10 +18,10 @@ class Admin::CustomersController < Admin::BaseController
 
   def update
     if @customer.update_attributes(customer_params)
-      flash[:notice] = 'Successful update Customer.'
+      flash[:success] = 'Successful update Customer.'
       redirect_to admin_customers_path
     else
-      flash[:notice] = 'Cannot update Customer'
+      flash[:error] = 'Cannot update Customer'
       render :edit
     end
   end
@@ -29,20 +29,20 @@ class Admin::CustomersController < Admin::BaseController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
-      flash[:notice] = 'Successful create Studio.'
+      flash[:success] = 'Successful create Studio.'
       redirect_to admin_customers_path
     else
-      flash[:notice] = 'Cannot create Studio'
+      flash[:error] = 'Cannot create Studio'
       render :new
     end
   end
 
   def destroy
-    flash[:notice] = if @customer.destroy
-                       'Delete Customer successful!'
-                     else
-                       'Cannot delete Customer!'
-                     end
+    if @customer.destroy
+      flash[:success] = 'Delete Customer successful!'
+    else
+      flash[:error] = 'Cannot delete Customer!'
+    end
     redirect_to :back
   end
 
