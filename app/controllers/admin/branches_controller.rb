@@ -8,7 +8,7 @@ class Admin::BranchesController < Admin::BaseController
   def create
     @branch = @studio.branches.new(station_id: params[:branch][:station_id])
     if @branch.save
-      flash[:success] = 'Add Station successful!'
+      set_flash_message :success, :created
     else
       flash[:error] = @branch.errors[:station_id].to_sentence
     end
@@ -18,9 +18,9 @@ class Admin::BranchesController < Admin::BaseController
   def destroy
     @branch = Branch.find(params[:id])
     if @branch.destroy
-      flash[:success] = 'Delete station successful!'
+      set_flash_message :success, :destroyed
     else
-      flash[:error] = 'Can not delete station!'
+      set_flash_message :error, :destroy_failed
     end
     redirect_to :back
   end

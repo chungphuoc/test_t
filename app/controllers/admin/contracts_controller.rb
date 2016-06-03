@@ -10,10 +10,10 @@ class Admin::ContractsController < Admin::BaseController
     if @teacher.save
       @contract = @studio.contracts.new(teacher: @teacher)
       if @contract.save
-        flash[:success] = 'Add teacher successful!'
+        set_flash_message :success, :created
         redirect_to admin_studio_contracts_path
       else
-        flash[:error] = 'Can not add teacher!'
+        set_flash_message :error, :error, scope: :error
         redirect_to :back
       end
     else
@@ -26,10 +26,10 @@ class Admin::ContractsController < Admin::BaseController
     @contract = Contract.find(params[:id])
     @teacher = @contract.teacher
     if @teacher.destroy
-      flash[:success] = 'Delete teacher successful!'
+      set_flash_message :success, :destroyed
       redirect_to admin_studio_contracts_path
     else
-      flash[:error] = 'Can not delete teacher!'
+      set_flash_message :error, :destroy_failed
       redirect_to :back
     end
   end

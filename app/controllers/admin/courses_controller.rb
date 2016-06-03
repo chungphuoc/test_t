@@ -15,10 +15,10 @@ class Admin::CoursesController < Admin::BaseController
   def create
     @course = Course.new(course_params)
     if @courses.save
-      flash[:success] = 'Add Class successful!'
+      set_flash_message :success, :created
       redirect_to admin_courses_path
     else
-      flash[:error] = 'Can not add Class!'
+      set_flash_message :error, :error, scope: :error, now: true
       render :new
     end
   end
@@ -28,20 +28,20 @@ class Admin::CoursesController < Admin::BaseController
 
   def update
     if @course.update_attributes(course_params)
-      flash[:success] = 'Update Class successful!'
+      set_flash_message :success, :updated
       redirect_to admin_courses_path
     else
-      flash[:error] = 'Can not update class!'
+      set_flash_message :error, :error, scope: :error, now: true
       render :edit
     end
   end
 
   def destroy
     if @course.destroy
-      flash[:success] = 'Delete Class successful!'
+      set_flash_message :success, :destroyed
       redirect_to admin_courses_path
     else
-      flash[:error] = 'Can not delete Class!'
+      set_flash_message :error, :error, scope: :error, now: true
       redirect_to :back
     end
   end

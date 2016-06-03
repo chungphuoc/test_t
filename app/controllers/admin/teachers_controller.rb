@@ -11,10 +11,10 @@ class Admin::TeachersController < Admin::BaseController
   def create
     @teacher = Teacher.new(teacher_params)
     if @teacher.save
-      flash[:success] = 'Create Teacher successful!'
+      set_flash_message :success, :created
       redirect_to admin_teachers_path
     else
-      flash[:error] = 'Cannot create Teacher.'
+      set_flash_message :error, :error, scope: :error, now: true
       render :new
     end
   end
@@ -28,19 +28,19 @@ class Admin::TeachersController < Admin::BaseController
 
   def update
     if @teacher.update_attributes(teacher_params)
-      flash[:success] = 'Update Teacher successful!'
+      set_flash_message :success, :updated
       redirect_to admin_teachers_path
     else
-      flash[:error] = 'Can not update Teacher.'
+      set_flash_message :error, :error, scope: :error, now: true
       render :edit
     end
   end
 
   def destroy
     if @teacher.destroy
-      flash[:success] = 'Delete Teacher successful!'
+      set_flash_message :success, :destroyed
     else
-      flash[:error] = 'Can not delete Teacher.'
+      set_flash_message :error, :destroy_failed
     end
     redirect_to :back
   end
