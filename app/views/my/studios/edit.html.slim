@@ -10,16 +10,24 @@ h1 Edit
       .form-group
         = user_form.label :name
         = user_form.text_field :name, class: "form-control"
+        .error-text
+          = @studio.user.errors[:name].to_sentence
       .form-group
         = user_form.label :contact_number
         = user_form.text_field :contact_number, class: "form-control"
+        .error-text
+          = @studio.user.errors[:contact_number].to_sentence
       .form-group
         = user_form.label :address
         = user_form.text_field :address, class: "form-control"
+        .error-text
+          = @studio.user.errors[:address].to_sentence
       .form-group
         = user_form.label :avatar
         br
         = image_tag @studio.user.avatar, alt: "No preview"
         = user_form.file_field :avatar
+        .error-text
+          = @studio.user.errors[:avatar].to_sentence
     .form-group
       = f.submit "Submit", class: "btn btn-primary"

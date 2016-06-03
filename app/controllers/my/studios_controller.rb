@@ -16,6 +16,7 @@ class My::StudiosController < ApplicationController
       set_flash_message :success, :updated
       redirect_to my_studio_path
     else
+      set_flash_message :error, :error, scope: :error, now: true
       render :edit
     end
   end
