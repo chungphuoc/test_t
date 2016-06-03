@@ -56,4 +56,48 @@ en:
     sent: 'Invitation sent successfuly!'
   static_pages:
     feedback: 'Your feedback has been sent.'
+  admin:
+    branches:
+      created: 'Station has been successfully added'
+      destroyed: 'Station has been successfully deleted'
+      destroy_failed: 'Delete station failed'
+    contracts:
+      created: 'Teacher has been successfully added.'
+      destroyed: 'Teacher has been successfully deleted.'
+      destroy_failed: 'Delete teacher failed'
+    courses:
+      created: 'Class has been successfully added'
+      updated: 'Class has been successfully updated'
+      destroyed: 'Class has been successfully deleted'
+    customers:
+      created: 'Customer has been successfully created'
+      updated: 'Customer has been successfully updated'
+      destroyed: 'Customer has been successfully destroyed'
+      destroy_failed: 'Delete customer failed'
+    enrollments:
+      created: 'Enrollment has been successfully created'
+      updated: 'Enrollment has been successfully updated'
+      destroyed: 'Enrollment has been successfully destroyed'
+      destroy_failed: 'Delete enrollment failed'
+    exercises:
+      created: 'Exercise has been successfully created'
+      updated: 'Exercise has been successfully updated'
+      destroyed: 'Exercise has been successfully destroyed'
+      destroy_failed: 'Delete exercise failed'
+    services:
+      created: 'Exercise has been successfully added.'
+      destroyed: 'Exercise has been successfully removed.'
+      destroy_failed: 'Remove exercise failed.'
+    studios:
+      created: 'Studio has been successfully created'
+      updated: 'Studio has been successfully updated'
+      destroyed: 'Studio has been successfully destroyed'
+      destroy_failed: 'Delete studio failed'
+    teachers:
+      created: 'Teacher has been successfully created'
+      updated: 'Teacher has been successfully updated'
+      destroyed: 'Teacher has been successfully destroyed'
+      destroy_failed: 'Delete teacher failed'
+
+
 

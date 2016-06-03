@@ -18,10 +18,10 @@ class Admin::CustomersController < Admin::BaseController
 
   def update
     if @customer.update_attributes(customer_params)
-      flash[:success] = 'Successful update Customer.'
+      set_flash_message :success, :updated
       redirect_to admin_customers_path
     else
-      flash[:error] = 'Cannot update Customer'
+      set_flash_message :error, :error, scope: :error, now: true
       render :edit
     end
   end
@@ -29,19 +29,19 @@ class Admin::CustomersController < Admin::BaseController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
-      flash[:success] = 'Successful create Studio.'
+      set_flash_message :success, :created
       redirect_to admin_customers_path
     else
-      flash[:error] = 'Cannot create Studio'
+      set_flash_message :error, :error, scope: :error, now: true
       render :new
     end
   end
 
   def destroy
     if @customer.destroy
-      flash[:success] = 'Delete Customer successful!'
+      set_flash_message :success, :destroyed
     else
-      flash[:error] = 'Cannot delete Customer!'
+      set_flash_message :error, :destroy_failed
     end
     redirect_to :back
   end

@@ -5,7 +5,7 @@ class Admin::BaseController < ApplicationController
 
   def authenticate_admin!
     return if current_user.admin?
-    flash[:notice] = 'Access Denied'
+    set_flash_message :notice, :access_denied, scope: :error
     redirect_to root_path
   end
 

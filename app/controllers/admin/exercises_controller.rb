@@ -14,10 +14,10 @@ class Admin::ExercisesController < Admin::BaseController
   def create
     @exercise = Exercise.new(exercise_params)
     if @exercise.save
-      flash[:success] = 'Create Exercise successful!'
+      set_flash_message :success, :created
       redirect_to admin_exercises_path
     else
-      flash[:error] = 'Can not create Exercise'
+      set_flash_message :error, :error, scope: :error, now: true
       render :new
     end
   end
@@ -28,19 +28,19 @@ class Admin::ExercisesController < Admin::BaseController
 
   def update
     if @exercise.update_attributes(exercise_params)
-      flash[:success] = 'Update Exercise successful!'
+      set_flash_message :success, :updated
       redirect_to admin_exercises_path
     else
-      flash[:error] = 'Can not update Exercise'
+      set_flash_message :error, :error, scope: :error, now: true
       render :edit
     end
   end
 
   def destroy
     if @exercise.destroy
-      flash[:success] = 'Delete Exercise successful!'
+      set_flash_message :success, :destroyed
     else
-      flash[:error] = 'Can not delete Exercise'
+      set_flash_message :error, :destroy_failed
     end
     render :back
   end

@@ -8,7 +8,7 @@ class Admin::ServicesController < Admin::BaseController
   def create
     @service = @studio.services.new(exercise_id: params[:service][:exercise_id])
     if @service.save
-      flash[:success] = 'Add Station successful!'
+      set_flash_message :success, :created
     else
       flash[:error] = @service.errors[:exercise_id].to_sentence
     end
@@ -18,9 +18,9 @@ class Admin::ServicesController < Admin::BaseController
   def destroy
     @service = Service.find(params[:id])
     if @service.destroy
-      flash[:success] = 'Delete exercise successful!'
+      set_flash_message :success, :destroyed
     else
-      flash[:error] = 'Can not delete exercise!'
+      set_flash_message :error, :destroy_failed
     end
     redirect_to :back
   end
