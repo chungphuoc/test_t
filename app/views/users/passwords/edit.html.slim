@@ -6,6 +6,7 @@
       .row.title
         h2 Change your password
       .row.body
+        = f.hidden_field :reset_password_token
         - if @minimum_password_length
           p #{@minimum_password_length} characters minimum
         .form-group.left-inner-addon
