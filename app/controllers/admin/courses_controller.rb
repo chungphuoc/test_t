@@ -5,7 +5,7 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def index
-    @courses = Course.all
+    @courses = Course.all.page(params[:page])
   end
 
   def new

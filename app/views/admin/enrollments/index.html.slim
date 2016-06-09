@@ -34,3 +34,4 @@ table.table.table-striped.table-enrollment
         = link_to "Show", admin_enrollment_path(enrollment), class: "btn btn-primary"
         = link_to "Edit", edit_admin_enrollment_path(enrollment), class: "btn btn-primary"
         = link_to "Delete", admin_enrollment_path(enrollment), method: "delete", class: "btn btn-danger"
+= paginate @enrollments

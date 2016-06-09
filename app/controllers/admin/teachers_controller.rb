@@ -2,7 +2,7 @@ class Admin::TeachersController < Admin::BaseController
   before_action :prepare_teacher, only: [:show, :edit, :destroy, :update]
 
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.all.page(params[:page])
   end
 
   def show

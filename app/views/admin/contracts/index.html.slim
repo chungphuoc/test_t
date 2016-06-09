@@ -18,3 +18,4 @@ table.table.table-striped
       td #{contract.teacher.name}
       td
         = link_to "Delete", admin_studio_contract_path(contract.studio, contract), method: "delete", class: "btn btn-danger"
+= paginate @contracts

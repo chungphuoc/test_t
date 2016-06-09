@@ -18,3 +18,4 @@ table.table.table-striped
       td #{branch.station.name}
       td
         = link_to "Delete", admin_studio_branch_path(branch.studio, branch), method: "delete", class: "btn btn-danger"
+= paginate @branches

@@ -18,3 +18,4 @@ table.table.table-striped
       td #{service.exercise.name}
       td
         = link_to "Delete", admin_studio_service_path(service.studio, service), method: "delete", class: "btn btn-danger"
+= paginate @services

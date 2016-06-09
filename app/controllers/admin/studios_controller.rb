@@ -2,7 +2,7 @@ class Admin::StudiosController < Admin::BaseController
   before_action :prepare_studio, only: [:show, :update, :edit, :destroy]
 
   def index
-    @studios = Studio.all
+    @studios = Studio.all.page(params[:page])
   end
 
   def show
