@@ -30,4 +30,6 @@ h1 Edit
         .error-text
           = @studio.user.errors[:avatar].to_sentence
     .form-group
+      = link_to :back, class: "btn btn-primary"
+        span Back
       = f.submit "Submit", class: "btn btn-primary"
