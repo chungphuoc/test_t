@@ -15,3 +15,6 @@
     width: 30%;
   }
 }
+.time_select{
+    @extend .date_select;
+}

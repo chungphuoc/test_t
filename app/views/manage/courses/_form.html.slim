@@ -2,19 +2,19 @@
   .form-group
     label.control-label.col-sm-2 = f.label :name
     .col-sm-10
-      = f.text_field :name, class: 'form-control'
+      = f.text_field :name, class: 'form-control', required: ""
       .error-text
         = @course.errors[:name].to_sentence
   .form-group
     label.control-label.col-sm-2 = f.label :cover_img
     .col-sm-10
-      = f.file_field :cover_img, class: 'form-control'
+      = f.file_field :cover_img
       .error-text
         = @course.errors[:cover_img].to_sentence
   .form-group
     label.control-label.col-sm-2 = f.label :phone_number
     .col-sm-10
-      = f.text_field :phone_number, class: 'form-control'
+      = f.text_field :phone_number, class: 'form-control', required: ""
       .error-text
         = @course.errors[:phone_number].to_sentence
   .form-group
@@ -32,25 +32,31 @@
   .form-group
     label.control-label.col-sm-2 = f.label :num_slot
     .col-sm-10
-      = f.text_field :num_slot, class: 'form-control'
+      = f.number_field :num_slot, class: 'form-control', required: ""
       .error-text
         = @course.errors[:num_slot].to_sentence
   .form-group
+    label.control-label.col-sm-2 = f.label :kcal
+    .col-sm-10
+      = f.number_field :kcal, class: "form-control", required: ""
+      .error-text
+          = @course.errors[:kcal].to_sentence
+  .form-group.date_select
     label.control-label.col-sm-2 = f.label :start_date
     .col-sm-10
-      = f.text_field :start_date, class: 'form-control datepicker'
+      = f.date_select :start_date, class: 'form-control datepicker'
       .error-text
         = @course.errors[:start_date].to_sentence
-  .form-group
+  .form-group.time_select
     label.control-label.col-sm-2 = f.label :start_time
     .col-sm-10
-      = f.text_field :start_time, class: 'form-control'
+      = f.time_select :start_time, default: {hour: Time.now.hour, minute: Time.now.min}, class: 'form-control'
       .error-text
         = @course.errors[:start_time].to_sentence
-  .form-group
+  .form-group.time_select
     label.control-label.col-sm-2 = f.label :end_time
     .col-sm-10
-      = f.text_field :end_time, class: 'form-control'
+      = f.time_select :end_time, default: {hour: Time.now.hour, minute: Time.now.min}, class: 'form-control'
       .error-text
         = @course.errors[:end_time].to_sentence
   .form-group
@@ -71,5 +77,5 @@
       = f.select :exercise_id, options_from_collection_for_select(@studio.exercises, :id, :name), { prompt: 'Select exercise' }, class: 'form-control'
       .error-text
         = @course.errors[:exercise].to_sentence
-  = f.submit
+  = f.submit 'Submit', class: 'btn btn-primary'
 end
