@@ -20,7 +20,7 @@
           - resource.errors.messages[:password_confirmation].each do |msg|
             p.error-text #{msg}
         .form-group
-          = f.submit "Change my password", class: "btn btn-primary btn-sm"
-        = render "users/shared/links"
+          = f.submit "Change my password", class: "btn btn-primary btn-sign-in"
+        //= render "users/shared/links"
         = link_to root_path, title: "back", class: "back-button" do
           span.glyphicon.glyphicon-circle-arrow-left.back-icon

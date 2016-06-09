@@ -1,9 +1,8 @@
 .div.navbar.navbar-custom.navbar-fixed-top
-  .div
-    .div.collapse.navbar-collapse
+  .div.collapse.navbar-collapse
+    .container
       .navbar-header
-        = link_to root_path, class: "navbar-brand"
-          span TONE
+        = link_to 'TONE', root_path, class: "navbar-brand btn-home"
       ul.nav.navbar-right.navbar-nav
         - if current_user
           li
@@ -32,10 +31,8 @@
                   p Logout
         -else
           li
-            = link_to new_user_registration_path
-              p Sign up
+            = link_to 'Sign up', new_user_registration_path, class: 'btn-header'
           li
-            = link_to new_user_session_path
-              p Login
+            = link_to 'Sign in', new_user_session_path, class: 'btn-sign-up'
         li
           = link_to_switch_language
