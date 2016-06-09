@@ -16,3 +16,4 @@ table.table.table-striped
         = link_to "Show", admin_exercise_path(exercise), class: "btn btn-primary"
         = link_to "Edit", edit_admin_exercise_path(exercise), class: "btn btn-primary"
         = link_to "Delete", admin_exercise_path(exercise), method: "delete", class: "btn btn-danger"
+= paginate @exercises

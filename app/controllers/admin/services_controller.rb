@@ -2,7 +2,7 @@ class Admin::ServicesController < Admin::BaseController
   before_action :prepare_studio
 
   def index
-    @services = @studio.services
+    @services = @studio.services.page(params[:page])
   end
 
   def create

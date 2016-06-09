@@ -4,7 +4,7 @@ h1 Edit
     .form-group
       = f.label :cover_img, "Cover Image"
       br
-      = image_tag @studio.cover_img, alt: "No preview"
+      = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
     = f.fields_for :user do |user_form|
       .form-group
         = user_form.label :name

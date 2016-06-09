@@ -4,7 +4,7 @@ h1 Edit
     .form-group
       = f.label :cover_img, "Cover Image"
       br
-      = image_tag @studio.cover_img, alt: "No preview"
+      = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
       = f.file_field :cover_img
     = f.fields_for :user do |user_form|
       .form-group
@@ -25,9 +25,11 @@ h1 Edit
       .form-group
         = user_form.label :avatar
         br
-        = image_tag @studio.user.avatar, alt: "No preview"
+        = image_tag @studio.user.avatar, class: 'image_preview', alt: "No preview"
         = user_form.file_field :avatar
         .error-text
           = @studio.user.errors[:avatar].to_sentence
     .form-group
+      = link_to :back, class: "btn btn-primary"
+        span Back
       = f.submit "Submit", class: "btn btn-primary"

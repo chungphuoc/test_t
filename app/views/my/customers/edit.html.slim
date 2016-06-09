@@ -18,7 +18,7 @@ h1 Edit
       .form-group
         = user_form.label :avatar
         br
-        = image_tag @customer.user.avatar, alt: "No preview"
+        = image_tag @customer.user.avatar, class: 'image_preview', alt: "No preview"
         = user_form.file_field :avatar
     .form-group
       = f.label :gender

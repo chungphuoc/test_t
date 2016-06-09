@@ -2,7 +2,7 @@ class Admin::ContractsController < Admin::BaseController
   before_action :prepare_studio
 
   def index
-    @contracts = @studio.contracts
+    @contracts = @studio.contracts.page(params[:page])
   end
 
   def create

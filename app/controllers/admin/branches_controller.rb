@@ -2,7 +2,7 @@ class Admin::BranchesController < Admin::BaseController
   before_action :prepare_studio
 
   def index
-    @branches = @studio.branches
+    @branches = @studio.branches.page(params[:page])
   end
 
   def create

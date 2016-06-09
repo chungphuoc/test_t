@@ -1,7 +1,7 @@
 class Admin::EnrollmentsController < Admin::BaseController
   before_action :prepare_enrollment, only: [:show, :update, :destroy, :edit]
   def index
-    @enrollments = Enrollment.all
+    @enrollments = Enrollment.all.page(params[:page])
   end
 
   def show

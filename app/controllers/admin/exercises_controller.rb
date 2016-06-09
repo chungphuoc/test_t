@@ -2,7 +2,7 @@ class Admin::ExercisesController < Admin::BaseController
   before_action :prepare_exercise, only: [:show, :edit, :update, :destroy]
 
   def index
-    @exercises = Exercise.all
+    @exercises = Exercise.all.page(params[:page])
   end
 
   def show
