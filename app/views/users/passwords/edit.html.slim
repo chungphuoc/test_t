@@ -2,7 +2,7 @@
   = image_tag 'yoga.jpg'
 .container.login-section
   .row
-    = form_for(resource, as: resource_name, url: password_path(resource_name), html: {class: "form login-form form-horizontal"}) do |f|
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "form login-form form-horizontal"}) do |f|
       .row.title
         h2 Change your password
       .row.body
