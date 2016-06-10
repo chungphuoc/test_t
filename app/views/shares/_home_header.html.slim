@@ -6,15 +6,18 @@
       ul.nav.navbar-right.navbar-nav
         - if current_user
           li
+            - if current_user.studio?
+              = link_to 'My page', my_studio_path, class: 'btn-header'
+            - elsif current_user.customer?
+              = link_to 'My page', my_customer_path, class: 'btn-header'
+          li
             .avatar
               = image_tag current_user.avatar, class: "img-circle"
           li
             - if current_user.studio?
-              = link_to my_studio_path
-                p.display-user-name #{current_user.name}
+              = link_to current_user.name, my_studio_path
             - elsif current_user.customer?
-              = link_to my_customer_path
-                p.display-user-name #{current_user.name}
+              = link_to current_user.name, my_customer_path
           li.dropdown
             a.dropdown-toggle type="button" data-toggle="dropdown"
               span.caret
@@ -36,3 +39,7 @@
             = link_to 'Sign in', new_user_session_path, class: 'btn-sign-up'
         li
           = link_to_switch_language
+        - if current_user
+          li
+            = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn-sign-up'
+

@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Toned
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => false
+    = javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false
+    = csrf_meta_tags
+
+body
+  .flash-wrapper
+    = flash_messages
+  nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.btn-home href="#{root_path}" Toned
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              = link_to 'Home', root_path, class: 'btn-header'
+            li
+              = link_to 'Sign in', new_user_session_path, class: 'btn-header'
+            li
+              = link_to 'Sign up', new_user_registration_path, class: 'btn-sign-up'
+  = yield

@@ -3,8 +3,18 @@
     .div.collapse.navbar-collapse
       .container
         .navbar-header
-          = link_to root_path, class: "navbar-brand"
-            span TONE
+          = link_to 'Toned', root_path, class: "navbar-brand btn-home"
+        ul.nav.navbar-nav.navbar-left
+          li
+            = link_to 'Search Class', '#', class: 'btn-header'
+          li
+            = link_to 'Booked Class', personal_enrollments_path, class: 'btn-header'
+          li
+            = link_to 'Passed Class', personal_enrollments_path(statuses: [2]), class: 'btn-header'
+          li
+            = link_to 'Favourite Classes', personal_favourite_courses_path, class: 'btn-header'
+          li
+            = link_to 'My page', my_customer_path, class: 'btn-header'
         ul.nav.navbar-right.navbar-nav
           - if current_user
             li
@@ -12,11 +22,9 @@
                 = image_tag current_user.avatar, class: "img-circle"
             li
               - if current_user.studio?
-                = link_to my_studio_path
-                  p.display-user-name #{current_user.name}
+                = link_to current_user.name, my_studio_path
               - else
-                = link_to my_customer_path
-                  p.display-user-name #{current_user.name}
+                = link_to current_user.name, my_customer_path
             li.dropdown
               a.dropdown-toggle type="button" data-toggle="dropdown"
                 span.caret
