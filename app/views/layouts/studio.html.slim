@@ -14,13 +14,19 @@ body
           span.icon-bar
           span.icon-bar
           span.icon-bar
-        a.navbar-brand href="#{root_path}" Toned
+        a.navbar-brand.btn-home href="#{root_path}" Toned
       #navbar.navbar-collapse.collapse
+        ul.nav.navbar-nav.navbar-left
+          li
+            = link_to 'My page', my_studio_path, class: 'btn-header'
         ul.nav.navbar-nav.navbar-right
           li
-            = link_to current_user.name, '#'
+            .avatar
+              = image_tag current_user.avatar, class: "img-circle"
           li
-            = link_to 'Logout', destroy_user_session_path, method: :delete
+            = link_to current_user.name, '#', class: 'btn-name'
+          li
+            = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn-sign-up'
           li
             = link_to_switch_language
   .flash-wrapper

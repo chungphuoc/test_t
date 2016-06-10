@@ -39,8 +39,9 @@
       = hidden_field_tag :provider, session["devise.facebook_data"]["provider"]
       = hidden_field_tag :uid, session["devise.facebook_data"]["uid"]
     .form-group
-      = link_to "Back", root_path, class: "btn btn-primary btn-sm"
-      = f.submit "Register", class: "btn btn-primary btn-sm"
+      = f.submit "Register", class: "btn btn-primary btn-sign-in"
+    - if controller_name != 'sessions'
+      = link_to "Already have an account?", new_session_path(resource_name)
     = render "users/shared/links"
     = link_to :back, title: "back", class: "back-button" do
       span.glyphicon.glyphicon-circle-arrow-left.back-icon

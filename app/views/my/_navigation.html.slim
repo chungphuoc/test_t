@@ -1,58 +1,67 @@
 .div.navbar.navbar-custom.navbar-fixed-top
   .div.container-fluid
     .div.collapse.navbar-collapse
-      .navbar-header
-        = link_to root_path, class: "navbar-brand"
-          span TONE
-      ul.nav.navbar-right.navbar-nav
-        - if current_user
+      .container
+        .navbar-header
+          = link_to 'Toned', root_path, class: "navbar-brand btn-home"
+        ul.nav.navbar-nav.navbar-left
           li
-            .avatar
-              = image_tag current_user.avatar, class: "img-circle"
+            = link_to 'Search Class', '#', class: 'btn-header'
           li
-            - if current_user.studio?
-              = link_to my_studio_path
-                p.display-user-name #{current_user.name}
-            - else
-              = link_to my_customer_path
-                p.display-user-name #{current_user.name}
-          li.dropdown
-            a.dropdown-toggle type="button" data-toggle="dropdown"
-              span.caret
-            ul.dropdown-menu
+            = link_to 'Booked Class', personal_enrollments_path, class: 'btn-header'
+          li
+            = link_to 'Passed Class', personal_enrollments_path(statuses: [2]), class: 'btn-header'
+          li
+            = link_to 'Favourite Classes', personal_favourite_courses_path, class: 'btn-header'
+          li
+            = link_to 'My page', my_customer_path, class: 'btn-header'
+        ul.nav.navbar-right.navbar-nav
+          - if current_user
+            li
+              .avatar
+                = image_tag current_user.avatar, class: "img-circle"
+            li
               - if current_user.studio?
-                li
-                  = link_to edit_my_studio_path
-                    span Basic info
-                  = link_to manage_stations_path
-                    span Station
-                  = link_to manage_exercises_path
-                    span Exercise
-                  = link_to manage_courses_path
-                    span Class
-                  = link_to manage_contracts_path
-                    span Teacher
+                = link_to current_user.name, my_studio_path
               - else
+                = link_to current_user.name, my_customer_path
+            li.dropdown
+              a.dropdown-toggle type="button" data-toggle="dropdown"
+                span.caret
+              ul.dropdown-menu
+                - if current_user.studio?
+                  li
+                    = link_to edit_my_studio_path
+                      span Basic info
+                    = link_to manage_stations_path
+                      span Station
+                    = link_to manage_exercises_path
+                      span Exercise
+                    = link_to manage_courses_path
+                      span Class
+                    = link_to manage_contracts_path
+                      span Teacher
+                - else
+                  li
+                    = link_to edit_my_customer_path
+                      span Basic info
+                  li
+                    = link_to personal_courses_path
+                      span All class
+                    = link_to personal_enrollments_path
+                      span Booked class
                 li
-                  = link_to edit_my_customer_path
-                    span Basic info
+                  = link_to edit_user_registration_path
+                    span Edit Account
                 li
-                  = link_to personal_courses_path
-                    span All class
-                  = link_to personal_enrollments_path
-                    span Booked class
-              li
-                = link_to edit_user_registration_path
-                  span Edit Account
-              li
-                = link_to destroy_user_session_path, method: :delete
-                  p Logout
-        -else
-          li
-            = link_to new_user_registration_path
-              p Sign up
-          li
-            = link_to new_user_session_path
-              p Login
-          li
-            = link_to_switch_language
+                  = link_to destroy_user_session_path, method: :delete
+                    p Logout
+          -else
+            li
+              = link_to new_user_registration_path
+                p Sign up
+            li
+              = link_to new_user_session_path
+                p Login
+            li
+              = link_to_switch_language

@@ -22,7 +22,14 @@
             = f.label :remember_me
 
         .form-group
-          = f.submit "Login", class: "btn btn-primary btn-sm"
-        = render "users/shared/links"
+          = f.submit "Login", class: "btn btn-primary btn-sign-in"
+        //= render "users/shared/links"
+        .div
+          - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+            = link_to "Forgot your password?", new_password_path(resource_name)
+        .facebook-section
+          - if devise_mapping.omniauthable?
+            - resource_class.omniauth_providers.each do |provider|
+              = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'facebook-btn'
         = link_to root_path, title: "back", class: "back-button" do
           span.glyphicon.glyphicon-circle-arrow-left.back-icon
