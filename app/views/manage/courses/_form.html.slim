@@ -41,6 +41,12 @@
       = f.number_field :kcal, class: "form-control", required: ""
       .error-text
           = @course.errors[:kcal].to_sentence
+  .form-group
+    label.control-label.col-sm-2 = f.label :tuition
+    .col-sm-10
+      = f.number_field :tuition, class: "form-control", required: ""
+      .error-text
+          = @course.errors[:tuition].to_sentence
   .form-group.date_select
     label.control-label.col-sm-2 = f.label :start_date
     .col-sm-10

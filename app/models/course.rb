@@ -15,7 +15,8 @@ class Course < ActiveRecord::Base
                            format: { with: Settings.regexp.phone },
                            length: { minimum: 10, maximum: 12 }
   validates :num_slot, presence: true, numericality: { greater_than_or_equal_to: 0 }
-  validates :kcal, numericality: { greater_than_or_equal_to: 0 }
+  validates :kcal, presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :tuition, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :start_date, presence: true
   validates :teacher, presence: true
   validates :station, presence: true

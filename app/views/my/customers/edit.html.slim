@@ -8,6 +8,8 @@
         .form-group
           = user_form.label :name
           = user_form.text_field :name, class: "form-control"
+          .error-text
+            = @customer.user.errors[:name].to_sentence
         .form-group
           = user_form.label :contact_number
           = user_form.text_field :contact_number, class: "form-control"
