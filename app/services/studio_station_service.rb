@@ -4,6 +4,7 @@ class StudioStationService
   end
 
   def update_stations(station_ids)
+    station_ids = station_ids.collect{|s| s.to_i}
     destroyed_stations = @studio.stations.where.not(id: station_ids)
     new_stations = Station.where(id: (station_ids - @studio.stations.pluck(:id)))
     @studio.stations.destroy(destroyed_stations)
