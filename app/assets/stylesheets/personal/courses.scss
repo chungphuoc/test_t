@@ -57,3 +57,25 @@
     text-align: center !important;
   }
 }
+
+.confirmation-detail{
+  position: absolute;
+  top: 13%;
+  left: 0px;
+  right: 0px;
+  .container{
+    background-color: white;
+    padding: 20px;
+  }
+  .app-name{
+    font-weight: bold;
+    color: #64d7c6;
+  }
+  .app-title-section{
+    margin-top: 30px;
+    background-color: #64d7c6;
+    .app-name{
+      color: white;
+    }
+  }
+}
