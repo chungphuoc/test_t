@@ -9,6 +9,7 @@ class StaticPagesController < ApplicationController
     redirect_to :back
   end
 
-  def about_us
+  def contact_us
+    
   end
 end

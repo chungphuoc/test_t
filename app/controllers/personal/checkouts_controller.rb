@@ -7,9 +7,10 @@ class Personal::CheckoutsController < ApplicationController
       @payment_service.save_payment_info(params)
       @payment_service.update_customer_info(params)
       set_flash_message :success, :checkout_success
+      redirect_to confirmation_personal_enrollments_path(course_id: params[:course_id])
     else
       flash[:error] = @enrollment.errors.full_messages[0]
+      redirect_to :back
     end
-    redirect_to :back
   end
 end

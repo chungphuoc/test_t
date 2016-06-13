@@ -5,8 +5,9 @@ body{
   }
 }
 .avatar {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
+  border-radius: 150px;
   display: block;
   margin: 0 auto;
 }
@@ -25,4 +26,8 @@ body{
 .error-text{
   text-align: left;
   color: red;
+}
+
+.center-text{
+  text-align: center;
 }

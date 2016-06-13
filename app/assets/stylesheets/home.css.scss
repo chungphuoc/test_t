@@ -98,6 +98,7 @@
   @extend .header-section;
   .navbar-custom{
     background-color: transparent;
+    margin-bottom: 0px !important;
   }
 }
 .body-section{
@@ -202,5 +203,5 @@
 }
 .main-section{
   min-height: 500px;
-  padding-top: 70px;
+  padding-top: 50px;
 }

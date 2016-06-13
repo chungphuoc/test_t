@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resource :static_pages, only: [] do
     post :feedback
     get :about_us
+    get :contact_us
   end
 
   resource :invite_friend, only: [] do
@@ -72,6 +73,7 @@ Rails.application.routes.draw do
       collection do
         get :cancel
         get :calories_burnt
+        get :confirmation
       end
     end
     resources :favourite_courses, only: [:index] do

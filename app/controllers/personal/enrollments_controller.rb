@@ -28,4 +28,13 @@ class Personal::EnrollmentsController < Personal::BaseController
     calories_burnt = EnrollmentsQuery.new(current_user).calories_burnt(params[:frequency])
     render text: calories_burnt.to_s
   end
+
+  def confirmation
+    if params[:course_id]
+      @course = Course.find(params[:course_id])
+    else
+      flash[:error] = 'Please choose one course!'
+      redirect_to personal_courses
+    end
+  end
 end

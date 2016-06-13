@@ -1,33 +1,49 @@
-
-h2 Edit Profile
-= select_tag :frequency_calories_burnt, options_for_select([["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"]]), onchange: "calories_burnt()", class: "form-control"
-.row.content-section
-  = form_for [:my, @customer], class: "form-horizontal" do |f|
-    = f.fields_for :user do |user_form|
-      .form-group
-        = user_form.label :name
-        = user_form.text_field :name, class: "form-control", disabled: true
-      .form-group
-        = user_form.label :contact_number
-        = user_form.text_field :contact_number, class: "form-control", disabled: true
-      .form-group
-        = user_form.label :address
-        = user_form.text_field :address, class: "form-control", disabled: true
-    .form-group
-      = f.label :gender
-      = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control", disabled: true
-    .form-group
-      = f.label :receive_sms
-      .radio-button-inline
-        = f.radio_button :receive_sms, true, checked: true, disabled: true
-        = f.label :receive_sms, "Yes"
-      .radio-button-inline
-        = f.radio_button :receive_sms, false, disabled: true
-        = f.label :receive_sms, "No"
-    .form-group.date_select
-      = f.label :birthday
-      .row
-        .col-lg-6.col-sm-12
-          = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year, disabled: true
-= link_to edit_my_customer_path, class: "btn btn-primary"
-  span Edit Profile
+.background
+  = image_tag 'yoga.jpg'
+.main-profile-section
+  .row.zero-margin
+    .col-lg-8.main-info-section
+      .row.zero-margin
+        .col-lg-6
+          = image_tag @customer.avatar, class: 'avatar'
+        .col-lg-6.user-name
+          h1 #{@customer.name}
+      .row.point-calories
+        .col-lg-6.user-point
+          h3 #{@customer.point}  Point
+        .col-lg-6
+      .row.point-calories
+        .col-lg-6.user-calories
+          - @enrollments_query = EnrollmentsQuery.new(current_user)
+          h3#calories_burnt #{@enrollments_query.calories_burnt('daily')} Calories Burnt
+        .col-lg-6
+          = select_tag :frequency_calories_burnt, options_for_select([["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"]]), onchange: "calories_burnt()", class: "form-control"
+      .row.invite-friend.zero-margin
+        = render 'my/invite_friend'
+    .col-lg-3.detail-profile-section
+      .row.content-section.zero-margin
+        table.table
+          tr
+            th Name
+            td = @customer.name
+          tr
+            th Email
+            td = @customer.email
+          tr
+            th Contact Number
+            td = @customer.contact_number
+          tr
+            th Address
+            td = @customer.address
+          tr
+            th Gender
+            td = @customer.gender
+          tr
+            th Receive sms
+            td = @customer.receive_sms
+          tr
+            th Birthday
+            td = @customer.birthday
+  .row.btn-action-section
+    = link_to 'Edit Profile', edit_my_customer_path, class: "btn btn-primary"
+    = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-primary"
