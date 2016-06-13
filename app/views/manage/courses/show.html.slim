@@ -23,10 +23,10 @@ table.table.table-stripped
     td = @course.start_date
   tr
     th Start time
-    td = @course.start_time
+    td = @course.start_time.strftime("%I:%M %p")
   tr
     th End time
-    td = @course.end_time
+    td = @course.end_time.strftime("%I:%M %p")
   tr
     th Teacher
     td = @course.teacher_name

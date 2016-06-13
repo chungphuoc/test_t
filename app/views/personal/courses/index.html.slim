@@ -19,6 +19,6 @@ h2 Search Courses
     .col-md-5
       = text_field_tag :date, params[:date], class: 'datepicker form-control'
   = submit_tag 'Search', class: 'btn btn-primary'
-
-= render "shares/course"
+.row
+  = render "shares/course"
 = paginate @courses
