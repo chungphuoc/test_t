@@ -1,0 +1,10 @@
+= form_tag feedback_static_pages_path, class: "feed-back-form" do |f|
+  h3.title Feedback
+  .form-group
+    = text_field_tag :name, "", class: "form-control", required: "", placeholder: "Name"
+  .form-group
+    = text_field_tag :title, "", class: "form-control", required: "", placeholder: "Title"
+  .form-group
+    = text_area_tag :message, "", class: "form-control", required: "", placeholder: "Message"
+  .form-group
+    = submit_tag "Send", class: "btn btn-primary"

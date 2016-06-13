@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resource :static_pages, only: [] do
     post :feedback
     get :about_us
+    get :contact_us
   end
 
   resource :invite_friend, only: [] do
