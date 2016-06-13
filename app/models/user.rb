@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
                              length: { minimum: 10, maximum: 12 },
                              on: :update
   validates :address, length: { minimum: 20, maximum: 120 }, on: :update
+  validates :name, length: { minimum: 3, maximum: 60 }
   belongs_to :role, polymorphic: true
   delegate :enrollments, to: :role
   delegate :favourite_courses, to: :role
