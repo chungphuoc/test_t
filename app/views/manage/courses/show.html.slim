@@ -5,7 +5,7 @@ table.table.table-stripped
     td = @course.name
   tr
     th Cover
-    td = image_tag @course.cover_img
+    td = image_tag @course.cover_img, class: 'cover_preview'
   tr
     th Phone
     td = @course.phone_number

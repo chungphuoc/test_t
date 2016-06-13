@@ -13,26 +13,27 @@ body
   .navigation
     = render 'my/navigation'
   .row.zero-margin.main-section
-    .col-lg-3.content-section
-      .left-side-bar
-        .info-section
-          = image_tag current_user.avatar
-          h4 User name
-        .navi-section
-          ul.nav.sidebar-nav.nav-personal
-            li.active
-              = link_to 'All Class', personal_courses_path
-            li
-              = link_to 'Booked Class', personal_enrollments_path
-            li
-              = link_to 'Favourite Class', personal_favourite_courses_path
-            li
-              = link_to 'Passed Class', personal_enrollments_path(statuses: [2])
-            li
-              = link_to 'My List', '#'
-            li
-              = link_to 'Contact Us', '#'
-    .col-lg-9.content-section
-      = yield
+    = yield
+    // .col-lg-3.content-section
+    //   .left-side-bar
+    //     .info-section
+    //       = image_tag current_user.avatar
+    //       h4 User name
+    //     .navi-section
+    //       ul.nav.sidebar-nav.nav-personal
+    //         li.active
+    //           = link_to 'All Class', personal_courses_path
+    //         li
+    //           = link_to 'Booked Class', personal_enrollments_path
+    //         li
+    //           = link_to 'Favourite Class', personal_favourite_courses_path
+    //         li
+    //           = link_to 'Passed Class', personal_enrollments_path(statuses: [2])
+    //         li
+    //           = link_to 'My List', '#'
+    //         li
+    //           = link_to 'Contact Us', '#'
+    // .col-lg-9.content-section
+    //   = yield
   .footer-section
     = render "shares/footer"

@@ -12,12 +12,13 @@ body
     = flash_messages
   .navigation
     = render 'my/navigation'
-  .row.main-section
-    .col-lg-3.content-section
-      = render "my/sidebar"
-    .col-lg-6.content-section
-      = yield
-    .col-lg-3.content-section
-      = render "my/invite_friend"
+  .row.main-section.zero-margin
+    = yield
+    // .col-lg-3.content-section
+    //   = render "my/sidebar"
+    // .col-lg-6.content-section
+    //   = yield
+    // .col-lg-3.content-section
+    //   = render "my/invite_friend"
   .footer-section
     = render "shares/footer"

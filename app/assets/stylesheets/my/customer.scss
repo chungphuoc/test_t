@@ -18,3 +18,52 @@
 .time_select{
     @extend .date_select;
 }
+.main-profile-section{
+    position: absolute; 
+    top: 10%;
+    left: 0px;
+    right: 0px;
+    .main-info-section{
+        background-color: white;
+        margin: 20px;
+        .user-name{
+            font-weight: bold;
+            color: #64d7c6;
+            text-align: center;
+        }
+        .point-calories{
+            text-align: center;
+            .user-point{
+                color: #64d7c6;
+            }
+            .user-calories{
+                color: #64d7c6;
+            }
+        }
+        .invite-friend{
+            .invite_friend_side{
+                background-color: white;
+                padding: 0px 20%;
+            }
+            .btn-send{
+                background-color: #e24492;
+            }
+        }
+    }
+
+    .detail-profile-section{
+        background-color: white;
+        margin: 20px;
+        tr{
+            height: 50px;
+        }
+    }
+
+    .btn-action-section{
+        text-align: center;
+    }
+
+    .invite-friend-right{
+        margin: 20px;
+    }
+}

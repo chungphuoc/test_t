@@ -1,11 +1,10 @@
 .invite_friend_side
   h4 Invite Friend
-  p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy
   = form_tag send_email_invite_friend_path do
     .form-group
-      = text_field_tag :name, "", class: "form-control", placeholder: "Friend's name"
+      = text_field_tag :email, "", class: "form-control", placeholder: "email"
     .form-group
-      = text_field_tag :email, "", class: "form-control", placeholder: "Friend's email"
+      = text_area_tag :message, "", class: "form-control", placeholder: "message"
     .form-group
       = submit_tag "Send", class: "btn btn-primary btn-send"
 

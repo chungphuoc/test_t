@@ -16,42 +16,73 @@
             p
               b Start time
           .col-lg-6
-            p #{@course.start_time}
+            p #{@course.start_time.strftime("%I:%M %p")}
         .row
           .col-lg-3
             p
               b End time
           .col-lg-6
-            p #{@course.end_time}
+            p #{@course.end_time.strftime("%I:%M %p")}
         .row
           .col-lg-3
             p
               b Price
           .col-lg-6
-            p
+            p #{@course.tuition} yen
         .row
           .col-lg-3
-            = render "personal/checkouts/checkout_btn"
+            p
+              b Attend Date  
           .col-lg-3
-            button.btn.btn-default data-dismiss="modal" type="button"  Cancel
+            = render "personal/checkouts/checkout_btn"
+          //   button.btn.btn-default data-dismiss="modal" type="button"  Cancel
       .modal-footer
 .course-detail
-  .row
-    .col-lg-4.cover-section
-      = image_tag @course.cover_img
-    .col-lg-8.action-section
-      h1.title #{@course.name}
-      span
-        b
-          i Start Day :
-        span
-          i #{@course.start_date}
-      = rating_for @course, "quality", disable_after_rate: false
-      = render "personal/favourite_courses/add_to_favourite_wrapper", course_id: @course.id, user: current_user
-      = render "course_action_btn"
-      .map-wrapper style="width: 100%"
-        .map#js_google_map style="height: 300px"
-  = render "course_detail"
+  .row.zero-margin.app-title.center-text
+    h1.app-name TONE
+  .row.zero-margin.class-detail-section
+    .basic-info
+      .row.center-text.title
+        h2 #{@course.name}
+      .row.center-text
+        .col-lg-2.col-lg-offset-3
+          h4 #{@course.station_name}
+        .col-lg-2
+          h4 #{@course.studio.name}
+        .col-lg-2
+          h4 #{@course.teacher_name}
+      .row.zero-margin.center-text
+        = rating_for @course, "quality", disable_after_rate: false
+      .row.zero-margin
+        .col-lg-1.col-lg-offset-5
+          = render "personal/favourite_courses/add_to_favourite_wrapper", course_id: @course.id, user: current_user
+      .row.zero-margin.center-text
+        .col-lg-3.col-lg-offset-3
+          h4 #{@course.start_date}
+        .col-lg-3
+          h4 #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
+      .row.zero-margin.center-text
+        h4 #{@course.tuition} yen
+    hr
+    .row.zero-margin.center-text
+      .col-lg-8.cover-section
+        = image_tag @course.cover_img
+      .col-lg-4
+        p #{@course.description}
+    .row.zero-margin.center-text
+      .col-lg-6
+        .map-wrapper style="width: 100%"
+          .map#js_google_map style="height: 300px"
+      .col-lg-6
+        .row.zero-margin
+          h3 #{@course.studio.name}
+          .col-lg-6
+            h4 #{@course.studio.address}
+            h4 #{@course.studio.contact_number}
+          .col-lg-6
+            p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500sLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+        = render "course_action_btn"
+      
 script src="//maps.googleapis.com/maps/api/js"
 javascript:
   var position = new google.maps.LatLng(#{@course.station.latitude}, #{@course.station.longitude})

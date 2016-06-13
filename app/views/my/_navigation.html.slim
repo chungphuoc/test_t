@@ -6,7 +6,7 @@
           = link_to 'Toned', root_path, class: "navbar-brand btn-home"
         ul.nav.navbar-nav.navbar-left
           li
-            = link_to 'Search Class', '#', class: 'btn-header'
+            = link_to 'Search Class', personal_courses_path, class: 'btn-header'
           li
             = link_to 'Booked Class', personal_enrollments_path, class: 'btn-header'
           li
@@ -56,6 +56,8 @@
                 li
                   = link_to destroy_user_session_path, method: :delete
                     p Logout
+            li
+              = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn-sign-up'
           -else
             li
               = link_to new_user_registration_path
