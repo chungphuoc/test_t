@@ -1,7 +1,17 @@
 .course-detail{
-  .title{
-    color: #f397ef;
+  .app-name{
+    font-weight: bold;
+    color: #64d7c6;
   }
+
+  .title{
+    color: white;
+  }
+
+  .basic-info{
+    background-color: #64d7c6;
+  }
+
   .status-flag{
     border-radius: 30px;
     border: 0px;
@@ -14,12 +24,12 @@
     padding: 6px;
   }
   .btn-add{
-    @extend .status-flag
+    background-color: #de77e9;
   }
   .cover-section{
     text-align: center;
     img{
-      width: 300px;
+      width: 500px;
       height: 300px
     }
   }
