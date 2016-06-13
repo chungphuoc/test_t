@@ -1,5 +1,5 @@
 - if current_user.customer?
-  = form_tag('/personal/checkouts/process_payment',{method: :post}) do
+  = form_tag('/my/checkouts/process_payment',{method: :post}) do
     = hidden_field_tag :course_name, @course.name
     = hidden_field_tag :tuition, @course.tuition
     = hidden_field_tag :currency, @course.currency
