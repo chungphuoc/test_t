@@ -1,65 +1,76 @@
-= form_for [:admin, @customer], class: "form-horizontal" do |f|
+= form_for [:admin, @customer], :html => {:class => 'form-horizontal'} do |f|
   = f.fields_for :user do |user_form|
     .form-group
-      = user_form.label :name
-      = user_form.text_field :name, class: "form-control", required: ""
-      .error-text
-        = @customer.user.errors[:name].to_sentence
+      = user_form.label :name, class: 'control-label col-sm-2'
+      .col-lg-10
+        = user_form.text_field :name, class: "form-control", required: ""
+        .error-text
+          = @customer.user.errors[:name].to_sentence
     .form-group
-      = user_form.label :email
-      = user_form.text_field :email, class: "form-control", required: ""
-      .error-text
-        = @customer.user.errors[:email].to_sentence
+      = user_form.label :email, class: 'control-label col-sm-2'
+      .col-lg-10
+        = user_form.text_field :email, class: "form-control", required: ""
+        .error-text
+          = @customer.user.errors[:email].to_sentence
     .form-group
-      = user_form.label :password
-      = user_form.password_field :password, class: "form-control"
-      .error-text
-        = @customer.user.errors[:password].to_sentence
+      = user_form.label :password, class: 'control-label col-sm-2'
+      .col-lg-10
+        = user_form.password_field :password, class: "form-control"
+        .error-text
+          = @customer.user.errors[:password].to_sentence
     .form-group
-      = user_form.label :password_confirmation
-      = user_form.password_field :password_confirmation, class: "form-control"
-      .error-text
-        = @customer.user.errors[:password_confirmation].to_sentence
+      = user_form.label :password_confirmation, class: 'control-label col-sm-2'
+      .col-lg-10
+        = user_form.password_field :password_confirmation, class: "form-control"
+        .error-text
+          = @customer.user.errors[:password_confirmation].to_sentence
     .form-group
-      = user_form.label :contact_number
-      = user_form.text_field :contact_number, class: "form-control"
-      .error-text
-        = @customer.user.errors[:contact_number].to_sentence
+      = user_form.label :contact_number, class: 'control-label col-sm-2'
+      .col-lg-10
+        = user_form.text_field :contact_number, class: "form-control"
+        .error-text
+          = @customer.user.errors[:contact_number].to_sentence
     .form-group
-      = user_form.label :address
-      = user_form.text_field :address, class: "form-control"
-      .error-text
-        = @customer.user.errors[:address].to_sentence
+      = user_form.label :address, class: 'control-label col-sm-2'
+      .col-lg-10
+        = user_form.text_field :address, class: "form-control"
+        .error-text
+          = @customer.user.errors[:address].to_sentence
     .form-group
-      = user_form.label :avatar
-      br
-      = user_form.file_field :avatar
+      = user_form.label :avatar, class: 'control-label col-sm-2'
+      .col-lg-10
+        = user_form.file_field :avatar
   .form-group
-    = f.label :point
-    = f.number_field :point, class: "form-control"
-    .error-text
-        = @customer.errors[:point].to_sentence
+    = f.label :point, class: 'control-label col-sm-2'
+    .col-lg-10
+      = f.number_field :point, class: "form-control"
+      .error-text
+          = @customer.errors[:point].to_sentence
   .form-group
-    = f.label :total_point
-    = f.number_field :total_point, class: "form-control"
-    .error-text
-        = @customer.errors[:total_point].to_sentence
+    = f.label :total_point, class: 'control-label col-sm-2'
+    .col-lg-10
+      = f.number_field :total_point, class: "form-control"
+      .error-text
+          = @customer.errors[:total_point].to_sentence
+  .form-group.date_select
+    = f.label :birthday, class: 'control-label col-sm-2'
+    .col-lg-10
+      = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year
+      .error-text
+          = @customer.errors[:birthday].to_sentence
   .form-group
-    = f.label :birthday
-    = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year
-    .error-text
-        = @customer.errors[:birthday].to_sentence
-  .form-group
-      = f.label :gender
+    = f.label :gender, class: 'control-label col-sm-2'
+    .col-lg-10
       = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control"
   .form-group
-    = f.label :receive_sms
-    .radio-button-inline
-      = f.radio_button :receive_sms, true, checked: true
-      = f.label :receive_sms, "Yes"
-    .radio-button-inline
-      = f.radio_button :receive_sms, false
-      = f.label :receive_sms, "No"
+    = f.label :receive_sms, class: 'control-label col-sm-2'
+    .col-lg-10
+      .radio-button-inline
+        = f.radio_button :receive_sms, true, checked: true
+        = f.label :receive_sms, "Yes"
+      .radio-button-inline
+        = f.radio_button :receive_sms, false
+        = f.label :receive_sms, "No"
   .form-group
     = link_to admin_studios_path, class: "btn btn-primary"
       span Back
