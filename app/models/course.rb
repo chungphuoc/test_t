@@ -27,6 +27,7 @@ class Course < ActiveRecord::Base
   delegate :location, to: :station, prefix: true
   delegate :name, to: :exercise, prefix: true
   delegate :name, to: :station, prefix: true
+  delegate :name, to: :studio, prefix: true
   delegate :stations, :teachers, :exercises, to: :studio
 
   MAX_SCHEDULE = 2
