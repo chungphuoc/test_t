@@ -9,7 +9,7 @@ class PaymentService
                                        card: params[:stripeToken])
     charge = Stripe::Charge.create(customer: customer.id,
                                    amount: params[:tuition].to_i * 100,
-                                   description: params[:course_name],
+                                   description: params[:course_name] + ', ' + params[:studio_name],
                                    currency: params[:currency])
   end
 

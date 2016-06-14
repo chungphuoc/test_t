@@ -1,0 +1,22 @@
+h2 Payment management
+hr
+.row.zero-margin.paymet-section
+  .col-lg-2
+    = select_year(Date.today, {start_year: 2015, end_year: Time.now.year}, { class: 'form-control', onchange: "change_year_payment()"})
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(0)" All
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(1)" Jan
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(2)" Feb
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(3)" Mar
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(4)" Apr
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(5)" May
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(6)" Jun
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(7)" Jul
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(8)" Aug
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(9)" Nov
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(10)" Oct
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(11)" Sep
+    button.btn.btn-primary.btn-sign-in onClick="change_month_payment(12)" Dec
+  .col-lg-10
+    br
+    #payment-table
+      = render 'payment_table'

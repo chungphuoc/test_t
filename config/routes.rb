@@ -108,5 +108,11 @@ Rails.application.routes.draw do
         put :reopen
       end
     end
+    resources :payment, only: [:index] do
+      collection do 
+        get :year_filter
+        get :month_filter
+      end
+    end
   end
 end
