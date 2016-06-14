@@ -54,6 +54,7 @@ en:
       updated: 'Your studio has been successfully updated.'
   invite_friends:
     sent: 'Invitation sent successfuly!'
+    error: 'Invitation can not be sent!'
   static_pages:
     feedback: 'Your feedback has been sent.'
   admin:

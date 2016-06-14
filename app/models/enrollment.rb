@@ -2,6 +2,7 @@ class Enrollment < ActiveRecord::Base
   belongs_to :customer
   belongs_to :course, counter_cache: true
   validates_uniqueness_of :customer_id, scope: [:course_id, :join_date], message: 'Class has been booked!'
+  validate :course_is_open, on: :create
   validate :num_slot_less_than_maximum, on: :create
 
   delegate :studio, to: :course
@@ -25,6 +26,13 @@ class Enrollment < ActiveRecord::Base
     @enrollment_count = @course.enrollments.where(join_date: join_date).count
     if @enrollment_count >= @course.num_slot
       errors.add('This class is full! Please choose another time.')
+    end
+  end
+
+  def course_is_open
+    @course = course
+    if @course.inactive?
+      errors.add(:course_id, ': This course is not open.')
     end
   end
 

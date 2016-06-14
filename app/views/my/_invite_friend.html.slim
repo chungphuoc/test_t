@@ -2,9 +2,9 @@
   h4 Invite Friend
   = form_tag send_email_invite_friend_path do
     .form-group
-      = text_field_tag :email, "", class: "form-control", placeholder: "email"
+      = text_field_tag :email, "", class: "form-control", placeholder: "email", required: ""
     .form-group
-      = text_area_tag :message, "", class: "form-control", placeholder: "message"
+      = text_area_tag :message, "", class: "form-control", placeholder: "message", required: ""
     .form-group
       = submit_tag "Send", class: "btn btn-primary btn-send"
 
