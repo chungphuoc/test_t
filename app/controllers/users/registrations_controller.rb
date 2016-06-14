@@ -13,16 +13,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
     build_resource(sign_up_params)
     resource.provider = params[:provider] if params[:provider].present?
     resource.uid = params[:uid] if params[:uid].present?
-    if params[:user_type] == 'customer'
-      @customer = Customer.new
-      resource.role = @customer
-      @customer.save
-    else
-      @studio = Studio.new
-      resource.role = @studio
-      @studio.save
+    begin
+      ActiveRecord::Base.transaction  do
+        if params[:user_type] == 'customer'
+          @customer = Customer.new
+          resource.role = @customer
+          @customer.save!
+        else
+          @studio = Studio.new
+          resource.role = @studio
+          @studio.save!
+        end
+        resource.save!
+      end
+    rescue Exception => e
     end
-    resource.save
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
