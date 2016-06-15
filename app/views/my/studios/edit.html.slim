@@ -31,6 +31,16 @@ h1 Edit
           .error-text
             = @studio.user.errors[:avatar].to_sentence
       .form-group
+        = f.label :website
+        = f.text_field :website, class: "form-control"
+        .error-text
+          = @studio.errors[:website].to_sentence
+      .form-group
+        = f.label :description
+        = f.text_area :description, class: "form-control"
+        .error-text
+          = @studio.errors[:description].to_sentence
+      .form-group
         = link_to :back, class: "btn btn-primary"
           span Back
         = f.submit "Submit", class: "btn btn-primary"

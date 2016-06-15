@@ -1,0 +1,47 @@
+.studio-detail{
+  .app-title{
+    .app-name{
+      font-weight: bold;
+      color: #64d7c6;
+    }
+  }
+  .studio-detail-section{
+    img{
+      width: 500px;
+      height: 300px
+    }
+    .basic-info{
+      background-color: #64d7c6;
+      .star{
+        margin: 20px;
+        img{
+          height: 20px;
+          width: 20px;
+        }
+      }
+    }
+    .course-list{
+      padding: 0px 15%;
+    }
+  }
+}
+.studio-list-section{
+  padding: 0px 15%;
+  button{
+    margin: 10px;
+    border-radius: 0px;
+    margin: 10px auto;
+    padding: 5px 20px !important;
+    color: #64d7c6 !important;
+    border: 2px solid #64d7c6;
+    font-size: 20px;
+    background-color: white;
+  }
+  .button-class-active{
+    background-color: #64d7c6;
+    color: white !important;
+  }
+  .col-lg-3{
+    text-align: center;
+  }
+}

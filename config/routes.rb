@@ -87,6 +87,12 @@ Rails.application.routes.draw do
         post :process_payment
       end
     end
+    resources :studios, only: [:index, :show] do 
+      collection do
+        get :by_name
+        get :by_station
+      end
+    end
   end
 
   namespace :manage do
@@ -119,6 +125,9 @@ Rails.application.routes.draw do
         get :booked
         get :passed
       end
+    end
+    resources :facilities, only: [:index] do 
+      put :update, on: :collection
     end
   end
 end

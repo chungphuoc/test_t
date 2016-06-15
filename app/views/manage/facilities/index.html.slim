@@ -1,0 +1,23 @@
+h1 Facilities
+= form_tag manage_facilities_path, method: :put do
+  .checkbox
+    label
+      = check_box_tag 'facilities[]', 0, @facilities.include?(0)
+      span Shower
+  .checkbox
+    label
+      = check_box_tag 'facilities[]', 1, @facilities.include?(1)
+      span Locker
+  .checkbox
+    label
+      = check_box_tag 'facilities[]', 2, @facilities.include?(2)
+      span Rental
+  .checkbox
+    label
+      = check_box_tag 'facilities[]', 3, @facilities.include?(3)
+      span Towel
+  .checkbox
+    label
+      = check_box_tag 'facilities[]', 4, @facilities.include?(4)
+      span Water
+  = submit_tag 'Update', class: "btn btn-primary"

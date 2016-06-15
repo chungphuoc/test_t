@@ -42,6 +42,9 @@ en:
       updated: 'Your station request has been successfully updated.'
       destroyed: 'Your station request has been successfully deleted.'
       updated_listing: 'Station listing has been successfully updated.'
+    facilities:
+      updated: 'Your facilities has been successfully updated.'
+      error: 'Can not update facilities.'
   personal:
     checkouts:
       checkout_success: 'Book class successful!'
