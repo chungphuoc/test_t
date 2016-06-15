@@ -1,0 +1,17 @@
+table.table.table-striped
+  tr
+    th Index
+    th Join date
+    th Join time
+    th Class name
+    th Studio name
+    th User name
+  - @enrollments.each_with_index do |enrollment, index|
+    tr
+      td #{index}
+      td #{enrollment.join_date}
+      td #{enrollment.start_time.strftime("%I:%M %p")} - #{enrollment.end_time.strftime("%I:%M %p")}
+      td #{enrollment.course_name}
+      td #{enrollment.course.studio_name}
+      td #{enrollment.customer.name}
+= paginate @enrollments

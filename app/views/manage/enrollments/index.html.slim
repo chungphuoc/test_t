@@ -1,0 +1,11 @@
+.class-management-section
+  .row.zero-margin.center-text.title
+    h1 Class management
+  .row
+    .col-lg-3.col-lg-offset-3
+      button.btn.button-class-active#btn-booked onClick="booked_class()" Booked Class
+    .col-lg-3
+      button.btn#btn-passed onClick="passed_class()" Passed Class
+
+  #enrollment-table
+    = render 'enrollment_table'

@@ -1,4 +1,5 @@
 class Enrollment < ActiveRecord::Base
+  paginates_per 12
   belongs_to :customer
   belongs_to :course, counter_cache: true
   validates_uniqueness_of :customer_id, scope: [:course_id, :join_date], message: 'Class has been booked!'
