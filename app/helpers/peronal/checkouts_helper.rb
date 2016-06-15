@@ -1,2 +1,0 @@
-module Peronal::CheckoutsHelper
-end
