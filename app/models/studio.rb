@@ -1,4 +1,5 @@
 class Studio < ActiveRecord::Base
+  ratyrate_rateable 'stu_quality'
   has_one :user, as: :role, dependent: :destroy
   has_many :courses, dependent: :destroy
   has_many :contracts, dependent: :destroy
@@ -10,6 +11,8 @@ class Studio < ActiveRecord::Base
   has_many :enrollments, through: :courses
   has_many :requested_stations, class_name: 'Station', foreign_key: :requester_id
 
+  validates :website, format: { with: Settings.regexp.url }, allow_blank: true
+  
   delegate :email, :address, :contact_number, :avatar, :name, to: :user
 
   accepts_nested_attributes_for :user

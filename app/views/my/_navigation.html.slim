@@ -6,13 +6,15 @@
           = link_to 'Toned', root_path, class: "navbar-brand btn-home"
         ul.nav.navbar-nav.navbar-left
           li
-            = link_to 'Search Class', personal_courses_path, class: 'btn-header'
+            = link_to 'Search', personal_courses_path, class: 'btn-header'
           li
             = link_to 'Booked Class', personal_enrollments_path, class: 'btn-header'
           li
             = link_to 'Passed Class', personal_enrollments_path(statuses: [2]), class: 'btn-header'
           li
-            = link_to 'Favourite Classes', personal_favourite_courses_path, class: 'btn-header'
+            = link_to 'Favourite', personal_favourite_courses_path, class: 'btn-header'
+          li
+            = link_to 'Studio list', personal_studios_path, class: 'btn-header'
           li
             = link_to 'My page', my_customer_path, class: 'btn-header'
         ul.nav.navbar-right.navbar-nav

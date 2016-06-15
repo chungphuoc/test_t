@@ -70,12 +70,15 @@
       .col-lg-4
         p #{@course.description}
     .row.zero-margin.center-text
+      -@studio = @course.studio
+      = render 'personal/studios/facilities'
+    .row.zero-margin.center-text
       .col-lg-6
         .map-wrapper style="width: 100%"
           .map#js_google_map style="height: 300px"
       .col-lg-6
         .row.zero-margin
-          h3 #{@course.studio.name}
+          = link_to @course.studio.name, personal_studio_path(@course.studio)
           .col-lg-6
             h4 #{@course.studio.address}
             h4 #{@course.studio.contact_number}

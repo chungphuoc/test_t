@@ -1,0 +1,14 @@
+-@stations.each_with_index do |station, index|
+  h2 #{station.name}
+  table.table.table-striped
+    tr
+      th Index
+      th Studio name
+      th Address
+      th Contact number
+    - station.studios.each_with_index do |studio, stu_index|
+      tr
+        td #{stu_index}
+        td #{studio.name}
+        td #{studio.address}
+        td #{studio.contact_number}

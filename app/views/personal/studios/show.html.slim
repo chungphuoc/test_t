@@ -1,0 +1,43 @@
+.studio-detail
+  .row.zero-margin.app-title.center-text
+    h1.app-name TONE
+  .row.zero-margin.studio-detail-section
+    .basic-info
+      .row.center-text.title
+        h2 #{@studio.name}
+      .row.center-text
+        = rating_for @studio, "stu_quality", disable_after_rate: false
+      .row.center-text
+        .col-lg-2.col-lg-offset-3
+          h4 #{@studio.address}
+        .col-lg-2
+          h4 #{@studio.contact_number}
+        .col-lg-2
+          h4 #{@studio.website}
+    .row.zero-margin.center-text
+      .col-lg-8.cover-section
+        = image_tag @studio.cover_img
+      .col-lg-4
+        p #{@studio.description}
+    .row.zero-margin.center-text
+      = render 'facilities'
+    .row.zero-margin.center-text.course-list
+      .row.zero-margin.center-text
+        h2 Class Schedule
+      table.table.table-striped.table-courses
+        tr
+          th Index
+          th Class name
+          th Time
+          th Weekday
+          th Kcal
+          th Tuition
+        - @studio.courses.each_with_index do |course, index|
+          tr
+            td index
+            td 
+              = link_to course.name, personal_course_path(course)
+            td #{course.start_time.strftime("%I:%M %p")} - #{course.end_time.strftime("%I:%M %p")}
+            td Weekday
+            td #{course.kcal}
+            td #{course.tuition} yen

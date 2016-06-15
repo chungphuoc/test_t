@@ -1,0 +1,26 @@
+.row.zero-margin
+  .col-lg-2.col-lg-offset-1
+    .checkbox
+      label
+        = check_box_tag 'facilities[]', 0, @studio.facility.include?(0), disabled: true
+        span Shower
+  .col-lg-2
+    .checkbox
+      label
+        = check_box_tag 'facilities[]', 1, @studio.facility.include?(1), disabled: true
+        span Locker
+  .col-lg-2
+    .checkbox
+      label
+        = check_box_tag 'facilities[]', 2, @studio.facility.include?(2), disabled: true
+        span Rental
+  .col-lg-2
+    .checkbox
+      label
+        = check_box_tag 'facilities[]', 3, @studio.facility.include?(3), disabled: true
+        span Towel
+  .col-lg-2
+    .checkbox
+      label
+        = check_box_tag 'facilities[]', 4, @studio.facility.include?(4), disabled: true
+        span Water
