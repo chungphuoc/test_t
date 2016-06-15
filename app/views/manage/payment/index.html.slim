@@ -1,5 +1,5 @@
-h2 Payment management
-hr
+.row.zero-margin.center-text
+    h2 Payment management
 .row.zero-margin.paymet-section
   .col-lg-2
     = select_year(Date.today, {start_year: 2015, end_year: Time.now.year}, { class: 'form-control', onchange: "change_year_payment()"})

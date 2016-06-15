@@ -114,5 +114,11 @@ Rails.application.routes.draw do
         get :month_filter
       end
     end
+    resources :enrollments, only: [:index] do
+      collection do
+        get :booked
+        get :passed
+      end
+    end
   end
 end
