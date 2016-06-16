@@ -1,3 +1,20 @@
-p Dear #{@studio.user.name},
-
-p #{@customer.user.name} has already joined #{@enrollment.course.name} class.
+h4 style="color:#64d7c6;margin:30px 50px;" Dear #{@studio.user.name},
+.div style="margin:20px 50px;"
+  .div style="background-color:#64d7c6;padding:20px;"
+    .div style="color:white;text-align:center;"
+      h1 style="font-weight:bold" TONE
+    .div style="text-align:center;"
+      h4 #{@customer.user.name} has already joined #{@enrollment.course.name} class.
+      hr
+  .div style="text-align:center;" 
+    h2 style="color:#64d7c6;font-weight:bold;" RESERVED
+    h4 Payment is done by Stripe.
+  .div
+    .div style="text-align:center;color:#64d7c6;"
+      h3 #{@enrollment.course.name}
+    .div style="text-align:center;"
+      p #{@enrollment.course.start_time.strftime("%I:%M %p")} - #{@enrollment.course.end_time.strftime("%I:%M %p")}
+      p Join date : #{@enrollment.join_date}
+      p Teacher : #{@enrollment.course.teacher_name}
+  hr
+  p #{Course.first.description}
