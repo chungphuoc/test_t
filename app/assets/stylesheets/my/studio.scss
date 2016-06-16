@@ -3,6 +3,47 @@
 }
 
 .cover_preview{
-  width: 500px;
-  height: 300px;
+  width: 350px;
+  height: 200px;
+}
+
+.studio-main-profile-section{
+  background-image: url(asset_path('yoga.jpg'));
+  background-size: 100% 100%;
+  .info-section{
+    background-color: white;
+    padding: 20px;
+    margin: 3%;
+    table{
+      margin-top: 20px;
+    }
+    .user-name{
+      color: #64d7c6;
+      font-weight: bold;
+    }
+  }
+  .manage-section{
+    background-color: white;
+    margin-top: 3%;
+    padding: 20px;
+    img{
+      width: 280px;
+      height: 200px;
+    }
+  }
+}
+.studio-main-edit-section{
+  background-image: url(asset_path('yoga.jpg'));
+  background-size: 100% 100%;
+  .studio-edit-section{
+    padding: 0px 20px;
+    background-color: white;
+    margin: 3%;
+    h2{
+      color: #64d7c6;
+    }
+  }
+  .invite_friend-section{
+    margin-top: 3%;
+  }
 }

@@ -2,7 +2,7 @@ class My::StudiosController < ApplicationController
   before_action :authenticate_user!
   before_action :authenticate_studio!
   before_action :prepare_studio
-  layout 'studio'
+  layout 'account'
 
   def show
   end
