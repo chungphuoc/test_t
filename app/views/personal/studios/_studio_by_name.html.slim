@@ -1,12 +1,17 @@
-table.table.table-striped
-  tr
-    th Index
-    th Studio name
-    th Address
-    th Contact number
-  - @studios.each_with_index do |studio, stu_index|
-    tr
-      td #{stu_index}
-      td #{studio.name}
-      td #{studio.address}
-      td #{studio.contact_number}
+-('a'..'z').each do |letter|
+  -@users = User.where("lower(name) LIKE ? AND role_type=?", "#{letter}%", "Studio")
+  - if @users.count > 0
+    h2 #{letter.upcase}
+    table.table.table-striped
+      tr
+        th Index
+        th Studio name
+        th Address
+        th Contact number
+      - @users.each_with_index do |studio_user, stu_index|
+        tr
+          td #{stu_index}
+          td 
+            = link_to studio_user.name, personal_studio_path(studio_user.role)
+          td #{studio_user.address}
+          td #{studio_user.contact_number}
