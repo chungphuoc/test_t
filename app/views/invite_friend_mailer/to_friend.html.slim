@@ -1,11 +1,25 @@
-p Dear #{@friend_mail},
-
-h1 TONE
-
-p #{@user.name} has invited you to join Tone. 
-
-p #{@message}
-
-p please check link below for more detail.
-
-= link_to "See more", "http://toned-goldenowl.herokuapp.com/"
+h4 style="color:#64d7c6;margin:30px 50px;" Dear #{@friend_mail},
+p style="color:gray;margin:30px 50px;" #{@message}
+.div style="margin:20px 50px;"
+  .div style="text-align:center;"
+    h1 style="color:#64d7c6;font-weight:bold" TONE
+  .div style="background-color:#64d7c6;padding:20px;"
+    .div style="text-align:center;"
+      h3 #{@user.name} just invited you to join TONE.
+      hr style="color:gray;margin:2% 20%;"
+    .div style="text-align:center;"
+      h3 A new way of booking exercises classes.
+  .div
+    .div style="text-align:center;color:#de77e9;"
+      h2 You can earn point by sign up now
+    .div style="text-align:center;"
+      p Start booking class fast and easy.
+  hr
+  .div style="text-align:right"
+    = image_tag attachments['phone.png'].url, style: "width:200px;height:400px;margin-top:30px;"
+  .div style="background-color:#f3f3f3;text-align:right;"
+    = image_tag attachments['phone.png'].url, style: "width:200px;height:400px;margin-top:30px;"
+  .div style="text-align:right;"
+    = image_tag attachments['phone.png'].url, style: "width:200px;height:400px;margin-top:30px;"
+.div style="text-align:center; margin:30px 0px;"
+  = link_to 'Sign up now', new_user_registration_url, style: "color:white;text-decoration:none;margin:0px auto;background-color:#de77e9;padding:10px 20px;border-radius:7px;font-weight:bold"
