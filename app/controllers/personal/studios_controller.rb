@@ -1,6 +1,5 @@
 class Personal::StudiosController < Personal::BaseController
   def index
-    @studios = Studio.all
   end
 
   def show
@@ -8,7 +7,6 @@ class Personal::StudiosController < Personal::BaseController
   end
 
   def by_name
-    @studios = Studio.all
     render 'studio_by_name', layout: false
   end
 
