@@ -1,47 +1,52 @@
-.background
-  = image_tag 'yoga.jpg'
 .row.zero-margin.main-profile-section
   .col-lg-8.main-info-section
-    h2 Edit Profile
-    = form_for [:my, @customer], class: "form-horizontal" do |f|
+    .row.zero-margin.center-text
+      h2 Edit Profile
+    = form_for [:my, @customer], html: {class: "form-horizontal"} do |f|
       = f.fields_for :user do |user_form|
         .form-group
-          = user_form.label :name
-          = user_form.text_field :name, class: "form-control"
-          .error-text
-            = @customer.user.errors[:name].to_sentence
+          = user_form.label :name, class: 'control-label col-sm-2'
+          .col-lg-10
+            = user_form.text_field :name, class: "form-control"
+            .error-text
+              = @customer.user.errors[:name].to_sentence
         .form-group
-          = user_form.label :contact_number
-          = user_form.text_field :contact_number, class: "form-control"
-          - if @customer.user.errors.messages[:contact_number]
-              p.error-text #{@customer.user.errors.messages[:contact_number][0]}
+          = user_form.label :contact_number, class: 'control-label col-sm-2'
+          .col-lg-10
+            = user_form.text_field :contact_number, class: "form-control"
+            - if @customer.user.errors.messages[:contact_number]
+                p.error-text #{@customer.user.errors.messages[:contact_number][0]}
         .form-group
-          = user_form.label :address
-          = user_form.text_field :address, class: "form-control"
-          - if @customer.user.errors.messages[:address]
-              p.error-text #{@customer.user.errors.messages[:address][0]}
+          = user_form.label :address, class: 'control-label col-sm-2'
+          .col-lg-10
+            = user_form.text_field :address, class: "form-control"
+            - if @customer.user.errors.messages[:address]
+                p.error-text #{@customer.user.errors.messages[:address][0]}
         .form-group
-          = user_form.label :avatar
-          br
-          = image_tag @customer.user.avatar, class: 'image_preview', alt: "No preview"
-          = user_form.file_field :avatar
+          = user_form.label :avatar, class: 'control-label col-sm-2'
+          .col-lg-10
+            = image_tag @customer.user.avatar, class: 'image_preview', alt: "No preview"
+            = user_form.file_field :avatar
       .form-group
-        = f.label :gender
-        = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control"
+        = f.label :gender, class: 'control-label col-sm-2'
+        .col-lg-10
+          = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control"
       .form-group
-        = f.label :receive_sms
-        .radio-button-inline
-          = f.radio_button :receive_sms, true, checked: true
-          = f.label :receive_sms, "Yes"
-        .radio-button-inline
-          = f.radio_button :receive_sms, false
-          = f.label :receive_sms, "No"
+        = f.label :receive_sms, class: 'control-label col-sm-2'
+        .col-lg-10
+          .radio-button-inline
+            = f.radio_button :receive_sms, true, checked: true
+            = f.label :receive_sms, "Yes"
+          .radio-button-inline
+            = f.radio_button :receive_sms, false
+            = f.label :receive_sms, "No"
       .form-group.date_select
-        = f.label :birthday
-        .row
-          .col-lg-6.col-sm-12
-            = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year
-      .form-group
+        = f.label :birthday, class: 'control-label col-sm-2'
+        .col-lg-10
+          .row
+            .col-lg-6.col-sm-12
+              = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year
+      .form-group.center-text
         = link_to my_customer_path, class: "btn btn-primary"
           span Back
         = f.submit "Submit", class: "btn btn-primary"

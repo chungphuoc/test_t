@@ -1,5 +1,3 @@
-.background
-  = image_tag 'yoga.jpg'
 .main-profile-section
   .row.zero-margin
     .col-lg-8.main-info-section
@@ -44,6 +42,6 @@
           tr
             th Birthday
             td = @customer.birthday
-  .row.btn-action-section
+  .row.btn-action-section.center-text
     = link_to 'Edit Profile', edit_my_customer_path, class: "btn btn-primary"
     = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-primary"

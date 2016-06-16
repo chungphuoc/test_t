@@ -1,48 +1,54 @@
-h1 Edit
-.row
-  .col-lg-8
-    = form_for [:my, @studio], class: "form-horizontal" do |f|
-      .form-group
-        = f.label :cover_img, "Cover Image"
-        br
-        = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
-        = f.file_field :cover_img
+.row.zero-margin.studio-main-edit-section
+  .col-lg-8.studio-edit-section
+    .row.zero-margin.center-text
+      h2 Edit Profile
+    = form_for [:my, @studio], html: {class: "form-horizontal"} do |f|
       = f.fields_for :user do |user_form|
         .form-group
-          = user_form.label :name
-          = user_form.text_field :name, class: "form-control"
-          .error-text
-            = @studio.user.errors[:name].to_sentence
+          = user_form.label :name, class: 'control-label col-sm-2'
+          .col-lg-10
+            = user_form.text_field :name, class: "form-control"
+            .error-text
+              = @studio.user.errors[:name].to_sentence
         .form-group
-          = user_form.label :contact_number
-          = user_form.text_field :contact_number, class: "form-control"
-          .error-text
-            = @studio.user.errors[:contact_number].to_sentence
+          = user_form.label :contact_number, class: 'control-label col-sm-2'
+          .col-lg-10
+            = user_form.text_field :contact_number, class: "form-control"
+            .error-text
+              = @studio.user.errors[:contact_number].to_sentence
         .form-group
-          = user_form.label :address
-          = user_form.text_field :address, class: "form-control"
-          .error-text
-            = @studio.user.errors[:address].to_sentence
+          = user_form.label :address, class: 'control-label col-sm-2'
+          .col-lg-10
+            = user_form.text_field :address, class: "form-control"
+            .error-text
+              = @studio.user.errors[:address].to_sentence
         .form-group
-          = user_form.label :avatar
-          br
-          = image_tag @studio.user.avatar, class: 'image_preview', alt: "No preview"
-          = user_form.file_field :avatar
+          = user_form.label :avatar, class: 'control-label col-sm-2'
+          .col-lg-10
+            = image_tag @studio.user.avatar, class: 'image_preview', alt: "No preview"
+            = user_form.file_field :avatar
+            .error-text
+              = @studio.user.errors[:avatar].to_sentence
+      .form-group
+        = f.label :website, class: 'control-label col-sm-2'
+        .col-lg-10
+          = f.text_field :website, class: "form-control"
           .error-text
-            = @studio.user.errors[:avatar].to_sentence
+            = @studio.errors[:website].to_sentence
       .form-group
-        = f.label :website
-        = f.text_field :website, class: "form-control"
-        .error-text
-          = @studio.errors[:website].to_sentence
+        = f.label :description, class: 'control-label col-sm-2'
+        .col-lg-10
+          = f.text_area :description, size: "30x7", fixed: true, class: "form-control"
+          .error-text
+            = @studio.errors[:description].to_sentence
       .form-group
-        = f.label :description
-        = f.text_area :description, class: "form-control"
-        .error-text
-          = @studio.errors[:description].to_sentence
-      .form-group
+        = f.label :cover_img, "Cover Image", class: 'control-label col-sm-2'
+        .col-lg-10
+          = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
+          = f.file_field :cover_img
+      .form-group.center-text
         = link_to :back, class: "btn btn-primary"
           span Back
         = f.submit "Submit", class: "btn btn-primary"
-  .col-lg-3
+  .col-lg-3.invite_friend-section
     = render 'my/invite_friend'

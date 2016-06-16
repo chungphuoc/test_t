@@ -1,19 +1,55 @@
-h1 Edit
-.row
-  = form_for [:my, @studio], class: "form-horizontal" do |f|
-    .form-group
-      = f.label :cover_img, "Cover Image"
-      br
-      = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
-    = f.fields_for :user do |user_form|
-      .form-group
-        = user_form.label :name
-        = user_form.text_field :name, class: "form-control", disabled: true
-      .form-group
-        = user_form.label :contact_number
-        = user_form.text_field :contact_number, class: "form-control", disabled: true
-      .form-group
-        = user_form.label :address
-        = user_form.text_field :address, class: "form-control", disabled: true
-  = link_to edit_my_studio_path, class: "btn btn-primary"
-    span Edit Profile
+.row.zero-margin.studio-main-profile-section
+  .col-lg-8.info-section
+    .row.zero-margin
+      .col-lg-6
+        = image_tag @studio.avatar, class: 'avatar'
+      .col-lg-6.user-name.center-text
+        h1 #{@studio.name}
+
+    .row.zero-margin
+      table.table
+        tr
+          th Email
+          td = @studio.email
+        tr
+          th Contact Number
+          td = @studio.contact_number
+        tr
+          th Address
+          td = @studio.address
+    .row.center-text
+      = link_to 'Edit Profile', edit_my_studio_path, class: "btn btn-primary"
+      = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-primary"
+    .row.zero-margin
+      h2 Class
+      table.table.table-striped
+        - @studio.courses.each_with_index do |course, index|
+          tr
+            td #{course.name}
+
+    .row.invite-friend.zero-margin
+      = render 'my/invite_friend'
+  .col-lg-3.manage-section
+    h2 Cover Image
+    = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
+    .row.zero-margin
+      h2 Teacher
+      table.table.table-striped
+        - @studio.teachers.each_with_index do |teacher, index|
+          tr
+            td #{teacher.name}
+      .row.center-text
+        = link_to 'Manage Teacher', manage_contracts_path, class: "btn btn-primary"
+    .row.zero-margin
+      h2 Station
+      table.table.table-striped
+        - @studio.stations.each_with_index do |station, index|
+          tr
+            td #{station.name}
+      .row.center-text
+        = link_to 'Manage Station', manage_stations_path, class: "btn btn-primary"
+    .row.zero-margin
+      h2 Facilities
+      = render 'personal/studios/facilities'
+      .row.center-text
+        = link_to 'Manage Facilities', manage_facilities_path, class: "btn btn-primary"

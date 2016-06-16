@@ -19,13 +19,14 @@
     @extend .date_select;
 }
 .main-profile-section{
-    position: absolute; 
-    top: 10%;
-    left: 0px;
-    right: 0px;
+    background-image: url(asset_path('yoga.jpg'));
+    background-size: 100% 100%;
     .main-info-section{
         background-color: white;
         margin: 20px;
+        h2{
+            color: #64d7c6;
+        }
         .user-name{
             font-weight: bold;
             color: #64d7c6;
