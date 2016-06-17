@@ -124,6 +124,8 @@ Rails.application.routes.draw do
       collection do
         get :booked
         get :passed
+        get :change_course
+        get :by_join_date
       end
     end
     resources :facilities, only: [:index] do 

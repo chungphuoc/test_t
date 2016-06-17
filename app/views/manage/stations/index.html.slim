@@ -1,6 +1,7 @@
 .row
   .col-md-6
-    h2 Stations
+    .row.zero-margin.center-text.title
+      h2 Stations
     = form_tag manage_stations_path, method: :put
       - Station.approved.each do |station|
         .checkbox
@@ -9,9 +10,10 @@
             = station.name
       p
         = link_to "Request new station", new_manage_station_path
-      = submit_tag 'Update', class: "btn btn-primary"
+      = submit_tag 'Update', class: "btn btn-sign-up"
   .col-md-6
-    h2 Requested Stations
+    .row.zero-margin.center-text.title
+      h2 Requested Stations
     ul
       - @studio.requested_stations.requested.each do |station|
         li
@@ -19,7 +21,8 @@
           = link_to 'Edit', edit_manage_station_path(station)
           = link_to 'Delete', manage_station_path(station), method: :delete, data: { confirm: 'Are you sure?'}
     hr
-    h2 Approved Stations
+    .row.zero-margin.center-text.title
+      h2 Approved Stations
     ul
       - @studio.requested_stations.approved.each do |station|
         li
