@@ -1,7 +1,7 @@
 .row.zero-margin.studio-main-edit-section
   .col-lg-8.studio-edit-section
     .row.zero-margin.center-text
-      h2 Edit Profile
+      h1 Edit Profile
     = form_for [:my, @studio], html: {class: "form-horizontal"} do |f|
       = f.fields_for :user do |user_form|
         .form-group
@@ -47,8 +47,8 @@
           = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
           = f.file_field :cover_img
       .form-group.center-text
-        = link_to :back, class: "btn btn-primary"
+        = link_to :back, class: "btn btn-sign-up"
           span Back
-        = f.submit "Submit", class: "btn btn-primary"
+        = f.submit "Submit", class: "btn btn-sign-up"
   .col-lg-3.invite_friend-section
     = render 'my/invite_friend'

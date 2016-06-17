@@ -1,7 +1,7 @@
 .row.zero-margin.main-profile-section
   .col-lg-8.main-info-section
     .row.zero-margin.center-text
-      h2 Edit Profile
+      h1 Edit Profile
     = form_for [:my, @customer], html: {class: "form-horizontal"} do |f|
       = f.fields_for :user do |user_form|
         .form-group
@@ -47,8 +47,8 @@
             .col-lg-6.col-sm-12
               = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year
       .form-group.center-text
-        = link_to my_customer_path, class: "btn btn-primary"
+        = link_to my_customer_path, class: "btn btn-sign-up"
           span Back
-        = f.submit "Submit", class: "btn btn-primary"
+        = f.submit "Submit", class: "btn btn-sign-up"
   .col-lg-3.invite-friend-right
     = render 'my/invite_friend'
