@@ -16,10 +16,16 @@
           h3#calories_burnt #{@enrollments_query.calories_burnt('daily')} Calories Burnt
         .col-lg-6
           = select_tag :frequency_calories_burnt, options_for_select([["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"]]), onchange: "calories_burnt()", class: "form-control"
+      .row.btn-action-section.center-text
+        = link_to 'Edit Profile', edit_my_customer_path, class: "btn btn-sign-up"
+        = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-sign-up"
+      hr
       .row.invite-friend.zero-margin
         = render 'my/invite_friend'
     .col-lg-3.detail-profile-section
       .row.content-section.zero-margin
+        .row.center-text
+          h2 Basic info
         table.table
           tr
             th Name
@@ -42,6 +48,3 @@
           tr
             th Birthday
             td = @customer.birthday
-  .row.btn-action-section.center-text
-    = link_to 'Edit Profile', edit_my_customer_path, class: "btn btn-primary"
-    = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-primary"

@@ -6,7 +6,7 @@
       .col-lg-6.user-name.center-text
         h1 #{@studio.name}
 
-    .row.zero-margin
+    .row.zero-margin.table-info
       table.table
         tr
           th Email
@@ -18,38 +18,55 @@
           th Address
           td = @studio.address
     .row.center-text
-      = link_to 'Edit Profile', edit_my_studio_path, class: "btn btn-primary"
-      = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-primary"
-    .row.zero-margin
-      h2 Class
+      = link_to 'Edit Profile', edit_my_studio_path, class: "btn btn-sign-up"
+      = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-sign-up"
+    hr
+    .row.zero-margin.table-info
+      .row.center-text
+        h2.title Class
       table.table.table-striped
+        tr
+          th Index
+          th Class name
+          th Time
+          th Teacher
         - @studio.courses.each_with_index do |course, index|
           tr
+            td #{index}
             td #{course.name}
-
+            td #{course.start_time.strftime("%I:%M %p")} - #{course.end_time.strftime("%I:%M %p")}
+            td #{course.teacher_name}
+    hr
     .row.invite-friend.zero-margin
       = render 'my/invite_friend'
   .col-lg-3.manage-section
-    h2 Cover Image
+    .row.center-text
+      h2.title Cover Image
     = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
+    hr
     .row.zero-margin
-      h2 Teacher
+      .row.center-text
+        h2.title Teacher
       table.table.table-striped
         - @studio.teachers.each_with_index do |teacher, index|
           tr
             td #{teacher.name}
       .row.center-text
-        = link_to 'Manage Teacher', manage_contracts_path, class: "btn btn-primary"
+        = link_to 'Add Teacher', manage_contracts_path, class: "btn btn-sign-up"
+      hr
     .row.zero-margin
-      h2 Station
+      .row.center-text
+        h2.title Station
       table.table.table-striped
         - @studio.stations.each_with_index do |station, index|
           tr
             td #{station.name}
       .row.center-text
-        = link_to 'Manage Station', manage_stations_path, class: "btn btn-primary"
-    .row.zero-margin
-      h2 Facilities
+        = link_to 'Add Station', manage_stations_path, class: "btn btn-sign-up"
+      hr
+    .row.zero-margin.facilities
+      .row.center-text
+        h2.title Facilities
       = render 'personal/studios/facilities'
       .row.center-text
-        = link_to 'Manage Facilities', manage_facilities_path, class: "btn btn-primary"
+        = link_to 'Add Facilities', manage_facilities_path, class: "btn btn-sign-up"
