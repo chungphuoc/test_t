@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   validates :name, length: { minimum: 3, maximum: 60 }
   belongs_to :role, polymorphic: true
   delegate :enrollments, to: :role
+  delegate :courses, to: :role
   delegate :favourite_courses, to: :role
   delegate :courses_favourites, to: :role
   delegate :courses_enrollments, to: :role
