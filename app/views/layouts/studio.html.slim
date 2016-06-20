@@ -2,7 +2,7 @@ doctype html
 html
   head
     title Toned
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
 body
@@ -38,35 +38,27 @@ body
   .flash-wrapper
     = flash_messages
   .content
-    .container
-      .row
+      .row.zero-margin.studio-layout
         .col-md-3
-          .panel.panel-success
+          .panel
             .panel-heading.panel-border
             .panel-body
               = image_tag current_user.avatar_url, class: 'avatar'
               .text-center
                 h1.studio-name.gray = current_user.name
-              ul.list-group
-                li.list-group-item
-                  = link_to 'Schedule', manage_courses_path
-                li.list-group-item
-                  = link_to 'Booked Classes', booked_manage_courses_path
-                li.list-group-item
-                  = link_to 'Past Classes', past_manage_courses_path
-                li.list-group-item
-                  = link_to 'Teachers', manage_contracts_path
-                li.list-group-item
-                  = link_to 'Exercises', manage_exercises_path
-                li.list-group-item
-                  = link_to 'Stations', manage_stations_path
-                li.list-group-item
-                  = link_to 'Profile', my_studio_path
-                li.list-group-item
-                  = link_to 'Facilities', manage_facilities_path
+              .list-group
+                  = link_to 'Schedule', manage_courses_path, class: 'list-group-item'
+                  // = link_to 'Booked Classes', booked_manage_courses_path, class: 'list-group-item'
+                  // = link_to 'Past Classes', past_manage_courses_path, class: 'list-group-item'
+                  = link_to 'Teachers', manage_contracts_path, class: 'list-group-item'
+                  = link_to 'Exercises', manage_exercises_path, class: 'list-group-item'
+                  = link_to 'Stations', manage_stations_path, class: 'list-group-item'
+                  = link_to 'Facilities', manage_facilities_path, class: 'list-group-item'
         .col-md-9
-          .panel.panel-success
+          .panel
             .panel-heading
             .panel-body
               = yield
+  .footer-section
+    = render "shares/footer"
   = javascript_include_tag 'application', 'data-turbolinks-track' => true

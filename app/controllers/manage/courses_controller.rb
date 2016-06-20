@@ -2,15 +2,19 @@ class Manage::CoursesController < Manage::BaseController
   before_action :prepare_course, only: [:show, :edit, :update, :destroy, :close, :reopen]
 
   def index
-    @courses = @studio.courses.order(start_date: :asc)
-    @course_date_data = @courses.group(:start_date).count.to_json
+    course_query = CoursesQuery.new(current_user)
+    # @courses = @studio.courses.order(start_date: :asc)
+    # @course_date_data = @courses.group(:start_date).count.to_json
+    @courses = current_user.courses
+    @course_date_data = course_query.join_dates_json
     if params[:start_date]
       start_date = begin
                      Date.strptime(params[:start_date], '%d-%m-%Y')
                    rescue ArgumentError
                      nil
                    end
-      @courses = @courses.where(start_date: start_date) if start_date
+      # @courses = @courses.where(start_date: start_date) if start_date
+      @courses = course_query.courses_by_date(start_date) if start_date
     end
   end
 
@@ -37,6 +41,7 @@ class Manage::CoursesController < Manage::BaseController
 
   def update
     @course.assign_attributes(course_params)
+    @course.days_of_week = params[:days_of_week]
     if @course.save
       set_flash_message :success, :updated
       redirect_to manage_course_path(@course)
@@ -82,6 +87,7 @@ class Manage::CoursesController < Manage::BaseController
     params.require(:course).permit(:name, :cover_img, :phone_number, :website,
                                    :description, :rating, :kcal, :num_slot,
                                    :tuition, :start_time, :end_time, :start_date,
-                                   :teacher_id, :station_id, :exercise_id)
+                                   :teacher_id, :station_id, :exercise_id,
+                                   :days_of_week => [])
   end
 end

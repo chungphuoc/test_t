@@ -1,3 +1,15 @@
-// Place all the styles related to the manage/base controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.studio-layout{
+  .title{
+    color: #64d7c6;
+  }
+  background-image: url(asset_path('yoga.jpg'));
+  background-size: 100% 100%;
+  padding-top: 2% !important;
+  .list-group-item{
+    border: 0px;
+    font-weight: bold;
+  }
+  a.list-group-item:hover{
+      background-color: #f7e4fa;
+  }
+}

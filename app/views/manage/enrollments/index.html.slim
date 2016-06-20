@@ -3,9 +3,15 @@
     h1 Class management
   .row
     .col-lg-3.col-lg-offset-3
-      button.btn.button-class-active#btn-booked onClick="booked_class()" Booked Class
+      button.btn.button-class-active.btn-filter#btn-booked onClick="booked_class()" Booked Class
     .col-lg-3
-      button.btn#btn-passed onClick="passed_class()" Passed Class
-
+      button.btn.btn-filter#btn-passed onClick="passed_class()" Passed Class
+  .row.zero-margin.search-section
+    .col-lg-4.col-lg-offset-1
+      = select_tag :courses, options_for_select(current_user.role.courses.map{|c|[c.name, c.id]}), class: "form-control", onchange: "change_course_option()", required: ""
+    .col-lg-4
+      = select_tag :join_date, options_for_select([]), class: "form-control"
+    .col-lg-3
+      button.btn onClick="search_by_join_date()" Search
   #enrollment-table
     = render 'enrollment_table'

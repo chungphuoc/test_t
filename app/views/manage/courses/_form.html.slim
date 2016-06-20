@@ -78,10 +78,18 @@
       .error-text
         = @course.errors[:station].to_sentence
   .form-group
+    label.control-label.col-sm-2 = f.label :days_of_week
+    .col-sm-10
+      = render 'shares/days_of_week_edit', f:f
+      .error-text
+        = @course.errors[:days_of_week].to_sentence
+  .form-group
     label.control-label.col-sm-2 = f.label :exercise
     .col-sm-10
       = f.select :exercise_id, options_from_collection_for_select(@studio.exercises, :id, :name), { prompt: 'Select exercise' }, class: 'form-control'
       .error-text
         = @course.errors[:exercise].to_sentence
-  = f.submit 'Submit', class: 'btn btn-primary'
+  .form-group
+    .row.center-text
+      = f.submit 'Submit', class: 'btn btn-sign-up'
 end
