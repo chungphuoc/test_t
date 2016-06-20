@@ -41,6 +41,7 @@ class Manage::CoursesController < Manage::BaseController
 
   def update
     @course.assign_attributes(course_params)
+    @course.days_of_week = params[:days_of_week]
     if @course.save
       set_flash_message :success, :updated
       redirect_to manage_course_path(@course)
@@ -86,6 +87,7 @@ class Manage::CoursesController < Manage::BaseController
     params.require(:course).permit(:name, :cover_img, :phone_number, :website,
                                    :description, :rating, :kcal, :num_slot,
                                    :tuition, :start_time, :end_time, :start_date,
-                                   :teacher_id, :station_id, :exercise_id)
+                                   :teacher_id, :station_id, :exercise_id,
+                                   :days_of_week => [])
   end
 end

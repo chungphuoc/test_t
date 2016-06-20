@@ -31,7 +31,7 @@ class CoursesQuery
         newday.strftime("%Y-%m-%d")
       end
     end
-    result = newdays.inject(Hash.new(0)) { |total, d| total[d] += 1; total }
+    result = newdays.compact.inject(Hash.new(0)) { |total, d| total[d] += 1; total }
     result.to_json
   end
 end

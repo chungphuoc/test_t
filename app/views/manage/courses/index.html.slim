@@ -3,7 +3,9 @@
 .row
   .col-sm-12
     #js_schedule data-course-date="#{ @course_date_data }" data-default-date="#{ params[:start_date] }"
-= link_to 'New course', new_manage_course_path, class: 'btn btn-sign-up'
+.row.center-text.zero-margin
+  = link_to 'New Class', new_manage_course_path, class: 'btn btn-sign-up'
+  = link_to 'All Classes', manage_courses_path, class: 'btn btn-sign-up'
 table.table.table-stripped
   tr
     th Name
@@ -11,20 +13,19 @@ table.table.table-stripped
     th Website
     th Rating
     th Start Date
-    th Enrollments Count
-    th
+    th Action
   - @courses.each do |course|
     tr
       td = course.name
       td = course.phone_number
-      td = course.website
-      td = course.rating
+      td 
+        = link_to course.website, course.website
+      td = rating_for course, "quality", disable_after_rate: false
       td = course.start_date
-      td = course.enrollments_count
       td
-        = link_to 'Show', manage_course_path(course), class: "btn btn-primary"
-        = link_to 'Edit', edit_manage_course_path(course), class: "btn btn-primary"
+        = link_to 'Show', manage_course_path(course), class: "btn btn-sign-in"
+        = link_to 'Edit', edit_manage_course_path(course), class: "btn btn-sign-in"
         - if course.active?
-          = link_to 'Close', close_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-primary"
+          = link_to 'Close', close_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-sign-in"
         - else
-          = link_to 'Re-open', reopen_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-success"
+          = link_to 'Re-open', reopen_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-sign-in"

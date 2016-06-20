@@ -1,0 +1,36 @@
+.row.center-text
+  .col-lg-1.col-lg-offset-2
+    .checkbox
+      label
+        = check_box_tag "days_of_week[]", 1, @course.days_of_week.include?(1), disabled: true
+        span Mon
+  .col-lg-1
+    .checkbox
+      label
+        = check_box_tag "days_of_week[]", 2, @course.days_of_week.include?(2), disabled: true
+        span Tue
+  .col-lg-1
+    .checkbox
+      label
+        = check_box_tag "days_of_week[]", 3, @course.days_of_week.include?(3), disabled: true
+        span Wed
+  .col-lg-1
+    .checkbox
+      label
+        = check_box_tag "days_of_week[]", 4, @course.days_of_week.include?(4), disabled: true
+        span Thu
+  .col-lg-1
+    .checkbox
+      label
+        = check_box_tag "days_of_week[]", 5, @course.days_of_week.include?(5), disabled: true
+        span Fri
+  .col-lg-1
+    .checkbox
+      label
+        = check_box_tag "days_of_week[]", 6, @course.days_of_week.include?(6), disabled: true
+        span Sat
+  .col-lg-1
+    .checkbox
+      label
+        = check_box_tag "days_of_week[]", 0, @course.days_of_week.include?(0), disabled: true
+        span Sun

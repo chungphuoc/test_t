@@ -3,11 +3,13 @@
     .row.zero-margin.center-text.title
       h2 Stations
     = form_tag manage_stations_path, method: :put
-      - Station.approved.each do |station|
-        .checkbox
-          label
-            = check_box_tag 'station_ids[]', station.id, @station_ids.include?(station.id)
-            = station.name
+      .row
+        - Station.approved.each do |station|
+          .col-lg-4
+            .checkbox
+              label
+                = check_box_tag 'station_ids[]', station.id, @station_ids.include?(station.id)
+                = station.name
       p
         = link_to "Request new station", new_manage_station_path
       = submit_tag 'Update', class: "btn btn-sign-up"
