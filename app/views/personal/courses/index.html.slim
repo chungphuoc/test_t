@@ -1,4 +1,5 @@
-h2 Search Courses
+.row.zero-margin.center-text.title
+  h2 Search Courses
 = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
   h3 Stations
   .row
@@ -18,7 +19,7 @@ h2 Search Courses
     label.control-label.col-md-1 Date
     .col-md-5
       = text_field_tag :date, params[:date], class: 'datepicker form-control'
-  = submit_tag 'Search', class: 'btn btn-primary'
+  = submit_tag 'Search', class: 'btn btn-sign-in'
 .row
   = render "shares/course"
 = paginate @courses

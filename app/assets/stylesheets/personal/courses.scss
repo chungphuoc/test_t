@@ -56,6 +56,13 @@
     border-top: none !important;
     text-align: center !important;
   }
+  .studio-detail{
+      list-style-type: none;
+      padding-left: 0px;
+      .glyphicon{
+        margin-right: 10px;
+      }
+  }
 }
 
 .confirmation-detail{
@@ -76,6 +83,15 @@
     background-color: #64d7c6;
     .app-name{
       color: white;
+    }
+  }
+}
+
+#addsClassModal{
+  .modal-dialog{
+    text-align: center;
+    .stripe-button-el{
+      background-color: red;
     }
   }
 }

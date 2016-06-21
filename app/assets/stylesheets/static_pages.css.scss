@@ -17,6 +17,9 @@ body{
 .studio-name {
   font-size: 25px;
 }
+.studio-name:hover{
+  text-decoration: none;
+}
 .gray {
   color: #777;
 }
@@ -30,4 +33,8 @@ body{
 
 .center-text{
   text-align: center;
+}
+
+.left-text{
+  text-align: left;
 }

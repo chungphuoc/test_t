@@ -1,4 +1,5 @@
-h2 Booked Class
+.row.center-text.zero-margin.title
+  h2 Booked Class
 table.table.table-striped.table-booked-class
   tr
     th Index
@@ -21,9 +22,9 @@ table.table.table-striped.table-booked-class
       td id="status_#{enrollment.id}" #{enrollment.status}
       td
         - if enrollment.paid?
-          button.btn.btn-primary id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" Cancel
+          button.btn.btn-sign-in id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" Cancel
         - else
-          button.btn.btn-primary disabled = "disabled" Cancel
-        = link_to personal_course_path(enrollment.course), class: "btn btn-primary"
+          button.btn.btn-sign-in disabled = "disabled" Cancel
+        = link_to personal_course_path(enrollment.course), class: "btn btn-sign-in"
           span Show
   end
