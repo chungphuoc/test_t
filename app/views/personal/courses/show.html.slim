@@ -1,39 +1,39 @@
 #addsClassModal.modal.fade role="dialog"
-  .modal-dialog.modal-lg
+  .modal-dialog
     .modal-content
       .modal-header
         button.close data-dismiss="modal" type="button"  ×
-        h4.modal-title Class detail
+        h3.modal-title.title Class detail
       .modal-body id='model-body'
         .row
-          .col-lg-3
+          .col-lg-3.col-lg-offset-2
             p
               b Start Date
           .col-lg-6
             p #{@course.start_date}
         .row
-          .col-lg-3
+          .col-lg-3.col-lg-offset-2
             p
               b Start time
           .col-lg-6
             p #{@course.start_time.strftime("%I:%M %p")}
         .row
-          .col-lg-3
+          .col-lg-3.col-lg-offset-2
             p
               b End time
           .col-lg-6
             p #{@course.end_time.strftime("%I:%M %p")}
         .row
-          .col-lg-3
+          .col-lg-3.col-lg-offset-2
             p
               b Price
           .col-lg-6
             p #{@course.tuition} yen
         .row
-          .col-lg-3
+          .col-lg-3.col-lg-offset-2
             p
               b Attend Date  
-          .col-lg-3
+          .col-lg-3.col-lg-offset-2
             = render "personal/checkouts/checkout_btn"
           //   button.btn.btn-default data-dismiss="modal" type="button"  Cancel
       .modal-footer
@@ -78,10 +78,16 @@
           .map#js_google_map style="height: 300px"
       .col-lg-6
         .row.zero-margin
-          = link_to @course.studio.name, personal_studio_path(@course.studio)
-          .col-lg-6
-            h4 #{@course.studio.address}
-            h4 #{@course.studio.contact_number}
+          .row
+            = link_to @course.studio.name, personal_studio_path(@course.studio), class: 'studio-name'
+          .col-lg-6.left-text
+            ul.studio-detail
+              li
+                span.glyphicon.glyphicon-map-marker
+                span #{@course.studio.address}
+              li
+                span.glyphicon.glyphicon-earphone
+                span #{@course.studio.contact_number}
           .col-lg-6
             p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500sLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
         = render "course_action_btn"

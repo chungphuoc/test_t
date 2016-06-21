@@ -10,6 +10,8 @@
               = link_to 'My page', my_studio_path, class: 'btn-header'
             - elsif current_user.customer?
               = link_to 'My page', my_customer_path, class: 'btn-header'
+            - elsif current_user.admin?
+              = link_to 'My page', admin_studios_path, class: 'btn-header'
           li
             = link_to 'Contact us', contact_us_static_pages_path, class: 'btn-header'
           li

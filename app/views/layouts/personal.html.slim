@@ -8,12 +8,41 @@ html
     = csrf_meta_tags
 
 body
-  .flash-wrapper
-    = flash_messages
-  .navigation
-    = render 'my/navigation'
-  .row.zero-margin.main-section
-    = yield
+    .flash-wrapper
+        = flash_messages
+    .navigation
+        = render 'my/navigation'
+    // .row.zero-margin.main-section
+    //     = yield
+    .content
+      .row.zero-margin.studio-layout
+        .col-md-3
+          .panel
+            .panel-heading.panel-border
+            .panel-body
+              = image_tag current_user.avatar_url, class: 'avatar'
+              .text-center.title
+                h1.studio-name.gray = current_user.name
+              hr
+                .row.zero-margin.center-text
+                    - @enrollments_query = EnrollmentsQuery.new(current_user)
+                    h4#calories_burnt #{@enrollments_query.calories_burnt('daily')} Calories Burnt
+                    h4 #{current_user.role.point} Point
+              hr
+          .panel
+            .panel-heading
+                .row.center-text.zero-margin.title
+                    h3 Favourite Studio
+            .panel-body
+                - @courses = CoursesQuery.new(current_user).favourite_courses.limit(5)
+                .list-group
+                    - @courses.each do |course|
+                        = link_to course.studio.name, personal_studio_path(course.studio), class: 'list-group-item'
+        .col-md-9
+          .panel
+            .panel-heading
+            .panel-body
+              = yield
     // .col-lg-3.content-section
     //   .left-side-bar
     //     .info-section
@@ -35,5 +64,5 @@ body
     //           = link_to 'Contact Us', '#'
     // .col-lg-9.content-section
     //   = yield
-  .footer-section
-    = render "shares/footer"
+    .footer-section
+        = render "shares/footer"
