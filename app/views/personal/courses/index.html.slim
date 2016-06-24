@@ -1,14 +1,14 @@
 .row.zero-margin.center-text.title
-  h2 Search Courses
+  h2 = t('static_text.search_class')
 = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
-  h3 Stations
+  h3 = t('static_text.station')
   .row
     - Station.all.each do |station|
       .checkbox.col-md-3
         label
           = check_box_tag 'station_ids[]', station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s)
           = station.name
-  h3 Exercises
+  h3 = t('static_text.exercise')
   .row
     - Exercise.all.each do |exercise|
       .checkbox.col-md-3
@@ -19,7 +19,7 @@
     label.control-label.col-md-1 Date
     .col-md-5
       = text_field_tag :date, params[:date], class: 'datepicker form-control'
-  = submit_tag 'Search', class: 'btn btn-sign-in'
+  = submit_tag t('button.search'), class: 'btn btn-sign-in'
 .row
   = render "shares/course"
 = paginate @courses

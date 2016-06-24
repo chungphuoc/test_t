@@ -24,7 +24,9 @@ body
             li
               = link_to 'Home', root_path, class: 'btn-header'
             li
-              = link_to 'Sign in', new_user_session_path, class: 'btn-header'
+              = link_to t('button.sign_in'), new_user_session_path, class: 'btn-header'
             li
-              = link_to 'Sign up', new_user_registration_path, class: 'btn-sign-up'
+              = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-sign-up'
+            li
+              = link_to_switch_language
   = yield

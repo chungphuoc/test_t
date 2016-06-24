@@ -23,15 +23,15 @@
       = render 'facilities'
     .row.zero-margin.center-text.course-list
       .row.zero-margin.center-text
-        h2 Class Schedule
+        h2 = t('static_text.class_schedule')
       table.table.table-striped.table-courses
         tr
-          th Index
-          th Class name
-          th Time
-          th Weekday
-          th Kcal
-          th Tuition
+          th = t('static_text.index')
+          th = Course.human_attribute_name('name')
+          th = Course.human_attribute_name('start_time')
+          th = Course.human_attribute_name('days_of_week')
+          th = Course.human_attribute_name('kcal')
+          th = Course.human_attribute_name('tuition')
         - @studio.courses.each_with_index do |course, index|
           tr
             td index

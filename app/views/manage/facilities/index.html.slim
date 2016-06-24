@@ -1,5 +1,5 @@
 .row.zero-margin.center-text.title
-  h1 Facilities
+  h1 = t('static_text.facilities')
 = form_tag manage_facilities_path, method: :put do
   .checkbox
     label
@@ -21,4 +21,4 @@
     label
       = check_box_tag 'facilities[]', 4, @facilities.include?(4)
       span Water
-  = submit_tag 'Update', class: "btn btn-sign-up"
+  = submit_tag t('button.update'), class: "btn btn-sign-up"

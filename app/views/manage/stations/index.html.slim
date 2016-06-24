@@ -1,7 +1,7 @@
 .row
   .col-md-6
     .row.zero-margin.center-text.title
-      h2 Stations
+      h2 = t('static_text.stations')
     = form_tag manage_stations_path, method: :put
       .row
         - Station.approved.each do |station|
@@ -11,20 +11,20 @@
                 = check_box_tag 'station_ids[]', station.id, @station_ids.include?(station.id)
                 = station.name
       p
-        = link_to "Request new station", new_manage_station_path
-      = submit_tag 'Update', class: "btn btn-sign-up"
+        = link_to t('static_text.request_new_station'), new_manage_station_path
+      = submit_tag t('button.update'), class: "btn btn-sign-up"
   .col-md-6
     .row.zero-margin.center-text.title
-      h2 Requested Stations
+      h2 = t('static_text.requested_stations')
     ul
       - @studio.requested_stations.requested.each do |station|
         li
           = station.name
-          = link_to 'Edit', edit_manage_station_path(station)
-          = link_to 'Delete', manage_station_path(station), method: :delete, data: { confirm: 'Are you sure?'}
+          = link_to t('button.edit'), edit_manage_station_path(station)
+          = link_to t('button.delete'), manage_station_path(station), method: :delete, data: { confirm: 'Are you sure?'}
     hr
     .row.zero-margin.center-text.title
-      h2 Approved Stations
+      h2 = t('static_text.approved_stations')
     ul
       - @studio.requested_stations.approved.each do |station|
         li

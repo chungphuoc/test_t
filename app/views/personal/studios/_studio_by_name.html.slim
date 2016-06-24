@@ -4,10 +4,10 @@
     h2 #{letter.upcase}
     table.table.table-striped
       tr
-        th Index
-        th Studio name
-        th Address
-        th Contact number
+        th = t('static_text.index')
+        th = Course.human_attribute_name('studio_name')
+        th = User.human_attribute_name('address')
+        th = User.human_attribute_name('contact_number')
       - @users.each_with_index do |studio_user, stu_index|
         tr
           td #{stu_index}

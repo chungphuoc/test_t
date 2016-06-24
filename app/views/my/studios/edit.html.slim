@@ -1,7 +1,7 @@
 .row.zero-margin.studio-main-edit-section
   .col-lg-8.studio-edit-section
     .row.zero-margin.center-text
-      h1 Edit Profile
+      h1 = t('static_text.edit_profile')
     = form_for [:my, @studio], html: {class: "form-horizontal"} do |f|
       = f.fields_for :user do |user_form|
         .form-group
@@ -42,13 +42,12 @@
           .error-text
             = @studio.errors[:description].to_sentence
       .form-group
-        = f.label :cover_img, "Cover Image", class: 'control-label col-sm-2'
+        = f.label :cover_img, class: 'control-label col-sm-2'
         .col-lg-10
           = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
           = f.file_field :cover_img
       .form-group.center-text
-        = link_to :back, class: "btn btn-sign-up"
-          span Back
-        = f.submit "Submit", class: "btn btn-sign-up"
+        = link_to t('button.back'), :back, class: "btn btn-sign-up"
+        = f.submit t('button.submit'), class: "btn btn-sign-up"
   .col-lg-3.invite_friend-section
     = render 'my/invite_friend'

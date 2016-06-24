@@ -1,10 +1,10 @@
 .invite_friend_side
-  h4 Invite Friend
+  h4 = t('static_text.invite_friend')
   = form_tag send_email_invite_friend_path do
     .form-group
-      = text_field_tag :email, "", class: "form-control", placeholder: "email", required: ""
+      = text_field_tag :email, "", class: "form-control", placeholder: t('static_text.email'), required: ""
     .form-group
-      = text_area_tag :message, "", class: "form-control", placeholder: "message", required: ""
+      = text_area_tag :message, "", class: "form-control", placeholder: t('static_text.message'), required: ""
     .form-group
-      = submit_tag "Send", class: "btn btn-primary btn-send"
+      = submit_tag t('button.send'), class: "btn btn-primary btn-send"
 

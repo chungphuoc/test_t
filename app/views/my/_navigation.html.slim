@@ -7,24 +7,28 @@
         ul.nav.navbar-nav.navbar-left
           - if current_user.studio?
             li
-              = link_to 'Payment management', manage_payment_index_path, class: 'btn-header'
+              = link_to t('button.payment_management'), manage_payment_index_path, class: 'btn-header'
             li
-              = link_to 'Class management', manage_enrollments_path, class: 'btn-header'
+              = link_to t('button.class_management'), manage_enrollments_path, class: 'btn-header'
             li
-              = link_to 'My page', my_studio_path, class: 'btn-header'  
+              = link_to t('button.my_page'), my_studio_path, class: 'btn-header'  
           - else
             li
-              = link_to 'Search', personal_courses_path, class: 'btn-header'
+              = link_to t('button.search_class'), personal_courses_path, class: 'btn-header'
+            li.dropdown.menu-dropdow
+              a.dropdown-toggle type="button" data-toggle="dropdown"
+                span = t('button.my_classes')
+              ul.dropdown-menu
+                li
+                  = link_to t('button.booked_class'), personal_enrollments_path, class: 'btn-header'
+                li
+                  = link_to t('button.passed_class'), personal_enrollments_path(statuses: [2]), class: 'btn-header'
+                li
+                  = link_to t('button.favourite_class'), personal_favourite_courses_path, class: 'btn-header'
             li
-              = link_to 'Booked Class', personal_enrollments_path, class: 'btn-header'
+              = link_to t('button.studio_list'), personal_studios_path, class: 'btn-header'
             li
-              = link_to 'Passed Class', personal_enrollments_path(statuses: [2]), class: 'btn-header'
-            li
-              = link_to 'Favourite', personal_favourite_courses_path, class: 'btn-header'
-            li
-              = link_to 'Studio list', personal_studios_path, class: 'btn-header'
-            li
-              = link_to 'My page', my_customer_path, class: 'btn-header'
+              = link_to t('button.my_page'), my_customer_path, class: 'btn-header'
         ul.nav.navbar-right.navbar-nav
           - if current_user
             li
@@ -64,10 +68,9 @@
                   = link_to edit_user_registration_path
                     span Edit Account
                 li
-                  = link_to destroy_user_session_path, method: :delete
-                    p Logout
+                  = link_to t('button.sign_out'), destroy_user_session_path, method: :delete
             li
-              = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn-sign-up'
+              = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
           -else
             li
               = link_to new_user_registration_path
@@ -75,5 +78,5 @@
             li
               = link_to new_user_session_path
                 p Login
-            li
-              = link_to_switch_language
+          li
+            = link_to_switch_language

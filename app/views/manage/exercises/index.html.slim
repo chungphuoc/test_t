@@ -1,5 +1,5 @@
 .row.zero-margin.center-text.title
-  h1 Exercises
+  h1 = t('static_text.exercises')
 = form_tag manage_exercises_path, method: :put do
   .row
     - Exercise.all.each do |exercise|
@@ -8,4 +8,4 @@
           label
             = check_box_tag 'exercise_ids[]', exercise.id, @exercise_ids.include?(exercise.id)
             = exercise.name
-  = submit_tag 'Update', class: "btn btn-sign-up"
+  = submit_tag t('button.update'), class: "btn btn-sign-up"

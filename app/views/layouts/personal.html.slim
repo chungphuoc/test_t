@@ -26,13 +26,13 @@ body
               hr
                 .row.zero-margin.center-text
                     - @enrollments_query = EnrollmentsQuery.new(current_user)
-                    h4#calories_burnt #{@enrollments_query.calories_burnt('daily')} Calories Burnt
-                    h4 #{current_user.role.point} Point
+                    h4#calories_burnt #{@enrollments_query.calories_burnt('daily')} #{t('static_text.calories_burnt')}
+                    h4 #{current_user.role.point} #{t('static_text.point')}
               hr
           .panel
             .panel-heading
                 .row.center-text.zero-margin.title
-                    h3 Favourite Studio
+                    h3 = t('static_text.favourite_studio')
             .panel-body
                 - @courses = CoursesQuery.new(current_user).favourite_courses.limit(5)
                 .list-group

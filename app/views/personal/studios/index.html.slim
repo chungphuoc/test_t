@@ -1,11 +1,11 @@
 .studio-list-section
   .row.zero-margin.center-text.title
-    h1 Studio list
+    h1 = t('static_text.studio_list')
   .row
-    .col-lg-3.col-lg-offset-3
-      button.btn.button-class-active#btn-by-name onClick="by_studio_name()" Search by name
-    .col-lg-3
-      button.btn#btn-by-station onClick="by_station()" Search by station
+    .col-lg-4.col-lg-offset-2
+      button.btn.button-class-active#btn-by-name onClick="by_studio_name()" = t('button.search_by_name')
+    .col-lg-4
+      button.btn#btn-by-station onClick="by_station()" = t('button.search_by_station')
 
   #studio-list
     = render 'studio_by_name'
