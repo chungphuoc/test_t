@@ -1,28 +1,39 @@
-= form_for [:admin, @station], class: "form-horizontal" do |f|
+= form_for [:admin, @station], :html => { :class => "form-horizontal" } do |f|
+  - @station.translations.each do |translation|
+    .form-group
+      = f.fields_for :translations, translation do |trs|
+        = trs.hidden_field :locale
+        - if translation.locale == 'en'
+          = trs.label 'English Name', class: 'col-sm-2'
+        -else
+          = trs.label 'Japanese Name', class: 'col-sm-2'
+        .col-sm-10
+          = trs.text_field :name, class: 'form-control', required: ""
+          .error-text
+             = @station.errors['translations.name'].to_sentence
   .form-group
-    = f.label :name
-    = f.text_field :name, class: 'form-control'
-    .error-text
-        = @station.errors[:name].to_sentence
-  .form-group
-    = f.label :location
-    = f.text_field :location, class: 'form-control'
-    .error-text
+    = f.label :location, class: 'col-sm-2'
+    .col-sm-10
+      = f.text_field :location, class: 'form-control', required: ""
+      .error-text
         = @station.errors[:location].to_sentence
   .form-group
-    = f.label :longitude
-    = f.number_field :longitude, class: 'form-control', step: :any
-    .error-text
-        = @station.errors[:longitude].to_sentence
+    = f.label :longitude, class: 'col-sm-2'
+    .col-sm-10
+      = f.number_field :longitude, class: 'form-control', step: :any
+        .error-text
+          = @station.errors[:longitude].to_sentence
   .form-group
-    = f.label :latitude
-    = f.number_field :latitude, class: 'form-control', step: :any
-    .error-text
+    = f.label :latitude, class: 'col-sm-2'
+    .col-sm-10
+      = f.number_field :latitude, class: 'form-control', step: :any
+      .error-text
         = @station.errors[:latitude].to_sentence
   .form-group
-    = f.label :status
-    = f.select :status, options_for_select(Station.statuses.keys.to_a), {}, class: 'form-control'
-    .error-text
+    = f.label :status, class: 'col-sm-2'
+    .col-sm-10
+      = f.select :status, options_for_select(Station.statuses.keys.to_a), {}, class: 'form-control'
+      .error-text
         = @station.errors[:status].to_sentence
   .form-group
     = link_to "Back", admin_stations_path, class: "btn btn-primary"

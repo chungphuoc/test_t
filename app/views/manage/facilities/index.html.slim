@@ -4,21 +4,21 @@
   .checkbox
     label
       = check_box_tag 'facilities[]', 0, @facilities.include?(0)
-      span Shower
+      span = t('static_text.shower')
   .checkbox
     label
       = check_box_tag 'facilities[]', 1, @facilities.include?(1)
-      span Locker
+      span = t('static_text.locker')
   .checkbox
     label
       = check_box_tag 'facilities[]', 2, @facilities.include?(2)
-      span Rental
+      span = t('static_text.rental')
   .checkbox
     label
       = check_box_tag 'facilities[]', 3, @facilities.include?(3)
-      span Towel
+      span = t('static_text.towel')
   .checkbox
     label
       = check_box_tag 'facilities[]', 4, @facilities.include?(4)
-      span Water
+      span = t('static_text.water')
   = submit_tag t('button.update'), class: "btn btn-sign-up"

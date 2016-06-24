@@ -117,6 +117,9 @@ GEM
       thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    globalize (5.0.1)
+      activemodel (>= 4.2.0, < 4.3)
+      activerecord (>= 4.2.0, < 4.3)
     haml (4.0.7)
       tilt
     haml2slim (0.4.7)
@@ -356,6 +359,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   figaro
+  globalize
   haml2slim
   high_voltage
   html2haml
@@ -394,5 +398,8 @@ DEPENDENCIES
   web-console (~> 2.0)
   whenever
 
+RUBY VERSION
+   ruby 2.3.0p0
+
 BUNDLED WITH
-   1.12.2
+   1.12.5

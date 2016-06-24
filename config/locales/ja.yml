@@ -37,6 +37,11 @@ ja:
     add_facility: 施設を追加します
     search_by_name: 名前で検索
     search_by_station: 駅で検索
+    schedule: スケジュール
+    teachers: 先生
+    exercises: エクササイズ
+    stations: ステーション
+    facilities: ファシリティ
   static_text:
     contact_us: 'お問い合わせ'
     about_us: '会社概要'
@@ -82,6 +87,11 @@ ja:
     request_new_station: 新しい局に要求
     new_class: 新しいクラス
     studio_list: スタジオ　リスト
+    shower: シャワー
+    locker: ロッカー
+    rental: レンタル
+    towel: タオル
+    water: 水
   language: '日本語'
   activerecord:
     errors:

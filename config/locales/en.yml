@@ -57,6 +57,11 @@ en:
     add_facility: Add Facility
     search_by_name: Search By Name
     search_by_station: Search By Station
+    schedule: Schedule
+    teachers: Teachers
+    exercises: Exercises
+    stations: Stations
+    facilities: Facilities
   static_text:
     contact_us: Contact Us
     about_us: About Us
@@ -102,10 +107,18 @@ en:
     request_new_station: request new station
     new_class: New Class
     studio_list: Studio List
+    shower: Shower
+    locker: Locker
+    rental: Rental
+    towel: Towel
+    water: Water
   language: "English"
   error:
     access_denied: 'Access Denied'
     error: 'Error!'
+  locale_name:
+    en: English
+    ja: Japanese
   manage:
     contracts:
       added: 'Teacher has been successfully added.'
