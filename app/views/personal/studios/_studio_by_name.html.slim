@@ -1,7 +1,7 @@
 -('a'..'z').each do |letter|
   -@users = User.where("lower(name) LIKE ? AND role_type=?", "#{letter}%", "Studio")
   - if @users.count > 0
-    h2 #{letter.upcase}
+    h3.title #{letter.upcase}
     table.table.table-striped
       tr
         th = t('static_text.index')
