@@ -7,13 +7,13 @@
         - if current_user
           li
             - if current_user.studio?
-              = link_to 'My page', my_studio_path, class: 'btn-header'
+              = link_to t('button.my_page'), my_studio_path, class: 'btn-header'
             - elsif current_user.customer?
-              = link_to 'My page', my_customer_path, class: 'btn-header'
+              = link_to t('button.my_page'), my_customer_path, class: 'btn-header'
             - elsif current_user.admin?
-              = link_to 'My page', admin_studios_path, class: 'btn-header'
+              = link_to t('button.my_page'), admin_studios_path, class: 'btn-header'
           li
-            = link_to 'Contact us', contact_us_static_pages_path, class: 'btn-header'
+            = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
           li
             .avatar
               = image_tag current_user.avatar, class: "img-circle"
@@ -29,21 +29,21 @@
               li
                 - if current_user.studio?
                   = link_to my_studio_path
-                    p My Account
+                    p = t('button.my_page')
                 - elsif current_user.customer?
                   = link_to my_customer_path
-                    p My Account
+                    p = t('button.my_page')
               li
                 = link_to destroy_user_session_path, method: :delete
-                  p Logout
+                  p = t('button.sign_out')
         -else
           li
-            = link_to 'Sign up', new_user_registration_path, class: 'btn-header'
+            = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-header'
           li
-            = link_to 'Sign in', new_user_session_path, class: 'btn-sign-up'
+            = link_to t('button.sign_in'), new_user_session_path, class: 'btn-sign-up'
         li
           = link_to_switch_language
         - if current_user
           li
-            = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn-sign-up'
+            = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
 

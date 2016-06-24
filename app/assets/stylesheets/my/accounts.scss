@@ -32,6 +32,20 @@
   }
 }
 .navigation{
+  .menu-dropdow{
+    .dropdown-toggle{
+      color: #de77e9 !important;
+    }
+    .dropdown-toggle:hover{
+      color: white !important;
+    }
+    ul li a{
+      color: #de77e9 !important;
+    }
+    ul li a:hover{
+      color: #64d7c6 !important;
+    }
+  }
   .navbar-nav li a:hover{
     background-color: transparent;
     color: orange;

@@ -1,11 +1,11 @@
 table.table.table-striped
   tr
-    th Index
-    th Join date
-    th Join time
-    th Class name
-    th Studio name
-    th User name
+    th = t('static_text.index')
+    th = Enrollment.human_attribute_name('join_date')
+    th = Course.human_attribute_name('start_time')
+    th = Enrollment.human_attribute_name('course_name')
+    th = Enrollment.human_attribute_name('studio_name')
+    th = Enrollment.human_attribute_name('customer_name')
   - @enrollments.each_with_index do |enrollment, index|
     tr
       td #{index}

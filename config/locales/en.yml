@@ -20,10 +20,105 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  button:
+    get_started: 'Get Started'
+    edit: Edit
+    update: Update
+    delete: Delete
+    send: Send
+    add: Add
+    show: Show
+    cancel: Cancel
+    submit: Submit
+    back: Back
+    sign_in: Sign In
+    sign_out: Sign Out
+    about_us: About Us
+    contact_us: Contact Us
+    close: Close
+    re_open: Re-open
+    my_page: My Page
+    my_classes: My Classes
+    payment_management: Payment Management
+    class_management: Class Management
+    search_class: Search Class
+    booked_class: Booked classes
+    passed_class: Passed classes
+    favourite_class: Favourite Classes
+    studio_list: Studio List
+    search: Search
+    edit_profile: Edit Profile
+    edit_account: Edit Account
+    detail: Detail
+    new_class: New Class
+    all_class: All Classes
+    add_teacher: Add Teacher
+    add_station: Add Station
+    add_facility: Add Facility
+    search_by_name: Search By Name
+    search_by_station: Search By Station
+    schedule: Schedule
+    teachers: Teachers
+    exercises: Exercises
+    stations: Stations
+    facilities: Facilities
+  static_text:
+    contact_us: Contact Us
+    about_us: About Us
+    featured_class: Featured Class
+    feedback_text: Feedback
+    feedback:
+      name: name
+      title: title
+      message: message
+    favourite_studio: Favourite Studio
+    point: Point
+    calories_burnt: Calories Burnt
+    search_class: Search Class
+    station: Station
+    exercise: Exercise
+    favourite_class: Favourite Classes
+    daily: Daily
+    weekly: Weekly
+    monthly: Monthly
+    basic_info: Basic Infomation
+    invite_friend: Invite Friend
+    name: Name
+    email: Email
+    message: message
+    contact_number: Contact Number
+    address: Address
+    gender: Gender
+    birthday: Birthday
+    receive_sms: Receive Message
+    edit_profile: Edit Profile
+    class_schedule: Class Schedule
+    action: Action
+    index: Index
+    class: Classes
+    stations: Stations
+    exercises: Exercises
+    facilities: Facilities
+    teacher: Teachers
+    cover_img: Cover Image
+    class_management: Class Management
+    requested_stations: Requested Stations
+    approved_stations: Approved Stations
+    request_new_station: request new station
+    new_class: New Class
+    studio_list: Studio List
+    shower: Shower
+    locker: Locker
+    rental: Rental
+    towel: Towel
+    water: Water
   language: "English"
   error:
     access_denied: 'Access Denied'
     error: 'Error!'
+  locale_name:
+    en: English
+    ja: Japanese
   manage:
     contracts:
       added: 'Teacher has been successfully added.'
@@ -102,6 +197,89 @@ en:
       updated: 'Teacher has been successfully updated'
       destroyed: 'Teacher has been successfully destroyed'
       destroy_failed: 'Delete teacher failed'
+  activerecord:
+    attributes:
+      user:
+        name: Name
+        email: Email
+        address: Address
+        contact_number: Contact Number
+        avatar: Avatar
+        created_at: Created At
+        updated_at: Updated At
+      customer:
+        point: Point
+        gender: Gender
+        birthday: Birthday
+        receive_sms: Receive sms
+        created_at: Created At
+        updated_at: Updated At
+        total_point: Total Point
+      studio:
+        cover_img: Cover Image
+        facility: Facilities
+        website: Website
+        created_at: Created At
+        updated_at: Updated At
+        description: Description
+      enrollment:
+        created_at: Created At
+        updated_at: Updated At
+        join_date: Join Date
+        status: Status
+        course_name: Class Name
+        customer_name: User Name
+        studio_name: Studio Name
+      course:
+        name: Name
+        cover_img: Cover image
+        phone_number: Phone Number
+        website: Website
+        description: Description
+        rating: Rating
+        kcal: kcal
+        num_slot: Number Slots
+        start_time: Start Time
+        end_time: End Time
+        start_date: Start Date
+        created_at: Created At
+        updated_at: Updated At
+        teacher_name: Teacher Name
+        studio_name: Studio Name
+        exercise_name: Exercise Name
+        station_name: Station Name
+        status: Status
+        tuition: Tuition
+        currency: Currency
+        days_of_week: Days of Week
+        station: Station
+        exercise: Exercise
+        teacher: Teacher
+      exercise:
+        name: Name
+        description: Description
+        created_at: Created At
+        updated_at: Updated At
+      favourite_course:
+        created_at: Created At
+        updated_at: Updated At
+      service:
+        created_at: Created At
+        updated_at: Updated At
+      station:
+        name: Name
+        location: Location
+        created_at: Created At
+        updated_at: Updated At
+        latitude: Latitude
+        longitude: Longitude
+        status: Status
+      teacher:
+        name: Name
+        created_at: Created At
+        updated_at: Updated At
+
+
 
 
 

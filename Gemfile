@@ -29,6 +29,8 @@ gem 'kaminari'
 
 gem 'stripe'
 
+gem 'globalize'
+
 gem 'whenever', :require => false
 
 # Use ActiveModel has_secure_password

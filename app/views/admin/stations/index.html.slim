@@ -3,7 +3,8 @@ h2 Stations
 table.table.table-stripped
   thead
     tr
-      th Name
+      th English Name
+      th Japanese Name
       th Location
       th Latitude
       th Longitude
@@ -13,12 +14,14 @@ table.table.table-stripped
     - @approved_stations.each do |station|
       tr
         td = station.name
+        - Globalize.with_locale(:ja) do
+            td = station.name
+        end
         td = station.location
         td = station.latitude
         td = station.longitude
         td = station.status
         td
-
           = link_to 'Reject', reject_admin_station_path(station), method: :put, class: "btn btn-primary"
           = link_to "Show", admin_station_path(station), class: "btn btn-primary"
           = link_to 'Edit', edit_admin_station_path(station), class: "btn btn-primary"

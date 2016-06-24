@@ -12,6 +12,8 @@ class Admin::StationsController < Admin::BaseController
 
   def new
     @station = Station.new
+    @station.translations.build locale: :en
+    @station.translations.build locale: :ja
   end
 
   def edit
@@ -72,6 +74,6 @@ class Admin::StationsController < Admin::BaseController
   end
 
   def station_params
-    params.require(:station).permit(:name, :location, :longitude, :latitude, :status)
+    params.require(:station).permit(:location, :longitude, :latitude, :status, translations_attributes: [:id, :locale, :name])
   end
 end

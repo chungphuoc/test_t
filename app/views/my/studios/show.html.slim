@@ -9,27 +9,27 @@
     .row.zero-margin.table-info
       table.table
         tr
-          th Email
+          th = User.human_attribute_name('name')
           td = @studio.email
         tr
-          th Contact Number
+          th = User.human_attribute_name('contact_number')
           td = @studio.contact_number
         tr
-          th Address
+          th = User.human_attribute_name('address')
           td = @studio.address
     .row.center-text
-      = link_to 'Edit Profile', edit_my_studio_path, class: "btn btn-sign-up"
-      = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-sign-up"
+      = link_to t('button.edit_profile'), edit_my_studio_path, class: "btn btn-sign-up"
+      = link_to t('button.edit_account'), edit_user_registration_path, class: "btn btn-sign-up"
     hr
     .row.zero-margin.table-info
       .row.center-text
-        h2.title Class
+        h2.title = t('static_text.classes')
       table.table.table-striped
         tr
-          th Index
-          th Class name
-          th Time
-          th Teacher
+          th = t('static_text.index')
+          th = Course.human_attribute_name('name')
+          th = Course.human_attribute_name('start_time')
+          th = Course.human_attribute_name('teacher_name')
         - @studio.courses.each_with_index do |course, index|
           tr
             td #{index}
@@ -41,32 +41,32 @@
       = render 'my/invite_friend'
   .col-lg-3.manage-section
     .row.center-text
-      h2.title Cover Image
+      h2.title = t('static_text.cover_img')
     = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
     hr
     .row.zero-margin
       .row.center-text
-        h2.title Teacher
+        h2.title = t('static_text.teachers')
       table.table.table-striped
         - @studio.teachers.each_with_index do |teacher, index|
           tr
             td #{teacher.name}
       .row.center-text
-        = link_to 'Add Teacher', manage_contracts_path, class: "btn btn-sign-up"
+        = link_to t('button.add_teacher'), manage_contracts_path, class: "btn btn-sign-up"
       hr
     .row.zero-margin
       .row.center-text
-        h2.title Station
+        h2.title = t('static_text.stations')
       table.table.table-striped
         - @studio.stations.each_with_index do |station, index|
           tr
             td #{station.name}
       .row.center-text
-        = link_to 'Add Station', manage_stations_path, class: "btn btn-sign-up"
+        = link_to t('button.add_station'), manage_stations_path, class: "btn btn-sign-up"
       hr
     .row.zero-margin.facilities
       .row.center-text
-        h2.title Facilities
-      = render 'personal/studios/facilities'
+        h2.title = t('static_text.facilities')
+      = render 'facilities'
       .row.center-text
-        = link_to 'Add Facilities', manage_facilities_path, class: "btn btn-sign-up"
+        = link_to t('button.add_facility'), manage_facilities_path, class: "btn btn-sign-up"

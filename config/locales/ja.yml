@@ -1,5 +1,97 @@
 ---
 ja:
+  button:
+    get_started: '今すぐ登録！'
+    edit: '編集'
+    update: '更新'
+    delete: '削除'
+    send: '送信'
+    add: 加えます
+    show: 'ショー'
+    cancel: キャンセル
+    submit: 提出し
+    back: バック
+    sign_in: 'ログイン'
+    sign_out: 'ログアウト'
+    about_us: '会社概要'
+    contact_us: 'お問い合わせ'
+    close: 閉じる
+    re_open: 再び開きます
+    my_page: 'マイページ'
+    my_classes: 私のクラス
+    payment_management: 支払い　管理
+    class_management: クラス　管理
+    search_class: クラス　検索
+    booked_class: 予約済みクラス
+    passed_class: 過去のクラス
+    favourite_class: お気に入り
+    studio_list: スタジオ　リスト
+    search: 検索
+    edit_profile: プロファイル編集
+    edit_account: アカウントの編集
+    detail: 詳細
+    new_class: 新しいクラス
+    all_class: すべてのクラス
+    add_teacher: 教師を追加
+    add_station: 駅を追加
+    add_facility: 施設を追加します
+    search_by_name: 名前で検索
+    search_by_station: 駅で検索
+    schedule: スケジュール
+    teachers: 先生
+    exercises: エクササイズ
+    stations: ステーション
+    facilities: ファシリティ
+  static_text:
+    contact_us: 'お問い合わせ'
+    about_us: '会社概要'
+    featured_class: '人気のクラス'
+    feedback_text: 'フィードバック'
+    feedback:
+      name: 名前
+      title: タイトル
+      message: メッセージ
+    favourite_studio: お気に入りスタジオ
+    point: ポイント
+    calories_burnt: カロリー消費
+    search_class: クラス　検索
+    station: 駅
+    exercise: 運動
+    favourite_class: お気に入り
+    daily: 今日
+    weekly: 今週
+    monthly: 今月
+    basic_info: 基本インフォ
+    invite_friend: 友達を招待
+    name: 名前
+    email: Email
+    message: メッセージ
+    contact_number: 電話番号
+    address: 住所
+    gender: 性別
+    birthday: お誕生日
+    receive_sms: sms
+    edit_profile: プロファイル編集
+    class_schedule: クラス　スケジュール
+    action: アクション
+    index: インデックス
+    classes: クラス
+    stations: ステーション
+    exercises: 演習
+    facilities: ファシリティ
+    teachers: 教師
+    cover_img: 表紙イメージ
+    class_management: クラス　管理
+    requested_stations: 要求されたステーション
+    approved_stations: 承認された駅
+    request_new_station: 新しい局に要求
+    new_class: 新しいクラス
+    studio_list: スタジオ　リスト
+    shower: シャワー
+    locker: ロッカー
+    rental: レンタル
+    towel: タオル
+    water: 水
   language: '日本語'
   activerecord:
     errors:
@@ -8,6 +100,89 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      user:
+        name: 名前
+        email: メール
+        address: 住所
+        contact_number: 電話番号
+        avatar: アバター
+        created_at: で作成されました
+        updated_at: で更新
+      customer:
+        point: ポイント
+        gender: 性別
+        birthday: お誕生日
+        receive_sms: sms
+        created_at: で作成されました
+        updated_at: で更新
+        total_point: 合計ポイント
+      studio:
+        cover_img: 表紙イメージ
+        facility: ファシリティ
+        website: ウェブサイト
+        created_at: で作成されました
+        updated_at: で更新
+        description: 説明
+      enrollment:
+        created_at: で作成されました
+        updated_at: で更新
+        join_date: 参加日
+        status: 状態
+        course_name: クラス名
+        customer_name: ユーザ名
+        studio_name: スタジオ名
+      course:
+        name: 名前
+        cover_img: 表紙画像
+        phone_number: 電話番号
+        website: ウェブサイト
+        description: 説明
+        rating: 評価
+        kcal: kcal
+        num_slot: スロット
+        start_time: 始まる時間
+        end_time: 終了時間
+        start_date: 開始日
+        created_at: で作成されました
+        updated_at: で更新
+        teacher_name: 先生の名前
+        studio_name: スタジオ名
+        exercise_name: エクササイズの名前
+        station_name: 駅名
+        status: 状態
+        tuition: 授業料
+        currency: 通貨
+        days_of_week: 平日
+        station: 駅
+        exercise: 運動
+        teacher: 先生
+      exercise:
+        name: 名前
+        description: 説明
+        created_at: で作成されました
+        updated_at: で更新
+      favourite_course:
+        created_at: で作成されました
+        updated_at: で更新
+      service:
+        created_at: で作成されました
+        updated_at: で更新
+      station:
+        name: 名前
+        location: ロケーション
+        created_at: で作成されました
+        updated_at: で更新
+        latitude: 緯度
+        longitude: 経度
+        status: 状態
+      teacher:
+        name: 名前
+        created_at: で作成されました
+        updated_at: で更新
+
+
+
   date:
     abbr_day_names:
     - 日

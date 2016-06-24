@@ -2,14 +2,14 @@
   h2 Booked Class
 table.table.table-striped.table-booked-class
   tr
-    th Index
-    th Cover Image
-    th Class Name
-    th Date
-    th Start Time
-    th End Time
-    th Status
-    th Action
+    th = t('static_text.index')
+    th = Course.human_attribute_name('cover_img')
+    th = Course.human_attribute_name('name')
+    th = Course.human_attribute_name('start_date')
+    th = Course.human_attribute_name('start_time')
+    th = Course.human_attribute_name('end_time')
+    th = Enrollment.human_attribute_name('status')
+    th = t('static_text.action')
   - @enrollments.each_with_index do |enrollment, index|
     tr
       td #{index}
@@ -22,9 +22,8 @@ table.table.table-striped.table-booked-class
       td id="status_#{enrollment.id}" #{enrollment.status}
       td
         - if enrollment.paid?
-          button.btn.btn-sign-in id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" Cancel
+          button.btn.btn-sign-in id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" #{t('button.cancel')}
         - else
-          button.btn.btn-sign-in disabled = "disabled" Cancel
-        = link_to personal_course_path(enrollment.course), class: "btn btn-sign-in"
-          span Show
+          button.btn.btn-sign-in disabled = "disabled" #{t('button.cancel')}
+        = link_to t('button.show'), personal_course_path(enrollment.course), class: "btn btn-sign-in"
   end

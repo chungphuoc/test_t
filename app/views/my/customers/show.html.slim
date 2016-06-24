@@ -8,43 +8,43 @@
           h1 #{@customer.name}
       .row.point-calories
         .col-lg-6.user-point
-          h3 #{@customer.point}  Point
+          h3 #{@customer.point}  #{t('static_text.point')}
         .col-lg-6
       .row.point-calories
         .col-lg-6.user-calories
           - @enrollments_query = EnrollmentsQuery.new(current_user)
-          h3#calories_burnt #{@enrollments_query.calories_burnt('daily')} Calories Burnt
+          h3#calories_burnt #{@enrollments_query.calories_burnt('daily')} #{t('static_text.calories_burnt')}
         .col-lg-6
-          = select_tag :frequency_calories_burnt, options_for_select([["Daily", "daily"], ["Weekly", "weekly"], ["Monthly", "monthly"]]), onchange: "calories_burnt()", class: "form-control"
+          = select_tag :frequency_calories_burnt, options_for_select([[t('static_text.daily'), "daily"], [t('static_text.weekly'), "weekly"], [t('static_text.monthly'), "monthly"]]), onchange: "calories_burnt()", class: "form-control"
       .row.btn-action-section.center-text
-        = link_to 'Edit Profile', edit_my_customer_path, class: "btn btn-sign-up"
-        = link_to 'Edit Account', edit_user_registration_path, class: "btn btn-sign-up"
+        = link_to t('button.edit_profile'), edit_my_customer_path, class: "btn btn-sign-up"
+        = link_to t('button.edit_account'), edit_user_registration_path, class: "btn btn-sign-up"
       hr
       .row.invite-friend.zero-margin
         = render 'my/invite_friend'
     .col-lg-3.detail-profile-section
       .row.content-section.zero-margin
         .row.center-text
-          h2 Basic info
+          h2 = t('static_text.basic_info')
         table.table
           tr
-            th Name
+            th = User.human_attribute_name('name')
             td = @customer.name
           tr
-            th Email
+            th = User.human_attribute_name('email')
             td = @customer.email
           tr
-            th Contact Number
+            th = User.human_attribute_name('contact_number')
             td = @customer.contact_number
           tr
-            th Address
+            th = User.human_attribute_name('address')
             td = @customer.address
           tr
-            th Gender
+            th = Customer.human_attribute_name('gender')
             td = @customer.gender
           tr
-            th Receive sms
+            th = Customer.human_attribute_name('receive_sms')
             td = @customer.receive_sms
           tr
-            th Birthday
+            th = Customer.human_attribute_name('birthday')
             td = @customer.birthday
