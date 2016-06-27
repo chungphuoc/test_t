@@ -1,24 +1,19 @@
 .row.zero-margin.center-text.title
   h1 = t('static_text.facilities')
 = form_tag manage_facilities_path, method: :put do
-  .checkbox
-    label
-      = check_box_tag 'facilities[]', 0, @facilities.include?(0)
-      span = t('static_text.shower')
-  .checkbox
-    label
-      = check_box_tag 'facilities[]', 1, @facilities.include?(1)
-      span = t('static_text.locker')
-  .checkbox
-    label
-      = check_box_tag 'facilities[]', 2, @facilities.include?(2)
-      span = t('static_text.rental')
-  .checkbox
-    label
-      = check_box_tag 'facilities[]', 3, @facilities.include?(3)
-      span = t('static_text.towel')
-  .checkbox
-    label
-      = check_box_tag 'facilities[]', 4, @facilities.include?(4)
-      span = t('static_text.water')
+  .checkbox.checkbox-success
+    = check_box_tag 'facilities[0]', 0, @facilities.include?(0), name: 'facilities[]'
+    = label_tag 'facilities[0]', t('static_text.shower')
+  .checkbox.checkbox-success
+    = check_box_tag 'facilities[1]', 1, @facilities.include?(1), name: 'facilities[]'
+    = label_tag  'facilities[1]', t('static_text.locker')
+  .checkbox.checkbox-success
+    = check_box_tag 'facilities[2]', 2, @facilities.include?(2), name: 'facilities[]'
+    = label_tag  'facilities[2]', t('static_text.rental')
+  .checkbox.checkbox-success
+    = check_box_tag 'facilities[3]', 3, @facilities.include?(3), name: 'facilities[]'
+    = label_tag  'facilities[3]', t('static_text.towel')
+  .checkbox.checkbox-success
+    = check_box_tag 'facilities[4]', 4, @facilities.include?(4), name: 'facilities[]'
+    = label_tag  'facilities[4]', t('static_text.water')
   = submit_tag t('button.update'), class: "btn btn-sign-up"

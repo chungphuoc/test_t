@@ -4,8 +4,7 @@
   .row
     - Exercise.all.each do |exercise|
       .col-lg-2
-        .checkbox
-          label
-            = check_box_tag 'exercise_ids[]', exercise.id, @exercise_ids.include?(exercise.id)
-            = exercise.name
+        .checkbox.checkbox-success
+          = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, @exercise_ids.include?(exercise.id), name: 'exercise_ids[]'
+          = label_tag "exercise_ids[#{exercise.id}]",exercise.name
   = submit_tag t('button.update'), class: "btn btn-sign-up"
