@@ -53,7 +53,7 @@ body
                   end
                   // = link_to 'Booked Classes', booked_manage_courses_path, class: 'list-group-item'
                   // = link_to 'Past Classes', past_manage_courses_path, class: 'list-group-item'
-                  = link_to manage_contracts_path, class: "#{ (controller_name == 'teachers')? 'item-active list-group-item' : 'list-group-item'}" do
+                  = link_to manage_contracts_path, class: "#{ (controller_name == 'contracts')? 'item-active list-group-item' : 'list-group-item'}" do
                     i.glyphicon.glyphicon-user 
                       span = t('button.teachers')
                   end
