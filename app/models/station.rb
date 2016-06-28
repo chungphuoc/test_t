@@ -16,6 +16,7 @@ class Station < ActiveRecord::Base
 
   class Translation
     validates :name, presence: true
+    validates_uniqueness_of :station_id, scope: [:locale]
   end
 
   def name_with_initial

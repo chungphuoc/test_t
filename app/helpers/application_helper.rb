@@ -20,9 +20,9 @@ module ApplicationHelper
 
   def link_to_switch_language
     if I18n.locale == :en
-      link_to t('language', locale: :ja), locale: :ja
+      link_to t('language', locale: :ja), {locale: :ja}, {class: 'btn-header'}
     else
-      link_to t('language', locale: :en), locale: :en
+      link_to t('language', locale: :en), {locale: :en}, {class: 'btn-header'}
     end
   end
 end

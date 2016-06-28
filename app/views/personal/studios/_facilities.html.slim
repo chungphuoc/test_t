@@ -1,26 +1,21 @@
 .row.zero-margin
   .col-lg-2.col-lg-offset-1
-    .checkbox
-      label
-        = check_box_tag 'facilities[]', 0, @studio.facility.include?(0), disabled: true
-        span = t('static_text.shower')
+    .checkbox.checkbox-warning
+      = check_box_tag 'facilities[]', 0, @studio.facility.include?(0), disabled: true
+      = label_tag 'facilities[]', t('static_text.shower')
   .col-lg-2
-    .checkbox
-      label
-        = check_box_tag 'facilities[]', 1, @studio.facility.include?(1), disabled: true
-        span = t('static_text.locker')
+    .checkbox.checkbox-warning
+      = check_box_tag 'facilities[]', 1, @studio.facility.include?(1), disabled: true
+      = label_tag 'facilities[]', t('static_text.locker')
   .col-lg-2
-    .checkbox
-      label
-        = check_box_tag 'facilities[]', 2, @studio.facility.include?(2), disabled: true
-        span = t('static_text.rental')
+    .checkbox.checkbox-warning
+      = check_box_tag 'facilities[]', 2, @studio.facility.include?(2), disabled: true
+      = label_tag 'facilities[]', t('static_text.rental')
   .col-lg-2
-    .checkbox
-      label
-        = check_box_tag 'facilities[]', 3, @studio.facility.include?(3), disabled: true
-        span = t('static_text.towel')
+    .checkbox.checkbox-warning
+      = check_box_tag 'facilities[]', 3, @studio.facility.include?(3), disabled: true
+      = label_tag 'facilities[]', t('static_text.towel')
   .col-lg-2
-    .checkbox
-      label
-        = check_box_tag 'facilities[]', 4, @studio.facility.include?(4), disabled: true
-        span = t('static_text.water')
+    .checkbox.checkbox-warning
+      = check_box_tag 'facilities[]', 4, @studio.facility.include?(4), disabled: true
+      = label_tag 'facilities[]', t('static_text.water')

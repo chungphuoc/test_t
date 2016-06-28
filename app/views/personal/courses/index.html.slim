@@ -4,17 +4,17 @@
   h3 = t('static_text.station')
   .row
     - Station.all.each do |station|
-      .checkbox.col-md-3
-        label
-          = check_box_tag 'station_ids[]', station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s)
-          = station.name
+      .col-md-3
+        .checkbox.checkbox-warning
+          = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
+          = label_tag "station_ids[#{station.id}]", station.name
   h3 = t('static_text.exercise')
   .row
     - Exercise.all.each do |exercise|
-      .checkbox.col-md-3
-        label
-          = check_box_tag 'exercise_ids[]', exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s)
-          = exercise.name
+      .col-md-3
+        .checkbox.checkbox-warning
+          = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
+          = label_tag "exercise_ids[#{exercise.id}]", exercise.name
   .form-group
     label.control-label.col-md-1 Date
     .col-md-5

@@ -22,9 +22,21 @@
           width: 20px;
         }
       }
+      .body{
+        color: white;
+      }
     }
     .course-list{
       padding: 0px 15%;
+    }
+    .studio-detail{
+      list-style-type: none;
+      padding-left: 0px;
+      margin: 0px 15%;
+      .glyphicon{
+        margin-right: 10px;
+        color: #de2582;
+      }
     }
   }
 }

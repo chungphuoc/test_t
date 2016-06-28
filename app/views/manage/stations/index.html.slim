@@ -6,26 +6,25 @@
       .row
         - Station.approved.each do |station|
           .col-lg-4
-            .checkbox
-              label
-                = check_box_tag 'station_ids[]', station.id, @station_ids.include?(station.id)
-                = station.name
+            .checkbox.checkbox-success
+              = check_box_tag "station_ids[#{station.id}]", station.id, @station_ids.include?(station.id), name: 'station_ids[]'
+              = label_tag "station_ids[#{station.id}]", station.name
       p
         = link_to t('static_text.request_new_station'), new_manage_station_path
       = submit_tag t('button.update'), class: "btn btn-sign-up"
   .col-md-6
     .row.zero-margin.center-text.title
       h2 = t('static_text.requested_stations')
-    ul
+    table.table
       - @studio.requested_stations.requested.each do |station|
-        li
-          = station.name
-          = link_to t('button.edit'), edit_manage_station_path(station)
-          = link_to t('button.delete'), manage_station_path(station), method: :delete, data: { confirm: 'Are you sure?'}
-    hr
+        tr
+          td = station.name
+          td
+            = link_to t('button.edit'), edit_manage_station_path(station), class: 'btn btn-sign-in'
+            = link_to t('button.delete'), manage_station_path(station), method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-sign-in'
     .row.zero-margin.center-text.title
       h2 = t('static_text.approved_stations')
-    ul
+    table.table
       - @studio.requested_stations.approved.each do |station|
-        li
-          = station.name
+        tr
+          td = station.name

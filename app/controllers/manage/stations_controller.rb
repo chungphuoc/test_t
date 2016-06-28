@@ -13,6 +13,8 @@ class Manage::StationsController < Manage::BaseController
 
   def new
     @station = Station.new
+    @station.translations.build locale: :en
+    @station.translations.build locale: :ja
   end
 
   def create
@@ -54,6 +56,6 @@ class Manage::StationsController < Manage::BaseController
   end
 
   def station_params
-    params.require(:station).permit(:name, :location, :latitude, :longitude).merge(status: :requested)
+    params.require(:station).permit(:name, :location, :latitude, :longitude, translations_attributes: [:id, :locale, :name]).merge(status: :requested)
   end
 end

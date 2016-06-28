@@ -13,5 +13,13 @@
  *= require_tree .
  *= require_self
  *= require bootstrap
+ *= require font-awesome
  *= require jquery-ui/datepicker
  */
+
+@import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700);
+
+body{
+  font-family: "Open Sans" !important;
+}

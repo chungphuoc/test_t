@@ -50,6 +50,10 @@
     background-color: transparent;
     color: orange;
   }
+  
+  .navbar-nav li a:focus{
+    background-color: transparent;
+  }
   .navbar-nav li a{
     font-weight: bold;
     color: #64d7c6;

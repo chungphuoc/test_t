@@ -46,6 +46,9 @@
   .navbar-nav li a:active{
     background-color: transparent;
   }
+  .navbar-nav li a:focus{
+    background-color: transparent;
+  }
   .navbar-custom{
     width: 100%;
     margin-bottom: 0px;
@@ -167,7 +170,11 @@
 .footer-section{
   color: white;
   background-color: #2c3e50;
-  padding: 15px;
+  padding: 5px;
+  h5{
+    font-weight: bold;
+    color: #64d7c6;
+  }
   .glyphicon{
     color: white;
     padding-right: 10px;

@@ -3,65 +3,85 @@
     font-weight: bold;
     color: #64d7c6;
   }
-
-  .title{
-    color: white;
-  }
-
-  .basic-info{
-    background-color: #64d7c6;
-  }
-
-  .status-flag{
-    border-radius: 30px;
-    border: 0px;
-    height: 60px;
-    width: 60px;
-    background-color: #f397ef;
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    padding: 6px;
-  }
-  .btn-add{
-    background-color: #de77e9;
-  }
-  .cover-section{
-    text-align: center;
-    img{
-      width: 500px;
-      height: 300px
+  .class-detail-section{
+    .title{
+      color: white;
     }
-  }
-  .action-section{
-    text-align: center;
-    .star{
-      margin: 20px;
-      img{
-        height: 20px;
-        width: 20px;
-      }
-    }
-    .add-to-fav-item-wrapper{
-      text-align: center;
-      .add-to-fav-item{
+
+    .basic-info{
+      padding-bottom: 20px;
+      background-color: #64d7c6;
+      .center-rating{
+        float: none;
         margin: 0px auto;
       }
+      .body{
+        color: white;
+      }
+      .days_of_week{
+        color: white;
+      }
     }
-  }
-  table{
-    font-size: 18px;
-  }
-  .table th, .table td{
-    border-top: none !important;
-    text-align: center !important;
-  }
-  .studio-detail{
+    .facilities{
+      margin: 10px 0px;
+    }
+
+    .status-flag{
+      border-radius: 30px;
+      border: 0px;
+      height: 60px;
+      width: 60px;
+      background-color: #f397ef;
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      padding: 6px;
+    }
+    .btn-add{
+      background-color: #de77e9;
+    }
+    .cover-section{
+      text-align: center;
+      img{
+        width: 500px;
+        height: 300px
+      }
+    }
+    .action-section{
+      text-align: center;
+      .star{
+        margin: 20px;
+        img{
+          height: 20px;
+          width: 20px;
+        }
+      }
+      .add-to-fav-item-wrapper{
+        text-align: center;
+        .add-to-fav-item{
+          margin: 0px auto;
+        }
+      }
+    }
+    table{
+      font-size: 18px;
+    }
+    .table th, .table td{
+      border-top: none !important;
+      text-align: center !important;
+    }
+    .studio-description{
+      margin: 10px 10%;
+    }
+    .studio-detail{
       list-style-type: none;
       padding-left: 0px;
+      margin: 0px 15%;
       .glyphicon{
         margin-right: 10px;
+        color: #de2582;
       }
+    }
   }
 }
 
@@ -90,8 +110,19 @@
 #addsClassModal{
   .modal-dialog{
     text-align: center;
-    .stripe-button-el{
-      background-color: red;
+    form{
+      height: 150px;
+      width: 100%;
+      .stripe-button-el{
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        background-color: #de77e9;
+        background-image: none !important;
+        span{
+          background: #de77e9 !important;
+        }
+      }
     }
   }
 }
