@@ -6,35 +6,36 @@ html
     = csrf_meta_tags
 
 body
-  nav.navbar.navbar-inverse.navbar-fixed-top
-    .container
-      .navbar-header
-        button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
-          span.sr-only Toggle navigation
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a.navbar-brand.btn-home href="#{root_path}" Toned
-      #navbar.navbar-collapse.collapse
-        ul.nav.navbar-nav.navbar-left
-          li
-            = link_to t('button.payment_management'), manage_payment_index_path, class: 'btn-header'
-          li
-            = link_to t('button.class_management'), manage_enrollments_path, class: 'btn-header'
-        ul.nav.navbar-nav.navbar-right
-          li
-            = link_to t('button.my_page'), my_studio_path, class: 'btn-header'
-          li
-            = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
-          li
-            .avatar
-              = image_tag current_user.avatar, class: "img-circle"
-          li
-            = link_to current_user.name, '#', class: 'btn-name'
-          li
-            = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
-          li
-            = link_to_switch_language
+  .navigation
+    nav.navbar.navbar-custom.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.btn-home href="#{root_path}" Toned
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-left
+            li
+              = link_to t('button.payment_management'), manage_payment_index_path, class: 'btn-header'
+            li
+              = link_to t('button.class_management'), manage_enrollments_path, class: 'btn-header'
+          ul.nav.navbar-nav.navbar-right
+            li
+              = link_to t('button.my_page'), my_studio_path, class: 'btn-header'
+            li
+              = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
+            li
+              .avatar
+                = image_tag current_user.avatar, class: "img-circle"
+            li
+              = link_to current_user.name, '#', class: 'btn-name'
+            li
+              = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
+            li
+              = link_to_switch_language
   .flash-wrapper
     = flash_messages
   .content

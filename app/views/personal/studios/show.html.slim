@@ -7,22 +7,45 @@
         h2 #{@studio.name}
       .row.center-text
         = rating_for @studio, "stu_quality", disable_after_rate: false
-      .row.center-text
-        .col-lg-2.col-lg-offset-3
+      .row.center-text.zero-margin.body
+        .col-lg-4.col-lg-offset-2
+          .row.zero-margin
+            .col-lg-5
+              h4 Website :
+            .col-lg-7
+              h4 #{@studio.website}
+        .col-lg-4
+          .row.zero-margin
+            .col-lg-5
+              h4 Phone:
+            .col-lg-7
+              h4 #{@studio.contact_number}
+      .row.zero-margin.center-text.body
+        .col-lg-2.col-lg-offset-2
+          h4 Address :
+        .col-lg-6
           h4 #{@studio.address}
-        .col-lg-2
-          h4 #{@studio.contact_number}
-        .col-lg-2
-          h4 #{@studio.website}
+    hr
     .row.zero-margin.center-text
       .col-lg-8.cover-section
         = image_tag @studio.cover_img
       .col-lg-4
+        h3.title Description
         p #{@studio.description}
+        .row.left-text
+            ul.studio-detail
+              li
+                span.glyphicon.glyphicon-map-marker
+                span #{@studio.address}
+              li
+                span.glyphicon.glyphicon-earphone
+                span #{@studio.contact_number}
+    hr
     .row.zero-margin.center-text
       = render 'facilities'
+    hr
     .row.zero-margin.center-text.course-list
-      .row.zero-margin.center-text
+      .row.zero-margin.center-text.title
         h2 = t('static_text.class_schedule')
       table.table.table-striped.table-courses
         tr

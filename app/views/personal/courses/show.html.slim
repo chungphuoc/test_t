@@ -33,7 +33,7 @@
           .col-lg-3.col-lg-offset-2
             p
               b Attend Date  
-          .col-lg-3.col-lg-offset-2
+          .col-lg-7
             = render "personal/checkouts/checkout_btn"
           //   button.btn.btn-default data-dismiss="modal" type="button"  Cancel
       .modal-footer
@@ -44,34 +44,60 @@
     .basic-info
       .row.center-text.title
         h2 #{@course.name}
-      .row.center-text
-        .col-lg-2.col-lg-offset-3
-          h4 #{@course.station_name}
-        .col-lg-2
-          h4 #{@course.studio.name}
-        .col-lg-2
-          h4 #{@course.teacher_name}
       .row.zero-margin.center-text
         = rating_for @course, "quality", disable_after_rate: false
       .row.zero-margin
-        .col-lg-1.col-lg-offset-5
+        .col-lg-1.center-rating
           = render "personal/favourite_courses/add_to_favourite_wrapper", course_id: @course.id, user: current_user
-      .row.zero-margin.center-text
-        .col-lg-3.col-lg-offset-3
-          h4 #{@course.start_date}
-        .col-lg-3
-          h4 #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
-      .row.zero-margin.center-text
-        h4 #{@course.tuition} yen
+      .row.zero-margin.center-text.body
+        .col-lg-5.col-lg-offset-1
+          .row
+            .col-lg-4
+              h4 Station :
+            .col-lg-8
+              h4 #{@course.station_name}
+          .row
+            .col-lg-4
+              h4 Studio :
+            .col-lg-8
+              h4 #{@course.studio.name}
+          .row
+            .col-lg-4
+              h4 Teacher :
+            .col-lg-8
+              h4 #{@course.teacher_name}
+        .col-lg-5
+          .row
+            .col-lg-4
+              h4 Start date :
+            .col-lg-8
+              h4 #{@course.start_date}
+          .row
+            .col-lg-4
+              h4 Start time :
+            .col-lg-8
+              h4 #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
+          .row
+            .col-lg-4
+              h4 Price :
+            .col-lg-8
+              h4 #{@course.tuition} yen
+      .row.zero-margin.days_of_week
+        .col-lg-2.col-lg-offset-1
+          h4 Open day
+        .col-lg-8
+          = render 'shares/days_of_week'
     hr
     .row.zero-margin.center-text
       .col-lg-8.cover-section
         = image_tag @course.cover_img
       .col-lg-4
         p #{@course.description}
-    .row.zero-margin.center-text
+    hr
+    .row.zero-margin.center-text.facilities
       -@studio = @course.studio
       = render 'personal/studios/facilities'
+    hr
     .row.zero-margin.center-text
       .col-lg-6
         .map-wrapper style="width: 100%"
@@ -80,7 +106,9 @@
         .row.zero-margin
           .row
             = link_to @course.studio.name, personal_studio_path(@course.studio), class: 'studio-name'
-          .col-lg-6.left-text
+          .row.studio-description
+            p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500sLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+          .row.left-text
             ul.studio-detail
               li
                 span.glyphicon.glyphicon-map-marker
@@ -88,8 +116,7 @@
               li
                 span.glyphicon.glyphicon-earphone
                 span #{@course.studio.contact_number}
-          .col-lg-6
-            p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500sLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s
+            
         = render "course_action_btn"
       
 script src="//maps.googleapis.com/maps/api/js"
