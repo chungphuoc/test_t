@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624040011) do
+ActiveRecord::Schema.define(version: 20160629045350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20160624040011) do
     t.time     "start_time"
     t.time     "end_time"
     t.date     "start_date"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "teacher_id"
     t.integer  "station_id"
     t.integer  "studio_id"
@@ -65,10 +65,10 @@ ActiveRecord::Schema.define(version: 20160624040011) do
     t.integer  "enrollments_count", default: 0
     t.integer  "status",            default: 0
     t.integer  "tuition"
-    t.string   "currency"
+    t.string   "currency",          default: "JPY"
     t.integer  "booked_slot"
-    t.integer  "days_of_week",      default: [],              array: true
-    t.date     "full_dates",        default: [],              array: true
+    t.integer  "days_of_week",      default: [],                 array: true
+    t.date     "full_dates",        default: [],                 array: true
   end
 
   add_index "courses", ["days_of_week"], name: "index_courses_on_days_of_week", using: :gin

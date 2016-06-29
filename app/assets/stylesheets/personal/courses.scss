@@ -86,10 +86,6 @@
 }
 
 .confirmation-detail{
-  position: absolute;
-  top: 13%;
-  left: 0px;
-  right: 0px;
   .container{
     background-color: white;
     padding: 20px;
@@ -98,9 +94,13 @@
     font-weight: bold;
     color: #64d7c6;
   }
+  .course-name{
+    color: #e24492;
+  }
   .app-title-section{
     margin-top: 30px;
     background-color: #64d7c6;
+    color: white;
     .app-name{
       color: white;
     }
