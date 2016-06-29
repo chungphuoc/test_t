@@ -4,10 +4,54 @@
 
 .ui-datepicker-inline {
     width: 100% !important;
+    border: 1px solid #f7e4fa !important;
 }
 
-.highlight {
-  background-color: #64d7c6;
+.ui-widget-header{
+  background: none !important;
+  background-color: #f7e4fa !important;
+  border: 1px solid #f7e4fa !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{
+  background: none !important;
+  background-color: #f7e4fa !important;
+}
+
+.ui-datepicker-calendar{
+  tbody{
+    tr{
+      height: 60px;
+      td{
+        a{
+          border: 1px solid #f7e4fa !important;
+          margin-bottom: 21px;
+        }
+        a:hover{
+          background-color: #de77e9 !important;
+          color: white;
+          border: 1px solid #de77e9 !important;
+        }
+        .ui-state-highlight{
+          background-color: #fcefa1 !important;
+        }
+        .ui-state-active{
+          background-color: #de77e9 !important;
+          color: white;
+          border: 1px solid #de77e9 !important;
+        }
+      }
+
+      .highlight {
+        a{
+          background-color: #64d7c6 !important;
+          color: white;
+          border: 1px solid #64d7c6 !important;
+          margin-bottom: 2px;
+        }
+      }
+    }
+  }
 }
 
 table{
