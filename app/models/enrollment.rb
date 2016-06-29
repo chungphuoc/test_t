@@ -14,6 +14,7 @@ class Enrollment < ActiveRecord::Base
 
   enum status: [:paid, :cancel, :passed]
   STATUS = %w(Paid Canceled Passed).freeze
+  VALID_CANCEL_HOUR = 2
 
   after_create :book_class_mailer
   before_create do
@@ -67,5 +68,13 @@ class Enrollment < ActiveRecord::Base
   def self.update_status
     Enrollment.where('status = ? AND join_date < ?', Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
     Rails.logger.info("Update status at #{Time.now}")
+  end
+
+  def can_cancel?
+    join_date = self.join_date.to_datetime + self.course.start_time.seconds_since_midnight.seconds
+    if join_date.to_f - DateTime.now.to_f > Enrollment::VALID_CANCEL_HOUR.hour
+      return true
+    end
+    false
   end
 end
