@@ -61,8 +61,11 @@
   transition: opacity 300ms ease-in;
   margin: 30px;
   padding: 20px;
-  border: 1px solid #64d7c6;
+  border: 2px solid #64d7c6;
   border-radius: 20px;
+  .station .exercise{
+    padding: 0px 10%;
+  }
   h3{
     color: #e24492;
   }
