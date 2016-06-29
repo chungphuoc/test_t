@@ -44,7 +44,7 @@
   .form-group
     label.control-label.col-sm-2 = f.label :tuition
     .col-sm-10
-      = f.number_field :tuition, class: "form-control", required: ""
+      = f.number_field :tuition, class: "form-control", placeholder: "tuition (currency: yen)", required: ""
       .error-text
           = @course.errors[:tuition].to_sentence
   .form-group.date_select
