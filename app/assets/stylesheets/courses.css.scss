@@ -38,6 +38,10 @@
     .btn{
       margin: 10px;
     }
+    .btn:hover{
+      background-color: #4cb1dc;
+      color: white; 
+    }
     -webkit-transition: opacity 500ms, top 500ms;
     -moz-transition: opacity 500ms, top 500ms;
     -o-transition: opacity 500ms, top 500ms;
@@ -51,4 +55,26 @@
     background-color: rgba(255, 255, 255, 0.9);
     top: 20%;
   }
+}
+
+#search-form{
+  transition: opacity 300ms ease-in;
+  margin: 30px;
+  padding: 20px;
+  border: 2px solid #64d7c6;
+  border-radius: 20px;
+  .station .exercise{
+    padding: 0px 10%;
+  }
+  h3{
+    color: #e24492;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.visuallyhidden {
+  opacity: 0;
 }

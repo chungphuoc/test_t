@@ -1,25 +1,22 @@
-.background
-  = image_tag 'yoga.jpg'
 .confirmation-detail
-  .container
-    .row.zero-margin.app-title-section.center-text
-      h1.app-name TONE
-      h4 Congratulations! Your class is booked.
-      hr
-      h4 Booking number: 1
-    .row.zero-margin.app-title.center-text
-      h2.app-name RESERVED
-      h4 Payment is done by Stripe. You will receive a confirmation email shortly.
-      h4 Please show this screen or email when arriving to the studio.
-      h4 Please come to Studio 10 min before the class starts.
-    .row.zero-margin.center-text
-      h3 #{@course.name}
-    .row.zero-margin.center-text 
-      .col-lg-2.col-lg-offset-3
-        h4 #{@course.start_date}
-      .col-lg-2
-        h4 #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
-      .col-lg-2
-        h4 #{@course.teacher_name}
-    .row.zero-margin.center-text
-      = link_to 'Back', personal_courses_path, class: 'btn btn-primary'
+  .row.zero-margin.app-title-section.center-text
+    h1.app-name TONE
+    h4 Congratulations! Your class is booked.
+    hr
+    h4 Booking number: 1
+  .row.zero-margin.app-title.center-text
+    h2.app-name RESERVED
+    h4 Payment is done by Stripe. You will receive a confirmation email shortly.
+    h4 Please show this screen or email when arriving to the studio.
+    h4 Please come to Studio 10 min before the class starts.
+  .row.zero-margin.center-text.course-name
+    h3 #{@course.name}
+  .row.zero-margin.center-text 
+    .col-lg-2.col-lg-offset-2
+      h4 #{@enrollment.join_date}
+    .col-lg-4
+      h4 #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
+    .col-lg-2
+      h4 #{@course.teacher_name}
+  .row.zero-margin.center-text
+    = link_to 'Back', personal_courses_path, class: 'btn btn-sign-up'

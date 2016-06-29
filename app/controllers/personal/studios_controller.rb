@@ -7,10 +7,12 @@ class Personal::StudiosController < Personal::BaseController
   end
 
   def by_name
+    I18n.locale = params[:locale]||I18n.locale
     render 'studio_by_name', layout: false
   end
 
   def by_station
+    I18n.locale = params[:locale]||I18n.locale
     @stations = Station.all
     render 'studio_by_station', layout: false
   end

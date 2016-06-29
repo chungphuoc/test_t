@@ -32,6 +32,7 @@ class Personal::EnrollmentsController < Personal::BaseController
   def confirmation
     if params[:course_id]
       @course = Course.find(params[:course_id])
+      @enrollment = current_user.enrollments.last
     else
       flash[:error] = 'Please choose one course!'
       redirect_to personal_courses
