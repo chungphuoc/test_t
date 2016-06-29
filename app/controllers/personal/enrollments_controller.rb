@@ -17,7 +17,7 @@ class Personal::EnrollmentsController < Personal::BaseController
 
   def cancel
     @enrollment = Enrollment.find_by(id: params[:enrollment_id])
-    if @enrollment
+    if @enrollment && @enrollment.can_cancel?
       @enrollment.update_attributes(status: :cancel)
       @enrollment.cancel_class_mailer
     end

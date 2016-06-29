@@ -21,7 +21,7 @@ table.table.table-striped.table-booked-class
       td #{enrollment.end_time.strftime("%I:%M %p")}
       td id="status_#{enrollment.id}" #{enrollment.status}
       td
-        - if enrollment.paid?
+        - if enrollment.can_cancel?
           button.btn.btn-sign-in id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" #{t('button.cancel')}
         - else
           button.btn.btn-sign-in disabled = "disabled" #{t('button.cancel')}
