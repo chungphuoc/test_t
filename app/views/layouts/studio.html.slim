@@ -5,7 +5,7 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-body
+body class = "#{@custom_controller_name || controller_name} #{action_name}"
   .navigation
     nav.navbar.navbar-custom.navbar-fixed-top
       .container
@@ -49,25 +49,25 @@ body
                 h1.studio-name.gray = current_user.name
               .list-group
                   = link_to manage_courses_path, class: "#{ (controller_name == 'courses')? 'item-active list-group-item' : 'list-group-item'}" do
-                    i.glyphicon.glyphicon-calendar 
+                    i.glyphicon.glyphicon-calendar
                       span = t('button.schedule')
                   end
                   // = link_to 'Booked Classes', booked_manage_courses_path, class: 'list-group-item'
                   // = link_to 'Past Classes', past_manage_courses_path, class: 'list-group-item'
                   = link_to manage_contracts_path, class: "#{ (controller_name == 'contracts')? 'item-active list-group-item' : 'list-group-item'}" do
-                    i.glyphicon.glyphicon-user 
+                    i.glyphicon.glyphicon-user
                       span = t('button.teachers')
                   end
                   = link_to manage_exercises_path, class: "#{ (controller_name == 'exercises')? 'item-active list-group-item' : 'list-group-item'}" do
-                    i.glyphicon.glyphicon-fire 
+                    i.glyphicon.glyphicon-fire
                       span = t('button.exercises')
                   end
                   = link_to manage_stations_path, class: "#{ (controller_name == 'stations')? 'item-active list-group-item' : 'list-group-item'}" do
-                    i.glyphicon.glyphicon-map-marker 
+                    i.glyphicon.glyphicon-map-marker
                       span = t('button.stations')
                   end
                   = link_to manage_facilities_path, class: "#{ (controller_name == 'facilities')? 'item-active list-group-item' : 'list-group-item'}" do
-                    i.glyphicon.glyphicon-compressed 
+                    i.glyphicon.glyphicon-compressed
                       span = t('button.facilities')
                   end
                   = link_to manage_payment_index_path, class: "#{ (controller_name == 'payment')? 'item-active list-group-item' : 'list-group-item'}" do
