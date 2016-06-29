@@ -6,25 +6,26 @@
           = image_tag @customer.avatar, class: 'avatar'
         .col-lg-6.user-name
           h1 #{@customer.name}
-      .row.point-calories
-        .col-lg-6.user-point
+          .row.btn-action-section.center-text
+            = link_to t('button.edit_profile'), edit_my_customer_path, class: "btn btn-sign-up"
+            = link_to t('button.edit_account'), edit_user_registration_path, class: "btn btn-sign-up"
+      .point-calories
+        .col-lg-4.user-point
+          = select_tag :frequency_calories_burnt, options_for_select([[t('static_text.daily'), "daily"], [t('static_text.weekly'), "weekly"], [t('static_text.monthly'), "monthly"]]), onchange: "calories_burnt()", class: "form-control"
           h3 #{@customer.point}  #{t('static_text.point')}
-        .col-lg-6
-      .row.point-calories
-        .col-lg-6.user-calories
           - @enrollments_query = EnrollmentsQuery.new(current_user)
           h3#calories_burnt #{@enrollments_query.calories_burnt('daily')} #{t('static_text.calories_burnt')}
-        .col-lg-6
-          = select_tag :frequency_calories_burnt, options_for_select([[t('static_text.daily'), "daily"], [t('static_text.weekly'), "weekly"], [t('static_text.monthly'), "monthly"]]), onchange: "calories_burnt()", class: "form-control"
-      .row.btn-action-section.center-text
-        = link_to t('button.edit_profile'), edit_my_customer_path, class: "btn btn-sign-up"
-        = link_to t('button.edit_account'), edit_user_registration_path, class: "btn btn-sign-up"
-      hr
-      .row.invite-friend.zero-margin
+          
+
+        / .col-lg-6
+        /   = select_tag :frequency_calories_burnt, options_for_select([[t('static_text.daily'), "daily"], [t('static_text.weekly'), "weekly"], [t('static_text.monthly'), "monthly"]]), onchange: "calories_burnt()", class: "form-control"
+      
+      
+      .col-lg-7.invite-friend.zero-margin
         = render 'my/invite_friend'
     .col-lg-3.detail-profile-section
-      .row.content-section.zero-margin
-        .row.center-text
+      .content-section.zero-margin
+        .center-text
           h2 = t('static_text.basic_info')
         table.table
           tr

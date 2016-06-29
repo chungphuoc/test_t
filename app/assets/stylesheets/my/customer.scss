@@ -25,6 +25,7 @@
         background-color: white;
         margin: 3%;
         padding-top: 20px;
+        padding-bottom: 40px;
         h1{
             color: #64d7c6;
             margin: 30px 0px;
@@ -37,21 +38,39 @@
         .point-calories{
             text-align: center;
             .user-point{
-                color: #64d7c6;
+                color: #fff;
+                background-color: #213454;
+                padding: 20px 25px;
+                border-top-left-radius: 15px;
+                border-top-right-radius: 15px;
+                border-bottom-left-radius: 15px;
+                margin-top: 20px;
+                margin-left: 25px;
             }
             .user-calories{
                 color: #64d7c6;
             }
         }
         .invite-friend{
-            margin-top: 40px;
+            margin-top: 20px;
+            margin-left: 20px;
+            background-color: #fff;
+            border: 1px solid #d7d7d7;
+            padding: 0px;
             .invite_friend_side{
                 background-color: white;
-                padding: 0px 20%;
+                padding: 0px 8%;
             }
             .btn-send{
                 background-color: #e24492;
                 border: 0px;
+                width: 100%;
+                margin: 0px;
+                border-radius: 0px;
+                margin-top: 15px;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 16px;
             }
             .btn-send:hover{
                 background-color: #de2582;
@@ -62,11 +81,21 @@
     .detail-profile-section{
         background-color: white;
         margin-top: 3%;
+        padding: 0px !important;
         tr{
             height: 50px;
+            th{
+                background-color: #f0f0f0;
+            }
+            th,td{
+                padding: 15px;
+            }
         }
         h2{
-            color: #64d7c6;
+            color: #fff;
+            background-color: #e24492;
+            margin: 0px;
+            padding: 20px 0px;
         }
         .studio-name{
             font-size: 25px;
@@ -83,9 +112,31 @@
         .btn-send{
             background-color: #e24492;
             border: 0px;
+            margin: 0px;
+            width: 100%;
+            border-radius: 0px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 16px;
         }
         .btn-send:hover{
             background-color: #de2582;
         }
     }
+}
+.table{
+    margin-bottom: 0px !important;
+}
+.edit-profile{
+    margin-top: 20px;
+    .form-group{
+        .control-label{
+            text-align: left;
+            white-space: nowrap;
+        }
+    }
+}
+.main-info-edit{
+    padding-left: 70px !important;
+    padding-right: 70px !important;
 }

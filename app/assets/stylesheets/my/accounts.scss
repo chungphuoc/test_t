@@ -26,9 +26,18 @@
   h4{
     color: #e24492;
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin: 20px 0px 25px;
   }
   .btn-send{
     margin: 15px;
+  }
+  .form-group{
+    input,textarea{
+      background-color: #e7e7e7;
+      border: none;
+    }
   }
 }
 .navigation{
