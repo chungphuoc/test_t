@@ -1,7 +1,7 @@
-function by_studio_name(){
+function by_studio_name(locale){
   $.ajax({
     url: "/my/studios/by_name",
-    data: {},
+    data: {locale: locale},
     success: function(result){
       $("#studio-list").html(result);
       $("#btn-by-station").removeClass("button-class-active");
@@ -10,10 +10,10 @@ function by_studio_name(){
   });
 }
 
-function by_station(){
+function by_station(locale){
   $.ajax({
     url: "/my/studios/by_station",
-    data: {},
+    data: {locale: locale},
     success: function(result){
       $("#studio-list").html(result);
       $("#btn-by-name").removeClass("button-class-active");

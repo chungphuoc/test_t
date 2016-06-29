@@ -1,25 +1,27 @@
 .row.zero-margin.center-text.title
   h2 = t('static_text.search_class')
-= form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
-  h3 = t('static_text.station')
-  .row
-    - Station.all.each do |station|
-      .col-md-3
-        .checkbox.checkbox-warning
-          = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
-          = label_tag "station_ids[#{station.id}]", station.name
-  h3 = t('static_text.exercise')
-  .row
-    - Exercise.all.each do |exercise|
-      .col-md-3
-        .checkbox.checkbox-warning
-          = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
-          = label_tag "exercise_ids[#{exercise.id}]", exercise.name
-  .form-group
-    label.control-label.col-md-1 Date
-    .col-md-5
-      = text_field_tag :date, params[:date], class: 'datepicker form-control'
-  = submit_tag t('button.search'), class: 'btn btn-sign-in'
-.row
-  = render "shares/course"
-= paginate @courses
+button.btn.btn-sign-up#show-search onClick="displaySearch()" Show Search
+.row.zero-margin.hidden#search-form
+  = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
+    h3 = t('static_text.station')
+    .row
+      - Station.all.each do |station|
+        .col-md-3
+          .checkbox.checkbox-warning
+            = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
+            = label_tag "station_ids[#{station.id}]", station.name
+    h3 = t('static_text.exercise')
+    .row
+      - Exercise.all.each do |exercise|
+        .col-md-3
+          .checkbox.checkbox-warning
+            = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
+            = label_tag "exercise_ids[#{exercise.id}]", exercise.name
+    br
+    .row.zero-margin.center-text
+      = submit_tag t('button.search'), class: 'btn btn-sign-in'
+hr
+.row.course-items
+  = render "course_item"
+.row.center-text
+  = paginate @courses

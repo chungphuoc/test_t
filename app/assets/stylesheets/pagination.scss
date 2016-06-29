@@ -1,0 +1,42 @@
+.pagination{
+  text-align: center;
+  padding: 0.3em;
+  cursor: default;
+  a, span, em{
+    padding: 0.3em 0.6em;
+    font-size: 15px;
+  }
+  .disabled{
+    color: #aaaaaa;
+  }
+  .current{
+    color: white;
+    background-color: #64d7c6;
+    border-radius: 3px;
+  }
+  a{
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    color: #64d7c6;
+    text-decoration: none;
+    &:hover, &:focus{
+      text-decoration: none;
+      border-color: #64d7c6;
+      background: #64d7c6;
+      color: white;
+    }
+  }
+  .page_info{
+    color: #aaaaaa;
+    padding-top: 0.8em;
+  }
+  .previous_page, .next_page{
+    border-width: 2px;
+  }
+  .previous_page{
+    margin-right: 1em;
+  }
+  .next_page{
+    margin-left: 1em;
+  }
+}

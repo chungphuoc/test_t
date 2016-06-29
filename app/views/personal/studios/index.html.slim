@@ -3,9 +3,9 @@
     h1 = t('static_text.studio_list')
   .row
     .col-lg-4.col-lg-offset-2
-      button.btn.button-class-active#btn-by-name onClick="by_studio_name()" = t('button.search_by_name')
+      button.btn.button-class-active#btn-by-name onClick="by_studio_name('#{I18n.locale}')" = t('button.search_by_name')
     .col-lg-4
-      button.btn#btn-by-station onClick="by_station()" = t('button.search_by_station')
+      button.btn#btn-by-station onClick="by_station('#{I18n.locale}')" = t('button.search_by_station')
 
   #studio-list
     = render 'studio_by_name'

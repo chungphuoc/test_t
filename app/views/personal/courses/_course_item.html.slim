@@ -1,0 +1,17 @@
+- @courses.each do |course|
+  .col-lg-4.course-items
+    = link_to personal_course_path(course) do
+      = image_tag course.cover_img
+    end
+    .detail
+      = link_to t('button.detail'), personal_course_path(course), class: "btn"
+      = rating_for course, "quality", disable_after_rate: true
+    .studio-detail
+      .row.zero-margin.title
+        = link_to course.studio_name, personal_studio_path(course.studio)
+      .row.zero-margin
+        .col-lg-6
+          h4 #{course.name}
+        .col-lg-6
+          h4 #{course.station_name}
+end
