@@ -4,7 +4,6 @@
     .form-group
       = text_field_tag :email, "", class: "form-control", placeholder: t('static_text.email'), required: ""
     .form-group
-      = text_area_tag :message, "", class: "form-control", placeholder: t('static_text.message'), required: ""
-    .form-group
-      = submit_tag t('button.send'), class: "btn btn-primary btn-send"
+      = text_area_tag :message, "", class: "form-control", placeholder: t('static_text.message'), required: "", rows: '4'
+= submit_tag t('button.send'), class: "btn btn-primary btn-send"
 

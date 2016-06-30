@@ -1,8 +1,8 @@
 .row.zero-margin.main-profile-section
-  .col-lg-8.main-info-section
+  .col-lg-8.main-info-section.main-info-edit
     .row.zero-margin.center-text
       h1 = t('static_text.edit_profile')
-    = form_for [:my, @customer], html: {class: "form-horizontal"} do |f|
+    = form_for [:my, @customer], html: {class: "form-horizontal edit-profile"} do |f|
       = f.fields_for :user do |user_form|
         .form-group
           = user_form.label :name, class: 'control-label col-sm-2'

@@ -1,7 +1,7 @@
 .row.zero-margin.center-text
     h2.title Payment management
 .row.zero-margin.paymet-section
-  .col-lg-2
+  .col-lg-2.time-section
     = select_year(Date.today, {start_year: 2015, end_year: Time.now.year}, { class: 'form-control', onchange: "change_year_payment()"})
     button.btn.btn-primary.btn-sign-in onClick="change_month_payment(0)" All
     button.btn.btn-primary.btn-sign-in onClick="change_month_payment(1)" Jan
