@@ -14,7 +14,7 @@ class Admin::CoursesController < Admin::BaseController
 
   def create
     @course = Course.new(course_params)
-    if @courses.save
+    if @course.save
       set_flash_message :success, :created
       redirect_to admin_courses_path
     else
@@ -27,7 +27,8 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def update
-    if @course.update_attributes(course_params)
+    @course.assign_attributes(course_params)
+    if @course.save
       set_flash_message :success, :updated
       redirect_to admin_courses_path
     else
@@ -64,6 +65,6 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def course_params
-    params.require(:course).permit(:name, :cover_img, :phone_number, :website, :description, :kcal, :num_slot, :start_time, :end_time, :start_date, :teacher_id, :station_id, :studio_id, :exercise_id, :tuition, :currency, :days_of_week)
+    params.require(:course).permit(:name, :cover_img, :phone_number, :website, :description, :kcal, :num_slot, :start_time, :end_time, :start_date, :teacher_id, :station_id, :studio_id, :exercise_id, :tuition, :currency, :days_of_week => [])
   end
 end

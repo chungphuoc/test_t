@@ -1,0 +1,28 @@
+.admin-layout{
+  .title{
+    color: #64d7c6;
+  }
+  background-image: url(asset_path('yoga.jpg'));
+  background-size: 100% 100%;
+  padding-top: 2% !important;
+  .list-group-item{
+    border: 0px;
+    font-weight: bold;
+    font-size: 16px;
+    i{
+      color: #de77e9;
+      span{
+        margin-left: 15px;
+      }
+    }
+  }
+  a.list-group-item:hover{
+      background-color: #f7e4fa;
+  }
+  .item-active{
+    background-color: #f7e4fa;
+  }
+  .content{
+    background-color: white;
+  }
+}

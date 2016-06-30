@@ -22,34 +22,49 @@ body class = "admin #{@custom_controller_name || controller_name} #{action_name}
               = link_to current_user.name, '#', class: 'btn-header'
             li
               = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn-sign-up'
-            li
-              = link_to_switch_language
   .flash-wrapper
     = flash_messages
   .home.main-section
-    .row.zero-margin
+    .row.zero-margin.admin-layout
       .col-lg-3
         .left-navigation
-          .panel.panel-success
+          .panel
             .panel-heading.panel-border
             .panel-body
               = image_tag current_user.avatar_url, class: 'avatar'
               .text-center
                 h1.studio-name.gray = current_user.name
-              ul.list-group
-                li.list-group-item
-                  = link_to 'Studio', admin_studios_path
-                li.list-group-item
-                  = link_to 'Customer', admin_customers_path
-                li.list-group-item
-                  = link_to 'Enrollments', admin_enrollments_path
-                li.list-group-item
-                  = link_to 'Course', admin_courses_path
-                li.list-group-item
-                  = link_to 'Teachers', admin_teachers_path
-                li.list-group-item
-                  = link_to 'Exercises', admin_exercises_path
-                li.list-group-item
-                  = link_to 'Stations', admin_stations_path
+              .list-group
+                = link_to admin_studios_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-user
+                    span Studios
+                end
+                = link_to admin_customers_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-user
+                    span Customers
+                end
+                = link_to admin_enrollments_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-compressed
+                    span Enrollments
+                end
+                = link_to admin_courses_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-calendar
+                    span Courses
+                end
+                = link_to admin_teachers_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-user
+                    span Teachers
+                end
+                = link_to admin_exercises_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-fire
+                    span Exercises
+                end
+                = link_to admin_stations_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-map-marker
+                    span Staions
+                end
       .col-lg-9
-        = yield
+        .panel
+          .panel-heading
+          .panel-body
+            = yield

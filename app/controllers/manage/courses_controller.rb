@@ -41,7 +41,7 @@ class Manage::CoursesController < Manage::BaseController
 
   def update
     @course.assign_attributes(course_params)
-    @course.days_of_week = params[:days_of_week]
+    #@course.days_of_week = params[:days_of_week]||[]
     if @course.save
       set_flash_message :success, :updated
       redirect_to manage_course_path(@course)

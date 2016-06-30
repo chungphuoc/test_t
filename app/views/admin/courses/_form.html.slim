@@ -33,6 +33,12 @@
       = f.number_field :kcal, class: "form-control", required: ""
       .error-text
           = @course.errors[:kcal].to_sentence
+  .form-group
+    label.control-label.col-sm-2 = f.label :tuition
+    .col-sm-10
+      = f.number_field :tuition, class: "form-control", placeholder: "tuition (currency: yen)", required: ""
+      .error-text
+          = @course.errors[:tuition].to_sentence
   .form-group.time_select
     = f.label :start_time, class: 'control-label col-sm-2'
     .col-lg-10
@@ -57,42 +63,54 @@
           = @course.errors[:password].to_sentence
   - if action_name == "edit"
     .form-group
-      = f.label :station, class: 'control-label col-sm-2'
+      = f.label :station_id, class: 'control-label col-sm-2'
       .col-lg-10
-        = f.select :station, options_for_select(@course.stations.collect{|s| [s.name, s.id]}, @course.station_id), {}, class: "form-control"
+        = f.select :station_id, options_for_select(@course.stations.collect{|s| [s.name, s.id]}, @course.station_id), {}, class: "form-control"
         .error-text
             = @course.errors[:station].to_sentence
     .form-group
-      = f.label :teacher, class: 'control-label col-sm-2'
+      = f.label :teacher_id, class: 'control-label col-sm-2'
       .col-lg-10
-        = f.select :teacher, options_for_select(@course.teachers.collect{|t| [t.name, t.id]}, @course.teacher_id), {}, class: "form-control"
+        = f.select :teacher_id, options_for_select(@course.teachers.collect{|t| [t.name, t.id]}, @course.teacher_id), {}, class: "form-control"
         .error-text
             = @course.errors[:teacher].to_sentence
     .form-group
-      = f.label :exercise, class: 'control-label col-sm-2'
+      = f.label :exercise_id, class: 'control-label col-sm-2'
       .col-lg-10
-        = f.select :exercise, options_for_select(@course.exercises.collect{|e| [e.name, e.id]}, @course.exercise_id), {}, class: "form-control"
+        = f.select :exercise_id, options_for_select(@course.exercises.collect{|e| [e.name, e.id]}, @course.exercise_id), {}, class: "form-control"
         .error-text
             = @course.errors[:exercise].to_sentence
+    .form-group
+      = f.label :days_of_week, class: 'control-label col-sm-2'
+      .col-lg-10
+        = render 'shares/days_of_week_edit'
+        .error-text
+          = @course.errors[:days_of_week].to_sentence
   - else
     .form-group
-      = f.label :station, class: 'control-label col-sm-2'
+      = f.label :station_id, class: 'control-label col-sm-2'
       .col-lg-10
-        = f.select :station, options_for_select([]), {}, class: "form-control"
+        = f.select :station_id, options_for_select([]), {}, class: "form-control", name: "course[station_id]"
         .error-text
           = @course.errors[:station].to_sentence
     .form-group
-      = f.label :teacher, class: 'control-label col-sm-2'
+      = f.label :teacher_id, class: 'control-label col-sm-2'
       .col-lg-10
-        = f.select :teacher, options_for_select([]), {}, class: "form-control"
+        = f.select :teacher_id, options_for_select([]), {}, class: "form-control", name: "course[teacher_id]"
         .error-text
           = @course.errors[:teacher].to_sentence
     .form-group
-      = f.label :exercise, class: 'control-label col-sm-2'
+      = f.label :exercise_id, class: 'control-label col-sm-2'
       .col-lg-10
-        = f.select :exercise, options_for_select([]), {}, class: "form-control"
+        = f.select :exercise_id, options_for_select([]), {name: "course[exercise_id]"}, class: "form-control"
         .error-text
           = @course.errors[:exercise].to_sentence
+    .form-group
+      = f.label :days_of_week, class: 'control-label col-sm-2'
+      .col-lg-10
+        = render 'shares/days_of_week_edit'
+        .error-text
+          = @course.errors[:days_of_week].to_sentence
   .form-group
     = link_to "Back", admin_courses_path, class: "btn btn-primary"
     = f.submit "Submit", class: "btn btn-primary"

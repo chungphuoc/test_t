@@ -1,6 +1,6 @@
 .row.center-text
   .uniform-item
-    .checkbox.checkbox-success
+    .checkbox.checkbox-warning
       = check_box_tag "days_of_week[1]", 1, @course.days_of_week.include?(1), disabled: true, name: 'days_of_week[]'
       = label_tag "days_of_week[1]", 'Mon'
   .uniform-item
