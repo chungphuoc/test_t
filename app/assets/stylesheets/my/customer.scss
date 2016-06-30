@@ -140,3 +140,31 @@
     padding-left: 70px !important;
     padding-right: 70px !important;
 }
+
+code{
+    position: relative;
+    top: -25px;
+}
+
+.table-stripped{
+    tr{
+        th,td{
+            padding: 25px 8px !important;
+        }
+        td{
+            &:last-child{
+                padding: 8px !important;
+            }
+        }
+    }
+}
+.paymet-section{
+    .time-section{
+        margin-top: 22px;
+    }
+}
+.center-text{
+    h1{
+        margin-bottom: 40px;
+    }
+}
