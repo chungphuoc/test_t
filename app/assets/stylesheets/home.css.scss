@@ -98,6 +98,80 @@
     }
   }
 }
+
+
+@media screen and (max-width: 768px) {
+  .header-section{
+    .header-content{
+      top: 20%;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .header-section{
+    .header-content{
+      top: 15%;
+      h1{
+        font-size: 55px;
+      }
+      h2{
+        font-size: 35px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 520px) {
+  .header-section{
+    .header-content{
+      top: 13%;
+      h1{
+        font-size: 45px;
+      }
+      h2{
+        font-size: 25px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 468px) {
+  .header-section{
+    .header-content{
+      top: 10%;
+      h1{
+        font-size: 45px;
+      }
+      h2{
+        font-size: 25px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .header-section{
+    .header-content{
+      top: 5%;
+      h1{
+        font-size: 45px;
+      }
+      h2{
+        font-size: 25px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 386px) {
+  .header-section{
+    .header-content{
+      top: 2%;
+      h1{
+        font-size: 40px;
+      }
+      h2{
+        font-size: 20px;
+      }
+    }
+  }
+}
 .home-header-section{
   @extend .header-section;
   .navbar-custom{
@@ -164,6 +238,20 @@
   .instruction{
     img{
       width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 768px){
+  .body-section{
+    .instruction{
+      .col-lg-4{
+        text-align: center;
+        margin-top: 20px;
+        img{
+          width: 70%;
+        }
+      }
+      
     }
   }
 }
