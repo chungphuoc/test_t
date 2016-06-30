@@ -22,8 +22,6 @@ body class = "admin #{@custom_controller_name || controller_name} #{action_name}
               = link_to current_user.name, '#', class: 'btn-header'
             li
               = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn-sign-up'
-            li
-              = link_to_switch_language
   .flash-wrapper
     = flash_messages
   .home.main-section
