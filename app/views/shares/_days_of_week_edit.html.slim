@@ -1,36 +1,29 @@
 .row.center-text
-  .col-lg-1
-    .checkbox
-      label
-        = check_box_tag "days_of_week[]", 1, @course.days_of_week.include?(1)
-        span Mon
-  .col-lg-1
-    .checkbox
-      label
-        = check_box_tag "days_of_week[]", 2, @course.days_of_week.include?(2)
-        span Tue
-  .col-lg-1
-    .checkbox
-      label
-        = check_box_tag "days_of_week[]", 3, @course.days_of_week.include?(3)
-        span Wed
-  .col-lg-1
-    .checkbox
-      label
-        = check_box_tag "days_of_week[]", 4, @course.days_of_week.include?(4)
-        span Thu
-  .col-lg-1
-    .checkbox
-      label
-        = check_box_tag "days_of_week[]", 5, @course.days_of_week.include?(5)
-        span Fri
-  .col-lg-1
-    .checkbox
-      label
-        = check_box_tag "days_of_week[]", 6, @course.days_of_week.include?(6)
-        span Sat
-  .col-lg-1
-    .checkbox
-      label
-        = check_box_tag "days_of_week[]", 0, @course.days_of_week.include?(0)
-        span Sun
+  .uniform-item
+    .checkbox.checkbox-success
+      = check_box_tag "days_of_week[1]", 1, @course.days_of_week.include?(1), name: 'course[days_of_week][]'
+      = label_tag "days_of_week[1]", 'Mon'
+  .uniform-item
+    .checkbox.checkbox-success
+      = check_box_tag "days_of_week[2]", 2, @course.days_of_week.include?(2), name: 'course[days_of_week][]'
+      = label_tag "days_of_week[2]", 'Tue'
+  .uniform-item
+    .checkbox.checkbox-success
+      = check_box_tag "days_of_week[3]", 3, @course.days_of_week.include?(3), name: 'course[days_of_week][]'
+      = label_tag "days_of_week[3]", 'Wed'
+  .uniform-item
+    .checkbox.checkbox-success
+      = check_box_tag "days_of_week[4]", 4, @course.days_of_week.include?(4), name: 'course[days_of_week][]'
+      = label_tag "days_of_week[4]", 'Thu'
+  .uniform-item
+    .checkbox.checkbox-success
+      = check_box_tag "days_of_week[5]", 5, @course.days_of_week.include?(5), name: 'course[days_of_week][]'
+      = label_tag "days_of_week[5]", 'Fri'
+  .uniform-item
+    .checkbox.checkbox-success
+      = check_box_tag "days_of_week[6]", 6, @course.days_of_week.include?(6), name: 'course[days_of_week][]'
+      = label_tag "days_of_week[6]", 'Sat'
+  .uniform-item
+    .checkbox.checkbox-success
+      = check_box_tag "days_of_week[0]", 0, @course.days_of_week.include?(0), name: 'course[days_of_week][]'
+      = label_tag "days_of_week[0]", 'Sun'
