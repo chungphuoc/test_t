@@ -22,6 +22,7 @@ class Course < ActiveRecord::Base
   validates :station, presence: true
   validates :exercise, presence: true
   validates :website, format: { with: Settings.regexp.url }, allow_blank: true
+  validate :must_have_days_of_week 
 
   delegate :name, to: :teacher, prefix: true
   delegate :location, to: :station, prefix: true
@@ -76,5 +77,9 @@ class Course < ActiveRecord::Base
 
   def self.available(date)
     where.not('? = ANY(full_dates)', date)
+  end
+
+  def must_have_days_of_week
+    errors.add(:days_of_week, 'Must choose at least one day.') unless days_of_week.any?
   end
 end

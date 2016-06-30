@@ -7,7 +7,7 @@ html
     = javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false
     = csrf_meta_tags
 
-body
+body class = "#{@custom_controller_name || controller_name} #{action_name}"
   .flash-wrapper
     = flash_messages
   .navigation

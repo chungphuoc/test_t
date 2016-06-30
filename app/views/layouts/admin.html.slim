@@ -6,7 +6,7 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-body
+body class = "admin #{@custom_controller_name || controller_name} #{action_name}"
   nav.navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header

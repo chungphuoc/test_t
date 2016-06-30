@@ -18,4 +18,5 @@
 //= require ratyrate
 //= require jquery-ui/datepicker
 //= require manage/courses
+//= require jquery.readyselector.js
 //= require_tree .
