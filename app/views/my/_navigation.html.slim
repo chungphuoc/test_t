@@ -3,7 +3,10 @@
     .div.collapse.navbar-collapse
       .container
         .navbar-header
-          = link_to 'Toned', root_path, class: "navbar-brand btn-home"
+          = link_to root_path, class: "navbar-brand btn-home" do
+            span.title-01 TO
+            span.title-02 NED
+          end
         ul.nav.navbar-nav.navbar-left
           - if current_user.studio?
             li
@@ -27,10 +30,10 @@
                   = link_to t('button.favourite_class'), personal_favourite_courses_path, class: 'btn-header'
             li
               = link_to t('button.studio_list'), personal_studios_path, class: 'btn-header'
-            li
-              = link_to t('button.my_page'), my_customer_path, class: 'btn-header'
         ul.nav.navbar-right.navbar-nav
           - if current_user
+            li
+              = link_to t('button.my_page'), my_customer_path, class: 'btn-header'
             li
               .avatar
                 = image_tag current_user.avatar, class: "img-circle"
@@ -46,8 +49,8 @@
                 li
                   = link_to edit_user_registration_path
                     span Edit Account
-                li
-                  = link_to t('button.sign_out'), destroy_user_session_path, method: :delete
+                / li
+                /   = link_to t('button.sign_out'), destroy_user_session_path, method: :delete
             li
               = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
           -else
