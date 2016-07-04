@@ -23,7 +23,7 @@
     background-size: 100% 100%;
     .main-info-section{
         background-color: white;
-        margin: 3%;
+        margin: 3% 8%;
         padding-top: 20px;
         padding-bottom: 40px;
         h1{
@@ -38,39 +38,74 @@
         .point-calories{
             text-align: center;
             .user-point{
-                color: #fff;
-                background-color: #213454;
+                color: #4CD1BC;
                 padding: 20px 25px;
                 border-top-left-radius: 15px;
                 border-top-right-radius: 15px;
                 border-bottom-left-radius: 15px;
                 margin-top: 20px;
-                margin-left: 25px;
+                h3{
+                    font-weight: 700;
+                    font-size: 28px;
+                    margin-top: 15px;
+                }
             }
             .user-calories{
                 color: #64d7c6;
+            }
+            select{
+                margin-top: 95px;
             }
         }
         .invite-friend{
             margin-top: 20px;
             margin-left: 20px;
-            background-color: #fff;
-            border: 1px solid #d7d7d7;
             padding: 0px;
             .invite_friend_side{
                 background-color: white;
                 padding: 0px 8%;
+                .txt-message{
+                    background-color: #fff;
+                    border-bottom: 2px solid #DCC8F6;
+                    box-shadow: none;
+                    border-radius: 0px;
+                    font-size: 18px;
+                    width: 80%;
+                    padding-left: 40px;
+                }
+                .txt-email{
+                    width: 100%;
+                    padding-left: 10px;
+                }
+                .title-invite{
+                    color: #999999;
+                    text-transform: none;
+                    font-weight: 400;
+                    font-size: 18px;
+                    text-align: left;
+                    margin-left: 10px;
+                }
+                .icon-message{
+                    width: 25px;
+                    position: absolute;
+                    top: 10px;
+                    left: 50px;
+                }
             }
             .btn-send{
                 background-color: #e24492;
                 border: 0px;
-                width: 100%;
+                width: 110px;
                 margin: 0px;
                 border-radius: 0px;
                 margin-top: 15px;
-                text-transform: uppercase;
                 font-weight: 600;
-                font-size: 16px;
+                font-size: 14px;
+                border-radius: 4px;
+                position: absolute;
+                bottom: 22px;
+                right: 60px;
+                padding: 3px 0px;
             }
             .btn-send:hover{
                 background-color: #de2582;
@@ -82,13 +117,20 @@
         background-color: white;
         margin-top: 3%;
         padding: 0px !important;
+        h2{
+            display: none;
+        }
         tr{
             height: 50px;
             th{
-                background-color: #f0f0f0;
+                color: #838383;
             }
             th,td{
-                padding: 15px;
+                padding: 25px 0px;
+                border-top: none;
+                border-bottom: 2px solid #DCC8F6;
+                text-align: left;
+                font-size: 15px;
             }
         }
         h2{
@@ -113,11 +155,12 @@
             background-color: #e24492;
             border: 0px;
             margin: 0px;
-            width: 100%;
+            width: 100px;
             border-radius: 0px;
             text-transform: uppercase;
             font-weight: 600;
             font-size: 16px;
+            border-radius: 4px;
         }
         .btn-send:hover{
             background-color: #de2582;

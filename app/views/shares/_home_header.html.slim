@@ -2,7 +2,10 @@
   .div.collapse.navbar-collapse
     .container
       .navbar-header
-        = link_to 'TONE', root_path, class: "navbar-brand btn-home"
+        = link_to root_path, class: "navbar-brand btn-home" do
+          span.title-01 TO
+          span.title-02 NED
+        end
       ul.nav.navbar-right.navbar-nav
         - if current_user
           li
@@ -33,9 +36,9 @@
                 - elsif current_user.customer?
                   = link_to my_customer_path
                     p = t('button.my_page')
-              li
-                = link_to destroy_user_session_path, method: :delete
-                  p = t('button.sign_out')
+              / li
+              /   = link_to destroy_user_session_path, method: :delete
+              /     p = t('button.sign_out')
         -else
           li
             = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-header'
