@@ -58,3 +58,9 @@ body{
   width: 14%;
   text-align: center;
 }
+#show-search{
+  background-color: #4cd1bc;
+  &:hover{
+    background-color: #d972e6 !important;
+  }
+}

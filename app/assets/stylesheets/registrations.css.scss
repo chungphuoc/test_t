@@ -10,22 +10,26 @@
   right: 0px;
   left: 0px;
   margin: 10% auto;
-  background-color: white;
+  // background-color: white;
   width: 400px;
   .btn{
     margin: 0px 5px;
   }
   .title{
-    background-color: #de77e9;
+    // background-color: #de77e9;
     margin: 0px;
     padding: 10px 0px;
     h2{
       color: white;
+      font-size: 35px;
+      font-weight: 700;
+      text-decoration: underline;
     }
   }
   .body{
     padding: 30px 20px 20px 20px;
     margin: 0px;
+    background-color: #fff;
     .btn{
       margin: 5px;
     }
@@ -50,7 +54,34 @@
 
 
 .left-inner-addon {
-    position: relative;
+  position: relative;
+  input::-webkit-input-placeholder {
+    font-size: 16px;
+    color: #8ee1d4;
+    font-weight: 400;
+  }
+  input:-moz-placeholder {
+    font-size: 16px;
+    color: #8ee1d4;
+    opacity: 1;
+    font-weight: 400;
+  }
+  input::-moz-placeholder {
+    font-size: 16px;
+    color: #8ee1d4;
+    opacity: 1;
+    font-weight: 400;
+  }
+  input:-ms-input-placeholder {
+    font-size: 16px;
+    color: #8ee1d4;
+    font-weight: 400;
+  }
+  input:placeholder-shown {
+    font-size: 16px;
+    color: #8ee1d4;
+    font-weight: 400;
+  }
 }
 .left-inner-addon input {
     padding-left: 30px;    
