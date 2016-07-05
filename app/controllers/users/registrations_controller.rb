@@ -50,6 +50,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def welcome
+    render 'welcome'
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.for(:sign_up) << :name << :email << :password << :password_confirmation << :provider << :uid
@@ -64,5 +68,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def registration_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  protected
+
+  # The path used after sign up but inactive.
+  def after_inactive_sign_up_path_for(resource)
+    welcome_url
   end
 end
