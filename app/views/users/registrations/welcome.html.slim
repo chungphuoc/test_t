@@ -5,5 +5,6 @@
 		|	Click the confirmation link in that email to begin using Toned.
 	p 
 		| Didn’t receive the email? Check your Spam folder, it may have been caught by a filter. If you still don’t see it, you can 
-		a[href="#{new_user_confirmation_path}"] resend the confirmation email.
-	i class="fa fa-envelope" aria-hidden="true"
+		= link_to 'resend the confirmation email.', new_user_confirmation_path
+	i.fa.fa-envelope
+	= link_to 'Go back to home', root_path, class: 'btn btn-sign-in'
