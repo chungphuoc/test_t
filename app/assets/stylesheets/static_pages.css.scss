@@ -40,15 +40,27 @@ body{
 }
 
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th{
-  background-color: #f0c9f5 !important;
+  // background-color: #f0c9f5 !important;
+  background-color: #fff !important;
+  border-top: 1px solid transparent;
+  border-bottom: 2px solid #4BCFBB;
 }
 
 .table-striped > tbody > tr > td, .table-striped > tbody > tr > th{
   color: #686868;
+  background-color: #fff !important;
+  border-top: 1px solid transparent;
+  border-bottom: 2px solid #4BCFBB;
 }
 
 .uniform-item{
   float: left;
   width: 14%;
   text-align: center;
+}
+#show-search{
+  background-color: #4cd1bc;
+  &:hover{
+    background-color: #d972e6 !important;
+  }
 }
