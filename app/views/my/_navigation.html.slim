@@ -13,8 +13,8 @@
               = link_to t('button.payment_management'), manage_payment_index_path, class: 'btn-header'
             li
               = link_to t('button.class_management'), manage_enrollments_path, class: 'btn-header'
-            li
-              = link_to t('button.name_my_page', name: current_user.name), my_studio_path, class: 'btn-header'
+            / li
+            /   = link_to t('button.name_my_page', name: current_user.name), my_studio_path, class: 'btn-header'
           - else
             li
               = link_to t('button.search_class'), personal_courses_path, class: 'btn-header'
