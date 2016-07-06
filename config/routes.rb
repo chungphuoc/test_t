@@ -87,7 +87,7 @@ Rails.application.routes.draw do
         post :process_payment
       end
     end
-    resources :studios, only: [:index, :show] do 
+    resources :studios, only: [:index, :show] do
       collection do
         get :by_name
         get :by_station
@@ -115,7 +115,7 @@ Rails.application.routes.draw do
       end
     end
     resources :payment, only: [:index] do
-      collection do 
+      collection do
         get :year_filter
         get :month_filter
       end
@@ -128,7 +128,7 @@ Rails.application.routes.draw do
         get :by_join_date
       end
     end
-    resources :facilities, only: [:index] do 
+    resources :facilities, only: [:index] do
       put :update, on: :collection
     end
   end

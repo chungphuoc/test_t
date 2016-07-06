@@ -38,6 +38,7 @@ en:
     close: Close
     re_open: Re-open
     my_page: My Page
+    name_my_page: "%{name}\'s My Page"
     my_classes: My Classes
     payment_management: Payment Management
     class_management: Class Management
@@ -45,6 +46,7 @@ en:
     booked_class: Booked classes
     passed_class: Passed classes
     favourite_class: Favourite Classes
+    favourite_studio: Favourite Studio
     studio_list: Studio List
     search: Search
     edit_profile: Edit Profile

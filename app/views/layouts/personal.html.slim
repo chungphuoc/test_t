@@ -19,26 +19,26 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
             .panel-heading.panel-border
             .panel-body
               = image_tag current_user.avatar_url, class: 'avatar'
-              .text-center.title
-                h1.studio-name.gray = current_user.name
+              / .text-center.title
+              /   h1.studio-name.gray = current_user.name
               hr
                 .row.zero-margin.center-text
                     - @enrollments_query = EnrollmentsQuery.new(current_user)
                     h4#calories_burnt #{@enrollments_query.calories_burnt('daily')} #{t('static_text.calories_burnt')}
                     h4 #{current_user.role.point} #{t('static_text.point')}
               hr
-          .panel
-            .panel-heading
-                .row.center-text.zero-margin.title
-                    h3 = t('static_text.favourite_studio')
-            .panel-body
-                - @courses = CoursesQuery.new(current_user).favourite_courses.select(:studio_id).distinct.limit(5)
-                .list-group
-                    - @courses.each do |course|
-                        = link_to personal_studio_path(course.studio), class: 'list-group-item' do
-                            i.glyphicon.glyphicon-heart
-                                span #{course.studio.name}
-                        end
+          / .panel
+          /   .panel-heading
+          /       .row.center-text.zero-margin.title
+          /           h3 = t('static_text.favourite_studio')
+          /   .panel-body
+          /       - @courses = CoursesQuery.new(current_user).favourite_courses.select(:studio_id).distinct.limit(5)
+          /       .list-group
+          /           - @courses.each do |course|
+          /               = link_to personal_studio_path(course.studio), class: 'list-group-item' do
+          /                   i.glyphicon.glyphicon-heart
+          /                       span #{course.studio.name}
+          /               end
         .col-md-9
           .panel
             .panel-heading
