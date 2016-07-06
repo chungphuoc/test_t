@@ -10,5 +10,6 @@ FactoryGirl.define do
     website Faker::Internet.url
     kcal 10
     tuition 10
+    days_of_week [1]
   end
 end
