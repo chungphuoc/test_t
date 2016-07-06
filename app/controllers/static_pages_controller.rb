@@ -12,4 +12,8 @@ class StaticPagesController < ApplicationController
   def contact_us
     
   end
+
+  def welcome
+    render 'welcome'
+  end
 end

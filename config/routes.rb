@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions',
                                     registrations: 'users/registrations',
                                     omniauth_callbacks: 'users/omniauth_callbacks' }
-  devise_scope :user do
-    get 'welcome', to: 'users/registrations#welcome'
-  end
 
   root 'static_pages#home'
 
@@ -13,6 +10,7 @@ Rails.application.routes.draw do
     post :feedback
     get :about_us
     get :contact_us
+    get 'welcome'
   end
 
   resource :invite_friend, only: [] do

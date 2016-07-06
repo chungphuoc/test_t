@@ -105,24 +105,3 @@
     padding: 10px 12px;
     pointer-events: none;
 }
-
-.welcome-panel  {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  margin: 10% auto;
-  width: 800px;
-  background-color: white;
-  padding: 0px 20px 0px 20px;
-  text-align: center;
-  i {
-    display: block;
-    text-align: center;
-    color: #de77e9;
-    font-size: 150px;
-  }
-  p {
-    color: #777;
-  }
-}
