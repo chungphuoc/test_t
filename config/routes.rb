@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post :feedback
     get :about_us
     get :contact_us
+    get :welcome
   end
 
   resource :invite_friend, only: [] do
