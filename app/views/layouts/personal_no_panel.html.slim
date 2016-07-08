@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Toned
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => false
+    = javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false
+    = csrf_meta_tags
+
+body class = "#{@custom_controller_name || controller_name} #{action_name}"
+    .flash-wrapper
+        = flash_messages
+    .navigation
+        = render 'my/navigation'
+    .content
+      .row.zero-margin.studio-layout
+        .col-md-12
+          .panel
+            .panel-heading
+            .panel-body
+              = yield
+    .footer-section
+        = render "shares/footer"
