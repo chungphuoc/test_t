@@ -1,9 +1,10 @@
 class Personal::CoursesController < Personal::BaseController
-  layout false, only: ['personal']
+  # layout false, only: ['personal']
   layout 'personal_no_panel'
 
   def index
     @courses = Course.where(status: Course.statuses[:active]).page(params[:page])
+    render layout: 'personal_background'
   end
 
   def show
@@ -16,6 +17,6 @@ class Personal::CoursesController < Personal::BaseController
 
   def search
     @courses = CoursesSearchService.new(params).execute.page(params[:page])
-    render :index
+    render :index, layout: 'personal_background'
   end
 end

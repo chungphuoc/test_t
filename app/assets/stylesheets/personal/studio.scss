@@ -39,6 +39,36 @@
       }
     }
   }
+
+  .table-color-list {
+    tr {
+      td {
+        display: table-cell;
+        vertical-align: middle;
+        color: #686868;
+        font-weight: 600;
+        // font-size: 16px;
+
+        a {
+          color: #686868;
+          text-decoration: none;
+        }
+      }
+    }
+    tr:nth-child(odd) {
+      background-color: #64d7c6 !important;
+      .money {
+        color: #fff;
+      }
+    }
+
+    tr:nth-child(even) {
+      background-color: #fff !important;
+      .money {
+        color: #64d7c6;
+      }
+    }
+  }
 }
 .studio-list-section{
   padding: 0px 15%;
@@ -60,4 +90,12 @@
   .col-lg-3{
     text-align: center;
   }
+}
+
+#color-grey {
+  color: #bbb;
+}
+
+#color-blue {
+  color: #64d7c6;
 }

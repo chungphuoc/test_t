@@ -13,4 +13,28 @@ function displaySearch(){
       search_form.addClass('hidden');
     });
   }
-}
+};
+
+$(document).ready(function(){
+  $('#search-box #field-station button').click(function(){
+    content = $('#search-box #field-station .content');
+    content.css('display', 'block');
+  });
+
+  $('#search-box #field-exercise button').click(function(){
+    content = $('#search-box #field-exercise .content');
+    content.css('display', 'block');
+  });
+
+  $(document).click(function(e){
+    if ($(e.target).is("#search-box #field-station *") === false){
+      content = $('#search-box #field-station .content');
+      content.css('display', 'none');
+    }
+
+    if ($(e.target).is("#search-box #field-exercise *") === false){
+      content = $('#search-box #field-exercise .content');
+      content.css('display', 'none');
+    }
+  });
+});
