@@ -38,12 +38,17 @@
     }
   }
 
-  #field-station, #field-exercise {
+  .select-group {
     position: relative;
+  }
+
+  #field-station, #field-exercise {
+    position: static;
     .content {
       display: none;
-      width: 100%;
       position: absolute;
+      left: 0;
+      right: 0;
       z-index: 10;
       background-color: #fff;
       height: 200px;
@@ -82,7 +87,6 @@
     left: 0;
     right: 0;
     top: 30%;
-    // padding: 20px 30px;
 
     #search-box {
       background-color: #fff;

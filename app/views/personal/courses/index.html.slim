@@ -6,33 +6,34 @@
       = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
         .row
           .col-lg-10
-            .row
-              .col-lg-6#field-station
-                .row.select-box
-                  .col-xs-11
-                    p.title-search Stations
-                  .col-xs-1
-                    button[type='button' class='caret-symbol'] &#9660
-                .content.display-none
-                  .row
-                    - Station.all.each do |station|
-                      .col-md-6
-                        .station-element
-                          = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
-                          = label_tag "station_ids[#{station.id}]", station.name
-              .col-lg-6#field-exercise
-                .row.select-box
-                  .col-xs-11
-                    p.title-search Exercise
-                  .col-xs-1
-                    button[type='button' class='caret-symbol'] &#9660
-                .content.display-none
-                  .row
-                    - Exercise.all.each do |exercise|
-                      .col-md-6
-                        .station-element
-                          = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
-                          = label_tag "exercise_ids[#{exercise.id}]", exercise.name
+            .select-group
+              .row
+                .col-lg-6#field-station
+                  .row.select-box
+                    .col-xs-11
+                      p.title-search Stations
+                    .col-xs-1
+                      button[type='button' class='caret-symbol'] &#9660
+                  .content
+                    .row
+                      - Station.all.each do |station|
+                        .col-md-6
+                          .station-element
+                            = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
+                            = label_tag "station_ids[#{station.id}]", station.name
+                .col-lg-6#field-exercise
+                  .row.select-box
+                    .col-xs-11
+                      p.title-search Exercise
+                    .col-xs-1
+                      button[type='button' class='caret-symbol'] &#9660
+                  .content
+                    .row
+                      - Exercise.all.each do |exercise|
+                        .col-md-6
+                          .station-element
+                            = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
+                            = label_tag "exercise_ids[#{exercise.id}]", exercise.name
           .col-lg-2
             .button-search
               = submit_tag t('button.search'), class: 'btn-search'
