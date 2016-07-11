@@ -183,7 +183,7 @@
     min-height: 90px;
     background-color: #fb9ed9;
     text-align: center;
-    
+
     .title{
       padding-top: 10px;
       text-align: left;
@@ -218,12 +218,16 @@
   input[type="checkbox"]:checked + label:before {
     content: "\2713";
     text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-    font-size: 15px;
-    color: #f3f3f3;
+    font-size: 30px;
+    // color: #f3f3f3;
     text-align: center;
     line-height: 15px;
     background-color: #fdcf2f;
+    padding-top: 24px;
+    padding-left: 5px;
+    color: #64d7c6;
   }
+
   label{
     position: relative;
     padding-left: 0px !important;
