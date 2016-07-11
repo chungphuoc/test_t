@@ -17,6 +17,6 @@ class Personal::CoursesController < Personal::BaseController
 
   def search
     @courses = CoursesSearchService.new(params).execute.page(params[:page])
-    render :index
+    render :index, layout: 'personal_background'
   end
 end
