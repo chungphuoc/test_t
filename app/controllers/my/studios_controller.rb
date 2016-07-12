@@ -34,7 +34,14 @@ class My::StudiosController < ApplicationController
   end
 
   def studio_params
-    params.require(:studio).permit(:cover_img)
+    params.require(:studio).permit(
+      :cover_img,
+      :website,
+      :description,
+      :bank_name,
+      :account_number,
+      :account_owner
+    )
   end
 
   def user_params

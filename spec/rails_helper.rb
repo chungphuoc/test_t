@@ -60,6 +60,7 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.run_all_when_everything_filtered = true
   config.include Warden::Test::Helpers
+  config.include Devise::TestHelpers, type: :controller
   Warden.test_mode!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
