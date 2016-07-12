@@ -19,3 +19,25 @@ function calories_burnt(type){
     }
   });
 }
+
+function booked_classes(url_data) {
+  $.ajax({
+    url: url_data,
+    success: function(result) {
+      $("#class-list").html(result);
+      $("#btn-by-booked").addClass("button-class-active");
+      $("#btn-by-passed").removeClass("button-class-active");
+    }
+  });
+}
+
+function passed_classes(url_data) {
+  $.ajax({
+    url: url_data,
+    success: function(result) {
+      $("#class-list").html(result);
+      $("#btn-by-booked").removeClass("button-class-active");
+      $("#btn-by-passed").addClass("button-class-active");
+    }
+  });
+}

@@ -5,6 +5,22 @@
       height: 70px;
     }
   }
+  button.nav {
+    margin: 10px;
+    border-radius: 0px;
+    margin: 10px auto;
+    padding: 5px 20px;
+    color: #5bc0de;
+    border: 2px solid #5bc0de;
+    font-size: 20px;
+    background-color: white;
+  }
+  .nav.button-class-active{
+    background-color: #5bc0de;
+    color: white !important;
+    border: 2px solid #5bc0de;
+  }
+
 }
 .table-booked-class tr td{
   img{

@@ -1,5 +1,3 @@
-.row.center-text.zero-margin.title
-  h2 Booked Class
 table.table.table-striped.table-booked-class
   tr
     th = t('static_text.index')
@@ -26,4 +24,4 @@ table.table.table-striped.table-booked-class
         - else
           button.btn.btn-sign-in disabled = "disabled" #{t('button.cancel')}
         = link_to t('button.show'), personal_course_path(enrollment.course), class: "btn btn-sign-in"
-  end
+= paginate @enrollments

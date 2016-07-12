@@ -75,6 +75,7 @@ Rails.application.routes.draw do
         get :cancel
         get :calories_burnt
         get :confirmation
+        get :classes
       end
     end
     resources :favourite_courses, only: [:index] do
