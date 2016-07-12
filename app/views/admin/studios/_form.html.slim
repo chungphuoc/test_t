@@ -45,6 +45,24 @@
     .col-lg-10
       = f.file_field :cover_img
   .form-group
+    = f.label :bank_name, class: 'control-label col-sm-2'
+    .col-lg-10
+      = f.text_field :bank_name, class: "form-control", required: ""
+      .error-text
+        = @studio.user.errors[:bank_name].to_sentence
+  .form-group
+    = f.label :account_number, class: 'control-label col-sm-2'
+    .col-lg-10
+      = f.text_field :account_number, class: "form-control", required: ""
+      .error-text
+        = @studio.user.errors[:account_number].to_sentence
+  .form-group
+    = f.label :account_owner, class: 'control-label col-sm-2'
+    .col-lg-10
+      = f.text_field :account_owner, class: "form-control"
+      .error-text
+        = @studio.user.errors[:account_owner].to_sentence
+  .form-group
     = link_to admin_studios_path, class: "btn btn-primary"
       span Back
     = f.submit "Submit", class: "btn btn-primary"

@@ -46,6 +46,24 @@
         .col-lg-10
           = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
           = f.file_field :cover_img
+      .form-group
+        = f.label :bank_name, class: 'control-label col-sm-2'
+        .col-lg-10
+          = f.text_field :bank_name, class: "form-control"
+          .error-text
+            = @studio.errors[:bank_name].to_sentence
+      .form-group
+        = f.label :account_number, class: 'control-label col-sm-2'
+        .col-lg-10
+          = f.text_field :account_number, class: "form-control"
+          .error-text
+            = @studio.errors[:account_number].to_sentence
+      .form-group
+        = f.label :account_owner, class: 'control-label col-sm-2'
+        .col-lg-10
+          = f.text_field :account_owner, class: "form-control"
+          .error-text
+            = @studio.errors[:account_owner].to_sentence
       .form-group.center-text
         = link_to t('button.back'), :back, class: "btn btn-sign-up"
         = f.submit t('button.submit'), class: "btn btn-sign-up"
