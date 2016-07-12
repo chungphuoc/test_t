@@ -3,8 +3,8 @@
 		h1 = t('static_text.class_schedule')
 	.row
 	  .col-lg-3.col-lg-offset-3
-	    button.btn.nav.button-class-active#btn-by-booked onClick="booked_classes('#{classes_personal_enrollments_path}')" = t('button.booked_class')
+	    button.btn.btn-filter.button-class-active#btn-by-booked onClick="booked_classes('#{classes_personal_enrollments_path}')" = t('button.booked_class')
 	  .col-lg-3
-	    button.btn.nav#btn-by-passed onClick="passed_classes('#{classes_personal_enrollments_path(statuses: [2])}')" = t('button.passed_class')
+	    button.btn.btn-filter#btn-by-passed onClick="passed_classes('#{classes_personal_enrollments_path(statuses: [2])}')" = t('button.passed_class')
 	#class-list
 		= render "shares/course_booked"
