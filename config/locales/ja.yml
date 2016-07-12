@@ -54,6 +54,7 @@ ja:
       name: 名前
       title: タイトル
       message: メッセージ
+      email: Email
     favourite_studio: お気に入りスタジオ
     point: ポイント
     calories_burnt: カロリー消費

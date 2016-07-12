@@ -85,3 +85,63 @@ body{
     color: #777;
   }
 }
+
+#contact-us {
+  background-color: #ddd;
+
+  .col-lg-6 {
+    height: 100%;
+  }
+  .introduction-title {
+    margin-top: 50px;
+    border-bottom: 2px dotted #000;
+  }
+  .feedback {
+    padding: 30px 50px;
+    // padding-bottom: 30px;
+    .feedback-form {
+      .form-group {
+        height: 100%;
+        input {
+          border-radius: 0px;
+          border: none;
+        }
+
+        textarea {
+          border-radius: 0px;
+          border: none;
+          height: 200px;
+        }
+      }
+      .btn-feedback {
+        margin: 0;
+        padding: 5px 40px;
+        float: right;
+        background-color: #f397ef !important;
+        color: #fff !important;
+        border: none !important;
+      }
+    }
+  }
+
+  .contact-information {
+    ul {
+      padding: 0;
+      list-style: none;
+      li {
+        padding: 10px 0;
+        .icon {
+          img {
+            height: 20px;
+            width: 20px;
+          }
+        }
+
+        .content {
+          padding-left: 10px;
+          color: #C79D32;
+        }
+      }
+    }
+  }
+}
