@@ -19,4 +19,10 @@ class Personal::StudiosController < Personal::BaseController
     @stations = Station.all
     render 'studio_by_station', layout: false
   end
+
+  def by_favorite
+    I18n.locale = params[:locale]||I18n.locale
+    @favorite = CoursesQuery.new(current_user).favourite_courses
+    render 'studio_by_favorite', layout: false
+  end
 end
