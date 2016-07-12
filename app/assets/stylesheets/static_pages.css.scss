@@ -85,3 +85,80 @@ body{
     color: #777;
   }
 }
+
+#contact-us {
+  background-color: #666;
+
+  .col-lg-6 {
+    height: 100%;
+  }
+  .introduction-title {
+    margin-top: 50px;
+    border-bottom: 3px dotted #64d7c6;
+
+    h1 {
+      color: #fff;
+      font-weight: 600;
+      font-size: 50px;
+    }
+
+    h4 {
+      color: #ddd;
+    }
+  }
+  .feedback {
+    padding: 30px 50px;
+    // padding-bottom: 30px;
+    .feedback-form {
+      .form-group {
+        height: 100%;
+        input {
+          border-radius: 0px;
+          border: none;
+          font-size: 25px;
+          height: 100%;
+          background-color: #eee;
+        }
+
+        textarea {
+          border-radius: 0px;
+          border: none;
+          height: 300px;
+          font-size: 25px;
+          background-color: #eee;
+        }
+      }
+      .btn-feedback {
+        margin: 0;
+        padding: 5px 40px;
+        float: right;
+        background-color: #f397ef !important;
+        color: #fff !important;
+        border: none !important;
+        border-radius: 5px !important;
+      }
+    }
+  }
+
+  .contact-information {
+    ul {
+      padding: 0;
+      list-style: none;
+      li {
+        padding: 20px 0;
+        .icon {
+          img {
+            height: 30px;
+            width: 30px;
+          }
+        }
+
+        .content {
+          padding-left: 10px;
+          color: #F1AF00;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

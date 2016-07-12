@@ -71,9 +71,10 @@ en:
     featured_class: Featured Class
     feedback_text: Feedback
     feedback:
-      name: name
+      name: Your name
       title: title
-      message: message
+      message: Message
+      email: Email
     favourite_studio: Favourite Studio
     point: Point
     calories_burnt: Calories Burnt
