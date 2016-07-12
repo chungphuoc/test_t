@@ -23,7 +23,14 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # The path used after confirmation.
-  # def after_confirmation_path_for(resource_name, resource)
-  #   super(resource_name, resource)
-  # end
+  def after_confirmation_path_for(resource_name, resource)
+    sign_in(resource) unless signed_in?(resource_name)
+    if resource.customer?
+      edit_my_customer_path
+    elsif resource.studio?
+      edit_my_studio_path
+    else
+      root_pat
+    end
+  end
 end
