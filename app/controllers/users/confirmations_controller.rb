@@ -30,7 +30,7 @@ class Users::ConfirmationsController < Devise::ConfirmationsController
     elsif resource.studio?
       edit_my_studio_path
     else
-      root_pat
+      root_path
     end
   end
 end
