@@ -96,7 +96,18 @@
 }
 
 #registration-studio {
-  background-image: image-url('yoga.jpg');
+  position: relative;
+  // background-image: image-url('yoga.jpg');
+  #background-img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      // bottom: 0;
+      width: 100%;
+      bottom: 0;
+      z-index: -2;
+    }
   padding: 30px;
   * {
     margin: 0;
@@ -108,8 +119,15 @@
     text-align: center;
     margin-top: 40%;
     h1 {
+      font-size: 50px;
+      color: #f397ef;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    h4 {
+      font-size: 30px;
+      margin-bottom: 30px;
     }
   }
 
@@ -138,7 +156,9 @@
         background-color: #fff;
         margin-bottom: 20px;
         ul {
-          list-style: none;
+          // list-style: none;
+      ;
+          overflow: auto;
         }
         p, .form-teacher {
           margin: 0 20px;
@@ -184,7 +204,11 @@
       }
 
       .btn-save {
-        background-color: #f397ef;
+        margin-top: 20px;
+        background-color: #64d7c6;
+        border-radius: 4px;
+        font-size: 18px;
+        font-weight: 600;
       }
     }
 
@@ -238,6 +262,41 @@
           font-size: 50px;
           background-color: transparent;
           color: #64d7c6;
+        }
+      }
+    }
+  }
+}
+
+#contact-field {
+  position: relative;
+  .contact-box {
+    background-color: #555;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 250px;
+    z-index: -1;
+    border-top: 2px solid #fff;
+    .title {
+      h6 {
+        padding-left: 50px;
+        font-size: 25px;
+        color: #fff;
+      }
+    }
+    ul {
+      list-style: none;
+      li {
+        padding: 15px 0;
+        img {
+          width: 30px;
+          height: 30px;
+        }
+        .content {
+          color: #f1af00;
+          margin-left: 10px;
         }
       }
     }
