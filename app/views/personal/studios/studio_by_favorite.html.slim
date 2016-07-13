@@ -10,4 +10,4 @@ table.table.table-striped
 		  td.studio-data #{course.station_name}
 		  td.studio-data #{course.name}
 		  td.studio-data 
-				button onClick="remove_studio_favorite('#{remove_personal_favourite_courses_path(customer_id: current_user.role_id, course_id: course.id)}', this)" Delete
+				button onClick="remove_studio_favorite(#{current_user.role_id}, #{course.id}, this)" Delete
