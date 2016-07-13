@@ -150,6 +150,8 @@
 
       textarea {
         height: 200px;
+        resize: none;
+        overflow: auto;
       }
 
       .teachers-box {
