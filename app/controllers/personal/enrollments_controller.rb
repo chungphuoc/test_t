@@ -4,6 +4,12 @@ class Personal::EnrollmentsController < Personal::BaseController
                                    .page params[:page]
   end
 
+  def classes
+    @enrollments = EnrollmentsQuery.new(current_user).by_statuses(params[:statuses] || [])
+                               .page params[:page]
+    render 'classes', layout: false
+  end
+
   def create
     @enrollment = current_user.enrollments.new(course_id: params[:course_id])
     if @enrollment.save
