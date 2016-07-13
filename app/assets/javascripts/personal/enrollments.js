@@ -20,9 +20,9 @@ function calories_burnt(type){
   });
 }
 
-function booked_classes(url_data) {
+function booked_classes() {
   $.ajax({
-    url: url_data,
+    url: "/my/enrollments/classes",
     success: function(result) {
       $("#class-list").html(result);
       $("#btn-by-booked").addClass("button-class-active");
@@ -31,9 +31,10 @@ function booked_classes(url_data) {
   });
 }
 
-function passed_classes(url_data) {
+function passed_classes() {
   $.ajax({
-    url: url_data,
+    url: "/my/enrollments/classes",
+    data: { statuses: [2] },
     success: function(result) {
       $("#class-list").html(result);
       $("#btn-by-booked").removeClass("button-class-active");
