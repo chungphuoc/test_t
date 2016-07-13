@@ -25,7 +25,7 @@
         ul.nav.navbar-right.navbar-nav
           - if current_user
             li
-              = link_to t('button.name_my_page', name: current_user.name), my_customer_path, class: 'btn-header'
+              = link_to t('button.name_my_page', name: current_user.name), current_user.studio? ? my_studio_path : my_customer_path, class: 'btn-header'
             li
               .avatar
                 = image_tag current_user.avatar, class: "img-circle"
