@@ -99,3 +99,21 @@
 #color-blue {
   color: #64d7c6;
 }
+
+.studio-data {
+  vertical-align: middle !important;
+  padding: 0px !important;
+  button {
+    display: block;
+    padding: 5px 10px;
+    margin: 5px 0;
+    background-color: #f397ef;
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+  }
+  button:hover {
+    text-decoration: none;
+    background-color: #3fcdb8 !important;
+  }
+}

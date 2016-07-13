@@ -93,6 +93,7 @@ Rails.application.routes.draw do
       collection do
         get :by_name
         get :by_station
+        get :by_favorite
       end
     end
   end
