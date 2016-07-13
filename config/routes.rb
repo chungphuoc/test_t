@@ -59,7 +59,11 @@ Rails.application.routes.draw do
   end
 
   namespace :my do
-    resource :studio, only: [:show, :edit, :update]
+    resource :studio, only: [:show, :edit, :update] do
+      collection do
+        get :add_teacher
+      end
+    end
     resource :customer, path: :account, only: [:show, :edit, :update]
   end
 
