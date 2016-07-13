@@ -13,18 +13,8 @@ class My::StudiosController < ApplicationController
 
   def update
     @studio.user.update_attributes(user_params)
-    if @studio.update_attributes(studio_params)
+    if @studio.update_attributes(studio_params.merge(facility: params[:facilities] || []))
       set_flash_message :success, :updated
-
-      # update facilities
-      if !params[:facilities].nil?
-        if @studio.update_attributes(facility: params[:facilities]||[])
-          set_flash_message :success, :updated
-        else
-          set_flash_message :error, :error
-        end
-      end
-
       redirect_to my_studio_path
     else
       set_flash_message :error, :error, scope: :error, now: true
