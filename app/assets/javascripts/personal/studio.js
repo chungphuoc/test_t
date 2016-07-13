@@ -37,10 +37,11 @@ function by_studio_favorite(locale) {
   });
 }
 
-function remove_studio_favorite(url_data, button) {
+function remove_studio_favorite(customer_id, course_id, button) {
   var parent = $(button).parents("tr");
   $.ajax({
-    url: url_data,
+    url: "/my/favourite_courses/remove",
+    data: { customer_id: customer_id, course_id: course_id },
     type: "POST",
     success: function(result){
       parent.fadeOut(function() { $(this).remove(); });
