@@ -11,7 +11,7 @@
     h4 Please come to Studio 10 min before the class starts.
   .row.zero-margin.center-text.course-name
     h3 #{@course.name}
-  .row.zero-margin.center-text 
+  .row.zero-margin.center-text
     .col-lg-2.col-lg-offset-2
       h4 #{@enrollment.join_date}
     .col-lg-4
@@ -19,4 +19,32 @@
     .col-lg-2
       h4 #{@course.teacher_name}
   .row.zero-margin.center-text
-    = link_to 'Back', personal_courses_path, class: 'btn btn-sign-up'
+    .col-lg-6
+      .map-wrapper style="width: 100%"
+        .map#js_google_map style="height: 300px"
+    .col-lg-6
+      .invite_friend_side
+        h4 = t('static_text.invite_friend')
+        = form_tag send_email_invite_friend_path do
+          .form-group
+            / = image_tag 'icon-message.png', :class => 'icon-message'
+            = text_area_tag :message, "", class: "form-control txt-message", placeholder: t('static_text.message'), required: "", rows: '1'
+
+          .form-group
+            = text_field_tag :email, "", class: "form-control txt-message txt-email", placeholder: t('static_text.email'), required: ""
+          = submit_tag t('button.send'), class: "btn btn-primary btn-sign-up"
+          = link_to 'Back', personal_courses_path, class: 'btn btn-sign-up'
+
+script src="//maps.googleapis.com/maps/api/js"
+javascript:
+  var position = new google.maps.LatLng(#{@course.station.latitude}, #{@course.station.longitude})
+  var mapProp = {
+    center: position,
+    zoom: 16,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById("js_google_map"), mapProp)
+  var marker = new google.maps.Marker({
+    position: position,
+  })
+  marker.setMap(map)

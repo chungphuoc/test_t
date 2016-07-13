@@ -6,15 +6,15 @@
     h2 A new way to book fitness
     -if current_user
       - if current_user.studio?
-        = link_to manage_courses_path, class: "btn btn-sign-up"
+        = link_to manage_courses_path, class: "btn btn-sign-up btn-get-started"
           span = t('button.get_started')
       - elsif current_user.customer?
-        = link_to personal_courses_path, class: "btn btn-sign-up"
+        = link_to personal_courses_path, class: "btn btn-sign-up btn-get-started"
           span = t('button.get_started')
       - else
         button.btn.btn-sign-up = t('button.get_started')
     - else
-      = link_to new_user_registration_path, class: "btn btn-sign-up"
+      = link_to new_user_registration_path, class: "btn btn-sign-up btn-get-started"
           span = t('button.get_started')
 .body-section
   .section.container.welcome

@@ -1,13 +1,36 @@
 .header-section
   = render "shares/home_header"
-.body-section
-  .contact-us-section
+/ .body-section
+/   .contact-us-section
+/     h1.center-text Contact
+/     h4.center-text Let us know your feed back!
+/     h4.center-text We would love to hear how you feel about our service.
+/     hr
+/     .row.zero-margin
+/       .col-lg-6.col-lg-offset-3
+/         = render 'shares/feedback'
+#contact-us
+  section.introduction-title.container
     h1.center-text Contact
     h4.center-text Let us know your feed back!
     h4.center-text We would love to hear how you feel about our service.
-    hr
-    .row.zero-margin
-      .col-lg-6.col-lg-offset-3
-        = render 'shares/feedback'
+  section.feedback.container
+    .row
+      .col-lg-6
+        .contact-information
+          ul
+            li.phone
+              span.icon = image_tag asset_path('contact_icons/phone')
+              span.content phone
+            li.address
+              span.icon = image_tag asset_path('contact_icons/address.png')
+              span.content address
+            li.email
+              span.icon = image_tag asset_path('contact_icons/email.png')
+              span.content email
+      .col-lg-6
+        .feedback-form
+          = render 'shares/feedback'
+
 .footer-section
   = render "shares/footer"

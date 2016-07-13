@@ -1,57 +1,44 @@
-.row.zero-margin.center-text.title
-  h2 = t('static_text.search_class')
-.row.zero-margin.center-text
-  button.btn.btn-sign-up#show-search onClick="displaySearch()" Show Search
-.row.zero-margin.hidden#search-form
-  = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
-    h3 = t('static_text.station')
-    .row.zero-margin.station
-      - Station.all.each do |station|
-        .col-md-3
-          .checkbox.checkbox-warning
-            = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
-            = label_tag "station_ids[#{station.id}]", station.name
-    h3 = t('static_text.exercise')
-    .row.zero-margin.exercise
-      - Exercise.all.each do |exercise|
-        .col-md-3
-          .checkbox.checkbox-warning
-            = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
-            = label_tag "exercise_ids[#{exercise.id}]", exercise.name
-    br
-    .row.zero-margin.center-text
-      = submit_tag t('button.search'), class: 'btn btn-sign-in'
-hr
-  .row
-    .btn-group
-      button.btn.btn-primary data-calendar-nav="prev" Prev
-      button.btn.btnbtn-primary data-calendar-nav="today" Today
-      button.btn.btn-primary data-calendar-nav="next" Next
-  .btn-group
-    button.btn.btn-primary data-calendar-view="year" Year
-    button.btn.btn-primary data-calendar-view="month" month
-    button.btn.btn-primary data-calendar-view="week" week
-    button.btn.btn-primary data-calendar-view="day" day
-  .div#calendar
-  = stylesheet_link_tag 'calendar'
-  script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
-  script src="/bower_components/underscore/underscore-min.js"
-  script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-  script src="/bower_components/bootstrap-calendar/js/calendar.js"
-  script src="/bower_components/bootstrap-calendar/js/app.js"
-  javascript:
-    var calendar = $('#calendar').calendar({
-        events_source: [{
-          "id": 293,
-          "title": "Event 1",
-          "url": "http://example.com",
-          "class": "event-important",
-          "start": 1468247557538
-      }],
-      tmpl_path: "/bower_components/bootstrap-calendar/tmpls/"
-    });
-hr
-.row.course-items
-  /= render "course_item"
-.row.center-text
-  = paginate @courses
+.background-search
+  = image_tag asset_path('yoga.jpg')
+  #search-frame
+    h1.title Welcome to TONE
+    #search-box
+      = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
+        .row
+          .col-lg-10
+            .select-group
+              .row
+                .col-lg-6#field-station
+                  .row.select-box
+                    .col-xs-11
+                      p.title-search Stations
+                    .col-xs-1
+                      button[type='button' class='caret-symbol'] &#9660
+                  .content
+                    .row
+                      - Station.all.each do |station|
+                        .col-md-6
+                          .station-element
+                            = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
+                            = label_tag "station_ids[#{station.id}]", station.name
+                .col-lg-6#field-exercise
+                  .row.select-box
+                    .col-xs-11
+                      p.title-search Exercise
+                    .col-xs-1
+                      button[type='button' class='caret-symbol'] &#9660
+                  .content
+                    .row
+                      - Exercise.all.each do |exercise|
+                        .col-md-6
+                          .station-element
+                            = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
+                            = label_tag "exercise_ids[#{exercise.id}]", exercise.name
+          .col-lg-2
+            .button-search
+              = submit_tag t('button.search'), class: 'btn-search'
+.container
+  .row.course-items
+    = render "course_item"
+  .row.center-text
+    = paginate @courses

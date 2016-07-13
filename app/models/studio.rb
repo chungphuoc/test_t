@@ -12,12 +12,14 @@ class Studio < ActiveRecord::Base
   has_many :requested_stations, class_name: 'Station', foreign_key: :requester_id
 
   validates :website, format: { with: Settings.regexp.url }, allow_blank: true
-  
+
   delegate :email, :address, :contact_number, :avatar, :name, to: :user
 
   accepts_nested_attributes_for :user
 
   mount_uploader :cover_img, ImageUploader
+
+  store :payment_infos, accessors: [:bank_name, :account_number, :account_owner]
 
   def name_with_initial
     name

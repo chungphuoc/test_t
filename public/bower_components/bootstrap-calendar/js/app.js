@@ -1,9 +1,9 @@
 (function($) {
 
 	"use strict";
-
+	var result = $.parseJSON( $('#tmp').attr('data-products-json') );
 	var options = {
-		events_source: '/bower_components/bootstrap-calendar/events.json.php',
+		events_source: result,
 		view: 'month',
 		tmpl_path: '/bower_components/bootstrap-calendar/tmpls/',
 		tmpl_cache: false,

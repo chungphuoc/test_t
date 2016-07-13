@@ -18,6 +18,7 @@ ja:
     close: 閉じる
     re_open: 再び開きます
     my_page: 'マイページ'
+    name_my_page: 'マイページ'
     my_classes: 私のクラス
     payment_management: 支払い　管理
     class_management: クラス　管理
@@ -25,6 +26,7 @@ ja:
     booked_class: 予約済みクラス
     passed_class: 過去のクラス
     favourite_class: お気に入り
+    favourite_studio: お気に入りスタジオ
     studio_list: スタジオ　リスト
     search: 検索
     edit_profile: プロファイル編集
@@ -52,6 +54,7 @@ ja:
       name: 名前
       title: タイトル
       message: メッセージ
+      email: Email
     favourite_studio: お気に入りスタジオ
     point: ポイント
     calories_burnt: カロリー消費

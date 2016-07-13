@@ -37,7 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
         expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
+        respond_with resource, location: after_inactive_sign_up_path_for
       end
     else
       clean_up_passwords resource
@@ -64,5 +64,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def registration_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  protected
+
+  # The path used after sign up but inactive.
+  def after_inactive_sign_up_path_for
+    welcome_static_pages_path
   end
 end

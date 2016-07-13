@@ -1,5 +1,8 @@
 class Personal::StudiosController < Personal::BaseController
+  layout 'personal_no_panel', only: [:show]
+
   def index
+    render layout: 'personal'
   end
 
   def show

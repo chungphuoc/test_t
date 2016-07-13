@@ -1,10 +1,10 @@
 = form_tag feedback_static_pages_path, class: "feed-back-form" do |f|
-  h3.title = t('static_text.feedback_text')
+  / h3.title = t('static_text.feedback_text')
   .form-group
     = text_field_tag :name, "", class: "form-control", required: "", placeholder: t('static_text.feedback.name')
   .form-group
-    = text_field_tag :title, "", class: "form-control", required: "", placeholder: t('static_text.feedback.title')
+    = email_field_tag :email, "", class: "form-control", required: "", placeholder: t('static_text.feedback.email')
   .form-group
     = text_area_tag :message, "", class: "form-control", required: "", placeholder: t('static_text.feedback.message')
   .form-group
-    = submit_tag t('button.send'), class: "btn btn-sign-in"
+    = submit_tag t('button.send'), class: "btn btn-sign-in btn-feedback"
