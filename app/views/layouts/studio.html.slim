@@ -21,14 +21,16 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
         #navbar.navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-left
             li
-              = link_to t('button.payment_management'), manage_payment_index_path, class: 'btn-header'
+              = link_to t('button.class_calendar'), manage_courses_path, class: 'btn-header-studio'
             li
-              = link_to t('button.class_management'), manage_enrollments_path, class: 'btn-header'
+              = link_to t('button.class_management'), manage_enrollments_path, class: 'btn-header-studio'
+            li
+              = link_to t('button.payment_management'), manage_payment_index_path, class: 'btn-header-studio'
           ul.nav.navbar-nav.navbar-right
             li
-              = link_to t('button.my_page'), my_studio_path, class: 'btn-header'
+              = link_to t('button.my_page'), my_studio_path, class: 'btn-header-studio'
             li
-              = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
+              = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header-studio'
             li
               .avatar
                 = image_tag current_user.avatar, class: "img-circle"

@@ -42,6 +42,7 @@ en:
     my_classes: My Classes
     payment_management: Payment Management
     class_management: Class Management
+    class_calendar: Class Calendar
     search_class: Search Class
     booked_class: Booked classes
     passed_class: Passed classes
