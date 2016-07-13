@@ -48,6 +48,13 @@
     hr
     .row.invite-friend.zero-margin
       = render 'my/invite_friend'
+    hr
+    .row.invite-friend.zero-margin.center-text
+      .invite_friend_side
+        h4 Map
+        .map-wrapper style="width: 100%"
+          .map#js_google_map style="height: 300px"
+
   .col-lg-3.manage-section
     .row.center-text
       h2.title = t('static_text.cover_img')
@@ -79,3 +86,17 @@
       = render 'facilities'
       .row.center-text
         = link_to t('button.add_facility'), manage_facilities_path, class: "btn btn-sign-up"
+
+  script src="//maps.googleapis.com/maps/api/js"
+  javascript:
+    var position = new google.maps.LatLng(#{@studio.courses.first.station.latitude}, #{@studio.courses.first.station.longitude})
+    var mapProp = {
+      center: position,
+      zoom: 16,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById("js_google_map"), mapProp)
+    var marker = new google.maps.Marker({
+      position: position,
+    })
+    marker.setMap(map)
