@@ -23,7 +23,7 @@
     ul
       - @favourite_courses.each do |course|
         li
-          = course.course.name
+          = link_to course.course.name, personal_course_path(course.course.id)
           i.fa.fa-times aria-hidden="true" onClick="remove_favorite_studio(#{course.customer_id}, #{course.course_id}, this);"
   .col-md-9
     .row.zero-margin.pull-right.form-inline

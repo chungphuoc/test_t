@@ -34,6 +34,13 @@
     		color: #64d7c6;
     		font-size: 18px;
     		padding: 10px;
+        a {
+          text-decoration: none;
+          color: #1abc9c;
+        }
+        a:hover {
+          color: #2980b9;
+        }
     		i {
     			color: #f397ef;
     			float: right;
