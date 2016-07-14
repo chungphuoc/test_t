@@ -5,7 +5,7 @@
         p.teacher-name = teacher.name
   .form-teacher
     p
-      input[type="text" id='teacher_name' name='teacher']
-      button[type="button" onClick="add_teacher();"] Add
+      = text_field_tag 'teacher_name'
+      button type="button" onClick="add_teacher()" Add
     h6.errors-text
-  button[type="button" id="button-add-teacher" onClick="add_teacher_click()"] + Add Teacher
+  button#button-add-teacher type="button" onClick="add_teacher_click()" + Add Teacher

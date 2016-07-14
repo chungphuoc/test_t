@@ -9,7 +9,7 @@ function add_teacher(){
     data: {name: teacher_name},
     success: function(result) {
       if (result.error) {
-        $('.errors-text').html(result.error)
+        $('.teachers-box .errors-text').html(result.error)
       }
       else {
         $('.teachers-box').html(result)
@@ -21,9 +21,9 @@ function add_teacher(){
 function add_teacher_click(){
   form = $('.teachers-box .form-teacher')
   if (form.css('display') == 'none') {
-    $('.teachers-box .form-teacher').css('display', 'block');
+    form.css('display', 'block');
   }
   else {
-    $('.teachers-box .form-teacher').css('display', 'none');
+    form.css('display', 'none');
   }
 }
