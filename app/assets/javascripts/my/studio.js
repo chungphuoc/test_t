@@ -9,7 +9,12 @@ function add_teacher(){
     data: {name: teacher_name},
     success: function(result) {
       if (result.error) {
-        $('.teachers-box .errors-text').html(result.error)
+        error_text = $('.teachers-box .errors-text');
+        error_text.empty();
+
+        $.each(result.error, function(index, error){
+          error_text.append('<p>' + error  + '</p>');
+        });
       }
       else {
         $('.teachers-box').html(result)

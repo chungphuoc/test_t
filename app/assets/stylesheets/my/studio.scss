@@ -200,7 +200,9 @@
         }
 
         .errors-text {
-          color: #f00;
+          p {
+            color: #f00;
+          }
         }
       }
 
