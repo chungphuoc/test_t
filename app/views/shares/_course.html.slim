@@ -3,10 +3,10 @@
     .course-content
       .detail-content
         .detail-bg
-        .detail-info
-          h2.title-course #{course.name}
-      = link_to personal_course_path(course) do
-        = image_tag course.cover_img
+        = link_to personal_course_path(course) do
+          .detail-info
+            h2.title-course #{course.name}
+      = image_tag course.cover_img
       end
     / .detail-bacground
     / .detail

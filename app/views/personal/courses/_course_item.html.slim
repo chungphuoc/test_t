@@ -3,10 +3,10 @@
     .course-content
       .detail-content
         .detail-bg
-        .detail-info
-          h2.title-course Test Test Test
-      = link_to personal_course_path(course) do
-        = image_tag course.cover_img
+        = link_to personal_course_path(course) do
+          .detail-info
+            h2.title-course Test Test Test
+      = image_tag course.cover_img
       end
     / .detail
     /   = link_to t('button.detail'), personal_course_path(course), class: "btn"
