@@ -1,0 +1,11 @@
+.teachers-box
+  ul
+    - @studio.teachers.each do |teacher|
+      li
+        p.teacher-name = teacher.name
+  .form-teacher
+    p
+      = text_field_tag 'teacher_name'
+      button type="button" onClick="add_teacher()" #{t('button.add')}
+    .errors-text
+  button#button-add-teacher type="button" onClick="add_teacher_click()" #{t('button.add_teacher')}

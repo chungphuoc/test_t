@@ -129,6 +129,10 @@ ja:
         created_at: で作成されました
         updated_at: で更新
         description: 説明
+        studio_name: スタジオ名
+        bank_name: 銀行名
+        account_number: 口座番号
+        account_owner: アカウントの所有者
       enrollment:
         created_at: で作成されました
         updated_at: で更新

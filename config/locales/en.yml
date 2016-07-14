@@ -227,6 +227,10 @@ en:
         created_at: Created At
         updated_at: Updated At
         description: Description
+        studio_name: Studio Name
+        bank_name: Bank Name
+        account_number: Account Number
+        account_owner: Account Owner
       enrollment:
         created_at: Created At
         updated_at: Updated At

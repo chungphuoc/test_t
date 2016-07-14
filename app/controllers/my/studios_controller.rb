@@ -8,16 +8,26 @@ class My::StudiosController < ApplicationController
   end
 
   def edit
+    @type = params[:type]
   end
 
   def update
     @studio.user.update_attributes(user_params)
-    if @studio.update_attributes(studio_params)
+    if @studio.update_attributes(studio_params.merge(facility: params[:facilities] || []))
       set_flash_message :success, :updated
       redirect_to my_studio_path
     else
       set_flash_message :error, :error, scope: :error, now: true
       render :edit
+    end
+  end
+
+  def add_teacher
+    contract = @studio.contracts.new(teacher_attributes: { name: params[:name] })
+    if contract.save
+      render 'teacher_box', layout: false
+    else
+      render json: { error: contract.errors.full_messages }
     end
   end
 

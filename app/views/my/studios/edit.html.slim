@@ -1,71 +1,96 @@
-.row.zero-margin.studio-main-edit-section
-  .col-lg-8.studio-edit-section
-    .row.zero-margin.center-text
-      h1 = t('static_text.edit_profile')
-    = form_for [:my, @studio], html: {class: "form-horizontal"} do |f|
-      = f.fields_for :user do |user_form|
-        .form-group
-          = user_form.label :name, class: 'control-label col-sm-2'
-          .col-lg-10
-            = user_form.text_field :name, class: "form-control"
-            .error-text
-              = @studio.user.errors[:name].to_sentence
-        .form-group
-          = user_form.label :contact_number, class: 'control-label col-sm-2'
-          .col-lg-10
-            = user_form.text_field :contact_number, class: "form-control"
-            .error-text
-              = @studio.user.errors[:contact_number].to_sentence
-        .form-group
-          = user_form.label :address, class: 'control-label col-sm-2'
-          .col-lg-10
-            = user_form.text_field :address, class: "form-control"
-            .error-text
-              = @studio.user.errors[:address].to_sentence
-        .form-group
-          = user_form.label :avatar, class: 'control-label col-sm-2'
-          .col-lg-10
-            = image_tag @studio.user.avatar, class: 'image_preview', alt: "No preview"
-            = user_form.file_field :avatar
-            .error-text
-              = @studio.user.errors[:avatar].to_sentence
-      .form-group
-        = f.label :website, class: 'control-label col-sm-2'
-        .col-lg-10
-          = f.text_field :website, class: "form-control"
-          .error-text
-            = @studio.errors[:website].to_sentence
-      .form-group
-        = f.label :description, class: 'control-label col-sm-2'
-        .col-lg-10
-          = f.text_area :description, size: "30x7", fixed: true, class: "form-control"
-          .error-text
-            = @studio.errors[:description].to_sentence
-      .form-group
-        = f.label :cover_img, class: 'control-label col-sm-2'
-        .col-lg-10
-          = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
-          = f.file_field :cover_img
-      .form-group
-        = f.label :bank_name, class: 'control-label col-sm-2'
-        .col-lg-10
-          = f.text_field :bank_name, class: "form-control"
-          .error-text
-            = @studio.errors[:bank_name].to_sentence
-      .form-group
-        = f.label :account_number, class: 'control-label col-sm-2'
-        .col-lg-10
-          = f.text_field :account_number, class: "form-control"
-          .error-text
-            = @studio.errors[:account_number].to_sentence
-      .form-group
-        = f.label :account_owner, class: 'control-label col-sm-2'
-        .col-lg-10
-          = f.text_field :account_owner, class: "form-control"
-          .error-text
-            = @studio.errors[:account_owner].to_sentence
-      .form-group.center-text
-        = link_to t('button.back'), :back, class: "btn btn-sign-up"
-        = f.submit t('button.submit'), class: "btn btn-sign-up"
-  .col-lg-3.invite_friend-section
-    = render 'my/invite_friend'
+section#registration-studio
+  / #background-img
+  = image_tag asset_path('yoga.jpg'), id: 'background-img'
+  .row
+    .col-lg-3
+      .title-box
+        h1 Toned
+        h4 Studio Profile
+    .col-lg-9
+      .form-registration-studio
+        .row
+          = form_for [:my, @studio], html: {class: "form-horizontal"} do |f|
+            = f.fields_for :user do |user_form|
+              .col-lg-6
+                .form-group
+                  = user_form.label :name, t('activerecord.attributes.studio.studio_name'), class: "control-label"
+                  = user_form.text_field :name, class: "form-control"
+                  .error-text
+                    = @studio.user.errors[:name].to_sentence
+                .form-group
+                  = user_form.label :contact_number, t('activerecord.attributes.user.contact_number'), class: "control-label"
+                  = user_form.text_field :contact_number, class: "form-control"
+                  .error-text
+                    = @studio.user.errors[:contact_number].to_sentence
+                .form-group
+                  = user_form.label :address, t('activerecord.attributes.user.address'), class: "control-label"
+                  = user_form.text_area :address, class: "form-control"
+                  .error-text
+                    = @studio.user.errors[:address].to_sentence
+                .form-group
+                  = user_form.label :website, t('activerecord.attributes.studio.website'), class: "control-label"
+                  = f.text_field :website, class: "form-control"
+                  .error-text
+                    = @studio.errors[:website].to_sentence
+                .form-group
+                  = user_form.label :description, t('activerecord.attributes.studio.description'), class: "control-label"
+                  = f.text_area :description, size: "30x7", fixed: true, class: "form-control"
+                  .error-text
+                    = @studio.errors[:description].to_sentence
+                .form-group
+                  = f.label :bank_name, t('activerecord.attributes.studio.bank_name'),class: "control-label"
+                  = f.text_field :bank_name, class: "form-control"
+                  .error-text
+                    = @studio.errors[:bank_name].to_sentence
+                .form-group
+                  = f.label :account_number, t('activerecord.attributes.studio.account_number'),class: "control-label"
+                  = f.text_field :account_number, class: "form-control"
+                  .error-text
+                    = @studio.errors[:account_number].to_sentence
+                .form-group
+                  = f.label :account_owner, t('activerecord.attributes.studio.account_owner'), class: "control-label"
+                  = f.text_field :account_owner, class: "form-control"
+                  .error-text
+                    = @studio.errors[:account_owner].to_sentence
+              .col-lg-6
+                .form-group
+                  = image_tag @studio.user.avatar, class: 'image_preview', alt: "No preview"
+                  = user_form.file_field :avatar
+                  .error-text
+                    = @studio.user.errors[:avatar].to_sentence
+                .form-group
+                  = render 'teacher_box'
+                .form-group
+                  .facilities-group
+                    span.facility-element
+                      = check_box_tag 'facilities[]', 0, @studio.facility.include?(0), id: 'facilities_0'
+                      = label_tag 'facilities_0', t('static_text.shower')
+                    span.facility-element
+                      = check_box_tag 'facilities[]', 1, @studio.facility.include?(1), id: 'facilities_1'
+                      = label_tag 'facilities_1', t('static_text.locker')
+                    span.facility-element
+                      = check_box_tag 'facilities[]', 2, @studio.facility.include?(2), id: 'facilities_2'
+                      = label_tag 'facilities_2', t('static_text.rental')
+                    span.facility-element
+                      = check_box_tag 'facilities[]', 3, @studio.facility.include?(3), id: 'facilities_3'
+                      = label_tag 'facilities_3', t('static_text.towel'), value: 3
+                    span.facility-element
+                      = check_box_tag 'facilities[]', 4, @studio.facility.include?(4), id: 'facilities_4'
+                      = label_tag 'facilities_4', t('static_text.water')
+
+                .form-group.center-text
+                  = f.submit t('button.submit'), class: "btn btn-sign-up btn-save"
+section#contact-field
+  .contact-box
+    .title
+      h6 #{t('static_text.contact_us')}
+    ul
+      li.phone
+        span.icon = image_tag asset_path('contact_icons/phone')
+        span.content phone
+      li.address
+        span.icon = image_tag asset_path('contact_icons/address.png')
+        span.content address
+      li.email
+        span.icon = image_tag asset_path('contact_icons/email.png')
+        span.content email
