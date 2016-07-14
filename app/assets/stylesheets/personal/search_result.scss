@@ -1,0 +1,70 @@
+#cal-slide-content a.event-item {
+  color: #000000!important;
+}
+.search-result {
+  .search-info {
+    background-color: #dcc8f6;
+    padding-top: 10px;
+    text-align: center;
+    padding-bottom: 20px;
+    .info {
+      margin-right: 0px;
+      margin-left: 0px;
+      .station span, .exercise span {
+        color: white;
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #676767;
+        border-radius: 5px;
+        margin: 5px 2px;
+      }
+    }
+  }
+
+  .favorite-studio {
+    .h2 i {
+    	color: #f397ef;
+    }
+    ul {
+    	padding-left: 10px;
+    	list-style-type: none;
+    	padding-top: 10px;
+    	margin-right: 50px;
+    	li {
+    		color: #64d7c6;
+    		font-size: 18px;
+    		padding: 10px;
+        a {
+          text-decoration: none;
+          color: #1abc9c;
+        }
+        a:hover {
+          color: #2980b9;
+        }
+    		i {
+    			color: #f397ef;
+    			float: right;
+    			margin-right: 10px;
+    			cursor: pointer;
+    		}
+    	}
+    	li:hover {
+    		background-color: #ecf0f1;
+    		border-radius: 5px;
+    	}
+    }
+  }
+}
+.course-calendar {
+  display: inline-block;
+  img {
+    display: inline-block;
+    float: left;
+    width: 105px;
+    height: 105px;
+  }
+  .info-course {
+    float: left;
+    margin-left: 15px;
+  }
+}
