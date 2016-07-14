@@ -1,10 +1,12 @@
 .list-enrollment-section
-	.row.zero-margin.center-text.title
-		h1 = t('static_text.class_schedule')
-	.row
-	  .col-lg-3.col-lg-offset-3
-	    button.btn.btn-filter.button-class-active#btn-by-booked onClick="booked_classes()" = t('button.booked_class')
-	  .col-lg-3
-	    button.btn.btn-filter#btn-by-passed onClick="passed_classes()" = t('button.passed_class')
-	#class-list
-		= render "shares/course_booked"
+  .row.zero-margin.center-text.title
+    h1 = t('static_text.class_schedule')
+  .row
+    .col-lg-3.col-lg-offset-3
+      button.btn.btn-filter.button-class-active#btn-by-booked onClick="booked_classes()" = t('button.booked_class')
+    .col-lg-3
+      button.btn.btn-filter#btn-by-passed onClick="passed_classes()" = t('button.passed_class')
+  #class-list
+    - title = params[:statuses].present? ? 'Passed Class' : 'Booked Class'
+    = render partial: "shares/course_booked", locals: { title: title }
+    = paginate @enrollments
