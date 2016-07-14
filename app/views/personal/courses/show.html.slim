@@ -32,14 +32,14 @@
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Attend Date  
+              b Attend Date
           .col-lg-7
             = render "personal/checkouts/checkout_btn"
           //   button.btn.btn-default data-dismiss="modal" type="button"  Cancel
       .modal-footer
 .course-detail
   .row.zero-margin.app-title.center-text
-    h1.app-name 
+    h1.app-name
       span.title-01 TO
       span.title-02 NED
   .row.zero-margin.class-detail-section
@@ -47,7 +47,7 @@
       .row.center-text.title
         h2 #{@course.name}
       .row.zero-margin.center-text
-        = rating_for @course, "quality", disable_after_rate: false
+        = rating_for @course, "quality", disable_after_rate: false, enable_half: true
       .row.zero-margin
         .col-lg-1.center-rating
           = render "personal/favourite_courses/add_to_favourite_wrapper", course_id: @course.id, user: current_user
@@ -118,9 +118,9 @@
               li
                 span.glyphicon.glyphicon-earphone
                 span #{@course.studio.contact_number}
-            
+
         = render "course_action_btn"
-      
+
 script src="//maps.googleapis.com/maps/api/js"
 javascript:
   var position = new google.maps.LatLng(#{@course.station.latitude}, #{@course.station.longitude})
