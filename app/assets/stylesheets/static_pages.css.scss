@@ -162,3 +162,49 @@ body{
     }
   }
 }
+
+#term-condition {
+  padding: 100px 0;
+  background-color: #eee;
+
+  * {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .title {
+    h1, h3 {
+      color: #2c3e50;
+      font-size: 27px;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+  }
+
+  .main-contents {
+    ul {
+      list-style: none;
+    }
+
+    .list-contents {
+      margin: auto;
+
+      .content-element {
+        margin-bottom: 20px;
+        .content-title {
+          font-weight: 600;
+          font-size: 15px;
+          padding: 20px 0;
+          color: #142c3c;
+        }
+
+        .content {
+          width: 80%;
+          margin: auto;
+          color: #888;
+        }
+      }
+    }
+  }
+}

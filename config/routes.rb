@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get :about_us
     get :contact_us
     get :welcome
+    get :term_condition
   end
 
   resource :invite_friend, only: [] do
