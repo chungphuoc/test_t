@@ -2,10 +2,11 @@
   .row.zero-margin.center-text.title
     h1 = t('static_text.studio_list')
   .row
-    .col-lg-4.col-lg-offset-2
+  	.col-lg-4
+      button.btn#btn-by-favorite onClick="by_studio_favorite('#{I18n.locale}')" = t('button.favourite_studio')
+    .col-lg-4
       button.btn.button-class-active#btn-by-name onClick="by_studio_name('#{I18n.locale}')" = t('button.search_by_name')
     .col-lg-4
       button.btn#btn-by-station onClick="by_station('#{I18n.locale}')" = t('button.search_by_station')
-
   #studio-list
     = render 'studio_by_name'

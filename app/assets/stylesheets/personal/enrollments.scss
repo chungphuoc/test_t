@@ -5,6 +5,21 @@
       height: 70px;
     }
   }
+  .btn-filter {
+    margin: 10px;
+    border-radius: 0px;
+    margin: 10px auto;
+    padding: 5px 20px !important;
+    color: #64d7c6 !important;
+    border: 2px solid #64d7c6;
+    font-size: 20px;
+    background-color: white;
+  }
+  .button-class-active{
+    background-color: #64d7c6;
+    color: white !important;
+  }
+
 }
 .table-booked-class tr td{
   img{
