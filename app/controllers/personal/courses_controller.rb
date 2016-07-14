@@ -23,9 +23,7 @@ class Personal::CoursesController < Personal::BaseController
       events_class = %w(event-warning event-important event-info event-special)
       @courses = @courses.collect do |course|
         start_date = convert_time(course.start_date, course.start_time)
-        title = "<b>#{course.name}</b> <br> #{course.teacher.name}
-          <br> #{course.studio.name} <br> #{course.station.name}
-          <br> #{number_with_delimiter(course.tuition)} #{course.currency}".html_safe
+        title = template_course(course)
         {
           id: course.id,
           title: title,
@@ -52,5 +50,17 @@ class Personal::CoursesController < Personal::BaseController
         start_time.sec
       )
       dt.strftime('%Q')
+    end
+
+    def template_course(course)
+      "<div class='course-calendar'>" +
+      "<img src='#{course.cover_img}'>" +
+      "<div class='info-course'>" +
+      "<b>#{course.name}</b>" + 
+      "<br><i>Teacher: #{course.teacher.name}</i>" +
+      "<br><i>Studio: #{course.studio.name}</i>" +
+      "<br><i>Station: #{course.station.name}</i>" +
+      "<br><i>Tuition: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" + 
+      "</div></div>".html_safe
     end
 end
