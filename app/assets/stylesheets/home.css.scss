@@ -313,6 +313,18 @@
     }
     background-color: white;
   }
+
+  #term-condition-link {
+    display: inline-block;
+    float: right;
+    margin: 10px 0;
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      color: #bbb;
+    }
+  }
 }
 .website-navbar-scroll{
   background-color: #3b3b3b !important;

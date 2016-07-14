@@ -15,4 +15,7 @@ class StaticPagesController < ApplicationController
   def welcome
     render 'welcome'
   end
+
+  def term_condition
+  end
 end
