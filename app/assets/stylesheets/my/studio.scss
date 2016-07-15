@@ -221,13 +221,12 @@
       .facility-element {
         border-radius: 100%;
         background-color: #454545;
-        height: 70px;
-        width: 70px;
+        height: 75px;
+        width: 75px;
         position: relative;
 
         label {
           color: #fff;
-          padding: 25px 10px;
           position: absolute;
           top: 0;
           left: 0;
@@ -235,18 +234,9 @@
           bottom: 0;
           cursor: pointer;
           text-align: center;
-        }
-
-        label:before {
-          content: "";
-          padding: 25px 10px;
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          cursor: pointer;
-          text-align: center;
+          display: inline-block;
+          line-height: 75px;
+          vertical-align: middle;
         }
 
         input {
@@ -265,6 +255,10 @@
           font-size: 50px;
           background-color: transparent;
           color: #64d7c6;
+          display: inline-block;
+          line-height: 75px;
+          vertical-align: middle;
+          text-align: center;
         }
       }
     }
