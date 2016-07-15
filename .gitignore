@@ -91,3 +91,4 @@ config/environments/*.local.yml
 
 .ruby-version
 .ruby-gemset
+public/assets
