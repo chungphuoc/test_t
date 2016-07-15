@@ -120,3 +120,47 @@
     background-color: #3fcdb8 !important;
   }
 }
+
+#studio-list {
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 40px 0;
+      .title {
+        margin: 0;
+      }
+      .table-studio-by-name {
+        td, th {
+          border: none;
+        }
+      }
+      &:nth-child(odd) {
+        .title {
+          color: #f397ef;
+          border-bottom: 2px solid #f397ef;
+        }
+
+        .table-studio-by-name {
+          tr {
+            border-bottom: 2px solid #f397ef;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        .title {
+          color: #4cd1bc;
+          border-bottom: 2px solid #4cd1bc;
+        }
+
+        .table-studio-by-name {
+          tr {
+            border-bottom: 2px solid #4cd1bc;
+          }
+        }
+      }
+    }
+  }
+}
