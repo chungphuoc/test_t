@@ -71,7 +71,6 @@ function get_featured_courses() {
   get_courses('/my/courses/featured_courses', function() {
     $(".btn-filter").removeClass("button-class-active");
     $("#featured").addClass("button-class-active");
-    console.log("featured courses");
   });
 }
 
@@ -79,7 +78,6 @@ function get_event_courses() {
   get_courses('/my/courses/event_courses', function() {
     $(".btn-filter").removeClass("button-class-active");
     $("#event").addClass("button-class-active");
-    console.log("event courses");
   });
 }
 
@@ -87,7 +85,5 @@ function get_new_courses() {
   get_courses('/my/courses/new_courses', function() {
     $(".btn-filter").removeClass("button-class-active");
     $("#new").addClass("button-class-active");
-    console.log("new courses");
   });
 }
-
