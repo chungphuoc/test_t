@@ -35,6 +35,10 @@
       border-radius: 4px;
       color: #fff;
       font-weight: 600;
+
+      &:hover {
+        background-color: #64d7c6;
+      }
     }
   }
 
@@ -57,18 +61,31 @@
       overflow-y: scroll;
     }
 
+    .select-box:hover {
+      box-shadow: 0 0 1px 1px rgba(0,0,0,0.4)
+    }
+
     .station-element {
-      padding: 10px 5px;
+      padding: 0;
       border-bottom: 2px solid #ddd;
+      position: relative;
+
+      input, label {
+        padding: 10px 0;
+      }
 
       input {
-        padding: 0 5px;
+        width: 10%;
       }
 
       label {
-        padding: 0 5px;
+        width: 90%;
         font-weight: 500;
         font-size: 18px;
+      }
+
+      &:hover {
+        background-color: #eee;
       }
     }
   }
