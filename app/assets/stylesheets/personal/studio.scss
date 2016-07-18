@@ -71,25 +71,20 @@
   }
 }
 .studio-list-section{
-  padding: 0px 15%;
-  .filter {
-    text-align: center;
-    button{
-      border-radius: 0px;
-      margin-left: 5px;
-      padding: 5px 20px !important;
-      color: #5bc0de !important;
-      border: 2px solid #5bc0de;
-      font-size: 20px;
-      background-color: white;
-    }
-    .button-class-active{
-      background-color: #5bc0de;
-      color: white !important;
-      border: 2px solid #5bc0de;
-    }
+  padding: 0px 12%;
+  button{
+    border-radius: 0px;
+    width: 100%;
+    color: #5bc0de !important;
+    border: 2px solid #5bc0de;
+    font-size: 20px;
+    background-color: white;
   }
-
+  .button-class-active{
+    background-color: #5bc0de;
+    color: white !important;
+    border: 2px solid #5bc0de;
+  }
   .col-lg-3{
     text-align: center;
   }
