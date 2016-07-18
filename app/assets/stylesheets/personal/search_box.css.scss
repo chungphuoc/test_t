@@ -152,17 +152,16 @@
   padding-bottom: 50px;
   .filter-courses {
     margin-bottom: 30px;
+    text-align: center;
     .btn-filter {
       border-radius: 5px;
-      width: 100%;
+      width: 250px;
       padding: 5px 20px !important;
+      margin: 0 2%;
       color: #64d7c6 !important;
       border: 1px solid #64d7c6;
       font-size: 20px;
       background-color: white;
-    }
-    .btn-filter:first-child {
-      margin-left: 13%;
     }
     .button-class-active{
       background-color: #64d7c6;
