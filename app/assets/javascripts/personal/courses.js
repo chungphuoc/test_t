@@ -16,12 +16,12 @@ function displaySearch(){
 };
 
 $(document).ready(function(){
-  $('#search-box #field-station button').click(function(){
+  $('#search-box #field-station .select-box').click(function(){
     content = $('#search-box #field-station .content');
     content.css('display', 'block');
   });
 
-  $('#search-box #field-exercise button').click(function(){
+  $('#search-box #field-exercise .select-box').click(function(){
     content = $('#search-box #field-exercise .content');
     content.css('display', 'block');
   });
