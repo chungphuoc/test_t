@@ -16,12 +16,12 @@ function displaySearch(){
 };
 
 $(document).ready(function(){
-  $('#search-box #field-station button').click(function(){
+  $('#search-box #field-station .select-box').click(function(){
     content = $('#search-box #field-station .content');
     content.css('display', 'block');
   });
 
-  $('#search-box #field-exercise button').click(function(){
+  $('#search-box #field-exercise .select-box').click(function(){
     content = $('#search-box #field-exercise .content');
     content.css('display', 'block');
   });
@@ -53,5 +53,37 @@ function remove_favorite_studio(customer_id, course_id, close) {
       parent.fadeOut(function() { $(this).remove(); });
       console.log("remove favorite studio");
     }
+  });
+}
+// get courses depend on url
+function get_courses(url_data, callback) {
+  $.ajax({
+    url: url_data,
+    type: "GET",
+    success: function(result){
+      $("#course-items").html(result);
+      callback();
+    }
+  });
+}
+
+function get_featured_courses() {
+  get_courses('/my/courses/featured_courses', function() {
+    $(".btn-filter").removeClass("button-class-active");
+    $("#featured").addClass("button-class-active");
+  });
+}
+
+function get_event_courses() {
+  get_courses('/my/courses/event_courses', function() {
+    $(".btn-filter").removeClass("button-class-active");
+    $("#event").addClass("button-class-active");
+  });
+}
+
+function get_new_courses() {
+  get_courses('/my/courses/new_courses', function() {
+    $(".btn-filter").removeClass("button-class-active");
+    $("#new").addClass("button-class-active");
   });
 }

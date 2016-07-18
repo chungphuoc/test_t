@@ -74,6 +74,9 @@ Rails.application.routes.draw do
         get :search
         get :past
         get :favourite
+        get :featured_courses
+        get :event_courses
+        get :new_courses
       end
     end
     resources :enrollments, only: [:create, :index, :destroy] do

@@ -1,21 +1,23 @@
 .home-header-section
   = render "shares/home_header"
-  = image_tag "yoga.jpg"
-  .header-content
-    h1 Be Toned
-    h2 A new way to book fitness
-    -if current_user
-      - if current_user.studio?
-        = link_to manage_courses_path, class: "btn btn-sign-up btn-get-started"
-          span = t('button.get_started')
-      - elsif current_user.customer?
-        = link_to personal_courses_path, class: "btn btn-sign-up btn-get-started"
-          span = t('button.get_started')
+  #background-homepage
+    = image_tag "yoga.jpg"
+    #background-opacity
+    .header-content
+      h1 Be Toned
+      h2 A new way to book fitness
+      -if current_user
+        - if current_user.studio?
+          = link_to manage_courses_path, class: "btn btn-sign-up btn-get-started"
+            span = t('button.get_started')
+        - elsif current_user.customer?
+          = link_to personal_courses_path, class: "btn btn-sign-up btn-get-started"
+            span = t('button.get_started')
+        - else
+          button.btn.btn-sign-up = t('button.get_started')
       - else
-        button.btn.btn-sign-up = t('button.get_started')
-    - else
-      = link_to new_user_registration_path, class: "btn btn-sign-up btn-get-started"
-          span = t('button.get_started')
+        = link_to new_user_registration_path, class: "btn btn-sign-up btn-get-started"
+            span = t('button.get_started')
 .body-section
   .section.container.welcome
     .row.align-center

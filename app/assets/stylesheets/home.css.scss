@@ -5,7 +5,7 @@
 }
 .btn-header{
   margin: 10px;
-  padding: 5px 20px !important;
+  padding: 5px 18px !important;
   color: #fff !important;
   font-weight: bold;
 }
@@ -83,7 +83,7 @@
   }
   .header-content{
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 0px;
     right: 0px;
     margin-left: auto;
@@ -183,6 +183,19 @@
   .navbar-custom{
     background-color: transparent;
     margin-bottom: 0px !important;
+  }
+
+  #background-homepage {
+    position: relative;
+
+    #background-opacity {
+      background-color: rgba(0,0,0,0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
   }
 }
 .body-section{

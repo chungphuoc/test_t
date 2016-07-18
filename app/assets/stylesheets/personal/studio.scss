@@ -71,25 +71,20 @@
   }
 }
 .studio-list-section{
-  padding: 0px 15%;
-  .filter {
-    text-align: center;
-    button{
-      border-radius: 0px;
-      margin-left: 5px;
-      padding: 5px 20px !important;
-      color: #5bc0de !important;
-      border: 2px solid #5bc0de;
-      font-size: 20px;
-      background-color: white;
-    }
-    .button-class-active{
-      background-color: #5bc0de;
-      color: white !important;
-      border: 2px solid #5bc0de;
-    }
+  padding: 0px 12%;
+  button{
+    border-radius: 0px;
+    width: 100%;
+    color: #5bc0de !important;
+    border: 2px solid #5bc0de;
+    font-size: 20px;
+    background-color: white;
   }
-
+  .button-class-active{
+    background-color: #5bc0de;
+    color: white !important;
+    border: 2px solid #5bc0de;
+  }
   .col-lg-3{
     text-align: center;
   }
@@ -118,5 +113,49 @@
   button:hover {
     text-decoration: none;
     background-color: #3fcdb8 !important;
+  }
+}
+
+#studio-list {
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 40px 0;
+      .title {
+        margin: 0;
+      }
+      .table-studio-by-name {
+        td, th {
+          border: none;
+        }
+      }
+      &:nth-child(odd) {
+        .title {
+          color: #f397ef;
+          border-bottom: 2px solid #f397ef;
+        }
+
+        .table-studio-by-name {
+          tr {
+            border-bottom: 2px solid #f397ef;
+          }
+        }
+      }
+
+      &:nth-child(even) {
+        .title {
+          color: #4cd1bc;
+          border-bottom: 2px solid #4cd1bc;
+        }
+
+        .table-studio-by-name {
+          tr {
+            border-bottom: 2px solid #4cd1bc;
+          }
+        }
+      }
+    }
   }
 }

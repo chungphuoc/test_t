@@ -2,7 +2,7 @@ class Personal::StudiosController < Personal::BaseController
   layout 'personal_no_panel', only: [:show]
 
   def index
-    render layout: 'personal'
+    render layout: 'personal_no_panel'
   end
 
   def show

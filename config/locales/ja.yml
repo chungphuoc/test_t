@@ -46,6 +46,9 @@ ja:
     stations: ステーション
     facilities: ファシリティ
     payments: 支払い
+    featured_courses: おすすめコース
+    event_courses: イベント
+    new_courses: 新しい
   static_text:
     contact_us: 'お問い合わせ'
     about_us: '会社概要'
