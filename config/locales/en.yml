@@ -66,6 +66,9 @@ en:
     stations: Stations
     facilities: Facilities
     payments: Payments
+    featured_courses: Featured Courses
+    event_courses: Event
+    new_courses: New
   static_text:
     contact_us: Contact Us
     about_us: About Us

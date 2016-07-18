@@ -4,7 +4,7 @@ class Personal::CoursesController < Personal::BaseController
   layout 'personal_no_panel'
 
   def index
-    @courses = Course.where(status: Course.statuses[:active]).page(params[:page])
+    @courses = Course.where(status: Course.statuses[:active]).limit(3)
     render layout: 'personal_background'
   end
 
@@ -37,6 +37,21 @@ class Personal::CoursesController < Personal::BaseController
       format.html { render :search_result, layout: 'personal_background' }
       format.json { render json: @result }
     end
+  end
+
+  def featured_courses
+    @courses = Course.where(status: Course.statuses[:active]).limit(3)
+    render 'course_recommend', layout: false
+  end
+
+  def event_courses
+    @courses = Course.where(status: Course.statuses[:active]).limit(3)
+    render 'course_recommend', layout: false
+  end
+
+  def new_courses
+    @courses = Course.order('created_at DESC').limit(3)
+    render 'course_recommend', layout: false
   end
 
   private

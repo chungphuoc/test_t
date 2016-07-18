@@ -55,3 +55,35 @@ function remove_favorite_studio(customer_id, course_id, close) {
     }
   });
 }
+// get courses depend on url
+function get_courses(url_data, callback) {
+  $.ajax({
+    url: url_data,
+    type: "GET",
+    success: function(result){
+      $("#course-items").html(result);
+      callback();
+    }
+  });
+}
+
+function get_featured_courses() {
+  get_courses('/my/courses/featured_courses', function() {
+    $(".btn-filter").removeClass("button-class-active");
+    $("#featured").addClass("button-class-active");
+  });
+}
+
+function get_event_courses() {
+  get_courses('/my/courses/event_courses', function() {
+    $(".btn-filter").removeClass("button-class-active");
+    $("#event").addClass("button-class-active");
+  });
+}
+
+function get_new_courses() {
+  get_courses('/my/courses/new_courses', function() {
+    $(".btn-filter").removeClass("button-class-active");
+    $("#new").addClass("button-class-active");
+  });
+}
