@@ -1,4 +1,7 @@
 function change_year_payment(){
+  deactive_all_buttons();
+  button_all = document.querySelector('.paymet-section .time-section button');
+  button_all.classList.add('btn-active');
   year = $('#date_year').find(':selected').val();
   $.ajax({
     url: "/manage/payment/year_filter",
@@ -9,7 +12,9 @@ function change_year_payment(){
   });
 };
 
-function change_month_payment(month){
+function change_month_payment(month, button){
+  deactive_all_buttons();
+  button.classList.add('btn-active');
   year = $('#date_year').find(':selected').val();
   $.ajax({
     url: "/manage/payment/month_filter",
@@ -19,3 +24,7 @@ function change_month_payment(month){
     }
   });
 };
+
+function deactive_all_buttons() {
+  document.querySelector('.paymet-section .time-section .btn-active').classList.remove('btn-active');
+}
