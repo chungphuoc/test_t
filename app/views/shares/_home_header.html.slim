@@ -41,7 +41,9 @@
               /     p = t('button.sign_out')
         -else
           li
-            = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-header'
+            = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
+          li
+            = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-sign-in'
           li
             = link_to t('button.sign_in'), new_user_session_path, class: 'btn-sign-up'
         li
