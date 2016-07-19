@@ -27,6 +27,7 @@ class Personal::CoursesController < Personal::BaseController
         {
           id: course.id,
           title: title,
+          name: course.name,
           url: personal_course_path(course),
           class: events_class.sample,
           start: start_date,
@@ -71,11 +72,11 @@ class Personal::CoursesController < Personal::BaseController
       "<div class='course-calendar'>" +
       "<img src='#{course.cover_img}'>" +
       "<div class='info-course'>" +
-      "<b>#{course.name}</b>" + 
+      "<b>#{course.name}</b>" +
       "<br><i>Teacher: #{course.teacher.name}</i>" +
       "<br><i>Studio: #{course.studio.name}</i>" +
       "<br><i>Station: #{course.station.name}</i>" +
-      "<br><i>Tuition: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" + 
+      "<br><i>Tuition: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" +
       "</div></div>".html_safe
     end
 end
