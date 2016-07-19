@@ -13,13 +13,13 @@
 
     .basic-info{
       padding-bottom: 20px;
-      background-color: #e8a9ef;
+      background-color: #8ee1d4;
       .center-rating{
         float: none;
         margin: 0px auto;
       }
       .body{
-        color: white;
+        color: #686868;
       }
       .days_of_week{
         color: white;
@@ -42,6 +42,8 @@
     }
     .btn-add{
       background-color: #e8a9ef;
+      font-size: 30px;
+      width: 200px;
     }
     .cover-section{
       text-align: center;
@@ -218,8 +220,9 @@
   input[type="checkbox"]:checked + label:before {
     content: "\2713";
     text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-    font-size: 30px;
+    font-size: 70px;
     // color: #f3f3f3;
+    font-weight: 100;
     text-align: center;
     line-height: 15px;
     background-color: #fdcf2f;
@@ -267,4 +270,14 @@
     height: 20px;
     width: 20px;
   }
+}
+
+.studio-name-book {
+  font-size: 30px;
+  color: #4cd1bc;
+}
+
+.studio-name-book:hover {
+  color: #16a085;
+  text-decoration: none;
 }
