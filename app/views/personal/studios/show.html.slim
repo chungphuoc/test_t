@@ -19,23 +19,6 @@
         .col-lg-4
           h4.title Website
           p.info #{@studio.website}
-        / .col-lg-4.col-lg-offset-2
-        /   .row.zero-margin
-        /     .col-lg-5
-        /       h4 Website :
-        /     .col-lg-7
-        /       h4 #{@studio.website}
-        / .col-lg-4
-        /   .row.zero-margin
-        /     .col-lg-5
-        /       h4 Phone:
-        /     .col-lg-7
-        /       h4 #{@studio.contact_number}
-      / .row.zero-margin.center-text.body
-      /   .col-lg-2.col-lg-offset-2
-      /     h4 Address :
-      /   .col-lg-6
-      /     h4 #{@studio.address}
     hr
     .row.zero-margin.center-text
       .col-lg-8.cover-section
@@ -56,19 +39,15 @@
       = render 'facilities'
     hr
     .row.zero-margin.center-text
-      .col-lg-2
+      .col-lg-4
+        h2 Map
+        .map-wrapper style="width: 100%"
+          .map#js_google_map style="height: 300px"
       .col-lg-8
         .row.zero-margin.center-text
           .row.zero-margin.center-text.title
             h2 = t('static_text.class_schedule')
           table.table.table-courses.table-color-list
-            / tr
-            /   th = t('static_text.index')
-            /   th = Course.human_attribute_name('name')
-            /   th = Course.human_attribute_name('start_time')
-            /   th = Course.human_attribute_name('days_of_week')
-            /   th = Course.human_attribute_name('kcal')
-            /   th = Course.human_attribute_name('tuition')
             - @studio.courses.each_with_index do |course, index|
               tr
                 td
@@ -78,12 +57,17 @@
                 td #{course.kcal} cal
                 td
                   .money #{course.tuition} yen
-      .col-lg-2
-          / tr
-          /   td index
-          /   td
-          /     = link_to course.name, personal_course_path(course)
-          /   td #{course.start_time.strftime("%I:%M %p")} - #{course.end_time.strftime("%I:%M %p")}
-          /   td Weekday
-          /   td #{course.kcal}
-          /   td #{course.tuition} yen
+
+script src="//maps.googleapis.com/maps/api/js"
+javascript:
+  var position = new google.maps.LatLng(#{@studio.courses.first.station.latitude}, #{@studio.courses.first.station.longitude})
+  var mapProp = {
+    center: position,
+    zoom: 16,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById("js_google_map"), mapProp)
+  var marker = new google.maps.Marker({
+    position: position,
+  })
+  marker.setMap(map)

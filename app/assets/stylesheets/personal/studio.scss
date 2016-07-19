@@ -11,9 +11,12 @@
       height: 300px
     }
     .basic-info{
-      background-color: #64d7c6;
-      .title{
+      background-color: #e8a9ef;
+      h2 {
         color: white;
+      }
+      .title{
+        color: #666666;
       }
       .star{
         margin: 20px;
@@ -23,7 +26,7 @@
         }
       }
       .body{
-        color: white;
+        color: #666666;
       }
     }
     .course-list{
