@@ -13,10 +13,15 @@
   section.introduction-title.container
     h1.center-text Contact
     h4.center-text Let us know your feed back!
-    h4.center-text We would love to hear how you feel about our service.
+    h4.center-text
+      span We would
+      span.heart-icon
+        i.fa.fa-heart aria-hidden="true"
+      span to hear how you feel about our service.
   section.feedback.container
     .row
-      .col-lg-6
+      .col-lg-2
+      .col-lg-3
         .contact-information
           ul
             li.phone
@@ -28,9 +33,9 @@
             li.email
               span.icon = image_tag asset_path('contact_icons/email.png')
               span.content email
-      .col-lg-6
+      .col-lg-5
         .feedback-form
           = render 'shares/feedback'
-
+      .col-lg-2
 .footer-section
   = render "shares/footer"
