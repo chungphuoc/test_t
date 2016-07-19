@@ -37,10 +37,11 @@
           .col-lg-2
             .button-search
               = submit_tag t('button.search'), class: 'btn-search'
-.container.recommend-course
-  .row.filter-courses
-    button#featured.btn-filter.button-class-active onClick="get_featured_courses()" = t('button.featured_courses')
-    button#event.btn-filter onClick="get_event_courses()" = t('button.event_courses')
-    button#new.btn-filter onClick="get_new_courses()" = t('button.new_courses')
-  .row#course-items
-    = render "course_item"
+.recommend-course.background-grey
+  .container
+    .row.filter-courses
+      button#featured.btn-filter.button-class-active onClick="get_featured_courses()" = t('button.featured_courses')
+      button#event.btn-filter onClick="get_event_courses()" = t('button.event_courses')
+      button#new.btn-filter onClick="get_new_courses()" = t('button.new_courses')
+    .row#course-items
+      = render "course_item"
