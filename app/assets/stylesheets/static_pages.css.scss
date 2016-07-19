@@ -1,4 +1,6 @@
 // Temporary
+@import url(https://fonts.googleapis.com/css?family=BenchNine:400,700,300);
+
 body{
   .zero-margin{
     margin: 0px;
@@ -89,22 +91,39 @@ body{
 
 #contact-us {
   background-color: #666;
+  font-family: 'BenchNine', sans-serif;
+  color: #cccccc;
 
   .col-lg-6 {
     height: 100%;
   }
   .introduction-title {
     margin-top: 50px;
-    border-bottom: 3px dotted #64d7c6;
+    padding: 50px 0 30px 0;
+    position: relative;
+    z-index : 1;
+
+    &:before {
+      content : "";
+      position: absolute;
+      left: 25%;
+      bottom: 0;
+      width   : 50%;
+      border-bottom: 3px dotted #64d7c6;
+    }
+
+    .heart-icon {
+      color: #FF6699;
+      padding: 0 10px;
+    }
 
     h1 {
-      color: #fff;
       font-weight: 600;
-      font-size: 50px;
+      font-size: 70px;
     }
 
     h4 {
-      color: #ddd;
+      font-size: 30px;
     }
   }
   .feedback {
@@ -118,7 +137,7 @@ body{
           border: none;
           font-size: 25px;
           height: 100%;
-          background-color: #eee;
+          background-color: #e0d3ee;
         }
 
         textarea {
@@ -126,7 +145,7 @@ body{
           border: none;
           height: 300px;
           font-size: 25px;
-          background-color: #eee;
+          background-color: #e0d3ee;
         }
       }
       .btn-feedback {
