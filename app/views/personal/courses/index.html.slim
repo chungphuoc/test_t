@@ -11,7 +11,7 @@
                 .col-lg-6#field-station
                   .row.select-box
                     .col-xs-11
-                      p.title-search Stations
+                      input.title-search placeholder="Stations" value="" readonly="true"
                     .col-xs-1
                       button[type='button' class='caret-symbol'] &#9660
                   .content
@@ -19,12 +19,12 @@
                       - Station.all.each do |station|
                         .col-md-6
                           .station-element
-                            = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
+                            = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]", onClick: 'search_checkbox_click(this,"station")'
                             = label_tag "station_ids[#{station.id}]", station.name
                 .col-lg-6#field-exercise
                   .row.select-box
                     .col-xs-11
-                      p.title-search Exercise
+                      input.title-search placeholder="Exercises" value=""
                     .col-xs-1
                       button[type='button' class='caret-symbol'] &#9660
                   .content
@@ -32,7 +32,7 @@
                       - Exercise.all.each do |exercise|
                         .col-md-6
                           .station-element
-                            = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
+                            = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]', onClick: 'search_checkbox_click(this,"exercise")'
                             = label_tag "exercise_ids[#{exercise.id}]", exercise.name
           .col-lg-2
             .button-search
