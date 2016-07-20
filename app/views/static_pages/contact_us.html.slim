@@ -25,14 +25,20 @@
         .contact-information
           ul
             li.phone
-              span.icon = image_tag asset_path('contact_icons/phone')
-              span.content phone
+              p
+                span.icon
+                  i.fa.fa-phone aria-hidden="true"
+                span.content phone #
             li.address
-              span.icon = image_tag asset_path('contact_icons/address.png')
-              span.content address
+              p
+                span.icon
+                  i.fa.fa-map-marker aria-hidden="true"
+                span.content address
             li.email
-              span.icon = image_tag asset_path('contact_icons/email.png')
-              span.content email
+              p
+                span.icon
+                  i.fa.fa-envelope-o aria-hidden="true"
+                span.content Email
       .col-lg-5
         .feedback-form
           = render 'shares/feedback'

@@ -166,16 +166,13 @@ body{
       list-style: none;
       li {
         padding: 20px 0;
+        color: #F1AF00;
         .icon {
-          img {
-            height: 30px;
-            width: 30px;
-          }
+          font-size: 30px;
         }
 
         .content {
           padding-left: 10px;
-          color: #F1AF00;
           font-size: 20px;
         }
       }
