@@ -4,11 +4,11 @@
       .row.zero-margin
         .col-lg-6
           = image_tag @customer.avatar, class: 'avatar'
-        .col-lg-6.user-name
-          h1 #{@customer.name}
           .row.btn-action-section.center-text
             = link_to t('button.edit_profile'), edit_my_customer_path, class: "btn btn-sign-up"
             = link_to t('button.edit_account'), edit_user_registration_path, class: "btn btn-sign-up"
+        .col-lg-6.user-name
+          h1 #{@customer.name}
       .point-calories
         .col-lg-6.user-point
           h3 #{@customer.point}  #{t('static_text.point')}
@@ -44,7 +44,7 @@
             td = @customer.gender
           tr
             th = Customer.human_attribute_name('receive_sms')
-            td = @customer.receive_sms
+            td = @customer.receive_sms ? 'Yes' : 'No'
           tr
             th = Customer.human_attribute_name('birthday')
             td = @customer.birthday

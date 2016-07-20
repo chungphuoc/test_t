@@ -1,10 +1,10 @@
 table.table.table-striped
   tr
     th = t('static_text.index')
-    th = Enrollment.human_attribute_name('join_date')
-    th = Course.human_attribute_name('start_time')
+    th = Enrollment.human_attribute_name('date')
+    th = Course.human_attribute_name('time')
     th = Enrollment.human_attribute_name('course_name')
-    th = Enrollment.human_attribute_name('studio_name')
+    / th = Enrollment.human_attribute_name('studio_name')
     th = Enrollment.human_attribute_name('customer_name')
   - @enrollments.each_with_index do |enrollment, index|
     tr
@@ -12,6 +12,6 @@ table.table.table-striped
       td #{enrollment.join_date}
       td #{enrollment.start_time.strftime("%I:%M %p")} - #{enrollment.end_time.strftime("%I:%M %p")}
       td #{enrollment.course_name}
-      td #{enrollment.course.studio_name}
+      / td #{enrollment.course.studio_name}
       td #{enrollment.customer.name}
 //= paginate @enrollments
