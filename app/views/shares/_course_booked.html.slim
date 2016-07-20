@@ -9,7 +9,7 @@ table.table.table-striped.table-booked-class
     th = Enrollment.human_attribute_name('status')
     th = t('static_text.action')
   - @enrollments.each_with_index do |enrollment, index|
-    tr
+    tr.booked-row-classes
       td #{index}
       td
         = image_tag enrollment.cover_img

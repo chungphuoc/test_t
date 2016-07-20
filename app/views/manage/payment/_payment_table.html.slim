@@ -1,17 +1,17 @@
 table.table.table-striped
   tr
     th Index
+    th Date, Time
     th Class name
     th User name
-    th Time payment
     th Amount
     th Currency
   - @enrollments.each_with_index do |enrollment, index|
     tr
       td #{index}
+      td #{enrollment.created_at.strftime("%H:%M:%S %a, %m-%d-%y")}
       td #{enrollment.course_name}
       td #{enrollment.studio.name}
-      td #{enrollment.created_at.strftime("%H:%M:%S %a, %m-%d-%y")}
       td #{enrollment.course.tuition}
       td #{enrollment.course.currency}
 = paginate @enrollments

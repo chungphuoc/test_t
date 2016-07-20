@@ -26,6 +26,8 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
             ul.nav.navbar-nav.navbar-right
               li
                 = link_to 'Home', root_path, class: 'btn-header'
+              li
+                = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header-studio'
               - unless current_user
                 li
                   = link_to t('button.sign_in'), new_user_session_path, class: 'btn-header'
@@ -34,6 +36,8 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
               - else
                 li 
                   = link_to t('button.name_my_page', name: current_user.name), current_user.studio? ? my_studio_path : my_customer_path, class: 'btn-header'
+                li
+                  = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
               li
                 = link_to_switch_language
   = yield
