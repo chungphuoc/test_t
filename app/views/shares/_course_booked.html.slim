@@ -17,7 +17,7 @@ table.table.table-striped.table-booked-class
       td #{enrollment.start_date}
       td #{enrollment.start_time.strftime("%I:%M %p")}
       td #{enrollment.end_time.strftime("%I:%M %p")}
-      td id="status_#{enrollment.id}" #{enrollment.status}
+      td id="status_#{enrollment.id}" = t("activerecord.attributes.enrollment.statuses.#{enrollment.status}")
       td
         - if enrollment.can_cancel?
           button.btn.btn-sign-in id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id})" #{t('button.cancel')}
