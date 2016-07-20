@@ -18,13 +18,13 @@
           th = User.human_attribute_name('address')
           td = @studio.address
         tr
-          th = User.human_attribute_name('bank_name')
+          th = Studio.human_attribute_name('bank_name')
           td = @studio.bank_name
         tr
-          th = User.human_attribute_name('account_number')
+          th = Studio.human_attribute_name('account_number')
           td = @studio.account_number
         tr
-          th = User.human_attribute_name('account_owner')
+          th = Studio.human_attribute_name('account_owner')
           td = @studio.account_owner
     .row.center-text
       = link_to t('button.edit_profile'), edit_my_studio_path, class: "btn btn-sign-up"
@@ -72,7 +72,7 @@
       hr
     .row.zero-margin
       .row.center-text
-        h2.title = t('static_text.stations')
+        h2.title = t('static_text.station')
       table.table.table-striped
         - @studio.stations.each_with_index do |station, index|
           tr

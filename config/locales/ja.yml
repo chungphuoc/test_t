@@ -35,16 +35,16 @@ ja:
     detail: 詳細
     new_class: 新しいクラス
     all_class: すべてのクラス
-    add_teacher: 教師を追加
-    add_station: 駅を追加
-    add_facility: 施設を追加します
+    add_teacher: 追加
+    add_station: 追加
+    add_facility: 追加
     search_by_name: 名前で検索
     search_by_station: 駅で検索
     schedule: スケジュール
     teachers: 先生
     exercises: エクササイズ
     stations: ステーション
-    facilities: ファシリティ
+    facilities: 施設
     payments: 支払い
     featured_courses: おすすめコース
     event_courses: イベント
@@ -91,8 +91,8 @@ ja:
     stations: ステーション
     exercises: 演習
     facilities: ファシリティ
-    teachers: 教師
-    cover_img: 表紙イメージ
+    teachers: インストラクター
+    cover_img: 写真
     class_management: クラス　管理
     requested_stations: 要求されたステーション
     approved_stations: 承認された駅
@@ -139,7 +139,7 @@ ja:
         studio_name: スタジオ名
         bank_name: 銀行名
         account_number: 口座番号
-        account_owner: アカウントの所有者
+        account_owner: 口座名義
       enrollment:
         created_at: で作成されました
         updated_at: で更新
@@ -166,7 +166,7 @@ ja:
         start_date: 日
         created_at: で作成されました
         updated_at: で更新
-        teacher_name: 先生の名前
+        teacher_name: インストラクター
         studio_name: スタジオ名
         exercise_name: エクササイズの名前
         station_name: 駅名
