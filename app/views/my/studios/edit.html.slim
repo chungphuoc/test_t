@@ -59,6 +59,9 @@ section#registration-studio
                   .error-text
                     = @studio.user.errors[:avatar].to_sentence
                 .form-group
+                  = f.label :options, 'Payable options'
+                  = render 'options_box'
+                .form-group
                   = render 'teacher_box'
                 .form-group
                   .facilities-group

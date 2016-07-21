@@ -38,6 +38,7 @@ ja:
     add_teacher: 教師を追加
     add_station: 駅を追加
     add_facility: 施設を追加します
+    add_payable_option: オプションを追加
     search_by_name: 名前で検索
     search_by_station: 駅で検索
     schedule: スケジュール

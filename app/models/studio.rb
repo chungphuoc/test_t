@@ -10,6 +10,7 @@ class Studio < ActiveRecord::Base
   has_many :exercises, through: :services
   has_many :enrollments, through: :courses
   has_many :requested_stations, class_name: 'Station', foreign_key: :requester_id
+  has_many :options, class_name: 'PayableOption', foreign_key: 'studio_id'
 
   validates :website, format: { with: Settings.regexp.url }, allow_blank: true
 

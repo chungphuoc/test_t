@@ -58,6 +58,7 @@ en:
     add_teacher: Add Teacher
     add_station: Add Station
     add_facility: Add Facility
+    add_payable_option: Add option
     search_by_name: Search By Name
     search_by_station: Search By Station
     schedule: Schedule

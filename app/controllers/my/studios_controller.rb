@@ -31,6 +31,24 @@ class My::StudiosController < ApplicationController
     end
   end
 
+  def add_payable_option
+    option = @studio.options.new(payable_option_params)
+    if option.save
+      render json: option
+    else
+      render json: { error: option.errors.full_messages }
+    end
+  end
+
+  def remove_payable_option
+    option = @studio.options.find(params[:id])
+    if option.delete
+      render json: {  success: true }
+    else
+      render json: { success: false , errors: option.errors.full_messages }
+    end
+  end
+
   private
 
   def authenticate_studio!
@@ -56,6 +74,10 @@ class My::StudiosController < ApplicationController
 
   def user_params
     params.require(:studio).require(:user_attributes).permit(:name, :contact_number, :address, :avatar)
+  end
+
+  def payable_option_params
+    params.require(:option).permit(:name, :price, :currency)
   end
 
   def translation_scope

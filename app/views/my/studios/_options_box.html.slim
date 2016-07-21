@@ -1,0 +1,21 @@
+.options-box
+  ul.list-options
+    li#option-template style="display:none"
+      i.fa.fa-times title="Remove"
+      span.name
+      span.price
+    - @studio.options.each do |option|
+      li
+        i.fa.fa-times onClick="remove_option(#{option.id}, this);" title="Remove"
+        span.name = option.name
+        span.price = "#{option.price} #{option.currency}" 
+  .form-option
+    .table-form
+      .input
+        = text_field_tag 'option_name', '', placeholder: 'Name'
+        = number_field_tag 'option_price', '', placeholder: 'Price', min: 0
+        = text_field_tag 'option_currency', '', placeholder: 'Currency'
+      .add
+        button type="button" onClick="add_option()" #{t('button.add')}
+    .errors-text
+  button.add-option type="button" onClick="add_option_click()" #{t('button.add_payable_option')}
