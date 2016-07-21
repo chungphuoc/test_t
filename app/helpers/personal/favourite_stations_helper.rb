@@ -1,0 +1,2 @@
+module Personal::FavouriteStationsHelper
+end
