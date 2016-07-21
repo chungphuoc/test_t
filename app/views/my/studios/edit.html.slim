@@ -58,8 +58,8 @@ section#registration-studio
                   = user_form.file_field :avatar
                   .error-text
                     = @studio.user.errors[:avatar].to_sentence
-                .form-group
-                  = render 'teacher_box'
+                / .form-group
+                /   = render 'teacher_box'
                 .form-group
                   .facilities-group
                     span.facility-element

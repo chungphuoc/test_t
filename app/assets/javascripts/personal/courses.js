@@ -87,3 +87,27 @@ function get_new_courses() {
     $("#new").addClass("button-class-active");
   });
 }
+
+function search_checkbox_click(checkbox, type) {
+  // get label associate with checkbox
+  label = document.querySelector("label[for=\"" + checkbox.id + "\"]")
+  // get input Element
+  input = document.querySelector("#field-" + type + " .select-box input");
+  array_value = input.value.split('/');
+  // Find and Remove ""
+  var i = array_value.indexOf("");
+  if(i != -1) {
+    array_value.splice(i, 1);
+  }
+
+  if (checkbox.checked == true) {
+    array_value.push(label.textContent);
+  }
+  else {
+    var i = array_value.indexOf(label.textContent);
+    if(i != -1) {
+      array_value.splice(i, 1);
+    }
+  }
+  input.value = array_value.join('/');
+}
