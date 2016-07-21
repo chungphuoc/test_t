@@ -42,7 +42,7 @@ function add_option(){
       else {
         var newOption = $("#option-template").clone().removeAttr('id');
         newOption.children('.name').text(result.name);
-        newOption.children('.price').text(result.price + result.currency);
+        newOption.children('.price').text(result.price + ' ' + result.currency);
         newOption.children('i').attr('onclick', 'remove_option(' + result.id + ',this)');
         $('.list-options').append(newOption.show());
         $('.form-option').hide();

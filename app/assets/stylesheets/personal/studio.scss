@@ -29,6 +29,31 @@
         color: #666666;
       }
     }
+    .payable_option {
+      margin-top: 20px;
+      ul {
+        list-style-type: none;
+        margin: auto 20% 20px;
+        border-bottom: 2px solid #777;
+        li {
+          float: left;
+          width: 50%;
+          font-size: 25px;
+          color: #64d7c6;
+          i {
+            margin-right: 7px;
+            color: #f397ef;
+          }
+        }
+      }
+      ul:after {
+        content: " ";
+        display: block; 
+        height: 0; 
+        clear: both;
+        padding-bottom: 10px;
+      }      
+    }
     .course-list{
       padding: 0px 15%;
     }
