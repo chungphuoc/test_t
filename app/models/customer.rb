@@ -19,7 +19,8 @@ class Customer < ActiveRecord::Base
   enum gender: [:male, :female]
 
   def self.gender
-    [['Male', :male], ['Female', :female]]
+    [ [I18n.translate('static_text.gender.male'), :male],
+      [I18n.translate('static_text.gender.female'), :female] ]
   end
 
   def name_with_initial

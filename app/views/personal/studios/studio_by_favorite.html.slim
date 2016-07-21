@@ -3,11 +3,11 @@ table.table.table-striped
     th = Course.human_attribute_name('studio_name')
     th = t('static_text.station')
     th = t('button.favourite_class')
-    th = t('button.delete')
+    th
 	- @favorite.each do |course|
 		tr
 		  td.studio-data #{course.studio_name}
 		  td.studio-data #{course.station_name}
 		  td.studio-data #{course.name}
-		  td.studio-data 
-				button onClick="remove_studio_favorite(#{current_user.role_id}, #{course.id}, this)" Delete
+		  td.studio-data
+				button onClick="remove_studio_favorite(#{current_user.role_id}, #{course.id}, this)" = t('button.delete')
