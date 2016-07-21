@@ -10,8 +10,10 @@ html
 body class = "#{@custom_controller_name || controller_name} #{action_name}"
   .flash-wrapper
     = flash_messages
-  .navigation
-    = render 'my/navigation'
+  - if current_user.studio?
+    = render 'layouts/studio/studio_navbar'
+  - else
+    = render 'layouts/customer/customer_navbar'
   .row.main-section.zero-margin
     = yield
   .footer-section
