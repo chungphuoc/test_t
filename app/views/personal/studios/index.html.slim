@@ -1,12 +1,12 @@
 .studio-list-section
   .row.zero-margin.center-text.title
     h1 = t('static_text.studio_list')
-  .row
-    .col-sm-4
+  .row.filter-button
+    .col-sm-3.col-sm-offset-1
     	button.btn#btn-by-favorite onClick="by_studio_favorite('#{I18n.locale}')" = t('button.favourite_studio')
-    .col-sm-4
+    .col-sm-3
     	button.btn.button-class-active#btn-by-name onClick="by_studio_name('#{I18n.locale}')" = t('button.search_by_name')
-    .col-sm-4
+    .col-sm-3
     	button.btn#btn-by-station onClick="by_station('#{I18n.locale}')" = t('button.search_by_station')
   #studio-list
     = render 'studio_by_name'
