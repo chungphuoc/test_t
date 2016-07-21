@@ -22,7 +22,7 @@
                             = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
                             = label_tag "station_ids[#{station.id}]", station.name
                             - if current_user.customer?
-                              span.favourite_stations id="station_#{station.id}"
+                              span.favourite id="station_#{station.id}"
                                 = render 'personal/favourite_stations/favourite_station_btn', station_id: station.id
                 .col-lg-6#field-exercise
                   .row.select-box
@@ -37,6 +37,9 @@
                           .station-element
                             = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
                             = label_tag "exercise_ids[#{exercise.id}]", exercise.name
+                            - if current_user.customer?
+                              span.favourite id="exercise_#{exercise.id}"
+                                = render 'personal/favourite_exercises/favourite_exercise_btn', exercise_id: exercise.id
           .col-lg-2
             .button-search
               = submit_tag t('button.search'), class: 'btn-search'

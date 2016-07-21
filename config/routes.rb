@@ -99,6 +99,12 @@ Rails.application.routes.draw do
         post :remove
       end
     end
+    resources :favourite_exercises, only: [] do
+      collection do
+        post :add
+        post :remove
+      end
+    end
     resources :checkouts, only: [] do
       collection do
         post :process_payment
