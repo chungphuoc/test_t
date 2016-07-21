@@ -14,12 +14,13 @@ class Personal::FavouriteStationsController < ApplicationController
   end
 
   private
-    def require_permission!
-      return redirect_to :back if current_user.role_id != params[:customer_id].to_i
-    end
 
-    def prepare_favourite_station
-      @favourite_station = FavouriteStation.find_by_customer_id_and_station_id( params[:customer_id],
-                                                                                params[:station_id] )
-    end
+  def require_permission!
+    return redirect_to :back if current_user.role_id != params[:customer_id].to_i
+  end
+
+  def prepare_favourite_station
+    @favourite_station = FavouriteStation.find_by_customer_id_and_station_id(params[:customer_id],
+                                                                             params[:station_id])
+  end
 end
