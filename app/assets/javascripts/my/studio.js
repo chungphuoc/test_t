@@ -65,8 +65,10 @@ function add_option_click(){
   form = $('.options-box .form-option');
 
   if (form.css('display') == 'none') {
-    form.children('input').val('');
+    form.find('input').val('');
     form.css('display', 'block');
+    error_text = $('.options-box .errors-text');
+    error_text.empty();
   }
   else {
     form.css('display', 'none');
