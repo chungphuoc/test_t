@@ -8,6 +8,8 @@ class Customer < ActiveRecord::Base
   end
   has_many :favourite_courses
   has_many :courses_favourites, through: :favourite_courses, source: :course
+  has_many :favourite_stations
+  has_many :stations_favourites, through: :favourite_stations, source: :station
   delegate :email, to: :user
   delegate :name, to: :user
   delegate :address, to: :user
