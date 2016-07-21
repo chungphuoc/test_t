@@ -48,7 +48,7 @@
               = f.date_select :birthday, start_year: Time.now.year - 60, end_year: Time.now.year
       .form-group.center-text
         = link_to my_customer_path, class: "btn btn-sign-up"
-          span Back
-        = f.submit "Submit", class: "btn btn-sign-up"
+          span = t('button.back')
+        = f.submit t('button.submit'), class: "btn btn-sign-up"
   .col-lg-3.invite-friend-right
     = render 'my/invite_friend'

@@ -18,33 +18,33 @@
           th = User.human_attribute_name('address')
           td = @studio.address
         tr
-          th = User.human_attribute_name('bank_name')
+          th = Studio.human_attribute_name('bank_name')
           td = @studio.bank_name
         tr
-          th = User.human_attribute_name('account_number')
+          th = Studio.human_attribute_name('account_number')
           td = @studio.account_number
         tr
-          th = User.human_attribute_name('account_owner')
+          th = Studio.human_attribute_name('account_owner')
           td = @studio.account_owner
     .row.center-text
       = link_to t('button.edit_profile'), edit_my_studio_path, class: "btn btn-sign-up"
       = link_to t('button.edit_account'), edit_user_registration_path, class: "btn btn-sign-up"
-    hr
-    .row.zero-margin.table-info
-      .row.center-text
-        h2.title = t('static_text.classes')
-      table.table.table-striped
-        tr
-          th = t('static_text.index')
-          th = Course.human_attribute_name('name')
-          th = Course.human_attribute_name('start_time')
-          th = Course.human_attribute_name('teacher_name')
-        - @studio.courses.each_with_index do |course, index|
-          tr
-            td #{index}
-            td #{course.name}
-            td #{course.start_time.strftime("%I:%M %p")} - #{course.end_time.strftime("%I:%M %p")}
-            td #{course.teacher_name}
+    / hr
+    / .row.zero-margin.table-info
+    /   .row.center-text
+    /     h2.title = t('static_text.classes')
+    /   table.table.table-striped
+    /     tr
+    /       th = t('static_text.index')
+    /       th = Course.human_attribute_name('name')
+    /       th = Course.human_attribute_name('start_time')
+    /       th = Course.human_attribute_name('teacher_name')
+    /     - @studio.courses.each_with_index do |course, index|
+    /       tr
+    /         td #{index}
+    /         td #{course.name}
+    /         td #{course.start_time.strftime("%I:%M %p")} - #{course.end_time.strftime("%I:%M %p")}
+    /         td #{course.teacher_name}
     hr
     .row.invite-friend.zero-margin
       = render 'my/invite_friend'
@@ -72,7 +72,7 @@
       hr
     .row.zero-margin
       .row.center-text
-        h2.title = t('static_text.stations')
+        h2.title = t('static_text.station')
       table.table.table-striped
         - @studio.stations.each_with_index do |station, index|
           tr
@@ -80,12 +80,12 @@
       .row.center-text
         = link_to t('button.add_station'), manage_stations_path, class: "btn btn-sign-up"
       hr
-    .row.zero-margin.facilities
-      .row.center-text
-        h2.title = t('static_text.facilities')
-      = render 'facilities'
-      .row.center-text
-        = link_to t('button.add_facility'), manage_facilities_path, class: "btn btn-sign-up"
+    / .row.zero-margin.facilities
+    /   .row.center-text
+    /     h2.title = t('static_text.facilities')
+    /   = render 'facilities'
+    /   .row.center-text
+    /     = link_to t('button.add_facility'), manage_facilities_path, class: "btn btn-sign-up"
 
   script src="//maps.googleapis.com/maps/api/js"
   javascript:

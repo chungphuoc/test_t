@@ -70,6 +70,7 @@ en:
     featured_courses: Featured Courses
     event_courses: Event
     new_courses: New
+    book: Book
   static_text:
     contact_us: Contact Us
     about_us: About Us
@@ -98,6 +99,9 @@ en:
     contact_number: Contact Number
     address: Address
     gender: Gender
+    gender:
+      male: Male
+      female: Female
     birthday: Birthday
     receive_sms: Receive Message
     edit_profile: Edit Profile
@@ -240,6 +244,10 @@ en:
         updated_at: Updated At
         join_date: Join Date
         status: Status
+        statuses:
+          paid: paid
+          cancel: cancel
+          passed: passed
         course_name: Class Name
         customer_name: User Name
         studio_name: Studio Name

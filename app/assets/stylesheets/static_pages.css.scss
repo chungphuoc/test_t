@@ -52,7 +52,7 @@ body{
 .table-striped > tbody > tr > td, .table-striped > tbody > tr > th{
   color: #686868;
   background-color: #fff !important;
-  border-top: 1px solid transparent;
+  border-top: 1px solid transparent !important;
   border-bottom: 2px solid #4BCFBB;
 }
 
@@ -166,16 +166,13 @@ body{
       list-style: none;
       li {
         padding: 20px 0;
+        color: #F1AF00;
         .icon {
-          img {
-            height: 30px;
-            width: 30px;
-          }
+          font-size: 30px;
         }
 
         .content {
           padding-left: 10px;
-          color: #F1AF00;
           font-size: 20px;
         }
       }
@@ -219,7 +216,7 @@ body{
           color: #142c3c;
         }
 
-        .content {
+        .content-paragraph {
           width: 80%;
           margin: auto;
           color: #888;

@@ -1,0 +1,44 @@
+.navigation
+  .div.navbar.navbar-custom.navbar-fixed-top
+    .div.container-fluid
+      .div.collapse.navbar-collapse
+        .container
+          .navbar-header
+            = link_to root_path, class: "navbar-brand btn-home" do
+              span.title-01 TO
+              span.title-02 NED
+            end
+          ul.nav.navbar-nav.navbar-left
+            li
+              = link_to t('button.search_class'), personal_courses_path, class: 'btn-header'
+            li
+              = link_to t('static_text.class_schedule'), personal_enrollments_path, class: 'btn-header'
+            li
+              = link_to t('button.studio_list'), personal_studios_path, class: 'btn-header'
+          ul.nav.navbar-right.navbar-nav
+            - if current_user
+              li
+                = link_to t('button.name_my_page', name: current_user.name), current_user.studio? ? my_studio_path : my_customer_path, class: 'btn-header btn-name'
+              li.dropdown
+                a.dropdown-toggle type="button" data-toggle="dropdown"
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    = link_to edit_user_registration_path
+                      span Edit Account
+              li
+                .avatar
+                  = image_tag current_user.avatar, class: "img-circle"
+              li
+                = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
+              li
+                = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
+            -else
+              li
+                = link_to new_user_registration_path
+                  p Sign up
+              li
+                = link_to new_user_session_path
+                  p Login
+            li
+              = link_to_switch_language

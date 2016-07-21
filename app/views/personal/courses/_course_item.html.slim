@@ -5,13 +5,13 @@
         .detail-bg
         = link_to personal_course_path(course) do
           .detail-info
-            h2.title-course Test Test Test
+            h2.title-course.text-center Test Test Test
       = image_tag course.cover_img
       end
     / .detail
     /   = link_to t('button.detail'), personal_course_path(course), class: "btn"
     /   = rating_for course, "quality", disable_after_rate: true
-    .studio-detail
+    .studio-detail.background-white
       .row.zero-margin.title
         = link_to course.studio_name, personal_studio_path(course.studio)
       .row.zero-margin

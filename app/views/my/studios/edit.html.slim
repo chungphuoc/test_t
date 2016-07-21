@@ -62,8 +62,6 @@ section#registration-studio
                   = f.label :options, 'Payable options'
                   = render 'options_box'
                 .form-group
-                  = render 'teacher_box'
-                .form-group
                   .facilities-group
                     span.facility-element
                       = check_box_tag 'facilities[]', 0, @studio.facility.include?(0), id: 'facilities_0'
