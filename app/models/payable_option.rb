@@ -6,6 +6,6 @@ class PayableOption < ActiveRecord::Base
 	validates :price, presence: true
 	
   def default_currency
-    self.currency = 'Yen' if self.currency.blank?
+    self.currency = 'JYP' if self.currency.blank?
   end
 end
