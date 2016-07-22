@@ -1,0 +1,6 @@
+$("#station_<%= @station_id%>").html(
+  "<%=
+    j render('personal/favourite_stations/favourite_station_btn',
+              station_id: @station_id)
+  %>"
+);

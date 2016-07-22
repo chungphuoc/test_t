@@ -1,0 +1,10 @@
+- if FavouriteStation.added?(current_user, station_id)
+  = link_to remove_personal_favourite_stations_path(customer_id: current_user.role_id,
+                                                    station_id: station_id),
+    method: :post, remote: true do
+    i class="fa fa-star" aria-hidden="true"
+- else
+  = link_to add_personal_favourite_stations_path(customer_id: current_user.role_id,
+                                                 station_id: station_id),
+    method: :post, remote: true do
+    i class="fa fa-star-o" aria-hidden="true"

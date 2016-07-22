@@ -1,0 +1,6 @@
+$("#exercise_<%= @exercise_id%>").html(
+  "<%=
+    j render('personal/favourite_exercises/favourite_exercise_btn',
+              exercise_id: @exercise_id)
+  %>"
+);
