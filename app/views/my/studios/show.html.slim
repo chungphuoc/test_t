@@ -1,91 +1,125 @@
 .row.zero-margin.studio-main-profile-section
-  .col-lg-8.info-section
-    .row.zero-margin
-      .col-lg-6
-        = image_tag @studio.avatar, class: 'avatar'
-      .col-lg-6.user-name.center-text
-        h1 #{@studio.name}
+  .row
+    .col-lg-3
+      .title-box
+        h1 Toned
+        h4 Studio My page
+      .manage-box
+        h4
+          = link_to '#' do
+            i.glyphicon.glyphicon-calendar
+              span Class
+        h4
+          = link_to '#' do
+            i.glyphicon.glyphicon-user
+              span Teacher
+        h4
+          = link_to '#' do
+            i.glyphicon.glyphicon-map-marker
+              span Station
+        h4
+          = link_to '#' do
+            i.glyphicon.glyphicon-compressed
+              span Facilities
+    .col-lg-9
+      .row.studio-content-information
+        .col-lg-7.info-section
+          .row.zero-margin
+            .col-lg-6
+              = image_tag @studio.avatar, class: 'avatar'
+            .col-lg-6.user-name.center-text
+              h1 #{@studio.name}
 
-    .row.zero-margin.table-info
-      table.table
-        tr
-          th = User.human_attribute_name('name')
-          td = @studio.email
-        tr
-          th = User.human_attribute_name('contact_number')
-          td = @studio.contact_number
-        tr
-          th = User.human_attribute_name('address')
-          td = @studio.address
-        tr
-          th = Studio.human_attribute_name('bank_name')
-          td = @studio.bank_name
-        tr
-          th = Studio.human_attribute_name('account_number')
-          td = @studio.account_number
-        tr
-          th = Studio.human_attribute_name('account_owner')
-          td = @studio.account_owner
-    .row.center-text
-      = link_to t('button.edit_profile'), edit_my_studio_path, class: "btn btn-sign-up"
-      = link_to t('button.edit_account'), edit_user_registration_path, class: "btn btn-sign-up"
-    / hr
-    / .row.zero-margin.table-info
-    /   .row.center-text
-    /     h2.title = t('static_text.classes')
-    /   table.table.table-striped
-    /     tr
-    /       th = t('static_text.index')
-    /       th = Course.human_attribute_name('name')
-    /       th = Course.human_attribute_name('start_time')
-    /       th = Course.human_attribute_name('teacher_name')
-    /     - @studio.courses.each_with_index do |course, index|
-    /       tr
-    /         td #{index}
-    /         td #{course.name}
-    /         td #{course.start_time.strftime("%I:%M %p")} - #{course.end_time.strftime("%I:%M %p")}
-    /         td #{course.teacher_name}
-    hr
-    .row.invite-friend.zero-margin
-      = render 'my/invite_friend'
-    hr
-    .row.invite-friend.zero-margin.center-text
-      .invite_friend_side
-        h4 Map
-        .map-wrapper style="width: 100%"
-          .map#js_google_map style="height: 300px"
+          .row.zero-margin.table-info
+            table.table
+              tr
+                th = User.human_attribute_name('name')
+                td = @studio.email
+              tr
+                th = User.human_attribute_name('contact_number')
+                td = @studio.contact_number
+              tr
+                th = User.human_attribute_name('address')
+                td = @studio.address
+              tr
+                th = Studio.human_attribute_name('bank_name')
+                td = @studio.bank_name
+              tr
+                th = Studio.human_attribute_name('account_number')
+                td = @studio.account_number
+              tr
+                th = Studio.human_attribute_name('account_owner')
+                td = @studio.account_owner
+          .row.center-text
+            = link_to t('button.edit_profile'), edit_my_studio_path, class: "btn btn-sign-up"
+            = link_to t('button.edit_account'), edit_user_registration_path, class: "btn btn-sign-up"
+          hr
+          / .row.zero-margin.table-info
+          /   .row.center-text
+          /     h2.title = t('static_text.classes')
+          /   table.table.table-striped
+          /     tr
+          /       th = t('static_text.index')
+          /       th = Course.human_attribute_name('name')
+          /       th = Course.human_attribute_name('start_time')
+          /       th = Course.human_attribute_name('teacher_name')
+          /     - @studio.courses.each_with_index do |course, index|
+          /       tr
+          /         td #{index}
+          /         td #{course.name}
+          /         td #{course.start_time.strftime("%I:%M %p")} - #{course.end_time.strftime("%I:%M %p")}
+          /         td #{course.teacher_name}
+          / hr
+          .row.invite-friend.zero-margin
+            = render 'my/invite_friend'
+          hr
+          .row.invite-friend.zero-margin.center-text
+            .invite_friend_side
+              h4 Map
+              .map-wrapper style="width: 100%"
+                .map#js_google_map style="height: 300px"
 
-  .col-lg-3.manage-section
-    .row.center-text
-      h2.title = t('static_text.cover_img')
-    = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
-    hr
-    .row.zero-margin
-      .row.center-text
-        h2.title = t('static_text.teachers')
-      table.table.table-striped
-        - @studio.teachers.each_with_index do |teacher, index|
-          tr
-            td #{teacher.name}
-      .row.center-text
-        = link_to t('button.add_teacher'), manage_contracts_path, class: "btn btn-sign-up"
-      hr
-    .row.zero-margin
-      .row.center-text
-        h2.title = t('static_text.station')
-      table.table.table-striped
-        - @studio.stations.each_with_index do |station, index|
-          tr
-            td #{station.name}
-      .row.center-text
-        = link_to t('button.add_station'), manage_stations_path, class: "btn btn-sign-up"
-      hr
-    / .row.zero-margin.facilities
-    /   .row.center-text
-    /     h2.title = t('static_text.facilities')
-    /   = render 'facilities'
-    /   .row.center-text
-    /     = link_to t('button.add_facility'), manage_facilities_path, class: "btn btn-sign-up"
+        .col-lg-4.manage-section
+          .row.center-text
+            h2.title = t('static_text.cover_img')
+          = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
+          hr
+          .row.zero-margin
+            .row.center-text
+              h2.title = t('static_text.teachers')
+            table.table.table-striped
+              - @studio.teachers.each_with_index do |teacher, index|
+                tr
+                  td #{teacher.name}
+            .row.center-text
+              = link_to t('button.add_teacher'), manage_contracts_path, class: "btn btn-sign-up"
+            hr
+          .row.zero-margin.table-info
+            .row.center-text
+              h2.title = t('static_text.classes')
+            table.table.table-striped
+              - @studio.courses.each_with_index do |course, index|
+                tr
+                  td #{course.name}
+            .row.center-text
+              = link_to t('button.new_class'), new_manage_course_path, class: 'btn btn-sign-up'
+            hr
+          .row.zero-margin
+            .row.center-text
+              h2.title = t('static_text.station')
+            table.table.table-striped
+              - @studio.stations.each_with_index do |station, index|
+                tr
+                  td #{station.name}
+            .row.center-text
+              = link_to t('button.add_station'), manage_stations_path, class: "btn btn-sign-up"
+            hr
+          / .row.zero-margin.facilities
+          /   .row.center-text
+          /     h2.title = t('static_text.facilities')
+          /   = render 'facilities'
+          /   .row.center-text
+          /     = link_to t('button.add_facility'), manage_facilities_path, class: "btn btn-sign-up"
 
   script src="//maps.googleapis.com/maps/api/js"
   javascript:
