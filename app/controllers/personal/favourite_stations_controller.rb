@@ -1,4 +1,4 @@
-class Personal::FavouriteStationsController < ApplicationController
+class Personal::FavouriteStationsController < Personal::BaseController
   before_action :require_permission!, only: :remove
   before_action :prepare_favourite_station, only: :remove
 

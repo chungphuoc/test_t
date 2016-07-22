@@ -1,4 +1,4 @@
-class Personal::FavouriteExercisesController < ApplicationController
+class Personal::FavouriteExercisesController < Personal::BaseController
   before_action :require_permission!, only: :remove
   before_action :prepare_favourite_exercise, only: :remove
 
