@@ -3,10 +3,10 @@
     - if  FavouriteCourse.added?(user, course_id)
       = link_to remove_personal_favourite_courses_path(customer_id: user.role_id, course_id: course_id), method: :post, remote: true do
         button.btn-fav-cancel
-          i.glyphicon.glyphicon-heart
+          i.fa.fa-heart
       end
     - else
       = link_to add_personal_favourite_courses_path(course_id: course_id), method: :post, remote: true do
-        button.btn-fav-add 
-          i.glyphicon.glyphicon-heart
+        button.btn-fav-add
+          i.fa.fa-heart-o
       end

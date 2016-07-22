@@ -1,23 +1,38 @@
+= render 'modal_stations'
+= render 'modal_exercises'
 .search-result
   .search-info
     .h1
       | Class Search
     .row.info
+      - station_ids = params[:station_ids]
+      - exercise_ids = params[:exercise_ids]
       .col-sm-4.col-sm-offset-2.station
         h4
           | Areas
-        - if params[:station_ids]
-          - params[:station_ids].each do |id|
-            span = Station.find(id).name
+        #station-names
+          - if station_ids
+            - station_ids.each do |id|
+              span
+                = Station.find(id).name
+                = link_to "✘", search_personal_courses_path(station_ids: station_ids - [id],
+                                                            exercise_ids: exercise_ids)
+        button.btn.btn-sign-up.btn-add type="button" data-toggle="modal" data-target="#checkboxStationModal" +
       .col-sm-4.exercise
         h4
           | Activities
-        - if params[:exercise_ids]
-          - params[:exercise_ids].each do |id|
-            span = Exercise.find(id).name
+        #exercise-names
+          - if exercise_ids
+            - exercise_ids.each do |id|
+              span
+                = Exercise.find(id).name
+                = link_to "✘", search_personal_courses_path(station_ids: station_ids,
+                                                            exercise_ids: exercise_ids - [id])
+        button.btn.btn-sign-up.btn-add type="button" data-toggle="modal" data-target="#checkboxExerciseModal" +
+      .col-sm-2
 
   .col-md-3.favorite-studio
-    .h2 
+    .h2
       i.fa.fa-heart-o
       |  Favorite course
     ul
@@ -26,20 +41,7 @@
           = link_to course.course.name, personal_course_path(course.course.id)
           i.fa.fa-times aria-hidden="true" onClick="remove_favorite_studio(#{course.customer_id}, #{course.course_id}, this);"
   .col-md-9
-    .row.zero-margin.pull-right.form-inline
-      .btn-group
-        button.btn.btn-primary data-calendar-nav="prev" Prev
-        button.btn.btnbtn-primary data-calendar-nav="today" Today
-        button.btn.btn-primary data-calendar-nav="next" Next
-      .btn-group
-        button.btn.btn-warning data-calendar-view="year" Year
-        button.btn.btn-warning data-calendar-view="month" month
-        button.btn.btn-warning data-calendar-view="week" week
-        button.btn.btn-warning data-calendar-view="day" day
-    br
-    br
-    br
-    .div#calendar
+    = render 'class_calendar'
 = stylesheet_link_tag 'calendar'
 = stylesheet_link_tag '/bower_components/bootstrap/dist/css/bootstrap.min'
 script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
