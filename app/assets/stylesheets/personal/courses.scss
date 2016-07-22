@@ -20,6 +20,14 @@
       }
       .body{
         color: #686868;
+        .head {
+          font-weight: 600;
+          margin-right: 10px;
+        }
+
+        .course-tuition {
+          font-size: 30px;
+        }
       }
       .days_of_week{
         color: white;
