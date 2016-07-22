@@ -34,3 +34,14 @@
 .booked-row-classes:nth-child(even) td {
   background-color: #f0c9f5 !important;
 }
+
+.add-favourite-class-schedule {
+  display: inline;
+  .add-to-fav-item {
+    display: inline;
+    button {
+      border: none;
+      background: none;
+    }
+  }
+}
