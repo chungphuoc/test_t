@@ -15,8 +15,8 @@
               .row
                 - Station.all.each do |station|
                   .col-md-6
-                    .station-element
-                      = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]", onClick: 'search_checkbox_click(this,"station")'
+                    .element
+                      = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"
                       = label_tag "station_ids[#{station.id}]", station.name
             .button-search
               = submit_tag t('button.search'), class: 'btn-search'
