@@ -527,3 +527,8 @@ a.cal-event-week {
 .event-content:hover .week-event-content {
   display: block;
 }
+
+#customer-date-title h3, #studio-date-title h3 {
+  padding-left: 100px;
+  font-weight: bold;
+}
