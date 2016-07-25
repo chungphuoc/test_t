@@ -20,6 +20,14 @@ table.table.table-striped
     th Cover Image
     td
       = image_tag @studio.cover_img
+  tr
+    th Payable options
+    td
+      ul style="list-style-type:none"
+        - @studio.options.each do |option|
+          li 
+            strong #{option.name}: 
+            | #{option.price} #{option.currency}
 = link_to :back, class: "btn btn-primary"
   span Back
 = link_to edit_admin_studio_path(@studio), class: "btn btn-primary"

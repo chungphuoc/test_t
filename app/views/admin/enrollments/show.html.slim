@@ -42,6 +42,14 @@ table.table.table-striped
     th Edited at
     td
       = @enrollment.updated_at.strftime("%I:%M %p, %b %d %Y")
+  tr
+    th Payable options
+    td
+      ul style="list-style-type:none"
+        - @enrollment.options.each do |option|
+          li 
+            strong #{option.name}: 
+            | #{option.price} #{option.currency}
 = link_to :back, class: "btn btn-primary"
   span Back
 = link_to edit_admin_enrollment_path(@enrollment), class: "btn btn-primary"

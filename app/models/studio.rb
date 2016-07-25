@@ -10,13 +10,14 @@ class Studio < ActiveRecord::Base
   has_many :exercises, through: :services
   has_many :enrollments, through: :courses
   has_many :requested_stations, class_name: 'Station', foreign_key: :requester_id
-  has_many :options, class_name: 'PayableOption', foreign_key: 'studio_id'
+  has_many :options, class_name: 'PayableOption', foreign_key: 'studio_id', dependent: :destroy
 
   validates :website, format: { with: Settings.regexp.url }, allow_blank: true
 
   delegate :email, :address, :contact_number, :avatar, :name, to: :user
 
   accepts_nested_attributes_for :user
+  accepts_nested_attributes_for :options, allow_destroy: true
 
   mount_uploader :cover_img, ImageUploader
 

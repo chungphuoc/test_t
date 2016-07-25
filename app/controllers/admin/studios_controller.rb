@@ -11,9 +11,11 @@ class Admin::StudiosController < Admin::BaseController
   def new
     @studio = Studio.new
     @studio.build_user
+    @studio.options.new
   end
 
   def edit
+    @studio.options.new
   end
 
   def create
@@ -59,6 +61,9 @@ class Admin::StudiosController < Admin::BaseController
     end
     params[:studio][:user_attributes].delete(:address) if params[:studio][:user_attributes][:address].blank?
     params[:studio][:user_attributes].delete(:contact_number) if params[:studio][:user_attributes][:contact_number].blank?
+    params[:studio][:options_attributes].each do |k, v| 
+      params[:studio][:options_attributes].delete(k) if v[:name].blank? || v[:price].blank?
+    end
     params.require(:studio).permit(
       :cover_img,
       :website,
@@ -73,6 +78,10 @@ class Admin::StudiosController < Admin::BaseController
         :contact_number,
         :password,
         :password_confirmation, :address, :avatar
+      ], options_attributes: [
+        :name,
+        :price,
+        :id
       ])
   end
 end
