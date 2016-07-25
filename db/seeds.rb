@@ -7,6 +7,7 @@ Exercise.delete_all
 Customer.delete_all
 Studio.delete_all
 User.delete_all
+PayableOption.delete_all
 
 puts ('create Admin account...')
 admin = Admin.create!

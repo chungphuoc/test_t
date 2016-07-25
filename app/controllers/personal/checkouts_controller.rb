@@ -2,9 +2,9 @@ class Personal::CheckoutsController < ApplicationController
   def process_payment
     @enrollment = current_user.enrollments.new(course_id: params[:course_id],
                                                join_date: params[:join_date])
+    add_payable_option
     @payment_service = PaymentService.new(current_user)
     if @enrollment.save
-      add_payable_option 
       @payment_service.save_payment_info(params)
       @payment_service.update_customer_info(params)
       flash[:success] = t('personal.checkouts.checkout_success')

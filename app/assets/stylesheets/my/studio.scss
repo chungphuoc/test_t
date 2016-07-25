@@ -244,14 +244,14 @@
             }
           }
         }
+        .errors-text {
+          p {
+            color: red;
+          }
+        }
         .form-option {
           display: none;
           margin-bottom: 5px;
-          .errors-text {
-            p {
-              color: red;
-            }
-          }
           .table-form {
             display: table;
             .input {

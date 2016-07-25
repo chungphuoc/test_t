@@ -63,7 +63,7 @@ Rails.application.routes.draw do
     resource :studio, only: [:show, :edit, :update] do
       collection do
         get :add_teacher
-        get :add_payable_option
+        post :add_payable_option
         get :remove_payable_option
       end
     end
