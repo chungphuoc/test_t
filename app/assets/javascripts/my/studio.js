@@ -48,7 +48,7 @@ function add_option_click(){
 function remove_option(option_id, child) {
   var parent = $(child).parents("li");
   $.ajax({
-    url: 'remove_payable_option',
+    url: '/my/studio/remove_payable_option',
     data: {id: option_id},
     success: function(result) {
       if (result.error) {

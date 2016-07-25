@@ -32,9 +32,18 @@ class My::StudiosController < ApplicationController
   end
 
   def add_payable_option
-    option = @studio.options.new(name: payable_option_params[:option_name], 
-                                price: payable_option_params[:option_price])
-    option.save ? true : false
+    if payable_option_params.all? { |k, v| v.blank? }
+      return true 
+    else
+      option = @studio.options.new(name: payable_option_params[:option_name], 
+                                  price: payable_option_params[:option_price])
+      if option.save
+        return true
+      else
+        @studio.options.delete(option)
+        return false
+      end
+    end
   end
 
   def remove_payable_option
