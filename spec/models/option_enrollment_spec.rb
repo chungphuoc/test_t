@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe OptionEnrollment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+	it { should belong_to :enrollment }
+	it { should belong_to(:option).class_name('PayableOption') }
 end
