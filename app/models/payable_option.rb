@@ -6,7 +6,7 @@ class PayableOption < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :price, presence: true
-
+  
   def check_for_payments
   	if enrollments.any?
   		errors.add('Cannot delete option that has already been paid')
