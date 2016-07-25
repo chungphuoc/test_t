@@ -2,11 +2,12 @@ class PaymentService
   def initialize(user)
     @user = user
     @customer = user.role
+    @error = []
   end
 
   def save_payment_info(params)
-    customer = Stripe::Customer.create(email: params[:stripeEmail],
-                                       card: params[:stripeToken])
+    customer = Stripe::Customer.create(email: @user.email,
+                                       source: params[:source])
     charge = Stripe::Charge.create(customer: customer.id,
                                    amount: params[:tuition].to_i * 100,
                                    description: params[:course_name] + ', ' + params[:studio_name],

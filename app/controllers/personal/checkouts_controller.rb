@@ -4,6 +4,7 @@ class Personal::CheckoutsController < ApplicationController
                                                join_date: params[:join_date])
     @payment_service = PaymentService.new(current_user)
     if @enrollment.save
+      add_payable_option 
       @payment_service.save_payment_info(params)
       @payment_service.update_customer_info(params)
       flash[:success] = t('personal.checkouts.checkout_success')
@@ -13,4 +14,12 @@ class Personal::CheckoutsController < ApplicationController
       redirect_to :back
     end
   end
+
+  private
+    # add payable option to enrollment
+    def add_payable_option
+      params[:payable_option].each do |option_id|
+        @enrollment.options << PayableOption.find(option_id)
+      end
+    end
 end

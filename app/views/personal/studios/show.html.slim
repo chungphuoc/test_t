@@ -61,7 +61,7 @@
                 td = link_to course.name, personal_course_path(course)
                 td #{course.kcal} cal
                 td
-                  .money #{course.tuition} yen
+                  .money #{course.tuition} #{course.currency}
 
 script src="//maps.googleapis.com/maps/api/js"
 javascript:

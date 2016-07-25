@@ -313,3 +313,30 @@
   color: #16a085;
   text-decoration: none;
 }
+
+.payable-option-checkout {
+  .option-price {
+    text-decoration: line-through;
+  }
+  .checkbox-option {
+    margin-right: 10px;
+    -moz-transform: scale(1.2); /* FF */
+    -webkit-transform: scale(1.2); /* Safari and Chrome */
+  }
+  label {
+    cursor: pointer;
+  }
+}
+#total-cost {
+  font-weight: bold;
+  color: red;
+}
+#purchase {
+  background-color: #e8a9ef;
+  padding: 5px 10px;
+  color: white;
+  font-size: 20px;
+  border-radius: 2px;
+  border: none;
+  margin-left: -240px;
+}

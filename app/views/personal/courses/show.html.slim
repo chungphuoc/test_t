@@ -23,12 +23,29 @@
               b End time
           .col-lg-6
             p #{@course.end_time.strftime("%I:%M %p")}
+        hr
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Price
+              b Tuition
           .col-lg-6
-            p #{@course.tuition} yen
+            p #{@course.tuition} #{@course.currency}
+        .row.payable-option-checkout
+          - @course.options.each do |option|
+            .col-lg-4.col-lg-offset-1
+              label
+                input.checkbox-option type="checkbox" onClick="add_option_checkout(#{option.id},this)"
+                span #{option.name}
+            .col-lg-6  
+              p class="option-price" id="option-price-#{option.id}" data-price="#{option.price}" #{option.price} #{option.currency}
+        hr
+        .row
+          .col-lg-3.col-lg-offset-2
+            p
+             b Total cost
+          .col-lg-6
+            p#total-cost data-currency='#{@course.currency}' data-price='#{@course.tuition}' #{@course.tuition} #{@course.currency}
+        hr
         .row
           .col-lg-3.col-lg-offset-2
             p
@@ -83,7 +100,7 @@
             .col-lg-3
               h4 Price :
             .col-lg-6
-              h4 #{@course.tuition} yen
+              h4 #{@course.tuition} #{@course.currency}
       
     .row.payable_option
       ul 

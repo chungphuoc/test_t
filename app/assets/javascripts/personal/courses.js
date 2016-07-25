@@ -111,3 +111,26 @@ function search_checkbox_click(checkbox, type) {
   }
   input.value = array_value.join('/');
 }
+
+function add_option_checkout(option_id, checkbox) {
+  if ($(checkbox).is(':checked')) {
+    var price = $("#option-price-" + option_id);
+    var total = $("#total-cost");
+    var cost = parseInt(total.attr('data-price')) + parseInt(price.attr('data-price'));
+    total.text(cost + ' ' + total.attr('data-currency'));
+    total.attr('data-price', cost);
+    price.css('text-decoration', 'none');
+    $("#checkout-form")
+      .append($("<input name='payable_option[]' type='hidden'>")
+                  .val(option_id)
+                  .attr('id', 'payable_option_' + option_id));
+  } else {
+    var price = $("#option-price-" + option_id);
+    var total = $("#total-cost");
+    var cost = parseInt(total.attr('data-price')) - parseInt(price.attr('data-price'));
+    total.text(cost + ' ' + total.attr('data-currency'));
+    total.attr('data-price', cost);
+    price.css('text-decoration', 'line-through');
+    $('#payable_option_' + option_id).remove();
+  }
+} 
