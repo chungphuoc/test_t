@@ -2,7 +2,6 @@ class PaymentService
   def initialize(user)
     @user = user
     @customer = user.role
-    @error = []
   end
 
   def save_payment_info(params)
