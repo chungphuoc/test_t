@@ -111,3 +111,13 @@ function search_checkbox_click(checkbox, type) {
   }
   input.value = array_value.join('/');
 }
+
+function test(){
+  var slider = document.getElementById('calories-slider');
+  var value = slider.getAttribute('data-value').split(',');
+  var min = value[0];
+  var max = value[1];
+
+  document.getElementById('max_kcal').value = max;
+  document.getElementById('min_kcal').value = min;
+}

@@ -72,7 +72,7 @@ class Course < ActiveRecord::Base
     results = all
     results = results.where(station_id: params[:station_ids]) if params[:station_ids]
     results = results.where(exercise_id: params[:exercise_ids]) if params[:exercise_ids]
-    results = results.where("kcal >= :min_kcal AND kcal <= max_kcal", min_kcal: params[:min_kcal], max_kcal: params[:max_kcal]) if params[:max_kcal] && params[:min_kcal]
+    results = results.where("kcal >= :min_kcal AND kcal <= :max_kcal", min_kcal: params[:min_kcal], max_kcal: params[:max_kcal]) if params[:max_kcal] && params[:min_kcal]
     results
   end
 

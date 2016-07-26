@@ -15,9 +15,23 @@
             - kcal_min = @kcal_courses.min
             - kcal_max = @kcal_courses.max
             span = kcal_min
-            input id="calories-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="#{kcal_min}" data-slider-max="#{kcal_max}" data-slider-step="10" data-slider-value="[#{kcal_min}, #{(kcal_max + kcal_min)/2}]"
+            input id="calories-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="#{kcal_min}" data-slider-max="#{kcal_max}" data-slider-step="10" data-slider-value="[#{kcal_min}, #{(kcal_max + kcal_min)/2}]" onChange="test();"
             span = kcal_max
           .time
+        = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
+          .select-group
+            - if exercise_ids
+              - exercise_ids.each do | id |
+                = hidden_field_tag "exercise_ids[]", id
+          .select-group
+            - if station_ids
+              - station_ids.each do | id |
+                = hidden_field_tag "station_ids[]", id
+          .calories-group
+            = hidden_field_tag 'max_kcal', kcal_max
+            = hidden_field_tag 'min_kcal', kcal_min
+          .button-search
+            = submit_tag t('button.search'), class: 'btn-search'
       .col-sm-4.station
         h4
           | Areas
