@@ -82,4 +82,8 @@ class Course < ActiveRecord::Base
   def must_have_days_of_week
     errors.add(:days_of_week, 'Must choose at least one day.') unless days_of_week.any?
   end
+
+  def feedback(customer, message)
+    FeedbackMailer.from_customer_to_studio(customer, self, message).deliver_later
+  end
 end
