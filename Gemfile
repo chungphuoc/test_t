@@ -35,6 +35,8 @@ gem 'whenever', :require => false
 
 gem 'font-awesome-rails'
 
+gem 'bootstrap-slider-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
