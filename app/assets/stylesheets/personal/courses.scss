@@ -297,3 +297,20 @@
   color: #16a085;
   text-decoration: none;
 }
+
+.feedback-course {
+  margin: 10px 12% 10px;
+  input, textarea {
+    display: block;
+    width: 100%;
+  }
+  input[type="submit"] {
+    background-color: #f397ef;
+    color: white;
+    border: none;
+    font-size: 20px;
+  }
+  textarea {
+    border: 1px solid #f397ef;
+  }
+}

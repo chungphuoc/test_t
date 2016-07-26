@@ -89,6 +89,11 @@
         .map-wrapper style="width: 100%"
           .map#js_google_map style="height: 300px"
       .col-lg-6
+        .feedback-course
+          = form_tag feedback_personal_courses_path, method: :post
+            = hidden_field_tag :course_id, @course.id
+            = text_area_tag :message, nil, placeholder: 'Feedback Messages', rows: 3
+            = submit_tag 'Send'
         .row.zero-margin
           .row
             = link_to @course.studio.name, personal_studio_path(@course.studio), class: 'studio-name-book'

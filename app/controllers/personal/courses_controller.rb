@@ -56,6 +56,18 @@ class Personal::CoursesController < Personal::BaseController
     render 'course_recommend', layout: false
   end
 
+  def feedback
+    @course = Course.find(params[:course_id])
+    if params[:message].blank?
+      flash[:error] = 'Feedback fail! Missing messages'
+      redirect_to personal_course_path(params[:course_id])
+    else
+      @course.feedback(current_user, params[:message])
+      flash[:success] = 'Feedback successful'
+      redirect_to personal_course_path(params[:course_id])
+    end
+  end
+
   private
     def convert_time(start_date, start_time)
       dt = DateTime.new(
