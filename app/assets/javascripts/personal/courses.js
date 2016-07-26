@@ -112,7 +112,7 @@ function search_checkbox_click(checkbox, type) {
   input.value = array_value.join('/');
 }
 
-function test(){
+function calories_change(){
   var slider = document.getElementById('calories-slider');
   var value = slider.getAttribute('data-value').split(',');
   var min = value[0];
