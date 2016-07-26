@@ -53,58 +53,26 @@
           = render "personal/favourite_courses/add_to_favourite_wrapper", course_id: @course.id, user: current_user
       .row.zero-margin.center-text.body
         .container
-          .col-lg-4
-            h4
-              span.head Station:
-              span.body-content #{@course.station_name}
-          .col-lg-4
-            h4
-              span.head Studio:
-              span.body-content #{@course.studio.name}
-          .col-lg-4
-            h4
-              span.head Instructor Name:
-              span.body-content #{@course.teacher_name}
-          .col-lg-4
-            h4 #{@course.start_date}
-          .col-lg-4
-            h4 #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
-          .col-lg-4
-            h4 cal
+          .row
+            .col-lg-4
+              h4
+                span.head Station:
+                span.body-content #{@course.station_name}
+            .col-lg-4
+              h4
+                span.head Studio:
+                span.body-content #{@course.studio.name}
+            .col-lg-4
+              h4
+                span.head Instructor Name:
+                span.body-content #{@course.teacher_name}
+            .col-lg-4
+              h4 #{@course.start_date}
+            .col-lg-4
+              h4 #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
+            .col-lg-4
+              h4 #{@course.kcal} kcal
           h4.course-tuition #{@course.tuition} yen
-
-        / .col-lg-5.col-lg-offset-1
-        /   .row
-        /     .col-lg-3.col-lg-offset-3
-        /       h4 Station :
-        /     .col-lg-6
-        /       h4 #{@course.station_name}
-        /   .row
-        /     .col-lg-3.col-lg-offset-3
-        /       h4 Studio :
-        /     .col-lg-6
-        /       h4 #{@course.studio.name}
-        /   .row
-        /     .col-lg-3.col-lg-offset-3
-        /       h4 Teacher :
-        /     .col-lg-6
-        /       h4 #{@course.teacher_name}
-        / .col-lg-5
-        /   .row
-        /     .col-lg-3
-        /       h4 Start date :
-        /     .col-lg-6
-        /       h4 #{@course.start_date}
-        /   .row
-        /     .col-lg-3
-        /       h4 Start time :
-        /     .col-lg-6
-        /       h4 #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
-        /   .row
-        /     .col-lg-3
-        /       h4 Price :
-        /     .col-lg-6
-        /       h4 #{@course.tuition} yen
     hr
     .row.zero-margin.center-text
       .col-lg-8.cover-section
