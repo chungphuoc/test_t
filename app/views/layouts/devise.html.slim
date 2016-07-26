@@ -25,14 +25,14 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
           #navbar.navbar-collapse.collapse
             ul.nav.navbar-nav.navbar-right
               li
-                = link_to 'Home', root_path, class: 'btn-header'
+                = link_to t('static_text.home'), root_path, class: 'btn-header'
               li
                 = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header-studio'
               - unless current_user
                 li
-                  = link_to t('button.sign_in'), new_user_session_path, class: 'btn-header'
+                  = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-sign-in'
                 li
-                  = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-sign-up'
+                  = link_to t('button.sign_in'), new_user_session_path, class: 'btn-sign-up'
               - else
                 li 
                   = link_to t('button.name_my_page', name: current_user.name), current_user.studio? ? my_studio_path : my_customer_path, class: 'btn-header'

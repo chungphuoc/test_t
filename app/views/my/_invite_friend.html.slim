@@ -1,11 +1,11 @@
 .invite_friend_side
   h4 = t('static_text.invite_friend')
-  = form_tag send_email_invite_friend_path do
+  = form_tag send_email_invite_friend_path, id: 'invite_friend' do
   	.form-group
   	  / = image_tag 'icon-message.png', :class => 'icon-message'
-      = text_area_tag :message, "", class: "form-control txt-message", placeholder: t('static_text.message'), required: "", rows: '1'
+      = text_area_tag :message, "", class: "form-control txt-message", placeholder: t('static_text.message'), required: "", rows: '3'
     
     .form-group
       = text_field_tag :email, "", class: "form-control txt-message txt-email", placeholder: t('static_text.email'), required: ""
-= submit_tag t('button.send'), class: "btn btn-primary btn-send"
+= submit_tag t('button.send'), class: "btn btn-primary btn-send", form: 'invite_friend'
 
