@@ -276,7 +276,7 @@
 }
 #cal-day-box .day-event {
   position: relative;
-  max-width: 200px;
+  max-width: 400px;
   overflow: hidden;
 }
 #cal-day-box .day-highlight {
@@ -526,4 +526,31 @@ a.cal-event-week {
 
 .event-content:hover .week-event-content {
   display: block;
+}
+
+.course-calendar-day {
+  width: 100%;
+}
+
+.course-calendar-day img{
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+.course-calendar-day .info-course {
+  max-width: 300px;
+  min-width: 200px;
+  float: left;
+  margin-left: 20px;
+}
+
+.course-calendar-day .info-course p {
+  line-height: 100%;
+  margin: 2px 0;
+}
+
+.course-calendar-day .info-course b {
+  font-size: 20px;
+  line-height: 0;
 }
