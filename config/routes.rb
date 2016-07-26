@@ -40,9 +40,7 @@ Rails.application.routes.draw do
       end
     end
     resources :exercises
-    resources :customers do
-      resources :enrollments, only: [:index, :create, :destroy]
-    end
+    resources :customers
     resources :studios do
       resources :contracts, only: [:index, :create, :destroy]
       resources :services, only: [:index, :create, :destroy]

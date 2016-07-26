@@ -2,7 +2,11 @@ class Admin::TeachersController < Admin::BaseController
   before_action :prepare_teacher, only: [:show, :edit, :destroy, :update]
 
   def index
-    @teachers = Teacher.all.page(params[:page])
+    @studios = Studio.joins(:teachers).
+              group("studios.id").
+              having("COUNT(teachers.id) > ?", 0).
+              page(params[:page]).
+              per(2)
   end
 
   def show

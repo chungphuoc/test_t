@@ -36,6 +36,17 @@ table.table.table-striped
     th Receive sms
     td
       = @customer.receive_sms
+  tr
+    th Class
+    td
+      ul style="list-style-type: none;"
+        - @customer.enrollments.each do |enrollment|
+          li
+            i.fa.fa-circle 
+            strong  Course: 
+            | #{enrollment.course_name} 
+            strong  Studio: 
+            | #{enrollment.studio.name} 
 = link_to :back, class: "btn btn-primary"
   span Back
 = link_to edit_admin_customer_path(@customer), class: "btn btn-primary"

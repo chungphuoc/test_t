@@ -1,17 +1,22 @@
 h2 Teacher
 = link_to new_admin_teacher_path, class: "btn btn-primary"
   span New Teacher
-table.table.table-striped
-  tr
-    th Index
-    th Name
-    th Action
-  - @teachers.each_with_index do |teacher, index|
-    tr
-      td #{index}
-      td #{teacher.name}
-      td
-        = link_to "Show", admin_teacher_path(teacher), class: "btn btn-primary"
-        = link_to "Edit", edit_admin_teacher_path(teacher), class: "btn btn-primary"
-        = link_to "Delete", admin_teacher_path(teacher), method: "delete", class: "btn btn-danger"
-= paginate @teachers
+hr
+ul style="list-style-type:none"
+  - @studios.each do |studio|
+    li
+      h2 #{studio.name}
+      table.table.table-striped
+        tr
+          th Index
+          th Name
+          th Action
+        - studio.teachers.each_with_index do |teacher, index|
+          tr
+            td #{index}
+            td #{teacher.name}
+            td
+              = link_to "Show", admin_teacher_path(teacher), class: "btn btn-primary"
+              = link_to "Edit", edit_admin_teacher_path(teacher), class: "btn btn-primary"
+              = link_to "Delete", admin_teacher_path(teacher), method: "delete", class: "btn btn-danger"
+= paginate @studios
