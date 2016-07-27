@@ -22,8 +22,20 @@
 
     .search-by-time-calories {
       .slider-bar {
-        width: 80%;
+        width: 60%;
         margin: auto;
+        .slider.slider-horizontal {
+          width: 100% !important;
+        }
+        .number {
+          .min {
+            float: left;
+          }
+
+          .max {
+            float: right;
+          }
+        }
       }
 
       .slider-selection {
