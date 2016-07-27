@@ -72,9 +72,7 @@ class Course < ActiveRecord::Base
     results = all
     results = results.where(station_id: params[:station_ids]) if params[:station_ids]
     results = results.where(exercise_id: params[:exercise_ids]) if params[:exercise_ids]
-    # search by calories
     results = search_by_calories(results, params)
-    # search by time
     results = search_by_time(results, params)
 
     results
@@ -106,5 +104,9 @@ class Course < ActiveRecord::Base
     else
       courses
     end
+  end
+
+  def feedback(customer, message)
+    FeedbackMailer.from_customer_to_studio(customer, self, message).deliver_later
   end
 end

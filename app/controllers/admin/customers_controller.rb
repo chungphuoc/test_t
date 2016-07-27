@@ -7,7 +7,7 @@ class Admin::CustomersController < Admin::BaseController
   end
 
   def index
-    @customers = Customer.all.page(params[:page])
+    @customers = Customer.joins(:user).order("users.name ASC").page(params[:page])
   end
 
   def show

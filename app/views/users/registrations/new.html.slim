@@ -12,7 +12,7 @@
       - if session["devise.facebook_data"]
         = f.text_field :name, value: session["devise.facebook_data"]["info"]["name"], required: "", class: "form form-control"
       -else
-        = f.text_field :name, class: "form form-control", required: "", placeholder: "name"
+        = f.text_field :name, class: "form form-control", required: "", placeholder: t('static_text.name')
       - resource.errors.messages[:name].each do |msg|
         p.error-text #{msg}
     .form-group.left-inner-addon
@@ -20,17 +20,17 @@
       - if session["devise.facebook_data"]
         = f.text_field :email, value: session["devise.facebook_data"]["info"]["email"], required: "", class: "form form-control"
       -else
-        = f.text_field :email, class: "form form-control", required: "", placeholder: "email"
+        = f.text_field :email, class: "form form-control", required: "", placeholder: t('static_text.email')
       - resource.errors.messages[:email].each do |msg|
         p.error-text #{msg}
     .form-group.left-inner-addon
       i.glyphicon.glyphicon-lock
-      = f.password_field :password, class: "form form-control", required: "", placeholder: "password"
+      = f.password_field :password, class: "form form-control", required: "", placeholder: t('static_text.password')
       - resource.errors.messages[:password].each do |msg|
         p.error-text #{msg}
     .form-group.left-inner-addon
       i.glyphicon.glyphicon-lock
-      = f.password_field :password_confirmation, class: "form form-control", required: "", placeholder: "confirm password"
+      = f.password_field :password_confirmation, class: "form form-control", required: "", placeholder: t('static_text.password_confirmation')
       - resource.errors.messages[:password_confirmation].each do |msg|
         p.error-text #{msg}
     .form-group
