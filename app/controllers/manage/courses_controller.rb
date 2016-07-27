@@ -21,6 +21,7 @@ class Manage::CoursesController < Manage::BaseController
         {
           id: course.id,
           title: title,
+          tmpls_day: template_day(course),
           name: course.name,
           url: manage_course_path(course),
           class: events_class.sample,
@@ -129,5 +130,26 @@ class Manage::CoursesController < Manage::BaseController
       "<br><i>Station: #{course.station.name}</i>" +
       "<br><i>Tuition: #{course.tuition} #{course.currency}</i>" +
       "</div></div>".html_safe
+  end
+
+  def template_day(course)
+    "<div class='course-calendar-day'>" \
+    "<img src='#{course.cover_img}'>" \
+    "<div class='info-course'>" \
+    "<div class='course-title'>" \
+    "<b>#{course.name}</b>" \
+    "</div>" \
+    "<div class='row'>" \
+    "<div class='col-xs-6'>" \
+    "<p>#{course.studio.name}</p>" \
+    "<p>#{course.teacher.name}</p>" \
+    "<p>#{course.station.name}</p>" \
+    "</div>" \
+    "<div class='col-xs-6'>" \
+    "<p>#{course.kcal} kcal</p>" \
+    "<p>#{course.tuition} usd</p>" \
+    "</div>" \
+    "</div>" \
+    "</div></div>".html_safe
   end
 end
