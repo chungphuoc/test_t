@@ -5,7 +5,11 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def index
-    @courses = Course.all.page(params[:page])
+    @studios = Studio.joins(:courses).
+              group("studios.id").
+              having("COUNT(courses.id) > ?", 0).
+              page(params[:page]).
+              per(2)
   end
 
   def new

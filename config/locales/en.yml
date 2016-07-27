@@ -31,6 +31,7 @@ en:
     cancel: Cancel
     submit: Submit
     back: Back
+    sign_up: Sign Up
     sign_in: Sign In
     sign_out: Sign Out
     about_us: About Us
@@ -71,6 +72,7 @@ en:
     new_courses: New
     book: Book
   static_text:
+    home: Home
     contact_us: Contact Us
     about_us: About Us
     featured_class: Featured Class
@@ -94,6 +96,8 @@ en:
     invite_friend: Invite Friend
     name: Name
     email: Email
+    password: Password
+    password_confirmation: Confirm password
     message: message
     contact_number: Contact Number
     address: Address
