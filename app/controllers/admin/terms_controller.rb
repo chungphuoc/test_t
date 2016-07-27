@@ -12,11 +12,11 @@ class Admin::TermsController < Admin::BaseController
 	def update
 		@term = Term.first
 		if @term.update_attributes(term_params)
-			set_flash_message :success, :created
+			set_flash_message :success, :updated
 			redirect_to admin_terms_path
 		else
 			set_flash_message :error, :error, scope: :error, now: true
-      render :new
+      render :edit
 		end
 	end
 
