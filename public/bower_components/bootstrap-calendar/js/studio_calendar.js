@@ -1,7 +1,7 @@
 (function($) {
   "use strict";
   var params = window.location.search.replace("?", "");
-  
+
   var options = {
     events_source: '/manage/courses.json?' + params,
     view: 'month',
@@ -21,7 +21,7 @@
       });
     },
     onAfterViewLoad: function(view) {
-      $('.page-header h3').text(this.getTitle());
+      $('#studio-date-title h3').text(this.getTitle());
       $('.btn-group button').removeClass('active');
       $('button[data-calendar-view="' + view + '"]').addClass('active');
     },

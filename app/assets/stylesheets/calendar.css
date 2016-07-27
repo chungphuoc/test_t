@@ -528,6 +528,11 @@ a.cal-event-week {
   display: block;
 }
 
+#customer-date-title h3, #studio-date-title h3 {
+  padding-left: 100px;
+  font-weight: bold;
+}
+
 .course-calendar-day {
   width: 100%;
 }
