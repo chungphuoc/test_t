@@ -17,6 +17,6 @@ class StaticPagesController < ApplicationController
   end
 
   def term_condition
-    @terms = Term.all
+    @term = Term.first
   end
 end

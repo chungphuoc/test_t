@@ -4,13 +4,9 @@ header.header-section
 #term-condition
   section.title
     h1#intro TONED. Terms of Use Agreement
-    h3#last-revision Latest Revision: 14th July 2016
+    h3#last-revision Latest Revision: #{@term.updated_at.strftime("%m/%d/%Y")}
   section.main-contents
-    ul.list-contents.container
-      - @terms.each_with_index do |term, index|
-        li.content-element
-          h1.content-title #{index + 1}. #{term.title}
-          p.content-paragraph
-            | #{term.content.html_safe}
+    p.content-paragraph
+      | #{@term.content.html_safe}
 footer.footer-section
   = render "shares/footer"
