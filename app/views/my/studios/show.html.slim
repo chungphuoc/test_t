@@ -8,19 +8,19 @@
         h4
           = link_to manage_courses_path do
             i.glyphicon.glyphicon-calendar
-              span Class
+              span = t('static_text.classes')
         h4
           = link_to manage_contracts_path do
             i.glyphicon.glyphicon-user
-              span Teacher
+              span = t('static_text.teachers')
         h4
           = link_to manage_stations_path do
             i.glyphicon.glyphicon-map-marker
-              span Station
+              span = t('static_text.stations')
         h4
           = link_to manage_facilities_path do
             i.glyphicon.glyphicon-compressed
-              span Facilities
+              span = t('static_text.facilities')
     .col-lg-9
       .row.studio-content-information
         .col-lg-7.info-section

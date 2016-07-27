@@ -111,11 +111,11 @@ en:
     class_schedule: Class Schedule
     action: Action
     index: Index
-    class: Classes
+    classes: Classes
     stations: Stations
     exercises: Exercises
     facilities: Facilities
-    teacher: Teachers
+    teachers: Teachers
     cover_img: Cover Image
     class_management: Class Management
     requested_stations: Requested Stations
