@@ -39,7 +39,7 @@
     = hidden_field_tag 'min_time', Time.at(minute_min * 60).utc.strftime("%H:%M:%S")
     = hidden_field_tag 'max_time', Time.at(minute_max * 60).utc.strftime("%H:%M:%S")
   .button-search
-    = submit_tag t('button.search'), class: 'btn-search'
+    = submit_tag t('button.search'), class: 'btn btn-sign-up btn-search'
 
 = stylesheet_link_tag '/bower_components/bootstrap/dist/css/bootstrap.min'
 = stylesheet_link_tag '/bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min'

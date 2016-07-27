@@ -36,6 +36,10 @@
             float: right;
           }
         }
+
+        .time {
+          clear: both;
+        }
       }
 
       form {
@@ -43,7 +47,7 @@
       }
 
       .slider-selection {
-        background: #333;
+        background: #aaa;
       }
     }
 
