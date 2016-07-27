@@ -112,12 +112,12 @@ function search_checkbox_click(checkbox, type) {
   input.value = array_value.join('/');
 }
 
-function calories_change(){
-  var slider = document.getElementById('calories-slider');
+function slider_change(type) {
+  var slider = document.getElementById(type + '-slider');
   var value = slider.getAttribute('data-value').split(',');
   var min = value[0];
   var max = value[1];
 
-  document.getElementById('max_kcal').value = max;
-  document.getElementById('min_kcal').value = min;
+  document.getElementById('max_' + type).value = max;
+  document.getElementById('min_' + type).value = min;
 }

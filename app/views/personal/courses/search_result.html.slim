@@ -17,7 +17,7 @@
             - if @kcal_courses == []
               - kcal_min = 0
               - kcal_max = 0
-            input id="calories-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1000" data-slider-step="10" data-slider-value="[#{kcal_min}, #{kcal_max}]" onChange="calories_change();"
+            input id="kcal-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1000" data-slider-step="10" data-slider-value="[#{kcal_min}, #{kcal_max}]" onChange="slider_change('kcal');"
             .number
               span.min 0
               span.max 1000
@@ -27,7 +27,7 @@
             - time_max = @time_courses.max
             - minute_min = time_min.hour * 60 + time_min.min
             - minute_max = time_max.hour * 60 + time_max.min
-            input id="time-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1440" data-slider-step="30" data-slider-value="[#{minute_min},#{minute_max}]"
+            input id="time-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1440" data-slider-step="30" data-slider-time="true" data-slider-value="[#{minute_min},#{minute_max}]" onChange="slider_change('time');"
             .number
               span.min 00:00
               span.max 24:00
@@ -43,6 +43,9 @@
           .calories-group
             = hidden_field_tag 'max_kcal', kcal_max
             = hidden_field_tag 'min_kcal', kcal_min
+          .time-group
+            = hidden_field_tag 'min_time', minute_min
+            = hidden_field_tag 'max_time', minute_max
           .button-search
             = submit_tag t('button.search'), class: 'btn-search'
       .col-sm-4.station
@@ -87,3 +90,10 @@ script src="/bower_components/underscore/underscore-min.js"
 script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 script src="/bower_components/bootstrap-calendar/js/calendar.js"
 script src="/bower_components/bootstrap-calendar/js/app.js"
+
+= stylesheet_link_tag '/bower_components/bootstrap/dist/css/bootstrap.min'
+= stylesheet_link_tag '/bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min'
+script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+script src="/bower_components/underscore/underscore-min.js"
+script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+script src="/bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.js"

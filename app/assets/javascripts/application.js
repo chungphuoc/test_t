@@ -19,5 +19,4 @@
 //= require jquery-ui/datepicker
 //= require manage/courses
 //= require jquery.readyselector.js
-//= require bootstrap-slider
 //= require_tree .
