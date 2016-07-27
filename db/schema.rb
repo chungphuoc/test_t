@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721044744) do
+ActiveRecord::Schema.define(version: 20160727064833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,12 +125,31 @@ ActiveRecord::Schema.define(version: 20160721044744) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "option_enrollments", force: :cascade do |t|
+    t.integer  "option_id"
+    t.integer  "enrollment_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "option_enrollments", ["enrollment_id"], name: "index_option_enrollments_on_enrollment_id", using: :btree
+  add_index "option_enrollments", ["option_id"], name: "index_option_enrollments_on_option_id", using: :btree
+
   create_table "overall_averages", force: :cascade do |t|
     t.integer  "rateable_id"
     t.string   "rateable_type"
     t.float    "overall_avg",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "payable_options", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.string   "currency",   default: "JPY"
+    t.integer  "studio_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "rates", force: :cascade do |t|
@@ -199,6 +218,12 @@ ActiveRecord::Schema.define(version: 20160721044744) do
 
   create_table "teachers", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "terms", force: :cascade do |t|
+    t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

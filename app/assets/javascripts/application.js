@@ -19,4 +19,5 @@
 //= require jquery-ui/datepicker
 //= require manage/courses
 //= require jquery.readyselector.js
+//= require bootstrap-wysihtml5
 //= require_tree .

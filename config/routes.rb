@@ -57,6 +57,7 @@ Rails.application.routes.draw do
         get :change_course
       end
     end
+    resources :terms, only: [:index, :edit, :update]
   end
 
   namespace :my do
