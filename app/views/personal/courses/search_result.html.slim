@@ -23,10 +23,14 @@
               span.max 1000
           .time
             h4 Time
-            - time_min = @time_courses.min
-            - time_max = @time_courses.max
-            - minute_min = time_min.hour * 60 + time_min.min
-            - minute_max = time_max.hour * 60 + time_max.min
+            - if @time_courses == []
+              - minute_min = 0
+              - minute_max = 0
+            - else
+              - time_min = @time_courses.min
+              - time_max = @time_courses.max
+              - minute_min = time_min.hour * 60 + time_min.min
+              - minute_max = time_max.hour * 60 + time_max.min
             input id="time-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1440" data-slider-step="30" data-slider-time="true" data-slider-value="[#{minute_min},#{minute_max}]" onChange="slider_change('time');"
             .number
               span.min 00:00

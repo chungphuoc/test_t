@@ -76,9 +76,9 @@ class Course < ActiveRecord::Base
     results = results.where("kcal >= :min_kcal AND kcal <= :max_kcal", min_kcal: params[:min_kcal], max_kcal: params[:max_kcal]) if params[:max_kcal] && params[:min_kcal]
     #search by time
     if params[:min_time] && params[:max_time]
-      # results = results.where("start_time >= min_time AND start_time <= max_time",
-      #                         max_time: params[:max_time],
-      #                         min_time: params[:min_time])
+      results = results.where("start_time >= :min_time AND start_time <= :max_time",
+                              min_time: params[:min_time],
+                              max_time: params[:max_time])
       # results = results.select{ |result| Course.time_to_minutes(result.start_time) >= params[:min_time].to_i && Course.time_to_minutes(result.start_time) <= params[:max_time].to_i}
     end
     results
@@ -90,12 +90,5 @@ class Course < ActiveRecord::Base
 
   def must_have_days_of_week
     errors.add(:days_of_week, 'Must choose at least one day.') unless days_of_week.any?
-  end
-
-  def self.time_to_minutes(time)
-    hour = time.hour.to_i
-    minute = time.min.to_i
-
-    return hour * 60 + minute
   end
 end
