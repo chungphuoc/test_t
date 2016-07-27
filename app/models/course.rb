@@ -73,14 +73,10 @@ class Course < ActiveRecord::Base
     results = results.where(station_id: params[:station_ids]) if params[:station_ids]
     results = results.where(exercise_id: params[:exercise_ids]) if params[:exercise_ids]
     # search by calories
-    results = results.where("kcal >= :min_kcal AND kcal <= :max_kcal", min_kcal: params[:min_kcal], max_kcal: params[:max_kcal]) if params[:max_kcal] && params[:min_kcal]
-    #search by time
-    if params[:min_time] && params[:max_time]
-      results = results.where("start_time >= :min_time AND start_time <= :max_time",
-                              min_time: params[:min_time],
-                              max_time: params[:max_time])
-      # results = results.select{ |result| Course.time_to_minutes(result.start_time) >= params[:min_time].to_i && Course.time_to_minutes(result.start_time) <= params[:max_time].to_i}
-    end
+    results = search_by_calories(results, params)
+    # search by time
+    results = search_by_time(results, params)
+
     results
   end
 
@@ -90,5 +86,25 @@ class Course < ActiveRecord::Base
 
   def must_have_days_of_week
     errors.add(:days_of_week, 'Must choose at least one day.') unless days_of_week.any?
+  end
+
+  def self.search_by_calories(courses, params = {})
+    if params[:max_kcal] && params[:min_kcal]
+      courses.where('kcal >= :min_kcal AND kcal <= :max_kcal',
+                    min_kcal: params[:min_kcal],
+                    max_kcal: params[:max_kcal])
+    else
+      courses
+    end
+  end
+
+  def self.search_by_time(courses, params = {})
+    if params[:min_time] && params[:max_time]
+      courses.where('start_time >= :min_time AND start_time <= :max_time',
+                    min_time: params[:min_time],
+                    max_time: params[:max_time])
+    else
+      courses
+    end
   end
 end

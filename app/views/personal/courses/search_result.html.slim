@@ -23,10 +23,9 @@
               span.max 1000
           .time
             h4 Time
-            - if @time_courses == []
-              - minute_min = 0
-              - minute_max = 0
-            - else
+            - minute_min = 0
+            - minute_max = 0
+            - if @time_courses != []
               - time_min = @time_courses.min
               - time_max = @time_courses.max
               - minute_min = time_min.hour * 60 + time_min.min
