@@ -9,48 +9,7 @@
       - station_ids = params[:station_ids]
       - exercise_ids = params[:exercise_ids]
       .col-sm-4.search-by-time-calories
-        .slider-bar
-          .calories
-            h4 Calories
-            - kcal_min = @kcal_courses.min
-            - kcal_max = @kcal_courses.max
-            - if @kcal_courses == []
-              - kcal_min = 0
-              - kcal_max = 0
-            input id="kcal-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1000" data-slider-step="10" data-slider-value="[#{kcal_min}, #{kcal_max}]" onChange="slider_change('kcal');"
-            .number
-              span.min 0
-              span.max 1000
-          .time
-            h4 Time
-            - minute_min = 0
-            - minute_max = 0
-            - if @time_courses != []
-              - time_min = @time_courses.min
-              - time_max = @time_courses.max
-              - minute_min = time_min.hour * 60 + time_min.min
-              - minute_max = time_max.hour * 60 + time_max.min
-            input id="time-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1440" data-slider-step="30" data-slider-time="true" data-slider-value="[#{minute_min},#{minute_max}]" onChange="slider_change('time');"
-            .number
-              span.min 00:00
-              span.max 24:00
-        = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
-          .select-group
-            - if exercise_ids
-              - exercise_ids.each do | id |
-                = hidden_field_tag "exercise_ids[]", id
-          .select-group
-            - if station_ids
-              - station_ids.each do | id |
-                = hidden_field_tag "station_ids[]", id
-          .calories-group
-            = hidden_field_tag 'max_kcal', kcal_max
-            = hidden_field_tag 'min_kcal', kcal_min
-          .time-group
-            = hidden_field_tag 'min_time', minute_min
-            = hidden_field_tag 'max_time', minute_max
-          .button-search
-            = submit_tag t('button.search'), class: 'btn-search'
+        = render 'slider_search', station_ids: station_ids, exercise_ids: exercise_ids
       .col-sm-4.station
         h4
           | Areas
@@ -93,10 +52,3 @@ script src="/bower_components/underscore/underscore-min.js"
 script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 script src="/bower_components/bootstrap-calendar/js/calendar.js"
 script src="/bower_components/bootstrap-calendar/js/app.js"
-
-= stylesheet_link_tag '/bower_components/bootstrap/dist/css/bootstrap.min'
-= stylesheet_link_tag '/bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min'
-script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
-script src="/bower_components/underscore/underscore-min.js"
-script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-script src="/bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.js"
