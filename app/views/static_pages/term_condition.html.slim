@@ -4,7 +4,7 @@ header.header-section
 #term-condition
   section.title
     h1#intro TONED. Terms of Use Agreement
-    h3#last-revision Latest Revision: #{@term.updated_at.strftime("%m/%d/%Y")}
+    h3#last-revision Latest Revision: #{@term.updated_at.strftime("%d %B %Y")}
   section.main-contents
     p.content-paragraph
       | #{@term.content.html_safe}
