@@ -1,0 +1,8 @@
+h1 Term & conditions
+hr
+h3 #{@term.title}
+p
+	| #{@term.content.html_safe}
+hr
+= link_to "Edit", edit_admin_term_path(@term), class: "btn btn-primary"
+= link_to "Delete", admin_term_path(@term), method: "delete", class: "btn btn-danger"
