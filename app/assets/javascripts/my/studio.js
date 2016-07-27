@@ -44,23 +44,3 @@ function add_option_click(){
     form.css('display', 'none');
   }
 }
-
-function remove_option(option_id, child) {
-  var parent = $(child).parents("li");
-  $.ajax({
-    url: '/my/studio/remove_payable_option',
-    data: {id: option_id},
-    success: function(result) {
-      if (result.error) {
-        error_text = $('.options-box .errors-text');
-        error_text.empty();
-
-        $.each(result.error, function(index, error){
-          error_text.append('<p>' + error  + '</p>');
-        });
-      } else {
-        parent.fadeOut(function() { $(this).remove(); });
-      }
-    }
-  });
-}

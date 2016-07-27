@@ -2,7 +2,8 @@
   ul.list-options
     - @studio.options.each do |option|
       li
-        i.fa.fa-times onClick="remove_option(#{option.id}, this);" title="Remove"
+        = link_to remove_payable_option_my_studio_path(id: option.id), method: :delete do
+          i.fa.fa-times title="Remove"
         span.name = option.name
         span.price = "#{option.price} #{option.currency}" 
   .form-option

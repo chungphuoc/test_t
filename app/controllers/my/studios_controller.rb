@@ -51,7 +51,8 @@ class My::StudiosController < ApplicationController
     if option.delete
       redirect_to edit_my_studio_path
     else
-      render json: { error: option.errors.full_messages }
+      flash[:error] = option.errors.full_messages.join(', ')
+      redirect_to edit_my_studio_path
     end
   end
 
