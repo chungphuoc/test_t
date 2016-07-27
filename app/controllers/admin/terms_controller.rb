@@ -1,33 +1,16 @@
 class Admin::TermsController < Admin::BaseController
+	before_action :check_exist_term_and_condition
+	
 	def index
-		@terms = Term.all.page(params[:page])
-	end
-
-	def show
-		@term = Term.find(params[:id])
-	end
-
-	def new
-		@term = Term.new
-	end
-
-	def create
-		@term = Term.new(term_params)
-		if @term.save
-			set_flash_message :success, :created
-			redirect_to admin_terms_path
-		else
-			set_flash_message :error, :error, scope: :error, now: true
-      render :new
-		end
+		@term = Term.first
 	end
 
 	def edit
-		@term = Term.find(params[:id])
+		@term = Term.first
 	end
 
 	def update
-		@term = Term.find(params[:id])
+		@term = Term.first
 		if @term.update_attributes(term_params)
 			set_flash_message :success, :created
 			redirect_to admin_terms_path
@@ -37,18 +20,14 @@ class Admin::TermsController < Admin::BaseController
 		end
 	end
 
-	def destroy
-		@term = Term.find(params[:id])
-    if @term.destroy
-      set_flash_message :success, :destroyed
-    else
-      set_flash_message :error, :destroy_failed
-    end
-    redirect_to :back
-	end
-
 	private
 		def term_params
-			params.require(:term).permit(:title, :content)
+			params.require(:term).permit(:content)
+		end
+
+		def check_exist_term_and_condition
+			if Term.count == 0 
+				@term = Term.create(content: 'default')
+			end
 		end
 end
