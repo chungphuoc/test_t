@@ -12,6 +12,6 @@ class CoursesSearchService
   private
 
   def search_params
-    @params.slice(:station_ids, :exercise_ids)
+    @params.slice(:station_ids, :exercise_ids, :max_kcal, :min_kcal, :min_time, :max_time)
   end
 end

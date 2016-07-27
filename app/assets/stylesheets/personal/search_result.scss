@@ -20,6 +20,37 @@
       }
     }
 
+    .search-by-time-calories {
+      .slider-bar {
+        width: 60%;
+        margin: auto;
+        .slider.slider-horizontal {
+          width: 100% !important;
+        }
+        .number {
+          .min {
+            float: left;
+          }
+
+          .max {
+            float: right;
+          }
+        }
+
+        .time {
+          clear: both;
+        }
+      }
+
+      form {
+        clear: both;
+      }
+
+      .slider-selection {
+        background: #aaa;
+      }
+    }
+
     .btn-add {
       font-weight: bolder;
     }

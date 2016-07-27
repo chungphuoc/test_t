@@ -4,10 +4,13 @@
   .search-info
     .h1
       | Class Search
+    h4 #{@courses.count} result
     .row.info
       - station_ids = params[:station_ids]
       - exercise_ids = params[:exercise_ids]
-      .col-sm-4.col-sm-offset-2.station
+      .col-sm-4.search-by-time-calories
+        = render 'slider_search', station_ids: station_ids, exercise_ids: exercise_ids
+      .col-sm-4.station
         h4
           | Areas
         #station-names
