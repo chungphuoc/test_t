@@ -4,7 +4,7 @@
   .search-info
     .h1
       | Class Search
-    h2 = @courses.count
+    h4 #{@courses.count} result
     .row.info
       - station_ids = params[:station_ids]
       - exercise_ids = params[:exercise_ids]
