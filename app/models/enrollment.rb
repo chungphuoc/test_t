@@ -10,6 +10,7 @@ class Enrollment < ActiveRecord::Base
   delegate :name, to: :course
   delegate :kcal, to: :course
   delegate :name, to: :course, prefix: true
+  delegate :name, to: :customer, prefix: true
   delegate :cover_img, :start_date, :start_time, :end_time, to: :course
 
   enum status: [:paid, :cancel, :passed]
@@ -76,5 +77,9 @@ class Enrollment < ActiveRecord::Base
       return true
     end
     false
+  end
+
+  def total_cost
+    return course.tuition
   end
 end
