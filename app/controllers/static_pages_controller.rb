@@ -1,6 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
-    @courses = Course.where(status: Course.statuses[:active]).limit(3)
+    @courses = FeaturedCourse.joins(:course)
+                            .where(courses: {status: Course.statuses[:active]})
+                            .limit(3)
+                            .map{ |featured_course| featured_course.course }
   end
 
   def feedback
