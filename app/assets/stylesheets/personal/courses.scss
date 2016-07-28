@@ -20,6 +20,15 @@
       }
       .body{
         color: #686868;
+        .head {
+          font-weight: 600;
+          margin-right: 10px;
+        }
+
+        .course-tuition {
+          font-size: 30px;
+          font-weight: bold;
+        }
       }
       .days_of_week{
         color: white;
@@ -339,4 +348,20 @@
   border-radius: 2px;
   border: none;
   margin-left: -240px;
+}
+.feedback-course {
+  margin: 10px 12% 10px;
+  input, textarea {
+    display: block;
+    width: 100%;
+  }
+  input[type="submit"] {
+    background-color: #f397ef;
+    color: white;
+    border: none;
+    font-size: 20px;
+  }
+  textarea {
+    border: 1px solid #f397ef;
+  }
 }

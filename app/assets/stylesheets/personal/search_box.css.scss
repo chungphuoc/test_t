@@ -117,13 +117,20 @@
       }
 
       label {
-        width: 100%;
+        width: 90%;
         font-weight: 500;
         font-size: 18px;
       }
 
       &:hover {
         background-color: #eee;
+      }
+    }
+
+    .favourite {
+      i {
+        font-size: 20px;
+        color: #f397ef;
       }
     }
   }

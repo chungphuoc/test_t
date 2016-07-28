@@ -73,6 +73,7 @@ en:
     new_courses: New
     book: Book
   static_text:
+    home: Home
     contact_us: Contact Us
     about_us: About Us
     featured_class: Featured Class
@@ -96,6 +97,8 @@ en:
     invite_friend: Invite Friend
     name: Name
     email: Email
+    password: Password
+    password_confirmation: Confirm password
     message: message
     contact_number: Contact Number
     address: Address
@@ -109,11 +112,11 @@ en:
     class_schedule: Class Schedule
     action: Action
     index: Index
-    class: Classes
+    classes: Classes
     stations: Stations
     exercises: Exercises
     facilities: Facilities
-    teacher: Teachers
+    teachers: Teachers
     cover_img: Cover Image
     class_management: Class Management
     requested_stations: Requested Stations

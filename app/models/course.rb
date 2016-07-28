@@ -22,7 +22,7 @@ class Course < ActiveRecord::Base
   validates :station, presence: true
   validates :exercise, presence: true
   validates :website, format: { with: Settings.regexp.url }, allow_blank: true
-  validate :must_have_days_of_week 
+  validate :must_have_days_of_week
 
   delegate :name, to: :teacher, prefix: true
   delegate :location, to: :station, prefix: true
@@ -73,6 +73,9 @@ class Course < ActiveRecord::Base
     results = all
     results = results.where(station_id: params[:station_ids]) if params[:station_ids]
     results = results.where(exercise_id: params[:exercise_ids]) if params[:exercise_ids]
+    results = search_by_calories(results, params)
+    results = search_by_time(results, params)
+
     results
   end
 
@@ -82,5 +85,29 @@ class Course < ActiveRecord::Base
 
   def must_have_days_of_week
     errors.add(:days_of_week, 'Must choose at least one day.') unless days_of_week.any?
+  end
+
+  def self.search_by_calories(courses, params = {})
+    if params[:max_kcal] && params[:min_kcal]
+      courses.where('kcal >= :min_kcal AND kcal <= :max_kcal',
+                    min_kcal: params[:min_kcal],
+                    max_kcal: params[:max_kcal])
+    else
+      courses
+    end
+  end
+
+  def self.search_by_time(courses, params = {})
+    if params[:min_time] && params[:max_time]
+      courses.where('start_time >= :min_time AND start_time <= :max_time',
+                    min_time: params[:min_time],
+                    max_time: params[:max_time])
+    else
+      courses
+    end
+  end
+
+  def feedback(customer, message)
+    FeedbackMailer.from_customer_to_studio(customer, self, message).deliver_later
   end
 end

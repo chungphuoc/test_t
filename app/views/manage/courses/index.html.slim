@@ -1,32 +1,33 @@
-.row.zero-margin.center-text.title
-  h2 = t('static_text.class_schedule')
-.row
-  .col-sm-12
-    #js_schedule data-course-date="#{ @course_date_data }" data-default-date="#{ params[:start_date] }"
-.row.center-text.zero-margin
-  = link_to t('button.new_class'), new_manage_course_path, class: 'btn btn-sign-up'
-  = link_to t('button.all_class'), manage_courses_path, class: 'btn btn-sign-up'
-br
-table.table.table-stripped
-  tr
-    th = Course.human_attribute_name('name')
-    th = Course.human_attribute_name('phone_number')
-    th = Course.human_attribute_name('website')
-    th = Course.human_attribute_name('rating')
-    th = Course.human_attribute_name('start_date')
-    th = t('static_text.action')
-  - @courses.each do |course|
-    tr
-      td = course.name
-      td = course.phone_number
-      td 
-        = link_to course.website, course.website
-      td = rating_for course, "quality", disable_after_rate: false
-      td = course.start_date
-      td
-        = link_to t('button.show'), manage_course_path(course), class: "btn btn-sign-in"
-        = link_to t('button.edit'), edit_manage_course_path(course), class: "btn btn-sign-in"
-        - if course.active?
-          = link_to t('button.close'), close_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-sign-in"
-        - else
-          = link_to t('button.re_open'), reopen_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-sign-in"
+.classes-studio	
+	.row.zero-margin.center-text.title
+	  h2 = t('static_text.class_schedule')
+	.classes-studio-calendar
+	  / #js_schedule data-course-date="#{ @course_date_data }" data-default-date="#{ params[:start_date] }"
+	  = render 'course_calendar'
+	.row.center-text.zero-margin
+	  = link_to t('button.new_class'), new_manage_course_path, class: 'btn btn-sign-up'
+	  / = link_to t('button.all_class'), manage_courses_path, class: 'btn btn-sign-up'
+	// br
+	// table.table.table-stripped
+	//   tr
+	//     th = Course.human_attribute_name('name')
+	//     th = Course.human_attribute_name('phone_number')
+	//     th = Course.human_attribute_name('website')
+	//     th = Course.human_attribute_name('rating')
+	//     th = Course.human_attribute_name('start_date')
+	//     th = t('static_text.action')
+	//   - @courses.each do |course|
+	//     tr
+	//       td = course.name
+	//       td = course.phone_number
+	//       td 
+	//         = link_to course.website, course.website
+	//       td = rating_for course, "quality", disable_after_rate: false
+	//       td = course.start_date
+	//       td
+	//         = link_to t('button.show'), manage_course_path(course), class: "btn btn-sign-in"
+	//         = link_to t('button.edit'), edit_manage_course_path(course), class: "btn btn-sign-in"
+	//         - if course.active?
+	//           = link_to t('button.close'), close_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-sign-in"
+	//         - else
+	//           = link_to t('button.re_open'), reopen_manage_course_path(course), method: :put, data: { confirm: 'Are you sure?' }, class: "btn btn-sign-in"

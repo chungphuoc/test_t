@@ -17,5 +17,6 @@ class StaticPagesController < ApplicationController
   end
 
   def term_condition
+    @term = Term.first
   end
 end

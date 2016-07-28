@@ -24,4 +24,6 @@ table.table.table-striped.table-booked-class
         - else
           button.btn.btn-sign-in disabled = "disabled" #{t('button.cancel')}
         = link_to t('button.show'), personal_course_path(enrollment.course), class: "btn btn-sign-in"
+        .add-favourite-class-schedule id="course_#{enrollment.course_id}"
+          = render 'personal/favourite_courses/add_to_favourite_btn', course_id: enrollment.course_id, user: current_user
 = paginate @enrollments

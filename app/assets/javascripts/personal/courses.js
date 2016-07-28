@@ -133,4 +133,28 @@ function add_option_checkout(option_id, checkbox) {
     price.css('text-decoration', 'line-through');
     $('#payable_option_' + option_id).remove();
   }
-} 
+}
+
+function Minute2Text(m) {
+  var minute = m % 60;
+  var hour = Math.floor(m / 60);
+
+  minute = (minute < 10 ? '0' : '') + minute;
+  hour = (hour < 10 ? '0' : '') + hour;
+
+  return hour + ":" + minute + ":00";
+}
+
+function slider_change(type) {
+  var slider = document.getElementById(type + '-slider');
+  var value = slider.getAttribute('data-value').split(',');
+  var min = value[0];
+  var max = value[1];
+
+  if (type === 'time') {
+    max = Minute2Text(max);
+    min = Minute2Text(min);
+  }
+  document.getElementById('max_' + type).value = max;
+  document.getElementById('min_' + type).value = min;
+}

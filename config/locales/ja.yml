@@ -11,7 +11,7 @@ ja:
     cancel: キャンセル
     submit: 登録
     back: 戻る
-    sign_up: サインアップ
+    sign_up: ログイン
     sign_in: 'ログイン'
     sign_out: 'ログアウト'
     about_us: '会社概要'
@@ -53,6 +53,7 @@ ja:
     new_courses: 新しい
     book: 予約
   static_text:
+    home: ホーム
     contact_us: 'お問い合わせ'
     about_us: '会社概要'
     featured_class: '人気のクラス'
@@ -75,7 +76,9 @@ ja:
     basic_info: 基本インフォ
     invite_friend: 友達を招待
     name: 名前
-    email: Email
+    email: メール
+    password: パスワード
+    password_confirmation: パスワードを認証する 
     message: メッセージ
     contact_number: 電話番号
     address: 住所

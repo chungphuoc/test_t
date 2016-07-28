@@ -1,0 +1,21 @@
+= form_for [:admin, @term], :html => {:class => 'form-horizontal'} do |f|
+	.form-group
+		= f.label :content, 'Content', class: 'control-label col-sm-2'
+		.col-lg-10
+			= f.text_area :content, class: 'wysihtml5 form-control', rows: 20
+			.error-text
+				= @term.errors[:name].to_sentence
+	.form-group
+		= link_to admin_terms_path, class: "btn btn-primary"
+			span Back
+		= f.submit "Submit", class: "btn btn-primary"
+javascript:
+	$('.wysihtml5').each(function(i, elem) {
+	  $(elem).wysihtml5({
+	    toolbar: {
+	      'fa': true,
+	      'image': false,
+	      'blockquote': false
+	    }
+	  });
+	});

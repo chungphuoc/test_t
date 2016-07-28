@@ -20,6 +20,8 @@ class Personal::CoursesController < Personal::BaseController
     respond_to do |format|
       @favourite_courses = current_user.favourite_courses.includes(:course)
       @courses = CoursesSearchService.new(params).execute.page(params[:page])
+      @kcal_courses = @courses.map{ |course| course.kcal }
+      @time_courses = @courses.map{ |course| course.start_time}
       events_class = %w(event-warning event-important event-info event-special)
       @courses = @courses.collect do |course|
         start_date = convert_time(course.start_date, course.start_time)
@@ -27,6 +29,7 @@ class Personal::CoursesController < Personal::BaseController
         {
           id: course.id,
           title: title,
+          tmpls_day: template_day(course),
           name: course.name,
           url: personal_course_path(course),
           class: events_class.sample,
@@ -55,6 +58,18 @@ class Personal::CoursesController < Personal::BaseController
     render 'course_recommend', layout: false
   end
 
+  def feedback
+    @course = Course.find(params[:course_id])
+    if params[:message].blank?
+      flash[:error] = 'Feedback fail! Missing messages'
+      redirect_to personal_course_path(params[:course_id])
+    else
+      @course.feedback(current_user, params[:message])
+      flash[:success] = 'Feedback successful'
+      redirect_to personal_course_path(params[:course_id])
+    end
+  end
+
   private
     def convert_time(start_date, start_time)
       dt = DateTime.new(
@@ -77,6 +92,27 @@ class Personal::CoursesController < Personal::BaseController
       "<br><i>Studio: #{course.studio.name}</i>" +
       "<br><i>Station: #{course.station.name}</i>" +
       "<br><i>Tuition: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" +
+      "</div></div>".html_safe
+    end
+
+    def template_day(course)
+      "<div class='course-calendar-day'>" \
+      "<img src='#{course.cover_img}'>" \
+      "<div class='info-course'>" \
+      "<div class='course-title'>" \
+      "<b>#{course.name}</b>" \
+      "</div>" \
+      "<div class='row'>" \
+      "<div class='col-xs-6'>" \
+      "<p>#{course.studio.name}</p>" \
+      "<p>#{course.teacher.name}</p>" \
+      "<p>#{course.station.name}</p>" \
+      "</div>" \
+      "<div class='col-xs-6'>" \
+      "<p>#{course.kcal} kcal</p>" \
+      "<p>#{course.tuition} usd</p>" \
+      "</div>" \
+      "</div>" \
       "</div></div>".html_safe
     end
 end

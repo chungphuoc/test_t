@@ -2,19 +2,36 @@ class Manage::CoursesController < Manage::BaseController
   before_action :prepare_course, only: [:show, :edit, :update, :destroy, :close, :reopen]
 
   def index
-    course_query = CoursesQuery.new(current_user)
-    # @courses = @studio.courses.order(start_date: :asc)
-    # @course_date_data = @courses.group(:start_date).count.to_json
-    @courses = current_user.courses
-    @course_date_data = course_query.join_dates_json
-    if params[:start_date]
-      start_date = begin
-                     Date.strptime(params[:start_date], '%d-%m-%Y')
-                   rescue ArgumentError
-                     nil
-                   end
-      # @courses = @courses.where(start_date: start_date) if start_date
-      @courses = course_query.courses_by_date(start_date) if start_date
+    respond_to do |format|
+      course_query = CoursesQuery.new(current_user)
+      @courses = current_user.courses
+      @course_date_data = course_query.join_dates_json
+      if params[:start_date]
+        start_date = begin
+                       Date.strptime(params[:start_date], '%d-%m-%Y')
+                     rescue ArgumentError
+                       nil
+                     end
+        @courses = course_query.courses_by_date(start_date) if start_date
+      end
+    events_class = %w(event-warning event-important event-info event-special)
+    @courses = @courses.collect do |course|
+        start_date = convert_time(course.start_date, course.start_time)
+        title = template_course(course)
+        {
+          id: course.id,
+          title: title,
+          tmpls_day: template_day(course),
+          name: course.name,
+          url: manage_course_path(course),
+          class: events_class.sample,
+          start: start_date,
+          end: start_date.to_i + 2.hours.in_milliseconds
+        }
+      end
+      @result = { success: '1', result: @courses }.to_json
+      format.html { render :index, layout: 'personal_background' }
+      format.json { render json: @result }
     end
   end
 
@@ -79,6 +96,18 @@ class Manage::CoursesController < Manage::BaseController
 
   private
 
+  def convert_time(start_date, start_time)
+    dt = DateTime.new(
+      start_date.year,
+      start_date.month,
+      start_date.day,
+      start_time.hour,
+      start_time.min,
+      start_time.sec
+    )
+    dt.strftime('%Q')
+  end
+
   def prepare_course
     @course = Course.find(params[:id])
   end
@@ -89,5 +118,38 @@ class Manage::CoursesController < Manage::BaseController
                                    :tuition, :start_time, :end_time, :start_date,
                                    :teacher_id, :station_id, :exercise_id,
                                    :days_of_week => [])
+  end
+
+  def template_course(course)
+      "<div class='course-calendar'>" +
+      "<img src='#{course.cover_img}'>" +
+      "<div class='info-course'>" +
+      "<b>#{course.name}</b>" +
+      "<br><i>Teacher: #{course.teacher.name}</i>" +
+      "<br><i>Studio: #{course.studio.name}</i>" +
+      "<br><i>Station: #{course.station.name}</i>" +
+      "<br><i>Tuition: #{course.tuition} #{course.currency}</i>" +
+      "</div></div>".html_safe
+  end
+
+  def template_day(course)
+    "<div class='course-calendar-day'>" \
+    "<img src='#{course.cover_img}'>" \
+    "<div class='info-course'>" \
+    "<div class='course-title'>" \
+    "<b>#{course.name}</b>" \
+    "</div>" \
+    "<div class='row'>" \
+    "<div class='col-xs-6'>" \
+    "<p>#{course.studio.name}</p>" \
+    "<p>#{course.teacher.name}</p>" \
+    "<p>#{course.station.name}</p>" \
+    "</div>" \
+    "<div class='col-xs-6'>" \
+    "<p>#{course.kcal} kcal</p>" \
+    "<p>#{course.tuition} usd</p>" \
+    "</div>" \
+    "</div>" \
+    "</div></div>".html_safe
   end
 end

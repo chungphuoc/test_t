@@ -34,6 +34,7 @@
 .booked-row-classes:nth-child(even) td {
   background-color: #f0c9f5 !important;
 }
+
 .payable_option-confirm {
   margin-top: 20px;
   ul {
@@ -58,4 +59,18 @@
     clear: both;
     padding-bottom: 15px;
   }      
+}
+
+.add-favourite-class-schedule {
+  display: inline;
+  .add-to-fav-item {
+    display: inline;
+    button {
+      border: none;
+      background: none;
+      i {
+        color: #3fcdb8;
+      }
+    }
+  }
 }

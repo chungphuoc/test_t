@@ -57,6 +57,7 @@ Rails.application.routes.draw do
         get :change_course
       end
     end
+    resources :terms, only: [:index, :edit, :update]
   end
 
   namespace :my do
@@ -79,6 +80,7 @@ Rails.application.routes.draw do
         get :featured_courses
         get :event_courses
         get :new_courses
+        post :feedback
       end
     end
     resources :enrollments, only: [:create, :index, :destroy] do
@@ -93,6 +95,18 @@ Rails.application.routes.draw do
       collection do
         post :remove
         post :add
+      end
+    end
+    resources :favourite_stations, only: [] do
+      collection do
+        post :add
+        post :remove
+      end
+    end
+    resources :favourite_exercises, only: [] do
+      collection do
+        post :add
+        post :remove
       end
     end
     resources :checkouts, only: [] do

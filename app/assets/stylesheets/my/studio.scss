@@ -14,6 +14,13 @@
 .studio-main-profile-section{
   background-image: url(asset_path('yoga.jpg'));
   background-size: 100% 100%;
+  .row {
+    margin: 0;
+  }
+  .studio-content-information {
+    background-color: #fff;
+    margin: 50px 0 !important;
+  }
   .info-section{
     background-color: white;
     padding: 20px;
@@ -66,6 +73,44 @@
   }
   hr{
     margin: 20px 20%;
+  }
+
+  .title-box {
+    text-align: center;
+    margin-top: 50%;
+    h1 {
+      color: #f397ef;
+      font-size: 50px;
+      font-weight: 600;
+    }
+
+    h4 {
+      color: #fff;
+      font-size: 30px;
+    }
+  }
+
+  .manage-box {
+    margin: 100px 20px;
+    padding: 10px 20px;
+    background-color: #fff;
+    h4 {
+      padding: 10px 0;
+    }
+    a {
+      text-decoration: none;
+      i {
+        color: #64d7c6;
+      }
+      span {
+        margin-left: 10px;
+        color: #000;
+      }
+
+      &:hover span {
+        color: #333;
+      }
+    }
   }
 }
 .studio-main-edit-section{
