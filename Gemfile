@@ -73,7 +73,7 @@ gem 'jquery-ui-rails'
 gem 'momentjs-rails'
 
 gem 'draper', '~> 1.3'
-gem 'bootstrap-wysihtml5-rails'
+gem 'ckeditor'
 
 group :development do
   gem 'better_errors'
