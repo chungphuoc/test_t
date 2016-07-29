@@ -30,7 +30,7 @@ class Manage::CoursesController < Manage::BaseController
         }
       end
       @result = { success: '1', result: @courses }.to_json
-      format.html { render :index, layout: 'personal_background' }
+      format.html { render :index, layout: 'studio' }
       format.json { render json: @result }
     end
   end
