@@ -1,6 +1,7 @@
 class Manage::PaymentController < Manage::BaseController
   def index
-    @enrollments = Enrollment.all.page(params[:page])
+    @enrollments = Enrollment.includes(course: [ :studio ])
+                            .page(params[:page])
   end
 
   def year_filter
