@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     @courses = Course.where(status: Course.statuses[:active]).limit(3)
-    @image = BackgroundImage.get_image_homepage
+    @image = BackgroundImage.image_homepage
   end
 
   def feedback

@@ -4,13 +4,16 @@ class Admin::BackgroundImagesController < Admin::BaseController
   end
 
   def update
-    # render plain: image_params
-    @images = BackgroundImage.all
-    @img = BackgroundImage.find(params[:id])
-    @img.url = image_params[:url]
-    @img.save
-
-    redirect_to admin_background_images_path
+    new_image = image_params
+    if new_image
+      @images = BackgroundImage.all
+      @img = BackgroundImage.find(params[:id])
+      @img.url = image_params[:url]
+      @img.save
+      redirect_to admin_background_images_path
+    else
+      render 'index'
+    end
   end
 
   private

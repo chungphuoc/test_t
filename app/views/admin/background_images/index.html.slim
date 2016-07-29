@@ -4,7 +4,8 @@
       .col-lg-4
         = img.img_type
         = form_for [:admin, img], method: :patch do |f|
+          = f.hidden_field :img_type
           = f.file_field :url
-          = f.submit :submit
+          = f.submit 'Save'
       .col-lg-8
         = image_tag img.url
