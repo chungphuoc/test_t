@@ -185,13 +185,8 @@ body{
   background-color: #eee;
   min-height: 100vh;
 
-  * {
-    padding: 0;
-    margin: 0;
-    text-align: center;
-  }
-
   .title {
+    text-align: center;
     h1, h3 {
       color: #2c3e50;
       font-size: 27px;
@@ -201,28 +196,6 @@ body{
   }
 
   .main-contents {
-    ul {
-      list-style: none;
-    }
-
-    .list-contents {
-      margin: auto;
-
-      .content-element {
-        margin-bottom: 20px;
-        .content-title {
-          font-weight: 600;
-          font-size: 15px;
-          padding: 20px 0;
-          color: #142c3c;
-        }
-
-        .content-paragraph {
-          width: 80%;
-          margin: auto;
-          color: #888;
-        }
-      }
-    }
+    margin: auto 10%;
   }
 }

@@ -19,7 +19,12 @@
         .col-lg-4
           h4.title Website
           p.info #{@studio.website}
-    hr
+    .row.payable_option
+      ul 
+        - @studio.options.each do |option|
+          li 
+            i.fa.fa-check
+            | #{option.name}: #{option.price} #{option.currency}
     .row.zero-margin.center-text
       .col-lg-8.cover-section
         = image_tag @studio.cover_img
@@ -56,7 +61,7 @@
                 td = link_to course.name, personal_course_path(course)
                 td #{course.kcal} cal
                 td
-                  .money #{course.tuition} yen
+                  .money #{course.tuition} #{course.currency}
 
 script src="//maps.googleapis.com/maps/api/js"
 javascript:

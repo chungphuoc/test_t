@@ -15,7 +15,9 @@ RSpec.describe My::StudiosController, type: :controller do
       description: 'Lorem ipsum dolor sit amet',
       bank_name: 'asdsa',
       account_number: '21312',
-      account_owner: 'Phuoc'
+      account_owner: 'Phuoc',
+      option_name: 'Clothes Rental',
+      option_price: 100
     })
   end
   before do
@@ -37,7 +39,7 @@ RSpec.describe My::StudiosController, type: :controller do
   describe 'update studio profile' do
     it 'success update studio profile' do
       put :update, params.merge(id: studio.id)
-      expect(response).to redirect_to my_studio_path
+      expect(response).to redirect_to edit_my_studio_path
     end
 
     it 'fail update studio profile' do

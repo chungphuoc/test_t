@@ -6,7 +6,6 @@ header.header-section
     h1#intro TONED. Terms of Use Agreement
     h3#last-revision Latest Revision: #{@term.updated_at.strftime("%d %B %Y")}
   section.main-contents
-    p.content-paragraph
-      | #{@term.content.html_safe}
+    | #{@term.content.html_safe}
 footer.footer-section
   = render "shares/footer"
