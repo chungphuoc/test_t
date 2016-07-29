@@ -2,6 +2,9 @@ class Enrollment < ActiveRecord::Base
   paginates_per 12
   belongs_to :customer
   belongs_to :course, counter_cache: true
+  has_many :option_enrollments
+  has_many :options, class_name: 'PayableOption', through: :option_enrollments
+
   validates_uniqueness_of :customer_id, scope: [:course_id, :join_date], message: 'Class has been booked!'
   validate :course_is_open, on: :create
   validate :num_slot_less_than_maximum, on: :create
@@ -80,6 +83,6 @@ class Enrollment < ActiveRecord::Base
   end
 
   def total_cost
-    return course.tuition
+    return course.tuition + options.inject(0) { |sum, o| sum + o.price }
   end
 end

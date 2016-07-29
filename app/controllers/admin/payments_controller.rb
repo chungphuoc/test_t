@@ -1,5 +1,5 @@
 class Admin::PaymentsController < Admin::BaseController
 	def index
-		@studios = Studio.all
+		@studios = Studio.includes(enrollments: [:course, :options])
 	end
 end
