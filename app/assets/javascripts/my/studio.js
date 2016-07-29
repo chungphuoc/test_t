@@ -32,3 +32,15 @@ function add_teacher_click(){
     form.css('display', 'none');
   }
 }
+
+function add_option_click(){
+  form = $('.options-box .form-option');
+
+  if (form.css('display') == 'none') {
+    form.find('input').val('');
+    form.css('display', 'block');
+  }
+  else {
+    form.css('display', 'none');
+  }
+}

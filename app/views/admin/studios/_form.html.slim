@@ -63,6 +63,17 @@
       .error-text
         = @studio.user.errors[:account_owner].to_sentence
   .form-group
+    = f.label :options, class: 'control-label col-sm-2'
+    .col-lg-10
+      - @studio.options.each_with_index do |option, index|
+          .col-lg-2
+            strong Option #{index + 1}
+          .col-lg-10
+            = f.fields_for :options, option do |fo|
+              .form-group
+                = fo.text_field :name, class: "form-control", placeholder: 'Name'
+                = fo.number_field :price, class: "form-control", placeholder: 'Price'
+  .form-group
     = link_to admin_studios_path, class: "btn btn-primary"
       span Back
     = f.submit "Submit", class: "btn btn-primary"

@@ -34,6 +34,31 @@
         color: white;
       }
     }
+    .payable_option {
+      margin-top: 20px;
+      ul {
+        list-style-type: none;
+        margin: auto 20% 20px;
+        border-bottom: 2px solid #777;
+        li {
+          float: left;
+          width: 50%;
+          font-size: 25px;
+          color: #64d7c6;
+          i {
+            margin-right: 7px;
+            color: #f397ef;
+          }
+        }
+      }
+      ul:after {
+        content: " ";
+        display: block; 
+        height: 0; 
+        clear: both;
+        padding-bottom: 10px;
+      }      
+    }
     .facilities{
       margin: 10px 0px;
     }
@@ -298,6 +323,32 @@
   text-decoration: none;
 }
 
+.payable-option-checkout {
+  .option-price {
+    text-decoration: line-through;
+  }
+  .checkbox-option {
+    margin-right: 10px;
+    -moz-transform: scale(1.2); /* FF */
+    -webkit-transform: scale(1.2); /* Safari and Chrome */
+  }
+  label {
+    cursor: pointer;
+  }
+}
+#total-cost {
+  font-weight: bold;
+  color: red;
+}
+#purchase {
+  background-color: #e8a9ef;
+  padding: 5px 10px;
+  color: white;
+  font-size: 20px;
+  border-radius: 2px;
+  border: none;
+  margin-left: -240px;
+}
 .feedback-course {
   margin: 10px 12% 10px;
   input, textarea {

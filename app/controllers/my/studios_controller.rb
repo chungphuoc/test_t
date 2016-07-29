@@ -13,9 +13,9 @@ class My::StudiosController < ApplicationController
 
   def update
     @studio.user.update_attributes(user_params)
-    if @studio.update_attributes(studio_params.merge(facility: params[:facilities] || []))
+    if @studio.update_attributes(studio_params.merge(facility: params[:facilities] || [])) && add_payable_option
       set_flash_message :success, :updated
-      redirect_to my_studio_path
+      redirect_to edit_my_studio_path
     else
       set_flash_message :error, :error, scope: :error, now: true
       render :edit
@@ -28,6 +28,31 @@ class My::StudiosController < ApplicationController
       render 'teacher_box', layout: false
     else
       render json: { error: contract.errors.full_messages }
+    end
+  end
+
+  def add_payable_option
+    if payable_option_params.all? { |k, v| v.blank? }
+      return true 
+    else
+      option = @studio.options.new(name: payable_option_params[:option_name], 
+                                  price: payable_option_params[:option_price])
+      if option.save
+        return true
+      else
+        @studio.options.delete(option)
+        return false
+      end
+    end
+  end
+
+  def remove_payable_option
+    option = @studio.options.find(params[:id])
+    if option.delete
+      redirect_to edit_my_studio_path
+    else
+      flash[:error] = option.errors.full_messages.join(', ')
+      redirect_to edit_my_studio_path
     end
   end
 
@@ -56,6 +81,10 @@ class My::StudiosController < ApplicationController
 
   def user_params
     params.require(:studio).require(:user_attributes).permit(:name, :contact_number, :address, :avatar)
+  end
+
+  def payable_option_params
+    params.permit(:option_name, :option_price)
   end
 
   def translation_scope

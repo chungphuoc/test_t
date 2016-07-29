@@ -35,6 +35,32 @@
   background-color: #f0c9f5 !important;
 }
 
+.payable_option-confirm {
+  margin-top: 20px;
+  ul {
+    list-style-type: none;
+    margin: auto 20% 20px;
+    border-top: 2px solid #777;
+    li {
+      float: left;
+      width: 50%;
+      font-size: 25px;
+      color: #64d7c6;
+      i {
+        margin-right: 7px;
+        color: #f397ef;
+      }
+    }
+  }
+  ul:after, ul:before {
+    content: " ";
+    display: block; 
+    height: 0; 
+    clear: both;
+    padding-bottom: 15px;
+  }      
+}
+
 .add-favourite-class-schedule {
   display: inline;
   .add-to-fav-item {

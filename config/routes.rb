@@ -64,6 +64,8 @@ Rails.application.routes.draw do
     resource :studio, only: [:show, :edit, :update] do
       collection do
         get :add_teacher
+        post :add_payable_option
+        delete :remove_payable_option
       end
     end
     resource :customer, path: :account, only: [:show, :edit, :update]

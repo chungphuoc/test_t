@@ -4,6 +4,7 @@ class EnrollmentNotiMailer < ActionMailer::Base
     @enrollment = enrollment
     @studio = @enrollment.studio
     @customer = @enrollment.customer
+    @course = @enrollment.course
     subject = 'New user book class'
     mail(to: @studio.email, subject: subject, template_name: 'to_studio_book')
   end
@@ -12,6 +13,7 @@ class EnrollmentNotiMailer < ActionMailer::Base
     @enrollment = enrollment
     @studio = @enrollment.studio
     @customer = @enrollment.customer
+    @course = @enrollment.course
     subject = 'User canceled class.'
     mail(to: @studio.email, subject: subject, template_name: 'to_studio_cancel')
   end
@@ -20,6 +22,7 @@ class EnrollmentNotiMailer < ActionMailer::Base
     @enrollment = enrollment
     @studio = @enrollment.studio
     @customer = @enrollment.customer
+    @course = @enrollment.course
     subject = 'Book class confirmation.'
     mail(to: @customer.email, subject: subject, template_name: 'to_user_book')
   end
@@ -28,6 +31,7 @@ class EnrollmentNotiMailer < ActionMailer::Base
     @enrollment = enrollment
     @studio = @enrollment.studio
     @customer = @enrollment.customer
+    @course = @enrollment.course
     subject = 'Cancel class confirmation.'
     mail(to: @customer.email, subject: subject, template_name: 'to_user_cancel')
   end
