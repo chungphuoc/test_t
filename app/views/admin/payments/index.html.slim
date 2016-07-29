@@ -19,3 +19,4 @@ ul
 				- 4.times do
 					td
 				td.total-income Total: #{studio.total_income} #{studio.courses.first.currency}
+= paginate @studios
