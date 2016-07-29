@@ -6,10 +6,8 @@ class Admin::BackgroundImagesController < Admin::BaseController
   def update
     new_image = image_params
     if new_image
-      @images = BackgroundImage.all
       @img = BackgroundImage.find(params[:id])
-      @img.url = image_params[:url]
-      @img.save
+      @img.update_attributes(url: new_image[:url])
       redirect_to admin_background_images_path
     else
       render 'index'

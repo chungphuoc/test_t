@@ -1,7 +1,10 @@
 .home-header-section
   = render "shares/home_header"
   #background-homepage
-    = image_tag @image.url
+    - if @image
+      = image_tag @image.url
+    - else
+      = image_tag 'yoga.jpg'
     #background-opacity
     .header-content
       h1 Be Toned

@@ -58,7 +58,7 @@ Rails.application.routes.draw do
       end
     end
     resources :terms, only: [:index, :edit, :update]
-    resources :background_images
+    resources :background_images, only: [:index, :update]
   end
 
   namespace :my do
