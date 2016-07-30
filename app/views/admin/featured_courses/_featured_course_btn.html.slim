@@ -1,0 +1,6 @@
+- if FeaturedCourse.added?(course_id)
+  = link_to 'Remove to Featured Course', remove_admin_featured_courses_path(course_id: course_id),
+    method: :post, remote: true, class: 'btn btn-danger'
+- else
+  = link_to 'Add to Featured Course', add_admin_featured_courses_path(course_id: course_id),
+    method: :post, remote: true, class: 'btn btn-primary'

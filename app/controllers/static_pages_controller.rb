@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @courses = Course.where(status: Course.statuses[:active]).limit(3)
+    @courses = FeaturedCourse.get_limit_featured_course(3)
   end
 
   def feedback
