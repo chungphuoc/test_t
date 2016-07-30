@@ -7,9 +7,10 @@ class EnrollmentsQuery
   # get enrollments of specific user by statuses
   def by_statuses(statuses)
     @result = if statuses.empty?
-                @user.enrollments
+                @user.enrollments.includes(:course)
               else
                 @user.enrollments.where('status IN (?)', statuses)
+                                 .includes(:course)
               end
   end
 

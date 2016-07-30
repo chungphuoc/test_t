@@ -4,7 +4,8 @@ class Personal::CoursesController < Personal::BaseController
   layout 'personal_no_panel'
 
   def index
-    @courses = Course.where(status: Course.statuses[:active]).limit(3)
+    @courses = Course.where(status: Course.statuses[:active])
+                    .limit(3)
     render layout: 'personal_background'
   end
 
