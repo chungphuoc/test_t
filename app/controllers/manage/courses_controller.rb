@@ -30,7 +30,7 @@ class Manage::CoursesController < Manage::BaseController
         }
       end
       @result = { success: '1', result: @courses }.to_json
-      @hasSlidebar = false
+      @has_slidebar = false
       format.html { render :index, layout: 'studio' }
       format.json { render json: @result }
     end
