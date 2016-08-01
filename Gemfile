@@ -107,7 +107,6 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '2.7.0', require: false
-  gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'simplecov'
 end
