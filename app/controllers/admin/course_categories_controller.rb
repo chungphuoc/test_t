@@ -5,11 +5,7 @@ class Admin::CourseCategoriesController < Admin::BaseController
 
   def remove
     @course_category = CourseCategory.find_by(course_category_params)
-    if @course_category
-      @course_category.destroy
-    else
-      redirect_to admin_courses_path
-    end
+    @course_category.destroy if @course_category
   end
 
   def destroy
@@ -17,11 +13,10 @@ class Admin::CourseCategoriesController < Admin::BaseController
     if @course_category
       @course_category.destroy
       set_flash_message :success, :destroyed
-      redirect_to admin_category_path(params[:category_id])
     else
       set_flash_message :errors, :delete
-      redirect_to admin_category_path(params[:category_id])
     end
+    redirect_to admin_category_path(params[:category_id])
   end
 
   private

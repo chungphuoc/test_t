@@ -1,9 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
     @courses = Course.find_course_by_category('Featured Courses')
-    if @courses
-      @courses = @courses.limit(3)
-    end
+    @courses = @courses.limit(3) if @courses
   end
 
   def feedback
