@@ -13,7 +13,7 @@
                 = hidden_field_tag "exercise_ids[]", id
             #field-station
               .row
-                - Station.all.each do |station|
+                - Station.includes(:translations).each do |station|
                   .col-md-6
                     .element
                       = check_box_tag "station_ids[#{station.id}]", station.id, params[:station_ids] && params[:station_ids].include?(station.id.to_s), name: "station_ids[]"

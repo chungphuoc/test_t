@@ -5,7 +5,7 @@ ul style="list-style-type:none"
   - @studios.each do |studio|
     li
       h2 #{studio.name}
-      table.table.table-striped.table-courses
+      table.table.table-courses.table-course-admin
         tr
           th Index
           th Cover Image
@@ -25,15 +25,19 @@ ul style="list-style-type:none"
               = image_tag course.cover_img
             td #{course.name}
             td #{course.phone_number}
-            td 
+            td
               = link_to course.website
             td #{course.num_slot}
             td #{course.start_time.strftime("%I:%M %p")}
             td #{course.end_time.strftime("%I:%M %p")}
             td #{course.start_date}
             td #{course.tuition}
-            td
+            td rowspan="2"
               = link_to "Show", admin_course_path(course), class: "btn btn-primary"
               = link_to "Edit", edit_admin_course_path(course), class: "btn btn-primary"
               = link_to "Delete", admin_course_path(course), method: "delete", class: "btn btn-danger"
+          tr.button-featured-course
+            td colspan="6"
+              div id="course_#{course.id}"
+                = render 'admin/featured_courses/featured_course_btn', course_id: course.id
 = paginate @studios

@@ -7,6 +7,7 @@ class CoursesSearchService
     results = Course.search(search_params)
     results = results.available(@params[:date]) if @params[:date].present?
     results.where(status: Course.statuses[:active])
+           .includes(:teacher, station: [:translations], studio: [:user])
   end
 
   private
