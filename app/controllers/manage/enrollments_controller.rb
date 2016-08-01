@@ -1,6 +1,8 @@
 class Manage::EnrollmentsController < Manage::BaseController
   def index
-    @enrollments = current_user.enrollments.page(params[:page])
+    @enrollments = current_user.enrollments
+                              .includes(:course, :customer)
+                              .page(params[:page])
     @hasSlidebar = false
   end
 

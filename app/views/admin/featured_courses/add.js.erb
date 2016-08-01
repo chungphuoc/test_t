@@ -1,0 +1,6 @@
+$("#course_<%= @course.id%>").html(
+  "<%=
+    j render('admin/featured_courses/featured_course_btn',
+              course_id: @course.id)
+  %>"
+);

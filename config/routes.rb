@@ -58,6 +58,12 @@ Rails.application.routes.draw do
       end
     end
     resources :terms, only: [:index, :edit, :update]
+    resources :featured_courses do
+      collection do
+        post :add
+        post :remove
+      end
+    end
   end
 
   namespace :my do
