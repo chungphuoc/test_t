@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
   end
 
   def shortcut_name
-    name.split()
-        .inject("") { |a, e| a << e[0, 1].upcase }
+    name.split
+        .inject('') { |a, e| a << e[0, 1].upcase }
   end
 end
