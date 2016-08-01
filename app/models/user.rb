@@ -55,4 +55,8 @@ class User < ActiveRecord::Base
     # end
     @user = User.find_by_provider_and_uid(auth.provider, auth.uid) || User.new
   end
+
+  def shortcut_name
+    name.split().inject ("") { |a, e| a << e[0,1].upcase }
+  end
 end

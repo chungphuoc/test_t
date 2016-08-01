@@ -27,8 +27,8 @@
                     = link_to edit_user_registration_path
                       span = t('button.edit_account')
               li
-                .avatar
-                  = image_tag current_user.avatar, class: "img-circle"
+                .avatar.img-circle
+                  | #{current_user.shortcut_name}
               li
                 = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
               li
