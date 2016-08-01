@@ -9,6 +9,7 @@ class Course < ActiveRecord::Base
   belongs_to :studio
   has_many :enrollments, dependent: :destroy
   has_many :customers, through: :enrollments
+  has_many :course_categories, dependent: :destroy
 
   validates :name, presence: true
   validates :phone_number, presence: true,
