@@ -11,8 +11,15 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
     = flash_messages
   .content
       .row.zero-margin.studio-layout
-        .col-md-12
-          = yield
+        - slide_bar = @hasSlidebar.nil? ? true : @hasSlidebar
+        - if slide_bar
+          = render 'layouts/studio/left_menu'
+          .col-md-9
+            = yield
+        - else
+          .col-md-12
+            = yield
+
   .footer-section
     = render "shares/footer"
   = javascript_include_tag 'application', 'data-turbolinks-track' => true

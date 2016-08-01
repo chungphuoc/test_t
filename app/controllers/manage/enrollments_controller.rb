@@ -1,6 +1,7 @@
 class Manage::EnrollmentsController < Manage::BaseController
   def index
     @enrollments = current_user.enrollments.page(params[:page])
+    @hasSlidebar = false
   end
 
   def booked
