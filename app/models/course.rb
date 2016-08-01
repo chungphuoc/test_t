@@ -114,8 +114,6 @@ class Course < ActiveRecord::Base
 
   def self.find_course_by_category(category_name)
     category = Category.find_by(name: category_name)
-    if category
-      category.courses
-    end
+    category.courses if category
   end
 end

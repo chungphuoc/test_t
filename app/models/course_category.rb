@@ -14,14 +14,12 @@ class CourseCategory < ActiveRecord::Base
   private
 
   def course_exists
-    if Course.find_by(id: course_id).nil?
-      errors.add(:course_id, 'Invalid Course')
-    end
+    course = Course.find_by(id: course_id)
+    errors.add(:course_id, 'Invalid Course') if course.nil?
   end
 
   def category_exists
-    if Category.find_by(id: category_id).nil?
-      errors.add(:category_id, 'Invalid Category')
-    end
+    category = Category.find_by(id: category_id)
+    errors.add(:category_id, 'Invalid Category') if category.nil?
   end
 end
