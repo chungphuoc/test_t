@@ -83,6 +83,6 @@ class Enrollment < ActiveRecord::Base
   end
 
   def total_cost
-    return course.tuition + options.inject(0) { |sum, o| sum + o.price }
+    course.tuition + options.inject(0) { |a, e| a + e.price }
   end
 end

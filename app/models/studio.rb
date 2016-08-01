@@ -28,6 +28,6 @@ class Studio < ActiveRecord::Base
   end
 
   def total_income
-    enrollments.inject(0) { |sum, e| sum + e.total_cost }
+    enrollments.inject(0) { |a, e| a + e.total_cost }
   end
 end
