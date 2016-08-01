@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def self.user_type
-    [['Studio', :studio], ['Customer', :customer]]
+    [[I18n.t('static_text.user_type.studio'), :studio], [I18n.t('static_text.user_type.customer'), :customer]]
   end
 
   def customer?

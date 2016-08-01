@@ -11,7 +11,7 @@ ja:
     cancel: キャンセル
     submit: 登録
     back: 戻る
-    sign_up: ログイン
+    sign_up: サインアップ
     sign_in: 'ログイン'
     sign_out: 'ログアウト'
     about_us: '会社概要'
@@ -52,6 +52,10 @@ ja:
     event_courses: イベント
     new_courses: 新しい
     book: 予約
+    register: 登録
+    login: ログイン中
+    sign_in_with: でサインイン
+    remember_me: 私を覚えてますか
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
@@ -109,6 +113,11 @@ ja:
     rental: レンタル
     towel: タオル
     water: 水
+    user_type:
+      studio: スタジオ
+      customer: 顧客
+    already_have_an_account: すでにアカウントをお持ちですか？
+    forgot_your_password: パスワードをお忘れですか？
   language: '日本語'
   activerecord:
     errors:
