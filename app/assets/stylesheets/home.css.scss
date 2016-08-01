@@ -216,23 +216,30 @@
   .instruction{
     background-color: #8ee1d4;
     margin: 0px;
-    padding: 30px 5%;
+    padding: 50px 5%;
     width: 100%;
-    min-height: 600px;
-    text-align: center;
+    max-height: 600px;
+    color: #686868;
+    font-size: 18px;
     h1 {
-      display: inline-block;
       border-bottom: 2px solid #f397ef;
       color: white;
       padding: 5px;
       margin-bottom: 20px;
     }
+    ul {
+      list-style-type: none;
+      padding: 5px;
+      li {
+        padding: 2px;
+        i {
+          margin-right: 12px;
+          color: #f397ef;
+        }
+      }
+    }
     img {
-      display: block;
-      max-height: 600px;
       max-width: 100%;
-      padding-right: 5% auto;
-      margin:auto;
       box-shadow: 0 0 10px black;
     }
   }
