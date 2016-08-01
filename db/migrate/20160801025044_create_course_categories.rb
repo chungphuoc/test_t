@@ -6,5 +6,8 @@ class CreateCourseCategories < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :course_categories, :category_id
+    add_index :course_categories, :course_id
+    add_index :course_categories, [:category_id, :course_id]
   end
 end
