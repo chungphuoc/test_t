@@ -58,7 +58,7 @@ Rails.application.routes.draw do
       end
     end
     resources :terms, only: [:index, :edit, :update]
-    resources :featured_courses do
+    resources :course_categories, only: [] do
       collection do
         post :add
         post :remove

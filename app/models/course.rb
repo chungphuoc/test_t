@@ -110,4 +110,8 @@ class Course < ActiveRecord::Base
   def feedback(customer, message)
     FeedbackMailer.from_customer_to_studio(customer, self, message).deliver_later
   end
+
+  def self.find_course_by_category(category_name)
+    Category.find_by(name: category_name).courses
+  end
 end
