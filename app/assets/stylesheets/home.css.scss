@@ -216,8 +216,25 @@
   .instruction{
     background-color: #8ee1d4;
     margin: 0px;
-    padding: 50px 5%;
+    padding: 30px 5%;
     width: 100%;
+    min-height: 600px;
+    text-align: center;
+    h1 {
+      display: inline-block;
+      border-bottom: 2px solid #f397ef;
+      color: white;
+      padding: 5px;
+      margin-bottom: 20px;
+    }
+    img {
+      display: block;
+      max-height: 600px;
+      max-width: 100%;
+      padding-right: 5% auto;
+      margin:auto;
+      box-shadow: 0 0 10px black;
+    }
   }
   hr{
     margin-bottom: 0px;
@@ -270,27 +287,8 @@
       }
     }
   }
-
-  .instruction{
-    img{
-      width: 100%;
-    }
-  }
 }
-@media screen and (max-width: 768px){
-  .body-section{
-    .instruction{
-      .col-lg-4{
-        text-align: center;
-        margin-top: 20px;
-        img{
-          width: 70%;
-        }
-      }
 
-    }
-  }
-}
 .footer-section{
   color: white;
   background-color: #635E64;
