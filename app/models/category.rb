@@ -13,12 +13,12 @@ class Category < ActiveRecord::Base
   end
 
   def titleize_name
-    self.name.titleize
+    name.titleize
   end
 
   private
 
   def downcase_name
-    self.name.downcase!
+    name.downcase!
   end
 end
