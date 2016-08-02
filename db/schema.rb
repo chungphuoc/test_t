@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728093155) do
+ActiveRecord::Schema.define(version: 20160801025044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,9 +30,22 @@ ActiveRecord::Schema.define(version: 20160728093155) do
     t.datetime "updated_at"
   end
 
+  create_table "background_images", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "img_type",   default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "branches", force: :cascade do |t|
     t.integer  "studio_id"
     t.integer  "station_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,6 +56,17 @@ ActiveRecord::Schema.define(version: 20160728093155) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "course_categories", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "course_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "course_categories", ["category_id", "course_id"], name: "index_course_categories_on_category_id_and_course_id", using: :btree
+  add_index "course_categories", ["category_id"], name: "index_course_categories_on_category_id", using: :btree
+  add_index "course_categories", ["course_id"], name: "index_course_categories_on_course_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"

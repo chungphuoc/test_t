@@ -1,0 +1,11 @@
+#admin-background-image
+  - @images.each do |img|
+    .row
+      .col-lg-4
+        = img.img_type
+        = form_for [:admin, img], method: :patch do |f|
+          = f.hidden_field :img_type
+          = f.file_field :url
+          = f.submit 'Save', class: 'btn btn-sign-up'
+      .col-lg-8
+        = image_tag img.url

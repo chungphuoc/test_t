@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @image = BackgroundImage.image_homepage
     @courses = FeaturedCourse.get_limit_featured_course(3)
   end
 
