@@ -529,7 +529,7 @@ a.cal-event-week {
 }
 
 #customer-date-title h3, #studio-date-title h3 {
-  padding-left: 100px;
+  text-align: center;
   font-weight: bold;
 }
 

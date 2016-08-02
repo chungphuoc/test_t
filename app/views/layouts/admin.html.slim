@@ -49,6 +49,9 @@ body class = "admin #{@custom_controller_name || controller_name} #{action_name}
                 = link_to admin_courses_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-calendar
                     span Courses
+                = link_to admin_payments_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-euro
+                    span Payments
                 = link_to admin_teachers_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-user
                     span Teachers
