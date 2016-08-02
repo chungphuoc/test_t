@@ -6,10 +6,10 @@ class Category < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
 
   def self.create_default
-    Category.create(name: 'featured courses')
-    Category.create(name: 'popular courses')
-    Category.create(name: 'Event courses')
-    Category.create(name: 'new courses')
+    Category.create(name: 'featured')
+    Category.create(name: 'popular')
+    Category.create(name: 'Event')
+    Category.create(name: 'new')
   end
 
   def titleize_name

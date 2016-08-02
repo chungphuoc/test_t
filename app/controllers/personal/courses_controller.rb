@@ -4,7 +4,7 @@ class Personal::CoursesController < Personal::BaseController
   layout 'personal_no_panel'
 
   def index
-    @courses = find_courses_by_category('featured courses', 3)
+    @courses = find_courses_by_category('featured', 3)
     render layout: 'personal_background'
   end
 
@@ -44,17 +44,17 @@ class Personal::CoursesController < Personal::BaseController
   end
 
   def featured_courses
-    @courses = find_courses_by_category('featured courses', 3)
+    @courses = find_courses_by_category('featured', 3)
     render 'course_recommend', layout: false
   end
 
   def event_courses
-    @courses = find_courses_by_category('event courses', 3)
+    @courses = find_courses_by_category('event', 3)
     render 'course_recommend', layout: false
   end
 
   def new_courses
-    @courses = find_courses_by_category('new courses', 3)
+    @courses = find_courses_by_category('new', 3)
     render 'course_recommend', layout: false
   end
 
