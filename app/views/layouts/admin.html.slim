@@ -52,7 +52,7 @@ body class = "admin #{@custom_controller_name || controller_name} #{action_name}
                 - Category.all.each do | category |
                   = link_to admin_category_path(category.id), class: "list-group-item" do
                     i.glyphicon.glyphicon-list-alt
-                      span = category.name
+                      span = category.titleize_name
                 = link_to admin_teachers_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-user
                     span Teachers

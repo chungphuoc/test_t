@@ -113,7 +113,7 @@ class Course < ActiveRecord::Base
   end
 
   def self.find_course_by_category(category_name)
-    category = Category.find_by(name: category_name)
-    category.courses if category
+    category = Category.find_by(name: category_name.downcase)
+    category.courses unless category.nil?
   end
 end

@@ -45,17 +45,20 @@ class Personal::CoursesController < Personal::BaseController
   end
 
   def featured_courses
-    @courses = Course.where(status: Course.statuses[:active]).limit(3)
+    # @courses = Course.where(status: Course.statuses[:active]).limit(3)
+    @courses = find_courses_by_category('featured courses', 3)
     render 'course_recommend', layout: false
   end
 
   def event_courses
-    @courses = Course.where(status: Course.statuses[:active]).limit(3)
+    # @courses = Course.where(status: Course.statuses[:active]).limit(3)
+    @courses = find_courses_by_category('event courses', 3)
     render 'course_recommend', layout: false
   end
 
   def new_courses
-    @courses = Course.order('created_at DESC').limit(3)
+    # @courses = Course.order('created_at DESC').limit(3)
+    @courses = find_courses_by_category('new courses', 3)
     render 'course_recommend', layout: false
   end
 
@@ -72,6 +75,16 @@ class Personal::CoursesController < Personal::BaseController
   end
 
   private
+
+  def find_courses_by_category(category_name, limit = 3)
+    courses = Course.find_course_by_category(category_name)
+    if courses.nil?
+      []
+    else
+      courses.where(status: Course.statuses[:active]).limit(limit)
+    end
+  end
+
     def convert_time(start_date, start_time)
       dt = DateTime.new(
         start_date.year,
