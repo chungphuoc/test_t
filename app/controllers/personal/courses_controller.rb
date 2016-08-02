@@ -94,15 +94,15 @@ class Personal::CoursesController < Personal::BaseController
   end
 
   def template_course(course)
-    "<div class='course-calendar'>" +
-    "<img src='#{course.cover_img}'>" +
-    "<div class='info-course'>" +
-    "<b>#{course.name}</b>" +
-    "<br><i>Teacher: #{course.teacher.name}</i>" +
-    "<br><i>Studio: #{course.studio.name}</i>" +
-    "<br><i>Station: #{course.station.name}</i>" +
-    "<br><i>Tuition: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" +
-    "</div></div>".html_safe
+    "<div class='course-calendar'>" \
+    "<img src='#{course.cover_img}'>" \
+    "<div class='info-course'>" \
+    "<b>#{course.name}</b>" \
+    "<br><i>Teacher: #{course.teacher.name}</i>" \
+    "<br><i>Studio: #{course.studio.name}</i>" \
+    "<br><i>Station: #{course.station.name}</i>" \
+    "<br><i>Tuition: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" \
+    '</div></div>'.html_safe
   end
 
   def template_day(course)
@@ -111,18 +111,18 @@ class Personal::CoursesController < Personal::BaseController
     "<div class='info-course'>" \
     "<div class='course-title'>" \
     "<b>#{course.name}</b>" \
-    "</div>" \
+    '</div>' \
     "<div class='row'>" \
     "<div class='col-xs-6'>" \
     "<p>#{course.studio.name}</p>" \
     "<p>#{course.teacher.name}</p>" \
     "<p>#{course.station.name}</p>" \
-    "</div>" \
+    '</div>' \
     "<div class='col-xs-6'>" \
     "<p>#{course.kcal} kcal</p>" \
     "<p>#{course.tuition} usd</p>" \
-    "</div>" \
-    "</div>" \
-    "</div></div>".html_safe
+    '</div>' \
+    '</div>' \
+    '</div></div>'.html_safe
   end
 end
