@@ -58,6 +58,7 @@ Rails.application.routes.draw do
       end
     end
     resources :terms, only: [:index, :edit, :update]
+    resources :background_images, only: [:index, :update]
     resources :payments, only: [:index]
     resources :course_categories, only: [] do
       collection do

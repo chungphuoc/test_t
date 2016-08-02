@@ -73,6 +73,9 @@ body class = "admin #{@custom_controller_name || controller_name} #{action_name}
                 li = link_to admin_terms_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-list-alt
                     span Terms/conditions
+                = link_to admin_background_images_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-picture
+                    span Background Images
       .col-lg-9
         .panel
           .panel-heading
