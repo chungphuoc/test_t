@@ -9,6 +9,7 @@ class Course < ActiveRecord::Base
   belongs_to :studio
   has_many :enrollments, dependent: :destroy
   has_many :customers, through: :enrollments
+  has_many :course_categories, dependent: :destroy
 
   validates :name, presence: true
   validates :phone_number, presence: true,
@@ -109,5 +110,10 @@ class Course < ActiveRecord::Base
 
   def feedback(customer, message)
     FeedbackMailer.from_customer_to_studio(customer, self, message).deliver_later
+  end
+
+  def self.find_course_by_category(category_name)
+    category = Category.find_by(name: category_name.downcase)
+    category.courses unless category.nil?
   end
 end

@@ -1,21 +1,10 @@
-- @courses.each do |course|
-  .col-lg-4.course-item
-    .course-content
-      .detail-content
-        .detail-bg
-        = link_to personal_course_path(course) do
-          .detail-info
-            h2.title-course #{course.name}
-      = image_tag course.cover_img
-      end
-    / .detail-bacground
-    / .detail
-    /   - if current_user && current_user.customer?
-    /     - enrollment = Enrollment.find_by_customer_id_and_course_id(current_user.role, course)
-    /     - if enrollment
-    /       .status
-    /         span #{enrollment.status}
-    /   h3.title #{course.name}
-    /   = link_to t('button.detail'), personal_course_path(course), class: "btn btn-warning"
-    /   = rating_for course, "quality", disable_after_rate: true
-end
+- if @courses
+  - @courses.each do |course|
+    .col-lg-4.course-item
+      .course-content
+        .detail-content
+          .detail-bg
+          = link_to personal_course_path(course) do
+            .detail-info
+              h2.title-course #{course.name}
+        = image_tag course.cover_img
