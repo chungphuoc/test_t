@@ -97,9 +97,9 @@ class Personal::CoursesController < Personal::BaseController
     "<img src='#{course.cover_img}'>" \
     "<div class='info-course'>" \
     "<b>#{course.name}</b>" \
-    "<br><i>Teacher: #{course.teacher.name}</i>" \
-    "<br><i>Studio: #{course.studio.name}</i>" \
-    "<br><i>Station: #{course.station.name}</i>" \
+    "<br><i>Teacher: #{course.teacher_name}</i>" \
+    "<br><i>Studio: #{course.studio_name}</i>" \
+    "<br><i>Station: #{course.station_name}</i>" \
     "<br><i>Tuition: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" \
     '</div></div>'.html_safe
   end
@@ -113,9 +113,9 @@ class Personal::CoursesController < Personal::BaseController
     '</div>' \
     "<div class='row'>" \
     "<div class='col-xs-6'>" \
-    "<p>#{course.studio.name}</p>" \
-    "<p>#{course.teacher.name}</p>" \
-    "<p>#{course.station.name}</p>" \
+    "<p>#{course.studio_name}</p>" \
+    "<p>#{course.teacher_name}</p>" \
+    "<p>#{course.station_name}</p>" \
     '</div>' \
     "<div class='col-xs-6'>" \
     "<p>#{course.kcal} kcal</p>" \
