@@ -1,0 +1,22 @@
+ul
+	- @studios.each do |studio|
+		h2 #{studio.name}
+		table.table.table-striped
+			tr
+				th Index
+				th Book number
+				th Course
+				th Customer
+				th Income
+			- studio.enrollments.each_with_index do |enrollment, index|
+				tr
+					td #{index}
+					td = link_to enrollment.id, admin_enrollment_path(enrollment)
+					td = link_to enrollment.course_name, admin_course_path(enrollment.course)
+					td = link_to enrollment.customer_name, admin_customer_path(enrollment.customer)
+					td #{enrollment.total_cost} #{enrollment.course.currency}
+			tr
+				- 4.times do
+					td
+				td.total-income Total: #{studio.total_income} #{studio.courses.first.currency}
+= paginate @studios

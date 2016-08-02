@@ -72,10 +72,15 @@ en:
     event_courses: Event
     new_courses: New
     book: Book
+    register: Register
+    login: Login
+    sign_in_with: Sign in with
+    remember_me: Remember me
   static_text:
     home: Home
     contact_us: Contact Us
     about_us: About Us
+    features: Features
     featured_class: Featured Class
     feedback_text: Feedback
     feedback:
@@ -129,6 +134,11 @@ en:
     rental: Rental
     towel: Towel
     water: Water
+    user_type:
+      studio: Studio
+      customer: Customer
+    already_have_an_account: Already have an account?
+    forgot_your_password: Forgot your password?
   language: "English"
   error:
     access_denied: 'Access Denied'

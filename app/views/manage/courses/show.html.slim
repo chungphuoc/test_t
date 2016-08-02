@@ -8,12 +8,6 @@ table.table.table-stripped
     th Cover
     td = image_tag @course.cover_img, class: 'cover_preview'
   tr
-    th Phone
-    td = @course.phone_number
-  tr
-    th Website
-    td = @course.website
-  tr
     th Description
     td = @course.description
   tr
@@ -25,9 +19,6 @@ table.table.table-stripped
   tr
     th Start time
     td = @course.start_time.strftime("%I:%M %p")
-  tr
-    th End time
-    td = @course.end_time.strftime("%I:%M %p")
   tr
     th Teacher
     td = @course.teacher_name

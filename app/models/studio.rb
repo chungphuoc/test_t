@@ -26,4 +26,8 @@ class Studio < ActiveRecord::Base
   def name_with_initial
     name
   end
+
+  def total_income
+    enrollments.inject(0) { |a, e| a + e.total_cost }
+  end
 end

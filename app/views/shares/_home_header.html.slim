@@ -18,8 +18,8 @@
           li
             = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
           li
-            .avatar
-              = image_tag current_user.avatar, class: "img-circle"
+            .avatar.img-circle
+              | #{current_user.shortcut_name}
           li
             - if current_user.studio?
               = link_to current_user.name, my_studio_path

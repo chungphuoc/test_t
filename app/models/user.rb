@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def self.user_type
-    [['Studio', :studio], ['Customer', :customer]]
+    [[I18n.t('static_text.user_type.studio'), :studio], [I18n.t('static_text.user_type.customer'), :customer]]
   end
 
   def customer?
@@ -54,5 +54,10 @@ class User < ActiveRecord::Base
     #   #user.image = auth.info.image # assuming the user model has an image
     # end
     @user = User.find_by_provider_and_uid(auth.provider, auth.uid) || User.new
+  end
+
+  def shortcut_name
+    name.split
+        .inject('') { |a, e| a << e[0, 1].upcase }
   end
 end

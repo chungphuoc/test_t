@@ -3,6 +3,7 @@ class Manage::EnrollmentsController < Manage::BaseController
     @enrollments = current_user.enrollments
                               .includes(:course, :customer)
                               .page(params[:page])
+    @has_slidebar = false
   end
 
   def booked

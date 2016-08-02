@@ -4,32 +4,32 @@
   .row
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form login-form form-horizontal"}) do |f|
       .row.title
-        h2 Login
+        h2 = t('button.login')
       .row.body
         .form-group.left-inner-addon
           i.glyphicon.glyphicon-envelope
-          = f.email_field :email, class: "form-control", required: "", placeholder: "email"
+          = f.email_field :email, class: "form-control", required: "", placeholder: t('static_text.email')
           - resource.errors.messages[:email].each do |msg|
             p.error-text #{msg}
         .form-group.left-inner-addon
           i.glyphicon.glyphicon-lock
-          = f.password_field :password, class: "form-control", required: "", placeholder: "password"
+          = f.password_field :password, class: "form-control", required: "", placeholder: t('static_text.password')
           - resource.errors.messages[:password].each do |msg|
             p.error-text #{msg}
         - if devise_mapping.rememberable?
           .form-group
             .checkbox.checkbox-primary
               = f.check_box :remember_me
-              = f.label :remember_me
+              = f.label :remember_me, t('button.remember_me')
         .form-group
-          = f.submit "Login", class: "btn btn-primary btn-sign-in"
+          = f.submit t('button.login'), class: "btn btn-primary btn-sign-in"
         //= render "users/shared/links"
         .div
           - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-            = link_to "Forgot your password?", new_password_path(resource_name)
+            = link_to t('static_text.forgot_your_password'), new_password_path(resource_name)
         .facebook-section
           - if devise_mapping.omniauthable?
             - resource_class.omniauth_providers.each do |provider|
-              = link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'facebook-btn'
+              = link_to "#{t('button.sign_in_with')} #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: 'facebook-btn'
         = link_to root_path, title: "back", class: "back-button" do
           span.glyphicon.glyphicon-circle-arrow-left.back-icon
