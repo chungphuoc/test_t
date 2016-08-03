@@ -1,1 +1,3 @@
-button.btn.btn-sign-up.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" = t('button.book')
+- is_booked = @course.is_booked(current_user)
+- text = is_booked ? t('button.is_booked') : t('button.book')
+button.btn.btn-sign-up.btn-add type="button" data-toggle="modal" data-target="#addsClassModal" disabled=is_booked = text

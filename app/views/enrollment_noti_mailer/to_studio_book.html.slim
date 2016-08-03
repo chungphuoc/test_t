@@ -1,14 +1,11 @@
 scss:
-  .container {
-    margin:20px 50px;
-  }
   .header {
     background-color:#64d7c6;
     padding:20px;
     text-align:center;
     color: #787878;
     font-size: 18px;
-    padding: 27px 24%;
+    padding: 27px 20%;
     .logo {
       color: white;
       font-size: 40px;
@@ -55,10 +52,9 @@ scss:
       }
     }
   }
-
 // Content
-h4 style="color:#64d7c6;margin:30px 50px;" = t('email_content.static.dear', name: @studio.user.name)
-.container
+- content_for :content do
+  h4 style="color:#64d7c6;margin:30px 50px;" = t('email_content.static.dear', name: @studio.user.name)
   .header
     .logo
       | TO
@@ -66,7 +62,7 @@ h4 style="color:#64d7c6;margin:30px 50px;" = t('email_content.static.dear', name
     .announcement
       h4 = t('email_content.booked.announcement', customer: @customer.user.name, course: @enrollment.course.name)
     .book-number
-      span = "#{t('email_content.static.book_number')}: #{@enrollment.id}"
+      strong = "#{t('email_content.static.book_number')}: #{@enrollment.id}"
   .content
     .heading = t('email_content.static.reserved')
     .paragraph
@@ -78,7 +74,7 @@ h4 style="color:#64d7c6;margin:30px 50px;" = t('email_content.static.dear', name
       p = "#{t('email_content.static.join_date')}: #{@enrollment.join_date}"
       p = "#{t('email_content.static.teacher')}: #{@enrollment.course.teacher_name}" 
       p = "#{t('email_content.static.tuition')}: #{@enrollment.course.tuition}"
-    - if @enrollment.options.empty?
+    - if @enrollment.options.present?
       h4 = t('email_content.static.options')
       ul
         - @enrollment.options.each do |option|
@@ -91,3 +87,4 @@ h4 style="color:#64d7c6;margin:30px 50px;" = t('email_content.static.dear', name
       p = "#{t('email_content.static.name')}: #{@enrollment.studio.name}"
       p = "#{t('email_content.static.address')}: #{@enrollment.studio.address}"
       p = "#{t('email_content.static.phone')}: #{@enrollment.studio.contact_number}"
+= render template: "layouts/mailer"

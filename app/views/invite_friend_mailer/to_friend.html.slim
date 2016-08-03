@@ -1,25 +1,69 @@
-h4 style="color:#64d7c6;margin:30px 50px;" Dear #{@friend_mail},
-p style="color:gray;margin:30px 50px;" #{@message}
-.div style="margin:20px 50px;"
-  .div style="text-align:center;"
-    h1 style="color:#64d7c6;font-weight:bold" TONE
-  .div style="background-color:#64d7c6;padding:20px;"
-    .div style="text-align:center;"
-      h3 #{@user.name} just invited you to join TONE.
-      hr style="color:gray;margin:2% 20%;"
-    .div style="text-align:center;"
-      h3 A new way of booking exercises classes.
-  .div
-    .div style="text-align:center;color:#de77e9;"
-      h2 You can earn point by sign up now
-    .div style="text-align:center;"
-      p Start booking class fast and easy.
-  hr
+- content_for :content do
+  scss:
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+      .pre {
+        color: #65d7c5;
+      }
+      .suf {
+        color: #aaaaaa;
+      }
+    }
+    .announcement {
+      background-color: #aeebfc;
+      padding: 10px;
+      .para {
+        font-size: 20px;
+        color: #666678;
+        text-align: center;
+        .ele {
+          display: inline-block;
+          padding: 10px;
+        }
+        .up {
+          border-bottom: 2px solid #666678;
+        }
+      }
+    }
+    .infomation {
+      text-align: center;
+      color: #666678;
+      .heading {
+        color: #e24492;
+      }
+    }
+    .btn {
+      background-color: #e24492;
+      font-size: 30px;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      padding: 7px 10px;
+      color: white;
+      &:hover {
+        background-color: #3fcdb8;
+      }
+    }
+  .logo
+    span.pre TO
+    span.suf NED
+  .announcement
+    .para
+      .ele.up = t('email_content.invite.invitation', name: @user.name)
+    .para 
+      .ele = t('email_content.invite.sologan')
+  .infomation
+    h2.heading = t('email_content.invite.benefit')
+    h3 = t('email_content.invite.feature')
+  .div style="text-align:center; margin:30px 0px;"
+    = link_to t('email_content.static.sign_up_now'), new_user_registration_url, class: 'btn'
   .div style="text-align:right"
     = image_tag attachments['phone.png'].url, style: "width:200px;height:400px;margin-top:30px;"
   .div style="background-color:#f3f3f3;text-align:right;"
     = image_tag attachments['phone.png'].url, style: "width:200px;height:400px;margin-top:30px;"
   .div style="text-align:right;"
     = image_tag attachments['phone.png'].url, style: "width:200px;height:400px;margin-top:30px;"
-.div style="text-align:center; margin:30px 0px;"
-  = link_to 'Sign up now', new_user_registration_url, style: "color:white;text-decoration:none;margin:0px auto;background-color:#de77e9;padding:10px 20px;border-radius:7px;font-weight:bold"
+= render template: "layouts/mailer"

@@ -110,4 +110,12 @@ class Course < ActiveRecord::Base
   def feedback(customer, message)
     FeedbackMailer.from_customer_to_studio(customer, self, message).deliver_later
   end
+
+  def is_booked(user)
+    if user.customer?
+      enrollments.exists?(customer_id: user.role.id)
+    else
+      return false
+    end
+  end
 end

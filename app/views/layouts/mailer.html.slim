@@ -1,0 +1,17 @@
+scss:
+  .main {
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  .container {
+    margin:20px 50px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #C6B5F4;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif!important;
+  }
+.main
+  .container
+    = yield(:content)
+  = render 'shares/mailer/footer'
