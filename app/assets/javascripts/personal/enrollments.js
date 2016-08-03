@@ -1,7 +1,7 @@
-function cancel_class(enrollment_id){
+function cancel_class(enrollment_id, locale){
   $.ajax({
     url: "/my/enrollments/cancel",
-    data: {enrollment_id: enrollment_id},
+    data: {enrollment_id: enrollment_id, locale: locale},
     success: function(result){
       $("#enrollment_" + enrollment_id).prop("disabled", true);
       $("#status_" + enrollment_id).text("paid");

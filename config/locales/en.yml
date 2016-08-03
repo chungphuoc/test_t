@@ -327,12 +327,20 @@ en:
       phone: Phone
       book_another_class: Book another Class
       dear: "Dear %{name}"
+      cancelled: CANCELLED
     booked:
       announcement: "%{customer} has already joined %{course} class."
       reserved:
         p1: "Payment is done by %{method}."
         p2: Please show this screen or email when arriving to the studio.
         p3: Please come to Studio 10 min before the class starts.
+    cancelled:
+      announcement: "%{customer} has already canceled %{course} class"
+      reserved:
+        p1: Credit has been added to your account.
+        p2: Cancellation fee will acre when booking is cancelled within 2 hours before the class starts.
+        p3: Thank you for using our service, looking forward to  serving you again!
+
 
 
 

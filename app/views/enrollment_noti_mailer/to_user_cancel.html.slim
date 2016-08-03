@@ -69,41 +69,42 @@ scss:
     }
   }
 // Content
-h4 style="color:#64d7c6;margin:30px 50px;" Dear #{@enrollment.customer.name},
+h4 style="color:#64d7c6;margin:30px 50px;" = t('email_content.static.dear', name: @customer.user.name)
 .container
   .header
     .logo
       | TO
       span NED
     .announcement
-      h4 Your reservation has been canceled
+      h4 = t('email_content.cancelled.announcement', customer: @customer.user.name, course: @enrollment.course.name)
     .book-number
-      span Booking number: #{@enrollment.id}
+      span = "#{t('email_content.static.book_number')}: #{@enrollment.id}"
   .content
-    .heading style="color:#e8a9ef;" CANCELED
+    .heading style="color:#e8a9ef;" = t('email_content.static.cancelled')
     .paragraph
-      p Thank you for using our service, looking forward to serving you again.
-      p Please show this screen or email when arriving to the studio.
-      p Please come to Studio 10 min before the class starts.
+      p = t('email_content.cancelled.reserved.p1')
+      p = t('email_content.cancelled.reserved.p2')
+      p = t('email_content.cancelled.reserved.p3')
   .content
     .heading #{@enrollment.course.name}
     .paragraph
       p #{@enrollment.course.start_time.strftime("%I:%M %p")} - #{@enrollment.course.end_time.strftime("%I:%M %p")}
-      p Join date : #{@enrollment.join_date}
-      p Teacher : #{@enrollment.course.teacher_name}
+      p = "#{t('email_content.static.join_date')}: #{@enrollment.join_date}"
+      p = "#{t('email_content.static.teacher')}: #{@enrollment.course.teacher_name}" 
+      p = "#{t('email_content.static.tuition')}: #{@enrollment.course.tuition}"
     - if @enrollment.options.empty?
-      h4 Options:
+      h4 = t('email_content.static.options')
       ul
         - @enrollment.options.each do |option|
           li
             span.icon +
-            | #{option.name}: #{option.price} #{option.currency}
+            |  #{option.name}: #{option.price} #{option.currency}
     .paragraph
       p #{@enrollment.course.description}
-    .heading Studio
+    .heading = t('email_content.static.studio')
     .paragraph
-      p Name: #{@enrollment.studio.name}
-      p Address: #{@enrollment.studio.address}
-      p Phone: #{@enrollment.studio.contact_number}
+      p = "#{t('email_content.static.name')}: #{@enrollment.studio.name}"
+      p = "#{t('email_content.static.address')}: #{@enrollment.studio.address}"
+      p = "#{t('email_content.static.phone')}: #{@enrollment.studio.contact_number}"
   .content
-      = link_to "Book another Class", personal_courses_url, class: 'btn'
+      = link_to t('email_content.static.book_another_class'), personal_courses_url, class: 'btn'
