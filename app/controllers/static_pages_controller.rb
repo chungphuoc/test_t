@@ -1,6 +1,8 @@
 class StaticPagesController < ApplicationController
   def home
-    @courses = FeaturedCourse.get_limit_featured_course(3)
+    @courses = Course.find_course_by_category('Featured')
+    @courses = @courses.limit(3) if @courses
+    @image = BackgroundImage.image_homepage
   end
 
   def feedback

@@ -23,3 +23,36 @@
     border-top: none !important;
   }
 }
+
+.list-group {
+  list-style: none;
+  ul {
+    list-style:  none;
+  }
+}
+
+.categories-hover {
+  position: relative;
+  ul {
+    padding: 0;
+    position: absolute;
+    left: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 12px 28px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 12px 28px -6px rgba(0,0,0,0.75);
+    box-shadow: 0px 12px 28px -6px rgba(0,0,0,0.75);
+    overflow: hidden;
+    max-height:0;
+    transition: max-height 0.3s ease-in;
+  }
+
+  &:hover {
+    ul {
+      display: block;
+      max-height: 200px;
+    }
+  }
+}

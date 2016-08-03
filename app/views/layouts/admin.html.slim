@@ -15,7 +15,7 @@ body class = "admin #{@custom_controller_name || controller_name} #{action_name}
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand.btn-home href="#{root_path}" 
+          a.navbar-brand.btn-home href="#{root_path}"
             span.title-01 TO
             span.title-02 NED
         #navbar.navbar-collapse.collapse
@@ -36,34 +36,46 @@ body class = "admin #{@custom_controller_name || controller_name} #{action_name}
               = image_tag current_user.avatar_url, class: 'avatar'
               .text-center
                 h1.studio-name.gray = current_user.name
-              .list-group
-                = link_to admin_studios_path, class: "list-group-item" do
+              ul.list-group
+                li = link_to admin_studios_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-user
                     span Studios
-                = link_to admin_customers_path, class: "list-group-item" do
+                li = link_to admin_customers_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-user
                     span Customers
-                = link_to admin_enrollments_path, class: "list-group-item" do
+                li = link_to admin_enrollments_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-compressed
                     span Enrollments
-                = link_to admin_courses_path, class: "list-group-item" do
+                li = link_to admin_courses_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-calendar
                     span Courses
-                = link_to admin_payments_path, class: "list-group-item" do
+                li.categories-hover
+                  = link_to 'javascript:void(0)', class: "list-group-item" do
+                    i.glyphicon.glyphicon-th-list
+                      span Categories
+                  ul
+                    - Category.all.each do | category |
+                      li = link_to admin_category_path(category.id), class: "list-group-item" do
+                        i.glyphicon.glyphicon-list-alt
+                          span = category.titleize_name
+                li = link_to admin_payments_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-euro
                     span Payments
-                = link_to admin_teachers_path, class: "list-group-item" do
+                li = link_to admin_teachers_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-user
                     span Teachers
-                = link_to admin_exercises_path, class: "list-group-item" do
+                li = link_to admin_exercises_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-fire
                     span Exercises
-                = link_to admin_stations_path, class: "list-group-item" do
+                li = link_to admin_stations_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-map-marker
                     span Staions
-                = link_to admin_terms_path, class: "list-group-item" do
+                li = link_to admin_terms_path, class: "list-group-item" do
                   i.glyphicon.glyphicon-list-alt
                     span Terms/conditions
+                = link_to admin_background_images_path, class: "list-group-item" do
+                  i.glyphicon.glyphicon-picture
+                    span Background Images
       .col-lg-9
         .panel
           .panel-heading

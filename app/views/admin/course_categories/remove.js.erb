@@ -1,0 +1,7 @@
+$("#course_<%= @course_category.course_id%>").html(
+  "<%=
+    j render('admin/course_categories/course_category_btn',
+              course_id: @course_category.course_id,
+              category_id: @course_category.category_id)
+  %>"
+);

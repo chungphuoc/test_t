@@ -58,12 +58,16 @@ Rails.application.routes.draw do
       end
     end
     resources :terms, only: [:index, :edit, :update]
+    resources :background_images, only: [:index, :update]
     resources :payments, only: [:index]
-    resources :featured_courses do
+    resources :course_categories, only: [] do
       collection do
         post :add
         post :remove
       end
+    end
+    resources :categories, only: [:show] do
+      resources :course_categories, only: [:destroy]
     end
   end
 

@@ -225,6 +225,9 @@ en:
       updated: 'Teacher has been successfully updated'
       destroyed: 'Teacher has been successfully destroyed'
       destroy_failed: 'Delete teacher failed'
+    course_categories:
+      destroyed: 'Remove successfully'
+      destroy_failed: 'Failed'
   activerecord:
     attributes:
       user:
