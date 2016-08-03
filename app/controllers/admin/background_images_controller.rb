@@ -1,4 +1,6 @@
 class Admin::BackgroundImagesController < Admin::BaseController
+  before_action :create_homepage_background, only: [:index]
+
   def index
     @images = BackgroundImage.all
   end
@@ -18,5 +20,12 @@ class Admin::BackgroundImagesController < Admin::BaseController
 
   def image_params
     params.require(:background_image).permit(:url)
+  end
+
+  def create_homepage_background
+    home_page_image = BackgroundImage.find_by(img_type: BackgroundImage.img_types[:home_page])
+    if home_page_image.nil?
+      BackgroundImage.create_homepage
+    end
   end
 end

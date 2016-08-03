@@ -66,8 +66,11 @@ Rails.application.routes.draw do
         post :remove
       end
     end
-    resources :categories, only: [:show] do
+    resources :categories, only: [:index, :create, :show, :update, :destroy] do
       resources :course_categories, only: [:destroy]
+      collection do
+        post :default
+      end
     end
   end
 
