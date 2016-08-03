@@ -1,0 +1,27 @@
+.errors-field {
+  list-style: none;
+  padding: 0;
+
+  li {
+    color: #f00;
+  }
+}
+
+.delete-button {
+  a {
+    margin: 0;
+  }
+}
+
+.category-name {
+  a {
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.btn-default-category {
+  margin-bottom: 20px !important;
+}
