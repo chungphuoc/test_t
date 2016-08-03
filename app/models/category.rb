@@ -6,8 +6,8 @@ class Category < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   def self.create_default
-    categories_name = ['featured', 'popular', 'Event', 'new']
-    categories_name.each do | name |
+    categories_name = %w(featured popular Event new)
+    categories_name.each do |name|
       Category.create(name: name)
     end
   end

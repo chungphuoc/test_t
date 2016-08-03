@@ -13,6 +13,7 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.new(category_params)
     if @category.save
       redirect_to admin_categories_path
+      set_flash_message(:success, :created)
     else
       @categories = Category.all
       render 'index'
@@ -23,6 +24,9 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.find(params[:id])
     if @category
       @category.destroy
+      set_flash_message(:success, :destroyed)
+    else
+      set_flash_message(:error, :destroy_failed)
     end
     redirect_to admin_categories_path
   end
