@@ -411,3 +411,23 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+  email_content:
+    static:
+      book_number: 予約数
+      reserved: 備蓄
+      join_date: 参加日
+      teacher: コーチ
+      tuition: 授業料
+      options: オプション
+      studio: スタジオ
+      name: 名
+      address: 住所
+      phone: 電話
+      book_another_class: 別のクラスを予約
+      dear: "親愛なる%{name}"
+    booked:
+      announcement: "%{customer}は、既に%{course}クラスに参加しています。"
+      reserved:
+        p1: お支払いは、%{method}によって行われます
+        p2: スタジオに到着したときに、この画面またはEメールを表示してください。
+        p3: クラスが始まる前にスタジオに10分に来てください。
