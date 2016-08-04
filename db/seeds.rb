@@ -351,3 +351,6 @@ puts 'Creating BackgroundImages....'
 BackgroundImage.create(url: File.open("#{Rails.root}/app/assets/images/yoga.jpg"),
                        img_type: BackgroundImage.img_types[:home_page])
 
+puts 'create Terms & conditions'
+Term.create!(content: 'Default')
+
