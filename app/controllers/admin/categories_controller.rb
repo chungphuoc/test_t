@@ -9,33 +9,6 @@ class Admin::CategoriesController < Admin::BaseController
     @category = Category.new
   end
 
-  def create
-    @category = Category.new(category_params)
-    if @category.save
-      redirect_to admin_categories_path
-      set_flash_message(:success, :created)
-    else
-      @categories = Category.all
-      render 'index'
-    end
-  end
-
-  def destroy
-    @category = Category.find(params[:id])
-    if @category
-      @category.destroy
-      set_flash_message(:success, :destroyed)
-    else
-      set_flash_message(:error, :destroy_failed)
-    end
-    redirect_to admin_categories_path
-  end
-
-  def default
-    Category.create_default
-    redirect_to admin_categories_path
-  end
-
   private
 
   def category_params
