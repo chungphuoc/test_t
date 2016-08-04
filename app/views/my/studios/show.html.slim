@@ -68,16 +68,6 @@
             h2.title = t('static_text.cover_img')
           = image_tag @studio.cover_img, class: 'cover_preview', alt: "No preview"
           hr
-          .row.zero-margin
-            .row.center-text
-              h2.title = t('static_text.teachers')
-            table.table.table-striped
-              - @studio.teachers.each_with_index do |teacher, index|
-                tr
-                  td #{teacher.name}
-            .row.center-text
-              = link_to t('button.add_teacher'), manage_contracts_path, class: "btn btn-sign-up"
-            hr
           .row.zero-margin.table-info
             .row.center-text
               h2.title = t('static_text.classes')
@@ -90,6 +80,16 @@
             hr
           .row.zero-margin
             .row.center-text
+              h2.title = t('static_text.teachers')
+            table.table.table-striped
+              - @studio.teachers.each_with_index do |teacher, index|
+                tr
+                  td #{teacher.name}
+            .row.center-text
+              = link_to t('button.add_teacher'), manage_contracts_path, class: "btn btn-sign-up"
+            hr
+          .row.zero-margin
+            .row.center-text
               h2.title = t('static_text.station')
             table.table.table-striped
               - @studio.stations.each_with_index do |station, index|
@@ -98,12 +98,13 @@
             .row.center-text
               = link_to t('button.add_station'), manage_stations_path, class: "btn btn-sign-up"
             hr
-          / .row.zero-margin.facilities
-          /   .row.center-text
-          /     h2.title = t('static_text.facilities')
-          /   = render 'facilities'
-          /   .row.center-text
-          /     = link_to t('button.add_facility'), manage_facilities_path, class: "btn btn-sign-up"
+          .row.zero-margin
+            h2.title.text-center Facilities
+            = render 'facilities_box', disable: true
+            hr
+          .row.zero-margin
+            h2.title.text-center Payable Options
+            = render 'options_box', studio: @studio
 
   script src="//maps.googleapis.com/maps/api/js"
   javascript:

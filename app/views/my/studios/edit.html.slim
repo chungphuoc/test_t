@@ -58,26 +58,7 @@ section#registration-studio
                   = user_form.file_field :avatar
                   .error-text
                     = @studio.user.errors[:avatar].to_sentence
-                .form-group
-                  = f.label :options, 'Payable options'
-                  = render 'options_box'
-                .form-group
-                  .facilities-group
-                    span.facility-element
-                      = check_box_tag 'facilities[]', 0, @studio.facility.include?(0), id: 'facilities_0'
-                      = label_tag 'facilities_0', t('static_text.shower')
-                    span.facility-element
-                      = check_box_tag 'facilities[]', 1, @studio.facility.include?(1), id: 'facilities_1'
-                      = label_tag 'facilities_1', t('static_text.locker')
-                    span.facility-element
-                      = check_box_tag 'facilities[]', 2, @studio.facility.include?(2), id: 'facilities_2'
-                      = label_tag 'facilities_2', t('static_text.rental')
-                    span.facility-element
-                      = check_box_tag 'facilities[]', 3, @studio.facility.include?(3), id: 'facilities_3'
-                      = label_tag 'facilities_3', t('static_text.towel'), value: 3
-                    span.facility-element
-                      = check_box_tag 'facilities[]', 4, @studio.facility.include?(4), id: 'facilities_4'
-                      = label_tag 'facilities_4', t('static_text.water')
+                = render 'facilities_box', disable: false
 
                 .form-group.center-text
                   = f.submit t('button.submit'), class: "btn btn-sign-up btn-save"
