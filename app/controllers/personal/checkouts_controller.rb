@@ -16,10 +16,13 @@ class Personal::CheckoutsController < ApplicationController
   end
 
   private
-    # add payable option to enrollment
-    def add_payable_option
+
+  # add payable option to enrollment
+  def add_payable_option
+    if params[:payable_option].present?
       params[:payable_option].each do |option_id|
         @enrollment.options << PayableOption.find(option_id)
       end
     end
+  end
 end

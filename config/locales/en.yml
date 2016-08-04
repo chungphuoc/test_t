@@ -72,6 +72,7 @@ en:
     event_courses: Event
     new_courses: New
     book: Book
+    is_booked: is Booked
     register: Register
     login: Login
     sign_in_with: Sign in with
@@ -316,6 +317,42 @@ en:
         name: Name
         created_at: Created At
         updated_at: Updated At
+  email_content:
+    static:
+      book_number: Booking number
+      reserved: RESERVED
+      join_date: Join date
+      teacher: Teacher
+      tuition: Tuition
+      options: Options
+      studio: Studio
+      name: Name
+      address: Address
+      phone: Phone
+      book_another_class: Book another Class
+      dear: "Dear %{name}"
+      cancelled: CANCELLED
+      sign_up_now: Sign up now
+    booked:
+      announcement: "%{customer} has already joined %{course} class."
+      reserved:
+        p1: "Payment is done by %{method}."
+        p2: Please show this screen or email when arriving to the studio.
+        p3: Please come to Studio 10 min before the class starts.
+    cancelled:
+      announcement: "%{customer} has already canceled %{course} class"
+      reserved:
+        p1: Credit has been added to your account.
+        p2: Cancellation fee will acre when booking is cancelled within 2 hours before the class starts.
+        p3: Thank you for using our service, looking forward to  serving you again!
+    invite:
+      invitation: "%{name} just invited you to join TONED!"
+      sologan: A new way of booking exercises classes!!
+      benefit: You can earn 100 pointed by signing up now!!
+      feature: Start booking classes fast and easy.
+
+
+
 
 
 

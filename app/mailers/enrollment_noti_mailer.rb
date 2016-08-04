@@ -6,7 +6,9 @@ class EnrollmentNotiMailer < ActionMailer::Base
     @customer = @enrollment.customer
     @course = @enrollment.course
     subject = 'New user book class'
-    mail(to: @studio.email, subject: subject, template_name: 'to_studio_book')
+    I18n.with_locale(I18n.locale) do
+      mail(to: @studio.email, subject: subject, template_name: 'to_studio_book')
+    end
   end
 
   def to_studio_cancel(enrollment)
@@ -24,7 +26,9 @@ class EnrollmentNotiMailer < ActionMailer::Base
     @customer = @enrollment.customer
     @course = @enrollment.course
     subject = 'Book class confirmation.'
-    mail(to: @customer.email, subject: subject, template_name: 'to_user_book')
+    I18n.with_locale(I18n.locale) do
+      mail(to: @customer.email, subject: subject, template_name: 'to_user_book')
+    end
   end
 
   def to_user_cancel(enrollment)

@@ -1,9 +1,8 @@
-p Dear Admin,
-p You have one feedback from #{@username}.
-br
-.div style="text-align:center"
-  p ---------------------------------------------
-  br
-  p style="font-weight:bold; font-size:20px;" #{@title}
-  br
-  p #{@message}
+- content_for :content do
+	p Dear Admin,
+	p 
+		| You have one feedback from #{@username} with email
+		a href="mailto:#{@email}" = " #{@email}"
+	h4 style="color:#2ab27b" Message:
+	p #{@message}
+= render template: "layouts/mailer"
