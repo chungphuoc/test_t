@@ -18,6 +18,5 @@ ul
 			tr
 				- 4.times do
 					td
-				- currency = studio.courses.empty? ? '' : studio.courses.first.currency
-				td.total-income Total: #{studio.total_income} #{currency}
+				td.total-income Total: #{studio.total_income}
 = paginate @studios
