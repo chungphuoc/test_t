@@ -1,27 +1,90 @@
-h4 style="color:#64d7c6;margin:30px 50px;" Dear #{@studio.user.name},
-.div style="margin:20px 50px;"
-  .div style="background-color:#64d7c6;padding:20px;"
-    .div style="color:white;text-align:center;"
-      h1 style="font-weight:bold" TONED
-    .div style="text-align:center;"
-      h4 #{@customer.user.name} has already joined #{@enrollment.course.name} class.
-      hr
-  .div style="text-align:center;" 
-    h2 style="color:#64d7c6;font-weight:bold;" RESERVED
-    h4 Payment is done by Stripe.
-  .div
-    .div style="text-align:center;color:#64d7c6;"
-      h3 #{@enrollment.course.name}
-    .div style="text-align:center;"
+scss:
+  .header {
+    background-color:#64d7c6;
+    padding:20px;
+    text-align:center;
+    color: #787878;
+    font-size: 18px;
+    padding: 27px 20%;
+    .logo {
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      span {
+        color: #686868;
+      }
+    }
+    .announcement {
+      h4 {
+        padding: 13px 50px;
+        border-bottom: 2px solid;
+        display: inline-block;
+        margin: 0;
+      }
+    }
+    .book-number {
+      text-align: right;
+      margin-top: 10px;
+    }
+  }
+  .content {
+    text-align: center;
+    padding: 10px;
+    .heading {
+      color:#64d7c6;
+      font-size: 30px;
+    }
+    .paragraph {
+      color: #787878;
+      font-size: 18px;
+    }
+    ul {
+      list-style-type:none;
+      li {
+        display:inline;
+        margin-right: 10px;
+        color: #64d7c6;
+        font-weight:bold;
+        .icon {
+          color: #f397ef;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+// Content
+- content_for :content do
+  h4 style="color:#64d7c6;margin:30px 50px;" = t('email_content.static.dear', name: @studio.user.name)
+  .header
+    .logo
+      | TO
+      span NED
+    .announcement
+      h4 = t('email_content.booked.announcement', customer: @customer.user.name, course: @enrollment.course.name)
+    .book-number
+      strong = "#{t('email_content.static.book_number')}: #{@enrollment.id}"
+  .content
+    .heading = t('email_content.static.reserved')
+    .paragraph
+      p = t('email_content.booked.reserved.p1', method: 'Stripe')
+  .content
+    .heading #{@enrollment.course.name}
+    .paragraph
       p #{@enrollment.course.start_time.strftime("%I:%M %p")} - #{@enrollment.course.end_time.strftime("%I:%M %p")}
-      p Join date : #{@enrollment.join_date}
-      p Teacher : #{@enrollment.course.teacher_name}
-  .div style="text-align:center"
-    h4 Options:
-    ul style="list-style-type:none;color:#64d7c6;font-weight:bold"
-      - @enrollment.options.each do |option|
-        li style="display:inline"
-          span style="color:red" +
-          |  #{option.name}: #{option.price} #{option.currency}
-  hr
-  p #{Course.first.description}
+      p = "#{t('email_content.static.join_date')}: #{@enrollment.join_date}"
+      p = "#{t('email_content.static.teacher')}: #{@enrollment.course.teacher_name}" 
+      p = "#{t('email_content.static.tuition')}: #{@enrollment.course.tuition}"
+    - if @enrollment.options.present?
+      h4 = t('email_content.static.options')
+      ul
+        - @enrollment.options.each do |option|
+          li
+            span.icon +
+            | #{option.name}: #{option.price} #{option.currency}
+    .paragraph #{@enrollment.course.description}
+    .heading = t('email_content.static.studio')
+    .paragraph
+      p = "#{t('email_content.static.name')}: #{@enrollment.studio.name}"
+      p = "#{t('email_content.static.address')}: #{@enrollment.studio.address}"
+      p = "#{t('email_content.static.phone')}: #{@enrollment.studio.contact_number}"
+= render template: "layouts/mailer"

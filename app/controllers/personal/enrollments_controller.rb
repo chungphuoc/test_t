@@ -41,7 +41,7 @@ class Personal::EnrollmentsController < Personal::BaseController
       @enrollment = current_user.enrollments.last
     else
       flash[:error] = 'Please choose one course!'
-      redirect_to personal_courses
+      redirect_to personal_courses_path
     end
   end
 end

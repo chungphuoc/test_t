@@ -5,6 +5,7 @@
     = hidden_field_tag :tuition, @course.tuition
     = hidden_field_tag :currency, @course.currency
     = hidden_field_tag :course_id, @course.id
+    = hidden_field_tag :locale, I18n.locale
     = select_tag :join_date, options_for_select(@course.slot_time), class: 'form-control'
     = submit_tag 'submit', style: 'display:none', id: 'bookCourse'
     br

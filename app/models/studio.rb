@@ -28,6 +28,9 @@ class Studio < ActiveRecord::Base
   end
 
   def total_income
-    enrollments.inject(0) { |a, e| a + e.total_cost }
+    income = enrollments.inject(0) { |a, e| a + e.total_cost }
+    course = courses.first
+    currency = course ? course.currency : 'JPY'
+    income.to_s + ' ' + currency
   end
 end
