@@ -6,15 +6,16 @@
       .row.center-text
         = rating_for @studio, "stu_quality", disable_after_rate: false
       .row.center-text.zero-margin.body
-        .col-lg-4
-          h4.title Studio Address
-          p.info #{@studio.address}
-        .col-lg-4
-          h4.title Studio Phone
-          p.info #{@studio.contact_number}
-        .col-lg-4
-          h4.title Website
-          p.info #{@studio.website}
+        .col-lg-8.col-lg-offset-2
+          .col-lg-4
+            h4.title Studio Address
+            p.info #{@studio.address}
+          .col-lg-4
+            h4.title Studio Phone
+            p.info #{@studio.contact_number}
+          .col-lg-4
+            h4.title Website
+            p.info #{@studio.website}
     .row.payable_option
       ul 
         - @studio.options.each do |option|
