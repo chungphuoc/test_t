@@ -1,15 +1,4 @@
 .slider-bar
-  .calories
-    h4 Calories
-    - kcal_min = @kcal_courses.min
-    - kcal_max = @kcal_courses.max
-    - if @kcal_courses == []
-      - kcal_min = 0
-      - kcal_max = 0
-    input id="kcal-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1000" data-slider-step="10" data-slider-value="[#{kcal_min}, #{kcal_max}]" onChange="slider_change('kcal');"
-    .number
-      span.min 0
-      span.max 1000
   .time
     h4 Time
     - minute_min = 0
@@ -23,6 +12,17 @@
     .number
       span.min 00:00
       span.max 24:00
+  .calories
+    h4 Calories
+    - kcal_min = @kcal_courses.min
+    - kcal_max = @kcal_courses.max
+    - if @kcal_courses == []
+      - kcal_min = 0
+      - kcal_max = 0
+    input id="kcal-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1000" data-slider-step="10" data-slider-value="[#{kcal_min}, #{kcal_max}]" onChange="slider_change('kcal');"
+    .number
+      span.min 0
+      span.max 1000
 = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
   .select-group
     - if exercise_ids
