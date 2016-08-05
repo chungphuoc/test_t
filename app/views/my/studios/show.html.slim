@@ -33,7 +33,7 @@
           .row.zero-margin.table-info
             table.table
               tr
-                th = User.human_attribute_name('name')
+                th = User.human_attribute_name('email')
                 td = @studio.email
               tr
                 th = User.human_attribute_name('contact_number')
@@ -41,6 +41,9 @@
               tr
                 th = User.human_attribute_name('address')
                 td = @studio.address
+              tr
+                th = Studio.human_attribute_name('website')
+                td = link_to @studio.website, @studio.website
               tr
                 th = Studio.human_attribute_name('bank_name')
                 td = @studio.bank_name
