@@ -59,6 +59,8 @@
       font-weight: bolder;
     }
     #station-names, #exercise-names {
+      background-color: #fff;
+      text-align: left;
       span {
         a {
           text-decoration: none;
@@ -200,4 +202,8 @@
       }
     }
   }
+}
+
+.btn-search {
+  background-color: #4cd1bc;
 }

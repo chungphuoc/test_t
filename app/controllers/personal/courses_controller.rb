@@ -20,8 +20,6 @@ class Personal::CoursesController < Personal::BaseController
     respond_to do |format|
       @favourite_courses = current_user.favourite_courses.includes(:course)
       @courses = CoursesSearchService.new(params).execute.page(params[:page])
-      @kcal_courses = @courses.map(&:kcal)
-      @time_courses = @courses.map(&:start_time)
       events_class = %w(event-warning event-important event-info event-special)
       @courses = @courses.collect do |course|
         start_date = convert_time(course.start_date, course.start_time)
