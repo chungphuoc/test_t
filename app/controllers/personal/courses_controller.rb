@@ -30,6 +30,7 @@ class Personal::CoursesController < Personal::BaseController
           id: course.id,
           title: title,
           tmpls_day: template_day(course),
+          tmpls_week: title,
           name: course.name,
           url: personal_course_path(course),
           class: events_class.sample,

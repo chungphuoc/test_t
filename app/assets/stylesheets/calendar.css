@@ -517,15 +517,23 @@ a.cal-event-week {
 /*css for calendar display in week*/
 .week-event-content {
   background-color: #fff;
-  display: none;
+  overflow: hidden;
+  max-height:0;
+  transition: max-height 0.4s ease-in;
+  padding: 0 !important;
 }
 .week-event-content .calendar-content-box, .week-event-content:hover{
   color: #000;
   background-color: #fff !important;
 }
 
+.week-event-content .calendar-content-box {
+  margin: 20px;
+}
+
 .event-content:hover .week-event-content {
-  display: block;
+  /*display: block;*/
+  max-height: 500px;
 }
 
 #customer-date-title h3, #studio-date-title h3 {
