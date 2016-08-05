@@ -20,9 +20,9 @@ table.table.table-striped.table-booked-class
       td id="status_#{enrollment.id}" = t("activerecord.attributes.enrollment.statuses.#{enrollment.status}")
       td
         - if enrollment.can_cancel?
-          button.btn.btn-sign-in id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id}, '#{I18n.locale}')" #{t('button.cancel')}
+          button.btn.btn-sign-up id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id}, '#{I18n.locale}')" #{t('button.cancel')}
         - else
-          button.btn.btn-sign-in disabled = "disabled" #{t('button.cancel')}
+          button.btn.btn-sign-up disabled = "disabled" #{t('button.cancel')}
         = link_to t('button.show'), personal_course_path(enrollment.course), class: "btn btn-sign-in"
         .add-favourite-class-schedule id="course_#{enrollment.course_id}"
           = render 'personal/favourite_courses/add_to_favourite_btn', course_id: enrollment.course_id, user: current_user
