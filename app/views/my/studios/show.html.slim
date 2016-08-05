@@ -65,6 +65,10 @@
           hr
           .row.invite-friend.zero-margin
             = render 'my/invite_friend'
+          hr
+          .row.zero-margin
+            h2.title.text-center Payable Options
+            = render 'options_box', studio: @studio
 
         .col-lg-4.manage-section
           .row.center-text
@@ -105,9 +109,6 @@
             h2.title.text-center Facilities
             = render 'facilities_box', disable: true
             hr
-          .row.zero-margin
-            h2.title.text-center Payable Options
-            = render 'options_box', studio: @studio
 
   script src="//maps.googleapis.com/maps/api/js"
   javascript:
