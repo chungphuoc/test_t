@@ -1,13 +1,11 @@
 table.table.table-striped
   tr
-    th = t('static_text.index')
     th = Course.human_attribute_name('studio_name')
     th = User.human_attribute_name('address')
     th = User.human_attribute_name('contact_number')
     th
-  - @favorite.each_with_index do |studio, index|
+  - @favorite.each do |studio|
     tr id="studio_#{studio.id}"
-      td.studio-data #{index}
       td.studio-data
         = link_to studio.name, personal_studio_path(studio)
       td #{studio.address}
