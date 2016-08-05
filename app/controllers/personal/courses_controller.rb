@@ -58,17 +58,6 @@ class Personal::CoursesController < Personal::BaseController
     render 'course_recommend', layout: false
   end
 
-  def feedback
-    @course = Course.find(params[:course_id])
-    if params[:message].blank?
-      flash[:error] = 'Feedback fail! Missing messages'
-    else
-      @course.feedback(current_user, params[:message])
-      flash[:success] = 'Feedback successful'
-    end
-    redirect_to personal_course_path(params[:course_id])
-  end
-
   private
 
   def find_courses_by_category(category_name, limit = 3)

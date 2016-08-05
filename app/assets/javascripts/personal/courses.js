@@ -18,12 +18,12 @@ function displaySearch(){
 $(document).ready(function(){
   $('#search-box #field-station .select-box').click(function(){
     content = $('#search-box #field-station .content');
-    content.css('display', 'block');
+    content.toggle();
   });
 
   $('#search-box #field-exercise .select-box').click(function(){
     content = $('#search-box #field-exercise .content');
-    content.css('display', 'block');
+    content.toggle();
   });
 
   $(document).click(function(e){
