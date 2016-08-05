@@ -37,14 +37,10 @@ function by_studio_favorite(locale) {
   });
 }
 
-function remove_studio_favorite(customer_id, course_id, button) {
-  var parent = $(button).parents("tr");
+function remove_studio_favorite(studio_id) {
   $.ajax({
-    url: "/my/favourite_courses/remove",
-    data: { customer_id: customer_id, course_id: course_id },
-    type: "POST",
-    success: function(result){
-      parent.fadeOut(function() { $(this).remove(); });
-    }
+    url: "/my/favourite_studios/remove_more",
+    data: { studio_ids: [ studio_id ] },
+    type: "POST"
   });
 }

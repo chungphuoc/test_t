@@ -18,7 +18,7 @@ class Personal::CoursesController < Personal::BaseController
 
   def search
     respond_to do |format|
-      @favourite_courses = current_user.favourite_courses.includes(:course)
+      @favourite_studios = current_user.favourite_studios.includes(:studio)
       @courses = CoursesSearchService.new(params).execute.page(params[:page])
       @kcal_courses = @courses.map(&:kcal)
       @time_courses = @courses.map(&:start_time)

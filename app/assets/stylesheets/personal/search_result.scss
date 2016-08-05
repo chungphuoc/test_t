@@ -70,7 +70,7 @@
   }
 
   .favorite-studio {
-    .h2 i {
+    .h3 i {
     	color: #f397ef;
     }
     ul {
@@ -89,12 +89,47 @@
         a:hover {
           color: #2980b9;
         }
-    		i {
-    			color: #f397ef;
-    			float: right;
-    			margin-right: 10px;
-    			cursor: pointer;
-    		}
+      /* Base for label styling */
+      input[type="checkbox"]:not(:checked),
+      input[type="checkbox"]:checked {
+        position: absolute;
+        // left: -9999px;
+        opacity: 0;
+      }
+      input[type="checkbox"]:not(:checked) + label,
+      input[type="checkbox"]:checked + label {
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+      }
+
+      /* checkbox aspect */
+      input[type="checkbox"]:not(:checked) + label:before,
+      input[type="checkbox"]:checked + label:before {
+        content: '';
+        position: absolute;
+        left: 0px; top: 3px;
+        width: 17px; height: 17px;
+        border: 1px solid #1abc9c;
+        background: #f8f8f8;
+        border-radius: 3px;
+      }
+      /* checked mark aspect */
+      input[type="checkbox"]:not(:checked) + label:after,
+      input[type="checkbox"]:checked + label:after {
+        content: '✔';
+        position: absolute;
+        left: 0px; top: 3px;
+        font-size: 24px;
+        line-height: 0.8;
+        color: #f397ef;
+        transition: all .1s;
+      }
+      /* checked mark aspect changes */
+      input[type="checkbox"]:not(:checked) + label:after {
+        opacity: 0;
+        transform: scale(0);
+      }
     	}
     	li:hover {
     		background-color: #ecf0f1;

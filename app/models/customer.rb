@@ -12,6 +12,8 @@ class Customer < ActiveRecord::Base
   has_many :stations_favourites, through: :favourite_stations, source: :station
   has_many :favourite_exercises
   has_many :exercises_favourites, through: :favourite_exercises, source: :exercise
+  has_many :favourite_studios
+  has_many :studios_favourites, through: :favourite_studios, source: :studio
   delegate :email, to: :user
   delegate :name, to: :user
   delegate :address, to: :user

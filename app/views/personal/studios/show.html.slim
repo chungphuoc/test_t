@@ -9,6 +9,8 @@
         h2 #{@studio.name}
       .row.center-text
         = rating_for @studio, "stu_quality", disable_after_rate: false
+      .row.zero-margin.center-text
+        = render "personal/favourite_studios/add_to_favourite_wrapper", studio_id: @studio.id, user: current_user
       .row.center-text.zero-margin.body
         .col-lg-4
           h4.title Studio Address

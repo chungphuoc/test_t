@@ -1,13 +1,16 @@
 table.table.table-striped
-	tr
+  tr
+    th = t('static_text.index')
     th = Course.human_attribute_name('studio_name')
-    th = t('static_text.station')
-    th = t('button.favourite_class')
+    th = User.human_attribute_name('address')
+    th = User.human_attribute_name('contact_number')
     th
-	- @favorite.each do |course|
-		tr
-		  td.studio-data #{course.studio_name}
-		  td.studio-data #{course.station_name}
-		  td.studio-data #{course.name}
-		  td.studio-data
-				button onClick="remove_studio_favorite(#{current_user.role_id}, #{course.id}, this)" = t('button.delete')
+  - @favorite.each_with_index do |studio, index|
+    tr id="studio_#{studio.id}"
+      td.studio-data #{index}
+      td.studio-data
+        = link_to studio.name, personal_studio_path(studio)
+      td #{studio.address}
+      td #{studio.contact_number}
+      td.studio-data
+        button onClick="remove_studio_favorite(#{studio.id})" = t('button.delete')

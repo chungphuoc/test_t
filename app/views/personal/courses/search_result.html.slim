@@ -35,14 +35,15 @@
       .col-sm-2
 
   .col-md-3.favorite-studio
-    .h2
+    .h3
       i.fa.fa-heart-o
-      |  Favorite course
+      |  #{t('button.favourite_studio')}
     ul
-      - @favourite_courses.each do |course|
-        li
-          = link_to course.course.name, personal_course_path(course.course.id)
-          i.fa.fa-times aria-hidden="true" onClick="remove_favorite_studio(#{course.customer_id}, #{course.course_id}, this);"
+      - @favourite_studios.each do |favourite_studio|
+        li id="studio_#{favourite_studio.studio.id}"
+          = check_box_tag "favourite_studio_#{favourite_studio.studio.id}", favourite_studio.studio.id
+          = label_tag "favourite_studio_#{favourite_studio.studio.id}",favourite_studio.studio_name
+    button#remove-studio.btn.btn-sign-up onClick="remove_favorite_studios()" Remove
   .col-md-9
     = render 'class_calendar'
 

@@ -39,20 +39,19 @@ $(document).ready(function(){
   });
 });
 
-function remove_favorite_studio(customer_id, course_id, close) {
-  var parent = $(close).parents("li");
+function remove_favorite_studios() {
+  var studio_ids = [];
+  $(".favorite-studio input[type=checkbox]:checked").each(function() {
+    studio_ids.push($(this).val());
+  });
   $.ajax({
-    url: "/my/favourite_courses/remove",
+    url: '/my/favourite_studios/remove_more',
+    method: 'POST',    
     beforeSend: function(xhr) {
       xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]')
          .attr('content'))
     },
-    data: { customer_id: customer_id, course_id: course_id },
-    type: "POST",
-    success: function(result){
-      parent.fadeOut(function() { $(this).remove(); });
-      console.log("remove favorite studio");
-    }
+    data: { studio_ids: studio_ids }
   });
 }
 // get courses depend on url
