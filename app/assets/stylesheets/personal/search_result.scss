@@ -27,6 +27,10 @@
         .slider.slider-horizontal {
           width: 100% !important;
         }
+        .slider-handle {
+          background-color: #676767;
+          background-image: none;
+        }
         .number {
           .min {
             float: left;
@@ -55,6 +59,8 @@
       font-weight: bolder;
     }
     #station-names, #exercise-names {
+      background-color: #fff;
+      text-align: left;
       span {
         a {
           text-decoration: none;
@@ -196,4 +202,8 @@
       }
     }
   }
+}
+
+.btn-search {
+  background-color: #4cd1bc;
 }

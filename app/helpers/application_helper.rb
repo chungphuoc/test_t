@@ -20,9 +20,16 @@ module ApplicationHelper
 
   def link_to_switch_language
     if I18n.locale == :en
-      link_to t('language', locale: :ja), {locale: :ja}, {class: 'btn-header'}
+      link_to t('language', locale: :ja), { locale: :ja }, class: 'btn-header'
     else
-      link_to t('language', locale: :en), {locale: :en}, {class: 'btn-header'}
+      link_to t('language', locale: :en), { locale: :en }, class: 'btn-header'
     end
+  end
+
+  def string_to_minutes(str = '00:00:00')
+    return nil if str.nil?
+    key_arr = [:hour, :minute, :second]
+    time = Hash[key_arr.zip(str.split(':').map(&:to_i))]
+    time[:hour] * 60 + time[:minute]
   end
 end

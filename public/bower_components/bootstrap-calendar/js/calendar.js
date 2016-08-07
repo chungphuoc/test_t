@@ -199,7 +199,7 @@ if(!String.prototype.formatNum) {
 
 		title_year: '{0}',
 		title_month: '{0} {1}',
-		title_week: 'week {0} of {1}',
+		title_week: '{0} {1}',
 		title_day: '{0} {1} {2}, {3}',
 
 		week: 'Week {0}',
@@ -869,7 +869,7 @@ if(!String.prototype.formatNum) {
 				return this.locale.title_month.format(this.locale['m' + p.getMonth()], p.getFullYear());
 				break;
 			case 'week':
-				return this.locale.title_week.format(p.getWeek(getExtentedOption(this, 'week_numbers_iso_8601')), p.getFullYear());
+				return this.locale.title_week.format(this.locale['m' + p.getMonth()], p.getFullYear());
 				break;
 			case 'day':
 				return this.locale.title_day.format(this.locale['d' + p.getDay()], p.getDate(), this.locale['m' + p.getMonth()], p.getFullYear());
@@ -877,7 +877,7 @@ if(!String.prototype.formatNum) {
 		}
 		return;
 	};
-	
+
 	Calendar.prototype.getYear = function() {
 		var p = this.options.position.start;
 		return p.getFullYear();

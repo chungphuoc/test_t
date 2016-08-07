@@ -20,7 +20,7 @@
                 = station.name
                 = link_to "✘", search_personal_courses_path(station_ids: station_ids - [station.id.to_s],
                                                             exercise_ids: exercise_ids)
-        button.btn.btn-sign-up.btn-add type="button" data-toggle="modal" data-target="#checkboxStationModal" +
+        button.btn.btn-sign-up.btn-search type="button" data-toggle="modal" data-target="#checkboxStationModal" +
       .col-sm-4.exercise
         h4
           | Activities
@@ -31,7 +31,7 @@
                 = exercise.name
                 = link_to "✘", search_personal_courses_path(station_ids: station_ids,
                                                             exercise_ids: exercise_ids - [exercise.id.to_s])
-        button.btn.btn-sign-up.btn-add type="button" data-toggle="modal" data-target="#checkboxExerciseModal" +
+        button.btn.btn-sign-up.btn-search type="button" data-toggle="modal" data-target="#checkboxExerciseModal" +
       .col-sm-2
 
   .col-md-3.favorite-studio
