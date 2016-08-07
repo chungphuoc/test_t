@@ -13,7 +13,7 @@ class My::StudiosController < ApplicationController
 
   def update
     @studio.user.update_attributes(user_params)
-    if @studio.update_attributes(studio_params.merge(facility: params[:facilities] || [])) && add_payable_option
+    if @studio.update_attributes(studio_params.merge(facility: params[:facilities] || []))
       set_flash_message :success, :updated
       redirect_to edit_my_studio_path
     else
@@ -32,28 +32,22 @@ class My::StudiosController < ApplicationController
   end
 
   def add_payable_option
-    if payable_option_params.all? { |k, v| v.blank? }
-      return true 
+    option = @studio.options.new(
+      name: payable_option_params[:option_name],
+      price: payable_option_params[:option_price]
+    )
+    if option.save
+      set_flash_message :success, :updated
     else
-      option = @studio.options.new(name: payable_option_params[:option_name], 
-                                  price: payable_option_params[:option_price])
-      if option.save
-        return true
-      else
-        @studio.options.delete(option)
-        return false
-      end
+      set_flash_message :error, :error, scope: :error
     end
+    redirect_to my_studio_path
   end
 
   def remove_payable_option
     option = @studio.options.find(params[:id])
-    if option.delete
-      redirect_to edit_my_studio_path
-    else
-      flash[:error] = option.errors.full_messages.join(', ')
-      redirect_to edit_my_studio_path
-    end
+    flash[:error] = option.errors.full_messages.join(', ') unless option.delete
+    redirect_to my_studio_path
   end
 
   private
