@@ -25,7 +25,7 @@
 
 .btn-sign-in{
   @extend .btn-header;
-  background-color: #3fcdb8;
+  background-color: #4cd1bc;
   color: white !important;
   margin: 10px;
   border-radius: 7px;
@@ -318,7 +318,9 @@
     padding-left: 10%;
   }
   .app-title{
-    color: #64d7c6;
+    color: #dfdfdf;
+    font-size: 30px;
+    font-weight: bold;
   }
   .copy-right .about-us{
     color: white;
