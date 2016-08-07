@@ -228,6 +228,13 @@ en:
     course_categories:
       destroyed: 'Remove successfully'
       destroy_failed: 'Failed'
+    categories:
+      created: 'Category has been successfully created'
+      destroyed: 'Category has been successfully deleted'
+      destroy_failed: 'Delete Failed'
+    background_images:
+      update_failed: 'Update Failed'
+      updated: 'Your Image has been successfully updated'
   activerecord:
     attributes:
       user:

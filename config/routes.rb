@@ -66,7 +66,7 @@ Rails.application.routes.draw do
         post :remove
       end
     end
-    resources :categories, only: [:show] do
+    resources :categories, only: [:show, :index] do
       resources :course_categories, only: [:destroy]
     end
   end
