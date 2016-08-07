@@ -34,8 +34,17 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
                 li
                   = link_to t('button.sign_in'), new_user_session_path, class: 'btn-sign-up'
               - else
-                li 
-                  = link_to t('button.name_my_page', name: current_user.name), current_user.studio? ? my_studio_path : my_customer_path, class: 'btn-header'
+                - if current_user.customer?
+                  li
+                    .avatar.img-circle
+                      | #{current_user.shortcut_name}
+                li
+                  - if current_user.studio?
+                    = link_to t('button.name_my_page', name: current_user.name), my_studio_path, class: 'btn-header btn-name'
+                  - elsif current_user.customer?
+                    = link_to t('button.name_my_page', name: current_user.name), my_customer_path, class: 'btn-header btn-name'
+                  - elsif current_user.admin?
+                    = link_to t('button.name_my_page', name: current_user.name), admin_studios_path, class: 'btn-header btn-name'
                 li
                   = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
               li
