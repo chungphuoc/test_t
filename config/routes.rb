@@ -122,6 +122,13 @@ Rails.application.routes.draw do
         post :remove
       end
     end
+    resources :favourite_studios, only: [] do
+      collection do
+        post :add
+        post :remove
+        post :remove_more
+      end
+    end
     resources :checkouts, only: [] do
       collection do
         post :process_payment
