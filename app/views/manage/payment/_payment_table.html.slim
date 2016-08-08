@@ -1,15 +1,18 @@
+h4.total-price Total price: #{@total_payment}
 table.table.table-striped
   tr
-    th Index
-    th Date, Time
+    th
+    th Date
+    th Time
     th Class name
     th User name
     th Amount
     th Currency
   - @enrollments.each_with_index do |enrollment, index|
     tr
-      td #{index}
-      td #{enrollment.created_at.strftime("%H:%M:%S %a, %m-%d-%y")}
+      td #{index + 1}
+      td #{enrollment.created_at.strftime("%m-%d-%y")}
+      td #{enrollment.created_at.strftime("%H:%M:%S")}
       td #{enrollment.course_name}
       td #{enrollment.studio.name}
       td #{enrollment.course.tuition}
