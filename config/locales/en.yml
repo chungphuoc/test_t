@@ -301,6 +301,8 @@ en:
         station: Station
         exercise: Exercise
         teacher: Teacher
+        date: Date
+        time: Time
       exercise:
         name: Name
         description: Description

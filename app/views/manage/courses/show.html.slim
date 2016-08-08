@@ -3,32 +3,32 @@
     h1 Class Information
   table.table.table-stripped
     tr
-      th Name
+      th = t('activerecord.attributes.course.name')
       td = @course.name
     tr
-      th Cover
+      th = t('activerecord.attributes.course.cover_img')
       td = image_tag @course.cover_img, class: 'cover_preview'
     tr
-      th Description
+      th = t('activerecord.attributes.course.description')
       td = @course.description
     tr
-      th Num slot
+      th = t('activerecord.attributes.course.num_slot')
       td = @course.num_slot
     tr
-      th Date
+      th = t('activerecord.attributes.course.date')
       td = @course.start_date
     tr
-      th Time
+      th = t('activerecord.attributes.course.time')
       td = "#{@course.start_time.strftime("%H:%M")} - #{@course.end_time.strftime("%H:%M")}"
     tr
-      th Teacher
+      th = t('activerecord.attributes.course.teacher')
       td = @course.teacher_name
     tr
-      th Station
+      th = t('activerecord.attributes.course.station')
       td = @course.station_location
     tr
-      th Exercise
+      th = t('activerecord.attributes.course.exercise')
       td = @course.exercise_name
   .row.center-text.zero-margin
-    = link_to 'Back', manage_courses_path, class: "btn btn-sign-up"
-    = link_to 'Edit', edit_manage_course_path(@course), class: "btn btn-sign-up"
+    = link_to t('button.back'), manage_courses_path, class: "btn btn-sign-up"
+    = link_to t('button.edit'), edit_manage_course_path(@course), class: "btn btn-sign-up"
