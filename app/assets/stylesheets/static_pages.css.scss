@@ -13,6 +13,13 @@ body{
   display: block;
   margin: 0 auto;
 }
+.init-avatar {
+  @extend .avatar;
+  background-color: #f397ef;
+  text-align: center;
+  line-height: 250px;
+  font-size: 100px;
+}
 .panel-border {
   max-height: 1px;
 }
