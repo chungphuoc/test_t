@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   delegate :stations_favourites, to: :role
   delegate :favourite_exercises, to: :role
   delegate :exercises_favourites, to: :role
+  delegate :studios_favourites, to: :role
+  delegate :favourite_studios, to: :role
   delegate :courses_enrollments, to: :role
   delegate :point, to: :role
   delegate :enrollments, to: :role, allow_nil: true

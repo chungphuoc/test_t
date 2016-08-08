@@ -1,17 +1,18 @@
-.options-box
-  ul.list-options
-    - @studio.options.each do |option|
-      li
-        = link_to remove_payable_option_my_studio_path(id: option.id), method: :delete do
-          i.fa.fa-times title="Remove"
-        span.name = option.name
-        span.price = "#{option.price} #{option.currency}" 
-  .form-option
-    .table-form
-      .input
-        = text_field_tag 'option_name', '', placeholder: 'Name'
-        = number_field_tag 'option_price', '', placeholder: 'Price', min: 0
-      .add
-        button type="submit" #{t('button.add')}
-  .errors-text 
-  button.add-option type="button" onClick="add_option_click()" #{t('button.add_payable_option')}
+= form_tag add_payable_option_my_studio_path
+  .options-box
+    ul.list-options
+      - @studio.options.each do |option|
+        li
+          = link_to remove_payable_option_my_studio_path(id: option.id), method: :delete do
+            i.fa.fa-times title="Remove"
+          span.name = option.name
+          span.price = "#{option.price} #{option.currency}"
+    .form-option
+      .table-form
+        .input
+          = text_field_tag 'option_name', '', placeholder: 'Name'
+          = number_field_tag 'option_price', '', placeholder: 'Price', min: 0
+        .add
+          button type="submit" #{t('button.add')}
+    .errors-text
+    button.add-option type="button" onClick="add_option_click()" #{t('button.add_payable_option')}

@@ -10,7 +10,7 @@ table.table.table-striped
     th Address
     td = @customer.address
   tr
-    th Number Phone
+    th Phone number
     td = @customer.contact_number
   tr
     th Avatar
@@ -27,7 +27,7 @@ table.table.table-striped
   tr
     th Birthday
     td
-      = @customer.birthday.strftime("%b %d %Y")
+      = @customer.birthday.strftime("%b %d %Y") if @customer.birthday.present?
   tr
     th Gender
     td
@@ -36,18 +36,9 @@ table.table.table-striped
     th Receive sms
     td
       = @customer.receive_sms
-  tr
-    th Classes
-    td
-      ul style="list-style-type: none;"
-        - @customer.enrollments.each do |enrollment|
-          li
-            i.fa.fa-circle 
-            strong  Course: 
-            | #{enrollment.course_name} 
-            strong  Studio: 
-            | #{enrollment.studio.name} 
 = link_to :back, class: "btn btn-primary"
   span Back
+= link_to admin_customer_attended_courses_path(@customer), class: "btn btn-primary"
+  span Attended Courses
 = link_to edit_admin_customer_path(@customer), class: "btn btn-primary"
   span Edit

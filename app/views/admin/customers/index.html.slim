@@ -6,12 +6,16 @@ table.table.table-striped
     th Index
     th Name
     th Email
+    th Phone number
+    th Gender
     th Action
   - @customers.each_with_index do |customer, index|
     tr
       td #{index}
       td #{customer.name}
       td #{customer.email}
+      td #{customer.contact_number}
+      td #{customer.gender}
       td
         = link_to "Show", admin_customer_path(customer), class: "btn btn-primary"
         = link_to "Edit", edit_admin_customer_path(customer), class: "btn btn-primary"

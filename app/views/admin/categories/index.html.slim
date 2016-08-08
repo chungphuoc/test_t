@@ -1,0 +1,11 @@
+h1 Categories
+table.table.table-courses.table-course-admin
+  tr
+    th Name
+    th Courses
+  - @categories.each do | category |
+    tr
+      td.category-name
+        = link_to category.titleize_name, admin_category_path(category.id)
+      td.course-count
+        = category.course_categories.count

@@ -347,7 +347,9 @@ course12 = Course.create!(name: 'Basic Bad', num_slot: 40,
 # customer_user.enrollments.create!(course_id: course4.id)
 Category.create_default
 
-puts 'Creating BackgroundImages....'
-BackgroundImage.create(url: File.open("#{Rails.root}/app/assets/images/yoga.jpg"),
-                       img_type: BackgroundImage.img_types[:home_page])
+puts 'create BackgroundImages....'
+BackgroundImage.create_homepage
+
+puts 'create Terms & conditions'
+Term.create!(content: 'Default')
 
