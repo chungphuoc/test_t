@@ -1,0 +1,28 @@
+h2 
+  | Attended Courses of 
+  span.important-info "#{@customer.name}"
+= link_to :back, class: "btn btn-primary"
+  span Back
+table.table.table-striped
+  tr
+    th Index
+    th Booking number
+    th Course
+    th Studio
+    th Tuition
+    th Payable Options
+  - @enrollments.each_with_index do |enrollment, index|
+    tr
+      td #{index}
+      td 
+        = link_to enrollment.id, admin_enrollment_path(enrollment)
+      td 
+        = link_to enrollment.course.name, admin_course_path(enrollment.course)
+      td 
+        = link_to enrollment.studio.name, admin_studio_path(enrollment.studio)
+      td #{enrollment.course.tuition} #{enrollment.course.currency}
+      td
+        ul.list-none-style
+          - enrollment.options.each do |option|
+            li #{option.name}: #{option.price} #{option.currency}
+= paginate @enrollments

@@ -39,7 +39,7 @@ en:
     close: Close
     re_open: Re-open
     my_page: My Page
-    name_my_page: "%{name}\'s My Page"
+    name_my_page: "%{name}'s My Page"
     my_classes: My Classes
     payment_management: Payment Management
     class_management: Class Management
@@ -122,7 +122,7 @@ en:
     stations: Stations
     exercises: Exercises
     facilities: Facilities
-    teachers: Teachers
+    teachers: Instructor
     cover_img: Cover Image
     class_management: Class Management
     requested_stations: Requested Stations
@@ -228,6 +228,13 @@ en:
     course_categories:
       destroyed: 'Remove successfully'
       destroy_failed: 'Failed'
+    categories:
+      created: 'Category has been successfully created'
+      destroyed: 'Category has been successfully deleted'
+      destroy_failed: 'Delete Failed'
+    background_images:
+      update_failed: 'Update Failed'
+      updated: 'Your Image has been successfully updated'
   activerecord:
     attributes:
       user:

@@ -1,0 +1,7 @@
+$("#studio_<%= @studio_id%>").html(
+  "<%= 
+    j render('personal/favourite_studios/add_to_favourite_btn', 
+              studio_id: @studio_id, 
+              user: current_user) 
+  %>"
+);

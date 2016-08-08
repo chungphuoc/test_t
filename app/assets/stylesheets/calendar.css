@@ -569,3 +569,20 @@ a.cal-event-week {
   font-size: 20px;
   line-height: 0;
 }
+
+.btn-calendar {
+  background-color: #f397ef !important;
+  border-color: #f397ef !important;
+  color: #fff;
+}
+
+.btn-calendar:hover {
+  background-color: #e488e0 !important;
+  border-color: #e488e0 !important;
+  color: #fff !important;
+}
+
+.btn-calendar.active {
+  background-color: #4cd1bc !important;
+  border-color: #4cd1bc !important;
+}

@@ -40,7 +40,9 @@ Rails.application.routes.draw do
       end
     end
     resources :exercises
-    resources :customers
+    resources :customers do
+      resources :attended_courses, only: [:index]
+    end
     resources :studios do
       resources :contracts, only: [:index, :create, :destroy]
       resources :services, only: [:index, :create, :destroy]
@@ -66,7 +68,7 @@ Rails.application.routes.draw do
         post :remove
       end
     end
-    resources :categories, only: [:show] do
+    resources :categories, only: [:show, :index] do
       resources :course_categories, only: [:destroy]
     end
   end
@@ -118,6 +120,13 @@ Rails.application.routes.draw do
       collection do
         post :add
         post :remove
+      end
+    end
+    resources :favourite_studios, only: [] do
+      collection do
+        post :add
+        post :remove
+        post :remove_more
       end
     end
     resources :checkouts, only: [] do

@@ -1,15 +1,15 @@
 class Category < ActiveRecord::Base
-  before_save :downcase_name
+  before_create :downcase_name
   has_many :course_categories, dependent: :destroy
   has_many :courses, through: :course_categories, source: :course
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 
   def self.create_default
-    Category.create(name: 'featured')
-    Category.create(name: 'popular')
-    Category.create(name: 'Event')
-    Category.create(name: 'new')
+    categories_name = %w(featured popular Event new)
+    categories_name.each do |name|
+      Category.create(name: name)
+    end
   end
 
   def titleize_name

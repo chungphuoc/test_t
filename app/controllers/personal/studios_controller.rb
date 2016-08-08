@@ -22,7 +22,7 @@ class Personal::StudiosController < Personal::BaseController
 
   def by_favorite
     I18n.locale = params[:locale]||I18n.locale
-    @favorite = CoursesQuery.new(current_user).favourite_courses
+    @favorite = current_user.studios_favourites.includes(:user)
     render 'studio_by_favorite', layout: false
   end
 end

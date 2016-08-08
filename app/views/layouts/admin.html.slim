@@ -50,7 +50,7 @@ body class = "admin #{@custom_controller_name || controller_name} #{action_name}
                   i.glyphicon.glyphicon-calendar
                     span Courses
                 li.categories-hover
-                  = link_to 'javascript:void(0)', class: "list-group-item" do
+                  = link_to admin_categories_path, class: "list-group-item" do
                     i.glyphicon.glyphicon-th-list
                       span Categories
                   ul

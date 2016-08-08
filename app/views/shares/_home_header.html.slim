@@ -17,28 +17,24 @@
               = link_to t('button.my_page'), admin_studios_path, class: 'btn-header'
           li
             = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
-          li
-            .avatar.img-circle
-              | #{current_user.shortcut_name}
+          - if current_user.customer?
+            li
+              .avatar.img-circle
+                | #{current_user.shortcut_name}
           li
             - if current_user.studio?
               = link_to current_user.name, my_studio_path
             - elsif current_user.customer?
               = link_to current_user.name, my_customer_path
+            - elsif current_user.admin?
+              = link_to current_user.name, admin_studios_path
           li.dropdown
             a.dropdown-toggle type="button" data-toggle="dropdown"
               span.caret
             ul.dropdown-menu
               li
-                - if current_user.studio?
-                  = link_to my_studio_path
-                    p = t('button.my_page')
-                - elsif current_user.customer?
-                  = link_to my_customer_path
-                    p = t('button.my_page')
-              / li
-              /   = link_to destroy_user_session_path, method: :delete
-              /     p = t('button.sign_out')
+                = link_to edit_user_registration_path
+                    span = t('button.edit_account')
         -else
           li
             = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
