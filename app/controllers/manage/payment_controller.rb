@@ -3,6 +3,7 @@ class Manage::PaymentController < Manage::BaseController
     @enrollments = Enrollment.includes(course: [:studio])
                              .page(params[:page])
     @total_payment = cal_total_payment(@enrollments)
+    @has_slidebar = false
   end
 
   def year_filter
