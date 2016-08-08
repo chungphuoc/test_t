@@ -38,6 +38,7 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def new
+    @has_slidebar = false;
     @course = @studio.courses.new
   end
 
