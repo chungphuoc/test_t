@@ -383,6 +383,7 @@
   text-align: center;
   border: 0px solid;
   padding: 5px 0;
+  color: white;
 }
 .cal-row-head [class*="cal-cell"] small {
   font-weight: normal;
@@ -450,7 +451,7 @@ span[data-cal-date]:hover {
   cursor: default;
 }
 .cal-day-today {
-  background-color: #e8fde7;
+  background-color: #3fcdb8;
 }
 .cal-day-today span[data-cal-date] {
   color: darkgreen;
