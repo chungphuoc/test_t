@@ -162,6 +162,50 @@
   background-color: #fff;
 }
 
+/* Base for label styling */
+input.checkbox-search[type="checkbox"]:not(:checked),
+input.checkbox-search[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+input.checkbox-search[type="checkbox"]:not(:checked) + label,
+input.checkbox-search[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  color: #1abc9c;
+}
+
+/* checkbox aspect */
+input.checkbox-search[type="checkbox"]:not(:checked) + label:before,
+input.checkbox-search[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 4px; top: 0px;
+  width: 17px; height: 17px;
+  border: 1px solid #64d7c6;
+  background: #f8f8f8;
+  border-radius: 3px;
+}
+/* checked mark aspect */
+input.checkbox-search[type="checkbox"]:not(:checked) + label:after,
+input.checkbox-search[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  left: 7px;
+  top: -3px;
+  font-size: 24px;
+  line-height: 0.8;
+  color: #f397ef;
+  transition: all .1s;
+}
+/* checked mark aspect changes */
+input.checkbox-search[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
 .radio {
   padding-left: 20px; }
 .radio label {

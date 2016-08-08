@@ -351,17 +351,15 @@
 }
 .feedback-course {
   margin: 10px 12% 10px;
-  input, textarea {
+  textarea {
     display: block;
     width: 100%;
-  }
-  input[type="submit"] {
-    background-color: #f397ef;
-    color: white;
     border: none;
-    font-size: 20px;
+    background-color: #e4e0e0;
+    padding: 5px;
   }
-  textarea {
-    border: 1px solid #f397ef;
+  textarea::-webkit-input-placeholder {
+    color: white;
+    font-size: 18px;
   }
 }

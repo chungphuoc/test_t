@@ -8,6 +8,7 @@ class Personal::CheckoutsController < ApplicationController
       @payment_service.save_payment_info(params)
       @payment_service.update_customer_info(params)
       flash[:success] = t('personal.checkouts.checkout_success')
+      feedback
       redirect_to confirmation_personal_enrollments_path(course_id: params[:course_id])
     else
       flash[:error] = @enrollment.errors.full_messages[0]
@@ -23,6 +24,14 @@ class Personal::CheckoutsController < ApplicationController
       params[:payable_option].each do |option_id|
         @enrollment.options << PayableOption.find(option_id)
       end
+    end
+  end
+  # feedback from customer
+  def feedback
+    @course = Course.find(params[:course_id])
+    if params[:message_fb].present?
+      @course.feedback(current_user, params[:message_fb]) 
+      flash[:success] << 'Feedback successful!!'
     end
   end
 end

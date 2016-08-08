@@ -1,8 +1,4 @@
 .studio-detail
-  .row.zero-margin.app-title.center-text
-    h1.app-name
-      span#color-grey TO
-      span#color-blue NED
   .row.zero-margin.studio-detail-section
     .basic-info
       .row.center-text.title
@@ -12,15 +8,16 @@
       .row.zero-margin.center-text
         = render "personal/favourite_studios/add_to_favourite_wrapper", studio_id: @studio.id, user: current_user
       .row.center-text.zero-margin.body
-        .col-lg-4
-          h4.title Studio Address
-          p.info #{@studio.address}
-        .col-lg-4
-          h4.title Studio Phone
-          p.info #{@studio.contact_number}
-        .col-lg-4
-          h4.title Website
-          p.info #{@studio.website}
+        .col-lg-8.col-lg-offset-2
+          .col-lg-4
+            h4.title Studio Address
+            p.info #{@studio.address}
+          .col-lg-4
+            h4.title Studio Phone
+            p.info #{@studio.contact_number}
+          .col-lg-4
+            h4.title Website
+            p.info #{@studio.website}
     .row.payable_option
       ul 
         - @studio.options.each do |option|
