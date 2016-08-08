@@ -130,7 +130,7 @@ class Manage::CoursesController < Manage::BaseController
     "<br><i>Teacher: #{course.teacher.name}</i>" \
     "<br><i>Studio: #{course.studio.name}</i>" \
     "<br><i>Station: #{course.station.name}</i>" \
-    "<br><i>Tuition: #{course.tuition} #{course.currency}</i>" \
+    "<br><i>Price: #{course.tuition} #{course.currency}</i>" \
     '</div></div>'.html_safe
   end
 
