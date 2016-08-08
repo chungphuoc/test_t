@@ -283,7 +283,7 @@ en:
         website: Website
         description: Description
         rating: Rating
-        kcal: kcal
+        kcal: cal
         num_slot: Number Slots
         start_time: Start Time
         end_time: End Time
@@ -295,12 +295,14 @@ en:
         exercise_name: Exercise Name
         station_name: Station Name
         status: Status
-        tuition: Tuition
+        tuition: Price
         currency: Currency
         days_of_week: Days of Week
         station: Station
         exercise: Exercise
-        teacher: Teacher
+        teacher: Instructor
+        time: Time
+        date: Date
       exercise:
         name: Name
         description: Description

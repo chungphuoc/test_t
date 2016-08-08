@@ -124,4 +124,8 @@ class Course < ActiveRecord::Base
     category = Category.find_by(name: category_name.downcase)
     category.courses unless category.nil?
   end
+
+  def open_slot
+    num_slot - enrollments_count
+  end
 end

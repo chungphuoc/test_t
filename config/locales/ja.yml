@@ -84,7 +84,7 @@ ja:
     name: 名前
     email: メール
     password: パスワード
-    password_confirmation: パスワードを認証する 
+    password_confirmation: パスワードを認証する
     message: メッセージ
     contact_number: 電話番号
     address: 住所
@@ -193,6 +193,8 @@ ja:
         station: 駅
         exercise: 運動
         teacher: 先生
+        time: 時間
+        date: 日
       exercise:
         name: 名前
         description: 説明

@@ -317,8 +317,8 @@
   height: 12px;
   margin-right: 2px;
   margin-bottom: 2px;
-  -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
+  /*-webkit-box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.4);*/
   border-radius: 8px;
   border: 1px solid #ffffff;
 }
@@ -335,7 +335,8 @@
   background-color: #ad2121;
 }
 .event-info {
-  background-color: #1e90ff;
+  /*background-color: #1e90ff;*/
+  background-color: #f397ef;
 }
 .event-warning {
   background-color: #e3bc08;
@@ -347,7 +348,8 @@
   background-color: #006400;
 }
 .event-special {
-  background-color: #800080;
+  /*background-color: #800080;*/
+  background-color: #3fcdb8;
 }
 .day-highlight:hover,
 .day-highlight {
@@ -517,15 +519,23 @@ a.cal-event-week {
 /*css for calendar display in week*/
 .week-event-content {
   background-color: #fff;
-  display: none;
+  overflow: hidden;
+  max-height:0;
+  transition: max-height 0.4s ease-in;
+  padding: 0 !important;
 }
 .week-event-content .calendar-content-box, .week-event-content:hover{
   color: #000;
   background-color: #fff !important;
 }
 
+.week-event-content .calendar-content-box {
+  margin: 20px;
+}
+
 .event-content:hover .week-event-content {
-  display: block;
+  /*display: block;*/
+  max-height: 500px;
 }
 
 #customer-date-title h3, #studio-date-title h3 {

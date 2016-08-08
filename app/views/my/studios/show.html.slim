@@ -7,20 +7,20 @@
       .manage-box
         h4
           = link_to manage_courses_path do
-            i.glyphicon.glyphicon-calendar
-              span = t('static_text.classes')
+            = image_tag 'studio/menu-icons/class.png'
+            span = t('static_text.classes')
         h4
           = link_to manage_contracts_path do
-            i.glyphicon.glyphicon-user
-              span = t('static_text.teachers')
+            = image_tag 'studio/menu-icons/instructor.png'
+            span = t('static_text.teachers')
         h4
           = link_to manage_stations_path do
-            i.glyphicon.glyphicon-map-marker
-              span = t('static_text.stations')
+            = image_tag 'studio/menu-icons/station.png'
+            span = t('static_text.stations')
         h4
           = link_to manage_facilities_path do
-            i.glyphicon.glyphicon-compressed
-              span = t('static_text.facilities')
+            = image_tag 'studio/menu-icons/facility.png'
+            span = t('static_text.facilities')
     .col-lg-9
       .row.studio-content-information
         .col-lg-7.info-section

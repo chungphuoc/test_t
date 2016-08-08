@@ -20,7 +20,7 @@ class Personal::CoursesController < Personal::BaseController
     respond_to do |format|
       @favourite_studios = current_user.favourite_studios.includes(:studio)
       @courses = CoursesSearchService.new(params).execute.page(params[:page])
-      events_class = %w(event-warning event-important event-info event-special)
+      events_class = %w(event-info event-special)
       @courses = @courses.collect do |course|
         start_date = convert_time(course.start_date, course.start_time)
         title = template_course(course)
@@ -28,6 +28,7 @@ class Personal::CoursesController < Personal::BaseController
           id: course.id,
           title: title,
           tmpls_day: template_day(course),
+          tmpls_week: title,
           name: course.name,
           url: personal_course_path(course),
           class: events_class.sample,
@@ -87,7 +88,7 @@ class Personal::CoursesController < Personal::BaseController
     "<br><i>Teacher: #{course.teacher_name}</i>" \
     "<br><i>Studio: #{course.studio_name}</i>" \
     "<br><i>Station: #{course.station_name}</i>" \
-    "<br><i>Tuition: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" \
+    "<br><i>Price: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" \
     '</div></div>'.html_safe
   end
 
