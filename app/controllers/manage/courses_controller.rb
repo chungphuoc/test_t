@@ -14,7 +14,7 @@ class Manage::CoursesController < Manage::BaseController
                      end
         @courses = course_query.courses_by_date(start_date) if start_date
       end
-      events_class = %w(event-warning event-important event-info event-special)
+      events_class = %w(event-info event-special)
       @courses = @courses.collect do |course|
         start_date = convert_time(course.start_date, course.start_time)
         title = template_course(course)
