@@ -450,7 +450,7 @@ span[data-cal-date]:hover {
   cursor: default;
 }
 .cal-day-today {
-  background-color: #e8fde7;
+  background-color: #4cd1bc;
 }
 .cal-day-today span[data-cal-date] {
   color: darkgreen;
@@ -527,7 +527,17 @@ a.cal-event-week {
 .event-content:hover .week-event-content {
   display: block;
 }
-
+.custom-calendar {
+  position: relative;
+}
+.custom-calendar .nav-calendar {
+  z-index: 10;
+}
+#customer-date-title, #studio-date-title {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
 #customer-date-title h3, #studio-date-title h3 {
   text-align: center;
   font-weight: bold;
@@ -575,4 +585,8 @@ a.cal-event-week {
 .btn-calendar.active {
   background-color: #4cd1bc !important;
   border-color: #4cd1bc !important;
+}
+
+.cal-custom-day [class*="cal-cell"]:first-child {
+  background-color: #e488e0;
 }
