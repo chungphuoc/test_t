@@ -1,6 +1,6 @@
 table.table.table-striped
   tr
-    th = t('static_text.index')
+    th
     th = Enrollment.human_attribute_name('date')
     th = Course.human_attribute_name('time')
     th = Enrollment.human_attribute_name('course_name')
@@ -8,7 +8,7 @@ table.table.table-striped
     th = Enrollment.human_attribute_name('customer_name')
   - @enrollments.each_with_index do |enrollment, index|
     tr
-      td #{index}
+      td #{index + 1}
       td #{enrollment.join_date}
       td #{enrollment.start_time.strftime("%I:%M %p")} - #{enrollment.end_time.strftime("%I:%M %p")}
       td #{enrollment.course_name}
