@@ -111,12 +111,12 @@ ActiveRecord::Schema.define(version: 20160809073056) do
 
   create_table "enrollments", force: :cascade do |t|
     t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "course_id"
     t.integer  "status"
     t.date     "join_date"
-    t.integer  "paid_points"
+    t.integer  "paid_points", default: 0
   end
 
   add_index "enrollments", ["course_id"], name: "index_enrollments_on_course_id", using: :btree
