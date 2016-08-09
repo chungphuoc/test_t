@@ -11,7 +11,7 @@ class PayableOption < ActiveRecord::Base
   def check_for_payments
     if enrollments.any?
       errors.add('Cannot delete option that has already been paid')
-      false
+      return false
     end
     true
   end
