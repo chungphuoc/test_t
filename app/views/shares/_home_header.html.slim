@@ -16,7 +16,7 @@
             - elsif current_user.admin?
               = link_to t('button.my_page'), admin_studios_path, class: 'btn-header'
           li
-            = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
+            = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-contact'
           - if current_user.customer?
             li
               .avatar.img-circle
