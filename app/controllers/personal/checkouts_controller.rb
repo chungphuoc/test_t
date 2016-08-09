@@ -9,6 +9,7 @@ class Personal::CheckoutsController < ApplicationController
       @payment = @payment_service.save_payment_info(params, @enrollment)
       # check third party payments service
       if @payment
+        @enrollment.destroy
         flash[:error] = @payment.error
         redirect_to :back
       else
