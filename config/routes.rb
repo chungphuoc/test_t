@@ -178,5 +178,6 @@ Rails.application.routes.draw do
     resources :facilities, only: [:index] do
       put :update, on: :collection
     end
+    resources :payable_options, only: [:index, :create, :destroy]
   end
 end
