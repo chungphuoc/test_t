@@ -29,7 +29,7 @@
             p
               b Tuition
           .col-lg-6
-            p #{@course.tuition} #{@course.currency}
+            p#course_tuition value="#{@course.tuition}" + #{@course.tuition} #{@course.currency}
         .row.payable-option-checkout
           - @course.options.each do |option|
             .col-lg-4.col-lg-offset-1
@@ -37,14 +37,25 @@
                 input.checkbox-option type="checkbox" onClick="add_option_checkout(#{option.id},this)"
                 span #{option.name}
             .col-lg-6  
-              p class="option-price" id="option-price-#{option.id}" data-price="#{option.price}" #{option.price} #{option.currency}
+              p class="option-price" id="option-price-#{option.id}" data-price="#{option.price}" data-selected='0' + #{option.price} #{option.currency}
+        hr
+        .row
+          .col-lg-3.col-lg-offset-2
+            p
+             b Points
+          .col-lg-6
+            span - 
+            = number_field_tag :points, 0, min:0 , max: [current_user.role.point, @course.tuition].min, oninput: 'check_valid_point(this)'
+            span  #{@course.currency}
+            br
+            i Maximum: #{[current_user.role.point, @course.tuition].min}
         hr
         .row
           .col-lg-3.col-lg-offset-2
             p
              b Total cost
           .col-lg-6
-            p#total-cost data-currency='#{@course.currency}' data-price='#{@course.tuition}' #{@course.tuition} #{@course.currency}
+            p#total-cost data-currency='#{@course.currency}' data-price='#{@course.tuition}' data-const='#{@course.tuition}' #{@course.tuition} #{@course.currency}
         hr
         .row
           .col-lg-3.col-lg-offset-2
