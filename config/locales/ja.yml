@@ -120,6 +120,7 @@ ja:
       customer: 顧客
     already_have_an_account: すでにアカウントをお持ちですか？
     forgot_your_password: パスワードをお忘れですか？
+    add_new_option: 新しいオプションを追加
   language: '日本語'
   activerecord:
     errors:

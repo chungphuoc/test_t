@@ -3,13 +3,14 @@
     ul.list-options
       - @studio.options.each do |option|
         li
-          = link_to remove_payable_option_my_studio_path(id: option.id), method: :delete do
+          = link_to manage_payable_option_path(id: option.id), method: :delete do
             i.fa.fa-times title="Remove"
-          span.name = option.name
+          span.name = option.name.capitalize
           span.price = "#{option.price} #{option.currency}"
     .row
       .col-lg-2
       .col-lg-8
+        h3.text-center = t('static_text.add_new_option')
         .form-options
           .table-form
             .input
