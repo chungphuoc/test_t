@@ -43,7 +43,7 @@
         li id="studio_#{favourite_studio.studio.id}"
           = check_box_tag "favourite_studio_#{favourite_studio.studio.id}", favourite_studio.studio.id
           = label_tag "favourite_studio_#{favourite_studio.studio.id}",favourite_studio.studio_name
-    button#remove-studio.btn.btn-sign-up onClick="remove_favorite_studios()" Remove
+    button#remove-studio.btn.btn-primary onClick="remove_favorite_studios()" Remove
   .col-md-9
     = render 'class_calendar'
 

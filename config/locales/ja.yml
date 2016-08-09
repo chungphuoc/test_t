@@ -84,7 +84,7 @@ ja:
     name: 名前
     email: メール
     password: パスワード
-    password_confirmation: パスワードを認証する 
+    password_confirmation: パスワードを認証する
     message: メッセージ
     contact_number: 電話番号
     address: 住所
@@ -193,8 +193,8 @@ ja:
         station: 駅
         exercise: 運動
         teacher: 先生
-        date: 日付
         time: 時間
+        date: 日
       exercise:
         name: 名前
         description: 説明
@@ -445,5 +445,5 @@ ja:
     invite:
       invitation: "%{name}はちょうどあなたが調色に招待します！"
       sologan: 予約の新しい方法は、クラスを行使します！
-      benefit: あなたは、100が今まで署名することによって指さ獲得することができます！
+      benefit: "あなたは、%{point}が今まで署名することによって指さ獲得することができます！"
       feature: クラスは迅速かつ簡単に予約を開始します。

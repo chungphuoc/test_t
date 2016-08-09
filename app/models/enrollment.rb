@@ -30,16 +30,12 @@ class Enrollment < ActiveRecord::Base
   def num_slot_less_than_maximum
     @course = course
     @enrollment_count = @course.enrollments.where(join_date: join_date).count
-    if @enrollment_count >= @course.num_slot
-      errors.add('This class is full! Please choose another time.')
-    end
+    errors.add('This class is full! Please choose another time.') if @enrollment_count >= @course.num_slot
   end
 
   def course_is_open
     @course = course
-    if @course.inactive?
-      errors.add(:course_id, ': This course is not open.')
-    end
+    errors.add(:course_id, ': This course is not open.') if @course.inactive?
   end
 
   def change_status(status)
@@ -70,7 +66,9 @@ class Enrollment < ActiveRecord::Base
   end
 
   def self.update_status
-    Enrollment.where('status = ? AND join_date < ?', Enrollment.statuses[:paid], Date.tomorrow).update_all(status: :passed)
+    Enrollment.where('status = ? AND join_date < ?',
+                     Enrollment.statuses[:paid],
+                     Date.tomorrow).update_all(status: :passed)
     Rails.logger.info("Update status at #{Time.now}")
   end
 
@@ -84,5 +82,17 @@ class Enrollment < ActiveRecord::Base
 
   def total_cost
     course.tuition + options.inject(0) { |a, e| a + e.price }
+  end
+
+  def self.find_enrollment_by_month(month_year = {})
+    month = month_year[:month]
+    year = month_year[:year]
+    return nil if month.nil? || year.nil?
+    if month.to_i == 0
+      Enrollment.where('extract(year from created_at) = ?', year)
+    else
+      Enrollment.where('extract(year from created_at) = ? AND extract(month from created_at) = ?',
+                       year, month)
+    end
   end
 end

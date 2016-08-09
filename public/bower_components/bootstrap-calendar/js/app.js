@@ -3,7 +3,7 @@
   var params = window.location.search.replace("?", "");
   var options = {
     events_source: '/my/courses/search.json?' + params,
-    view: 'week',
+    view: 'day',
     tmpl_path: '/bower_components/bootstrap-calendar/tmpls/',
     tmpl_cache: false,
     onAfterEventsLoad: function(events) {

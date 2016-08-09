@@ -162,6 +162,8 @@
   .col-md-6 {
     padding: 0;
   }
+}
+.checkbox-style {
   .element {
     input[type="checkbox"]:not(:checked),
     input[type="checkbox"]:checked {
@@ -221,20 +223,20 @@
       background-color: #eee;
     }
   }
+}
 
-  .button-search {
-    margin-top: 40px;
-    text-align: center;
+.button-search {
+  margin-top: 40px;
+  text-align: center;
 
-    .btn-search {
-      border: none;
-      background-color: #f397ef;
-      padding: 10px 30px;
-      color: #fff;
+  .btn-search {
+    border: none;
+    background-color: #f397ef;
+    padding: 10px 30px;
+    color: #fff;
 
-      &:hover {
-        background-color: #64d7c6;
-      }
+    &:hover {
+      background-color: #64d7c6;
     }
   }
 }

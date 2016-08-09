@@ -283,7 +283,7 @@ en:
         website: Website
         description: Description
         rating: Rating
-        kcal: kcal
+        kcal: cal
         num_slot: Number Slots
         start_time: Start Time
         end_time: End Time
@@ -295,7 +295,7 @@ en:
         exercise_name: Exercise Name
         station_name: Station Name
         status: Status
-        tuition: Tuition
+        tuition: Price
         currency: Currency
         days_of_week: Days of Week
         station: Station
@@ -349,7 +349,7 @@ en:
         p2: Please show this screen or email when arriving to the studio.
         p3: Please come to Studio 10 min before the class starts.
     cancelled:
-      announcement: "%{customer} has already canceled %{course} class"
+      announcement: "%{customer} has already cancelled %{course} class"
       reserved:
         p1: Credit has been added to your account.
         p2: Cancellation fee will acre when booking is cancelled within 2 hours before the class starts.
@@ -357,7 +357,7 @@ en:
     invite:
       invitation: "%{name} just invited you to join TONED!"
       sologan: A new way of booking exercises classes!!
-      benefit: You can earn 100 pointed by signing up now!!
+      benefit: "You can earn %{point} pointed by signing up now!!"
       feature: Start booking classes fast and easy.
 
 

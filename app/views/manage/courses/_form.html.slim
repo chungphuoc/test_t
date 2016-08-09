@@ -48,20 +48,18 @@
       .error-text
           = @course.errors[:tuition].to_sentence
   .form-group.date_select
-    label.control-label.col-sm-2 = f.label :start_date
+    label.control-label.col-sm-2 = f.label :date
     .col-sm-10
       = f.date_select :start_date, class: 'form-control datepicker'
       .error-text
         = @course.errors[:start_date].to_sentence
   .form-group.time_select
-    label.control-label.col-sm-2 = f.label :start_time
-    .col-sm-10
+    label.control-label.col-sm-2 = f.label :time
+    .col-sm-5
       = f.time_select :start_time, default: {hour: Time.now.hour, minute: Time.now.min}, class: 'form-control'
       .error-text
         = @course.errors[:start_time].to_sentence
-  .form-group.time_select
-    label.control-label.col-sm-2 = f.label :end_time
-    .col-sm-10
+    .col-sm-5
       = f.time_select :end_time, default: {hour: Time.now.hour, minute: Time.now.min}, class: 'form-control'
       .error-text
         = @course.errors[:end_time].to_sentence

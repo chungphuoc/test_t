@@ -14,14 +14,15 @@ class Manage::CoursesController < Manage::BaseController
                      end
         @courses = course_query.courses_by_date(start_date) if start_date
       end
-    events_class = %w(event-warning event-important event-info event-special)
-    @courses = @courses.collect do |course|
+      events_class = %w(event-info event-special)
+      @courses = @courses.collect do |course|
         start_date = convert_time(course.start_date, course.start_time)
         title = template_course(course)
         {
           id: course.id,
           title: title,
           tmpls_day: template_day(course),
+          tmpls_week: template_week(course),
           name: course.name,
           url: manage_course_path(course),
           class: events_class.sample,
@@ -37,6 +38,7 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def new
+    @has_slidebar = false;
     @course = @studio.courses.new
   end
 
@@ -123,15 +125,15 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def template_course(course)
-      "<div class='course-calendar'>" +
-      "<img src='#{course.cover_img}'>" +
-      "<div class='info-course'>" +
-      "<b>#{course.name}</b>" +
-      "<br><i>Teacher: #{course.teacher.name}</i>" +
-      "<br><i>Studio: #{course.studio.name}</i>" +
-      "<br><i>Station: #{course.station.name}</i>" +
-      "<br><i>Tuition: #{course.tuition} #{course.currency}</i>" +
-      "</div></div>".html_safe
+    "<div class='course-calendar'>" \
+    "<img src='#{course.cover_img}'>" \
+    "<div class='info-course'>" \
+    "<b>#{course.name}</b>" \
+    "<br><i>Teacher: #{course.teacher.name}</i>" \
+    "<br><i>Studio: #{course.studio.name}</i>" \
+    "<br><i>Station: #{course.station.name}</i>" \
+    "<br><i>Price: #{course.tuition} #{course.currency}</i>" \
+    '</div></div>'.html_safe
   end
 
   def template_day(course)
@@ -140,18 +142,30 @@ class Manage::CoursesController < Manage::BaseController
     "<div class='info-course'>" \
     "<div class='course-title'>" \
     "<b>#{course.name}</b>" \
-    "</div>" \
+    '</div>' \
     "<div class='row'>" \
     "<div class='col-xs-6'>" \
     "<p>#{course.studio.name}</p>" \
     "<p>#{course.teacher.name}</p>" \
     "<p>#{course.station.name}</p>" \
-    "</div>" \
+    '</div>' \
     "<div class='col-xs-6'>" \
     "<p>#{course.kcal} kcal</p>" \
     "<p>#{course.tuition} usd</p>" \
-    "</div>" \
-    "</div>" \
-    "</div></div>".html_safe
+    '</div>' \
+    '</div>' \
+    '</div></div>'.html_safe
+  end
+
+  def template_week(course)
+    "<div class='course-calendar'>" \
+    "<img src='#{course.cover_img}'>" \
+    "<div class='info-course'>" \
+    "<b>#{course.name}</b>" \
+    "<br><i>Teacher: #{course.teacher.name}</i>" \
+    "<br><i>Studio: #{course.studio.name}</i>" \
+    "<br><i>Station: #{course.station.name}</i>" \
+    "<br><i>Open Slot: #{course.open_slot}</i>" \
+    '</div></div>'.html_safe
   end
 end

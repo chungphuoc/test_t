@@ -1,106 +1,40 @@
-scss:
-  .header {
-    background-color:#64d7c6;
-    padding:20px;
-    text-align:center;
-    padding: 27px 20%;
-    color: #686868;
-    .logo {
-      color: white;
-      font-size: 40px;
-      font-weight: bold;
-      span {
-        color: #686868;
-      }
-    }
-    .announcement {
-      text-align: center;
-      h4 {
-        padding: 13px 50px;
-        border-bottom: 2px solid;
-        display: inline-block;
-        margin: 0;
-      }
-    }
-    .book-number {
-      text-align: right;
-      margin-top: 10px;
-    }
-  }
-  .content {
-    text-align: center;
-    padding: 10px;
-    .heading {
-      color:#64d7c6;
-      font-size: 30px;
-    }
-    .paragraph {
-      color: #787878;
-      font-size: 18px;
-    }
-    ul {
-      list-style-type:none;
-      li {
-        display:inline;
-        margin-right: 10px;
-        color: #64d7c6;
-        font-weight:bold;
-        .icon {
-          color: #f397ef;
-          margin-right: 5px;
-        }
-      }
-    }
-  }
-  .btn {
-    background-color: #e8a9ef;
-    font-size: 30px;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    padding: 7px 10px;
-    color: white;
-    &:hover {
-      background-color: #3fcdb8;
-    }
-  }
 // content
 - content_for :content do
   h4 style="color:#64d7c6;margin:30px 50px;" = t('email_content.static.dear', name: @customer.user.name)
-  .header
-    .logo
+  .header style="background-color: #64d7c6;padding: 27px 20%;text-align: center;color: #787878;font-size: 18px;"
+    .logo style="color: white;font-size: 40px;font-weight: bold;"
       | TO
-      span NED
+      span style="color: #686868;" NED
     .announcement
-      h4 = t('email_content.booked.announcement', customer: @customer.user.name, course: @enrollment.course.name)
-    .book-number
+      h4 style="padding: 13px 50px;border-bottom: 2px solid;display: inline-block;margin: 0;" = t('email_content.booked.announcement', customer: @customer.user.name, course: @enrollment.course.name)
+    .book-number style="text-align: right;margin-top: 10px;"
       strong = "#{t('email_content.static.book_number')}: #{@enrollment.id}"
-  .content
-    .heading = t('email_content.static.reserved')
-    .paragraph
+  .content style="text-align: center;padding: 10px;"
+    .heading style="color: #64d7c6;font-size: 30px;" = t('email_content.static.reserved')
+    .paragraph style="color: #787878;font-size: 18px;"
       p = t('email_content.booked.reserved.p1', method: 'Stripe')
       p = t('email_content.booked.reserved.p2')
       p = t('email_content.booked.reserved.p3')
-  .content
-    .heading #{@enrollment.course.name}
-    .paragraph
+  .content style="text-align: center;padding: 10px;"
+    .heading style="color: #64d7c6;font-size: 30px;" #{@enrollment.course.name}
+    .paragraph style="color: #787878;font-size: 18px;"
       p #{@enrollment.course.start_time.strftime("%I:%M %p")} - #{@enrollment.course.end_time.strftime("%I:%M %p")}
       p = "#{t('email_content.static.join_date')}: #{@enrollment.join_date}"
       p = "#{t('email_content.static.teacher')}: #{@enrollment.course.teacher_name}" 
       p = "#{t('email_content.static.tuition')}: #{@enrollment.course.tuition}"
     - if @enrollment.options.present?
       h4 = t('email_content.static.options')
-      ul
+      ul style="list-style-type: none;"
         - @enrollment.options.each do |option|
-          li
-            span.icon +
+          li style="display: inline;margin-right: 10px;color: #64d7c6;font-weight: bold;"
+            span.icon style="color: #f397ef;margin-right: 5px;" +
             |  #{option.name}: #{option.price} #{option.currency}
-    .paragraph #{@enrollment.course.description}
-    .heading = t('email_content.static.studio')
-    .paragraph
+    .paragraph style="color: #787878;font-size: 18px;" #{@enrollment.course.description}
+    .heading style="color: #64d7c6;font-size: 30px;" = t('email_content.static.studio')
+    .paragraph style="color: #787878;font-size: 18px;"
       p = "#{t('email_content.static.name')}: #{@enrollment.studio.name}"
       p = "#{t('email_content.static.address')}: #{@enrollment.studio.address}"
       p = "#{t('email_content.static.phone')}: #{@enrollment.studio.contact_number}"
-  .content
-    = link_to t('email_content.static.book_another_class'), personal_courses_url, class: 'btn'
+  .content style="text-align: center;padding: 10px;"
+    = link_to t('email_content.static.book_another_class'), personal_courses_url, style: "background-color: #e8a9ef;font-size: 30px;text-decoration: none;border: none;border-radius: 5px;padding: 7px 10px;color: white;"
 = render template: "layouts/mailer"

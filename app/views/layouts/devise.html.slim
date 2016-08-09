@@ -27,7 +27,7 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
               li
                 = link_to t('static_text.home'), root_path, class: 'btn-header'
               li
-                = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header-studio'
+                = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-contact'
               - unless current_user
                 li
                   = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-sign-in'

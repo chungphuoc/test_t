@@ -93,7 +93,6 @@ Rails.application.routes.draw do
         get :featured_courses
         get :event_courses
         get :new_courses
-        post :feedback
       end
     end
     resources :enrollments, only: [:create, :index, :destroy] do

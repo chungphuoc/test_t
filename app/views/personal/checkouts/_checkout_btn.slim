@@ -12,14 +12,21 @@
     script src="https://checkout.stripe.com/checkout.js"
     button id="purchase" Purchase
     javascript:
-		  var handler = StripeCheckout.configure({
-		    key: '#{Rails.configuration.stripe[:publishable_key]}',
-		    locale: 'auto',
-		    token: function(token) {
-		    	$("#checkout-form").prepend($("<input name='source' type='hidden'>").val(token.id));
-		      $("#bookCourse").click();
-		    }
-		  });
+    	var callback = function(token) {
+				$("#checkout-form").prepend($("<input name='source' type='hidden'>")
+													 .val(token.id));
+				var message_fb = $("#message_fb").val();
+				$("#checkout-form").prepend($("<input name='message_fb' type='hidden'>")
+													 .val(message_fb));
+				$("#bookCourse").click();
+    	}
+			var handler = StripeCheckout.configure({
+			  key: '#{Rails.configuration.stripe[:publishable_key]}',
+			  locale: 'auto',
+			  token: function(token) {
+					callback(token);
+			  }
+			});
 
 		  $('#purchase').on('click', function(e) {
 		    // Open Checkout with further options:

@@ -92,23 +92,27 @@
 
   .manage-box {
     margin: 100px 20px;
-    padding: 10px 20px;
+    // padding: 10px 20px;
     background-color: #fff;
     h4 {
-      padding: 10px 0;
+      margin: 0;
     }
     a {
       text-decoration: none;
-      i {
-        color: #64d7c6;
+      display: block;
+      padding: 20px;
+      cursor: pointer;
+      img {
+        width: 30px;
       }
       span {
         margin-left: 10px;
         color: #000;
       }
 
-      &:hover span {
+      &:hover {
         color: #333;
+        background-color: #eee;
       }
     }
   }
