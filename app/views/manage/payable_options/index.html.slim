@@ -1,0 +1,23 @@
+= form_for @payable_option, url: manage_payable_options_path, method: :post do |f|
+  .options-box
+    ul.list-options
+      - @studio.options.each do |option|
+        li
+          = link_to remove_payable_option_my_studio_path(id: option.id), method: :delete do
+            i.fa.fa-times title="Remove"
+          span.name = option.name
+          span.price = "#{option.price} #{option.currency}"
+    .row
+      .col-lg-2
+      .col-lg-8
+        .form-options
+          .table-form
+            .input
+              = f.text_field :name, placeholder: 'Name', class: 'form-control'
+              = f.number_field :price, placeholder: 'Price', class: 'form-control'
+            .errors-text
+              - @payable_option.errors.full_messages.each do |error_message|
+                p = error_message
+            .add.text-center
+              = f.submit :submit, value: 'Add', class: 'btn btn-sign-up'
+      .col-lg-2
