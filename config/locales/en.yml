@@ -122,7 +122,8 @@ en:
     stations: Stations
     exercises: Exercises
     facilities: Facilities
-    teachers: Instructor
+    options: Options
+    teachers: Instructors
     cover_img: Cover Image
     class_management: Class Management
     requested_stations: Requested Stations
