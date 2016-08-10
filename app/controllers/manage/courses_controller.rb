@@ -97,6 +97,10 @@ class Manage::CoursesController < Manage::BaseController
     @past_courses = @studio.courses.past
   end
 
+  def all
+    @courses = @studio.courses.all
+  end
+
   private
 
   def convert_time(start_date, start_time)

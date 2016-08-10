@@ -155,6 +155,7 @@ Rails.application.routes.draw do
       collection do
         get :booked
         get :past
+        get :all
       end
       member do
         put :close
