@@ -84,15 +84,32 @@ class Enrollment < ActiveRecord::Base
     course.tuition + options.inject(0) { |a, e| a + e.price }
   end
 
-  def self.find_enrollment_by_month(month_year = {})
+  def self.find_enrollment_by_month(month_year = {}, studio = nil)
     month = month_year[:month]
     year = month_year[:year]
     return nil if month.nil? || year.nil?
+    result = nil
     if month.to_i == 0
+      result = Enrollment.where('extract(year from enrollments.created_at) = ?', year)
+    else
+      result = Enrollment.where(
+        'extract(year from enrollments.created_at) = ? AND extract(month from enrollments.created_at) = ?',
+        year,
+        month
+      )
+    end
+    unless studio.nil?
+      result = result.joins(:course).where('courses.studio_id = ?', studio.id)
+    end
+    result
+  end
+
+  def self.find_enrollment_by_year(year = nil, studio = nil)
+    return nil if year.nil?
+    if studio.nil?
       Enrollment.where('extract(year from created_at) = ?', year)
     else
-      Enrollment.where('extract(year from created_at) = ? AND extract(month from created_at) = ?',
-                       year, month)
+      studio.enrollments.where('extract(year from created_at) = ?', year)
     end
   end
 end
