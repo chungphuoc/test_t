@@ -1,16 +1,18 @@
 table.table.table-striped.table-booked-class
   tr
-    th = t('static_text.index')
+    th
     th = Course.human_attribute_name('cover_img')
     th = Course.human_attribute_name('name')
     th = Course.human_attribute_name('start_date')
     th = Course.human_attribute_name('start_time')
     th = Course.human_attribute_name('end_time')
     th = Enrollment.human_attribute_name('status')
+    - if rating
+      th Rating
     th = t('static_text.action')
   - @enrollments.each_with_index do |enrollment, index|
     tr.booked-row-classes
-      td #{index}
+      td #{index + 1}
       td
         = image_tag enrollment.cover_img
       td #{enrollment.course_name}
@@ -18,6 +20,9 @@ table.table.table-striped.table-booked-class
       td #{enrollment.start_time.strftime("%I:%M %p")}
       td #{enrollment.end_time.strftime("%I:%M %p")}
       td id="status_#{enrollment.id}" = t("activerecord.attributes.enrollment.statuses.#{enrollment.status}")
+      - if rating
+        td
+          = rating_for enrollment.course, "quality", disable_after_rate: false
       td
         - if enrollment.can_cancel?
           button.btn.btn-sign-up id="enrollment_#{enrollment.id}" onClick="cancel_class(#{enrollment.id}, '#{I18n.locale}')" #{t('button.cancel')}
@@ -27,3 +32,4 @@ table.table.table-striped.table-booked-class
         .add-favourite-class-schedule id="course_#{enrollment.course_id}"
           = render 'personal/favourite_courses/add_to_favourite_btn', course_id: enrollment.course_id, user: current_user
 = paginate @enrollments
+= javascript_include_tag 'ratyrate.js', "data-turbolinks-track" => false
