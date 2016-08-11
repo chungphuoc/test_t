@@ -21,9 +21,9 @@ ja:
     my_page: 'マイページ'
     name_my_page: '%{name}の私のページ'
     my_classes: 私のクラス
-    payment_management: 支払い　管理
-    class_management: クラス　管理
-    class_calendar: クラスのカレンダー
+    payment_management: 支払い管理
+    class_management: クラス管理
+    class_calendar: クラス　スケジュール
     search_class: クラス　検索
     booked_class: 予約済みクラス
     passed_class: 過去のクラス
