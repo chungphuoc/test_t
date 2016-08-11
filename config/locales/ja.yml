@@ -54,9 +54,9 @@ ja:
     book: 予約
     is_booked: 予約されています
     register: 登録
-    login: ログイン中
+    login: ログイン
     sign_in_with: でサインイン
-    remember_me: 私を覚えてますか
+    remember_me: パスワード保存
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
