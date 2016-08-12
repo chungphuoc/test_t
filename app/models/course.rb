@@ -10,11 +10,8 @@ class Course < ActiveRecord::Base
   has_many :enrollments, dependent: :destroy
   has_many :customers, through: :enrollments
   has_many :course_categories, dependent: :destroy
+  belongs_to :course_type
 
-  validates :name, presence: true
-  validates :phone_number, presence: true,
-                           format: { with: Settings.regexp.phone },
-                           length: { minimum: 10, maximum: 12 }
   validates :num_slot, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :kcal, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :tuition, presence: true, numericality: { greater_than_or_equal_to: 0 }
@@ -22,9 +19,9 @@ class Course < ActiveRecord::Base
   validates :teacher, presence: true
   validates :station, presence: true
   validates :exercise, presence: true
-  validates :website, format: { with: Settings.regexp.url }, allow_blank: true
-  validate :must_have_days_of_week
+  validates :course_type, presence: true
 
+  delegate :name, to: :course_type
   delegate :name, to: :teacher, prefix: true
   delegate :location, to: :station, prefix: true
   delegate :name, to: :exercise, prefix: true
@@ -82,10 +79,6 @@ class Course < ActiveRecord::Base
 
   def self.available(date)
     where.not('? = ANY(full_dates)', date)
-  end
-
-  def must_have_days_of_week
-    errors.add(:days_of_week, 'Must choose at least one day.') unless days_of_week.any?
   end
 
   def self.search_by_calories(courses, params = {})

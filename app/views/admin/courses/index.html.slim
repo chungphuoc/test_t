@@ -10,8 +10,6 @@ ul style="list-style-type:none"
           th Index
           th Cover Image
           th Name
-          th Phone Number
-          th Website
           th Num Slot
           th Start Time
           th End Time
@@ -24,9 +22,6 @@ ul style="list-style-type:none"
             td
               = image_tag course.cover_img
             td #{course.name}
-            td #{course.phone_number}
-            td
-              = link_to course.website
             td #{course.num_slot}
             td #{course.start_time.strftime("%I:%M %p")}
             td #{course.end_time.strftime("%I:%M %p")}

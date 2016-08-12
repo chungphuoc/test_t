@@ -1,28 +1,16 @@
 = form_for [:manage, @course], :html => {:class => 'form-horizontal'} do |f|
   .form-group
-    label.control-label.col-sm-2 = f.label :name
+    label.control-label.col-sm-2 = f.label :course_type
     .col-sm-10
-      = f.text_field :name, class: 'form-control', required: ""
+      = f.select :course_type_id, options_from_collection_for_select(@studio.course_types, :id, :name), { prompt: 'Select course type' }, { class: 'form-control' }
       .error-text
-        = @course.errors[:name].to_sentence
+        = @course.errors[:course_type].to_sentence
   .form-group
     label.control-label.col-sm-2 = f.label :cover_img
     .col-sm-10
       = f.file_field :cover_img
       .error-text
         = @course.errors[:cover_img].to_sentence
-  .form-group
-    label.control-label.col-sm-2 = f.label :phone_number
-    .col-sm-10
-      = f.text_field :phone_number, class: 'form-control', required: ""
-      .error-text
-        = @course.errors[:phone_number].to_sentence
-  .form-group
-    label.control-label.col-sm-2 = f.label :website
-    .col-sm-10
-      = f.text_field :website, class: 'form-control'
-      .error-text
-        = @course.errors[:website].to_sentence
   .form-group
     label.control-label.col-sm-2 = f.label :description
     .col-sm-10

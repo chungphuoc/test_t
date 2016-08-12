@@ -57,6 +57,7 @@ ja:
     login: ログイン中
     sign_in_with: でサインイン
     remember_me: 私を覚えてますか
+    manage_course_type: コースタイプを管理
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
@@ -120,6 +121,9 @@ ja:
       customer: 顧客
     already_have_an_account: すでにアカウントをお持ちですか？
     forgot_your_password: パスワードをお忘れですか？
+    course_type: コースの種類
+    new_course_type: コースタイプを作成します。
+    edit_course_type: 編集コースタイプ
   language: '日本語'
   activerecord:
     errors:

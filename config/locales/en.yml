@@ -77,6 +77,7 @@ en:
     login: Login
     sign_in_with: Sign in with
     remember_me: Remember me
+    manage_course_type: Mange course type
   static_text:
     home: Home
     contact_us: Contact Us
@@ -140,6 +141,9 @@ en:
       customer: Customer
     already_have_an_account: Already have an account?
     forgot_your_password: Forgot your password?
+    course_type: Course types
+    new_course_type: Create course type
+    edit_course_type: Edit course type
   language: "English"
   error:
     access_denied: 'Access Denied'

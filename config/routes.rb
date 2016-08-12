@@ -179,5 +179,6 @@ Rails.application.routes.draw do
     resources :facilities, only: [:index] do
       put :update, on: :collection
     end
+    resources :course_types
   end
 end

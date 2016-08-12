@@ -5,7 +5,6 @@ class Manage::CoursesController < Manage::BaseController
     respond_to do |format|
       course_query = CoursesQuery.new(current_user)
       @courses = current_user.courses
-      @course_date_data = course_query.join_dates_json
       if params[:start_date]
         start_date = begin
                        Date.strptime(params[:start_date], '%d-%m-%Y')
@@ -74,7 +73,7 @@ class Manage::CoursesController < Manage::BaseController
   def destroy
     @course.destroy
     set_flash_message :success, :destroyed
-    redirect_to manage_courses_url
+    redirect_to all_manage_courses_url
   end
 
   def close
@@ -98,7 +97,9 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def all
-    @courses = @studio.courses.all
+    @course_types = @studio.course_types.includes(:courses)
+                                        .page(params[:page])
+                                        .per(5)
   end
 
   private
@@ -120,7 +121,7 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def course_params
-    params.require(:course).permit(:name, :cover_img, :phone_number, :website,
+    params.require(:course).permit(:course_type_id, :cover_img, :phone_number, :website,
                                    :description, :rating, :kcal, :num_slot,
                                    :tuition, :start_time, :end_time, :start_date,
                                    :teacher_id, :station_id, :exercise_id,
