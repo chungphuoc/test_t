@@ -112,3 +112,9 @@
   padding: 10px 0 !important;
   overflow-y: auto;
 }
+
+.element-hover {
+  &:hover {
+    background-color: #fff !important;
+  }
+}
