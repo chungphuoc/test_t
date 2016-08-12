@@ -104,6 +104,7 @@ ja:
     facilities: ファシリティ
     teachers: インストラクター
     cover_img: 写真
+    options: オプション
     class_management: クラス　管理
     requested_stations: 要求されたステーション
     approved_stations: 承認された駅
@@ -120,6 +121,7 @@ ja:
       customer: 顧客
     already_have_an_account: すでにアカウントをお持ちですか？
     forgot_your_password: パスワードをお忘れですか？
+    add_new_option: 新しいオプションを追加
   language: '日本語'
   activerecord:
     errors:
