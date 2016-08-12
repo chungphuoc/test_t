@@ -18,11 +18,11 @@ module ApplicationHelper
     nil
   end
 
-  def link_to_switch_language
+  def link_to_switch_language(params = {})
     if I18n.locale == :en
-      link_to t('language', locale: :ja), { locale: :ja }, class: 'btn-header'
+      link_to t('language', locale: :ja), params.merge(locale: :ja), class: 'btn-header'
     else
-      link_to t('language', locale: :en), { locale: :en }, class: 'btn-header'
+      link_to t('language', locale: :en), params.merge(locale: :en), class: 'btn-header'
     end
   end
 
