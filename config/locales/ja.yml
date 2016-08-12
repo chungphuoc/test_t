@@ -120,6 +120,8 @@ ja:
       customer: 顧客
     already_have_an_account: すでにアカウントをお持ちですか？
     forgot_your_password: パスワードをお忘れですか？
+    term_condition: 利用規約
+    i_agree: 同意します
   language: '日本語'
   activerecord:
     errors:

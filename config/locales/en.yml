@@ -140,6 +140,8 @@ en:
       customer: Customer
     already_have_an_account: Already have an account?
     forgot_your_password: Forgot your password?
+    term_condition: Terms and Conditions
+    i_agree: I agree
   language: "English"
   error:
     access_denied: 'Access Denied'

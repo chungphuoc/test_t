@@ -38,8 +38,30 @@
     - if session["devise.facebook_data"]
       = hidden_field_tag :provider, session["devise.facebook_data"]["provider"]
       = hidden_field_tag :uid, session["devise.facebook_data"]["uid"]
+    #termconditionModal.modal.fade role="dialog"
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close data-dismiss="modal" type="button"  ×
+            h3.modal-title.title
+              = t('static_text.term_condition')
+          .modal-body id='model-body'
+            #term-condition.max-height-term-condition
+              section.title
+                h1#intro TONED. Terms of Use Agreement
+                h3#last-revision Latest Revision: #{@term.updated_at.strftime("%d %B %Y")}
+              section.main-contents
+                | #{@term.content.html_safe}
+            .form-group
+              .checkbox-style
+                .element
+                  = check_box_tag 'agree_term_condition', '', false, onclick: "click_box_agree(this);"
+                  = label_tag 'agree_term_condition', t('static_text.i_agree')
+            .form-group#button-submit
+              = f.submit t('button.submit'), class: "btn btn-register btn-sign-up", disabled: true
     .form-group
-      = f.submit t('button.register'), class: "btn btn-primary btn-sign-in btn-register"
+      button.btn.btn-primary.btn-sign-in.btn-register type="button" data-toggle="modal" data-target="#termconditionModal"
+        = t('button.register')
     - if controller_name != 'sessions'
       = link_to t('static_text.already_have_an_account'), new_session_path(resource_name)
     = render "users/shared/links"

@@ -84,7 +84,7 @@
   }
 }
 .left-inner-addon input {
-    padding-left: 30px;    
+    padding-left: 30px;
 }
 .left-inner-addon i {
     position: absolute;
@@ -97,11 +97,18 @@
     position: relative;
 }
 .right-inner-addon input {
-    padding-right: 30px;    
+    padding-right: 30px;
 }
 .right-inner-addon i {
     position: absolute;
     right: 0px;
     padding: 10px 12px;
     pointer-events: none;
+}
+
+.max-height-term-condition {
+  max-height: 350px !important;
+  min-height: 100px !important;
+  padding: 10px 0 !important;
+  overflow-y: auto;
 }
