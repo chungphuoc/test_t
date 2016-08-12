@@ -8,6 +8,7 @@ class Enrollment < ActiveRecord::Base
   validates_uniqueness_of :customer_id, scope: [:course_id, :join_date], message: 'Class has been booked!'
   validate :course_is_open, on: :create
   validate :num_slot_less_than_maximum, on: :create
+  validate :pay_by_points, on: :create
 
   delegate :studio, to: :course
   delegate :name, to: :course
@@ -81,7 +82,7 @@ class Enrollment < ActiveRecord::Base
   end
 
   def total_cost
-    course.tuition + options.inject(0) { |a, e| a + e.price }
+    course.tuition + options.inject(0) { |a, e| a + e.price } - paid_points
   end
 
   def self.find_enrollment_by_month(month_year = {})
@@ -93,6 +94,15 @@ class Enrollment < ActiveRecord::Base
     else
       Enrollment.where('extract(year from created_at) = ? AND extract(month from created_at) = ?',
                        year, month)
+    end
+  end
+
+  def pay_by_points
+    if (customer.point - paid_points) < 0
+      errors.add(:course_id, 'Invalid point of payment.')
+    else
+      new_points = customer.point - paid_points
+      customer.update_attributes(point: new_points)
     end
   end
 end
