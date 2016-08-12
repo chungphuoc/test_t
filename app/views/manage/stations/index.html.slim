@@ -2,16 +2,17 @@
   .col-md-6
     .row.zero-margin.center-text.title
       h2 = t('static_text.stations')
-    = form_tag manage_stations_path, method: :put
-      .row
-        - Station.approved.each do |station|
-          .col-lg-4
-            .checkbox.checkbox-success
-              = check_box_tag "station_ids[#{station.id}]", station.id, @station_ids.include?(station.id), name: 'station_ids[]'
-              = label_tag "station_ids[#{station.id}]", station.name
-      p
-        = link_to t('static_text.request_new_station'), new_manage_station_path
-      = submit_tag t('button.update'), class: "btn btn-sign-up"
+    .checkbox-style
+      = form_tag manage_stations_path, method: :put
+        .row
+          - Station.approved.each do |station|
+            .col-lg-6.no-padding
+              .checkbox-success.element
+                = check_box_tag "station_ids[#{station.id}]", station.id, @station_ids.include?(station.id), name: 'station_ids[]'
+                = label_tag "station_ids[#{station.id}]", station.name
+        p
+          = link_to t('static_text.request_new_station'), new_manage_station_path
+        = submit_tag t('button.update'), class: "btn btn-sign-up"
   .col-md-6
     .row.zero-margin.center-text.title
       h2 = t('static_text.requested_stations')
