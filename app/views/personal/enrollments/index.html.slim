@@ -8,5 +8,4 @@
       button.btn.btn-filter#btn-by-passed onClick="passed_classes()" = t('button.passed_class')
   #class-list
     - title = params[:statuses].present? ? 'Passed Class' : 'Booked Class'
-    = render partial: "shares/course_booked", locals: { title: title }
-    = paginate @enrollments
+    = render partial: "shares/course_booked", locals: { title: title, rating: false}

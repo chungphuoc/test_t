@@ -1,12 +1,14 @@
 class Personal::EnrollmentsController < Personal::BaseController
   def index
-    @enrollments = EnrollmentsQuery.new(current_user).by_statuses(params[:statuses] || [])
+    @enrollments = EnrollmentsQuery.new(current_user)
+                                   .by_statuses(params[:statuses] || [])
                                    .page params[:page]
   end
 
   def classes
-    @enrollments = EnrollmentsQuery.new(current_user).by_statuses(params[:statuses] || [])
-                               .page params[:page]
+    @enrollments = EnrollmentsQuery.new(current_user)
+                                   .by_statuses(params[:statuses] || [])
+                                   .page params[:page]
     render 'classes', layout: false
   end
 
@@ -14,11 +16,10 @@ class Personal::EnrollmentsController < Personal::BaseController
     @enrollment = current_user.enrollments.new(course_id: params[:course_id])
     if @enrollment.save
       set_flash_message :success, :created
-      redirect_to personal_enrollments_path
     else
       flash[:error] = @enrollment.errors.full_messages[0]
-      redirect_to personal_enrollments_path
     end
+    redirect_to personal_enrollments_path
   end
 
   def cancel

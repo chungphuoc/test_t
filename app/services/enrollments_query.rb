@@ -10,7 +10,7 @@ class EnrollmentsQuery
                 @user.enrollments.includes(:course)
               else
                 @user.enrollments.where('status IN (?)', statuses)
-                                 .includes(:course)
+                     .includes(:course)
               end
   end
 

@@ -53,11 +53,11 @@
       }
       ul:after {
         content: " ";
-        display: block; 
-        height: 0; 
+        display: block;
+        height: 0;
         clear: both;
         padding-bottom: 10px;
-      }      
+      }
     }
     .facilities{
       margin: 10px 0px;
@@ -303,8 +303,8 @@
 
 .star {
   img {
-    height: 20px;
-    width: 20px;
+    height: 20px !important;
+    width: 20px !important;
   }
 }
 
