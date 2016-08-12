@@ -1,16 +1,15 @@
 ul
-  -@stations.each_with_index do |station, index|
+  -@stations.each do |station|
     li
       h3.title #{station.name}
       table.table.table-striped.table-studio-by-station
         tr
-          th = t('static_text.index')
           th = Course.human_attribute_name('studio_name')
           th = User.human_attribute_name('address')
           th = User.human_attribute_name('contact_number')
-        - station.studios.each_with_index do |studio, stu_index|
+        - station.studios.each_with_index do |studio|
           tr
-            td #{stu_index}
-            td #{studio.name}
+            td 
+              =link_to studio.name, personal_studio_path(studio)
             td #{studio.address}
             td #{studio.contact_number}

@@ -39,7 +39,7 @@
             li
               = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-contact'
             li
-              = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
+              = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-in'
           -else
             li
               = link_to new_user_registration_path

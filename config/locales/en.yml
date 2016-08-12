@@ -300,9 +300,9 @@ en:
         days_of_week: Days of Week
         station: Station
         exercise: Exercise
-        teacher: Instructor
-        time: Time
+        teacher: Teacher
         date: Date
+        time: Time
       exercise:
         name: Name
         description: Description

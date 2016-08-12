@@ -30,9 +30,9 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
                 = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-contact'
               - unless current_user
                 li
-                  = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-sign-in'
+                  = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-sign-up'
                 li
-                  = link_to t('button.sign_in'), new_user_session_path, class: 'btn-sign-up'
+                  = link_to t('button.sign_in'), new_user_session_path, class: 'btn-sign-in'
               - else
                 - if current_user.customer?
                   li
@@ -46,7 +46,7 @@ body class = "#{@custom_controller_name || controller_name} #{action_name}"
                   - elsif current_user.admin?
                     = link_to t('button.name_my_page', name: current_user.name), admin_studios_path, class: 'btn-header btn-name'
                 li
-                  = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-up'
+                  = link_to t('button.sign_out'), destroy_user_session_path, method: :delete, class: 'btn-sign-in'
               li
                 = link_to_switch_language
   = yield
