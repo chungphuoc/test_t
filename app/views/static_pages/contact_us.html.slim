@@ -1,5 +1,13 @@
 .header-section
-  = render "shares/home_header"
+  - if current_user
+    - if current_user.customer?
+      = render "layouts/customer/customer_navbar"
+    - elsif current_user.studio?
+      = render "layouts/studio/studio_navbar"
+    - else
+      = render "shares/home_header"
+  - else
+    = render "shares/home_header"
 / .body-section
 /   .contact-us-section
 /     h1.center-text Contact

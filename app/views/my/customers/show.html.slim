@@ -3,7 +3,10 @@
     .col-lg-6.main-info-section
       .row.zero-margin
         .col-lg-6
-          = image_tag @customer.avatar, class: 'avatar'
+          - if @customer.avatar.file
+            = image_tag @customer.avatar, class: 'avatar'
+          - else
+            .init-avatar = current_user.shortcut_name
           .row.btn-action-section.center-text
             = link_to t('button.edit_profile'), edit_my_customer_path, class: "btn btn-sign-up"
             = link_to t('button.edit_account'), edit_user_registration_path, class: "btn btn-sign-up"

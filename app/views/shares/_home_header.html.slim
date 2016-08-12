@@ -16,7 +16,7 @@
             - elsif current_user.admin?
               = link_to t('button.my_page'), admin_studios_path, class: 'btn-header'
           li
-            = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-header'
+            = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-contact'
           - if current_user.customer?
             li
               .avatar.img-circle
@@ -39,9 +39,9 @@
           li
             = link_to t('button.contact_us'), contact_us_static_pages_path, class: 'btn-contact'
           li
-            = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-sign-in'
+            = link_to t('button.sign_up'), new_user_registration_path, class: 'btn-sign-up'
           li
-            = link_to t('button.sign_in'), new_user_session_path, class: 'btn-sign-up'
+            = link_to t('button.sign_in'), new_user_session_path, class: 'btn-sign-in'
         li
           = link_to_switch_language
         - if current_user

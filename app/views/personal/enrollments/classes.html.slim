@@ -1,2 +1,3 @@
 - title = params[:statuses].present? ? 'Passed Class' : 'Booked Class'
-= render partial: "shares/course_booked", locals: { title: title }
+- rating = params[:statuses].present? ? true : false
+= render partial: "shares/course_booked", locals: { title: title, rating: rating }

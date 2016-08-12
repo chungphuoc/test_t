@@ -54,6 +54,7 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def show
+    @has_slidebar = false
   end
 
   def edit
