@@ -4,15 +4,10 @@ class Manage::CoursesController < Manage::BaseController
   def index
     respond_to do |format|
       course_query = CoursesQuery.new(current_user)
-      @courses = current_user.courses
-      if params[:start_date]
-        start_date = begin
-                       Date.strptime(params[:from], '%d-%m-%Y')
-                     rescue ArgumentError
-                       nil
-                     end
-        @courses = course_query.courses_by_date(start_date) if start_date
-      end
+      @courses = current_user.courses.includes(:teacher, 
+                                               :course_type, 
+                                               station: [:translations], 
+                                               studio: [:user])
       @courses = CourseCalendar.new(@courses, lambda { |x| manage_course_path(x) }).result
       @result = { success: '1', result: @courses }.to_json
       @has_slidebar = false
