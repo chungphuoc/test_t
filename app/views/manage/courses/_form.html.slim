@@ -67,7 +67,7 @@
     .col-sm-10.col-sm-offset-2
       .checkbox.checkbox-success
         = f.check_box :repeatable, onchange: "show_days_of_week()"
-        = f.label :repeatable
+        = f.label :repeatable, t('button.repeatable')
       .error-text
         = @course.errors[:repeatable].to_sentence
   .form-group.days_of_week

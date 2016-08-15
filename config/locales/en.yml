@@ -78,6 +78,7 @@ en:
     sign_in_with: Sign in with
     remember_me: Remember me
     manage_course_type: Mange course type
+    repeatable: Repeatable
   static_text:
     home: Home
     contact_us: Contact Us
