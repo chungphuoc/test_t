@@ -3,12 +3,11 @@ class Manage::CoursesController < Manage::BaseController
 
   def index
     respond_to do |format|
-      course_query = CoursesQuery.new(current_user)
-      @courses = current_user.courses.includes(:teacher, 
-                                               :course_type, 
-                                               station: [:translations], 
+      @courses = current_user.courses.includes(:teacher,
+                                               :course_type,
+                                               station: [:translations],
                                                studio: [:user])
-      @courses = CourseCalendar.new(@courses, lambda { |x| manage_course_path(x) }).result
+      @courses = CourseCalendar.new(@courses, ->(x) { manage_course_path(x) }).result
       @result = { success: '1', result: @courses }.to_json
       @has_slidebar = false
       format.html { render :index, layout: 'studio' }
@@ -17,7 +16,7 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def new
-    @has_slidebar = false;
+    @has_slidebar = false
     @course = @studio.courses.new
   end
 
@@ -84,30 +83,6 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   private
-
-  def convert_time(start_date, start_time)
-    dt = DateTime.new(
-      start_date.year,
-      start_date.month,
-      start_date.day,
-      start_time.hour,
-      start_time.min,
-      start_time.sec
-    )
-    dt.strftime('%Q')
-  end
-
-  def join_dates(start_date, days)
-    days = days + days.collect{|d| d + 7}
-    newdays = days.collect do |day|
-      newday = start_date.beginning_of_week + (day - 1).days
-      if start_date.wday <= day
-        newday
-      end
-    end
-    newdays.compact
-  end
-
   def prepare_course
     @course = Course.find(params[:id])
   end

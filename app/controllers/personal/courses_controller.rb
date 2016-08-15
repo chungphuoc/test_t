@@ -20,7 +20,7 @@ class Personal::CoursesController < Personal::BaseController
     respond_to do |format|
       @favourite_studios = current_user.favourite_studios.includes(:studio)
       @courses = CoursesSearchService.new(params).execute.page(params[:page]).per(100)
-      @courses = CourseCalendar.new(@courses, lambda { |x| personal_course_path(x) }).result
+      @courses = CourseCalendar.new(@courses, ->(x) { personal_course_path(x) }).result
       @result = { success: '1', result: @courses }.to_json
       format.html { render :search_result, layout: 'personal_background' }
       format.json { render json: @result }
