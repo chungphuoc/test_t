@@ -180,5 +180,6 @@ Rails.application.routes.draw do
       put :update, on: :collection
     end
     resources :course_types
+    resources :payable_options, only: [:index, :create, :destroy]
   end
 end

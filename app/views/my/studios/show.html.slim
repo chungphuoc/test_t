@@ -21,6 +21,9 @@
           = link_to manage_facilities_path do
             = image_tag 'studio/menu-icons/facility.png'
             span = t('static_text.facilities')
+          = link_to manage_payable_options_path do
+            = image_tag 'studio/menu-icons/option.png'
+            span = t('static_text.options')
     .col-lg-9
       .row.studio-content-information
         .col-lg-7.info-section
@@ -99,9 +102,14 @@
             .row.center-text
               h2.title = t('static_text.station')
             table.table.table-striped
+              tr
+                  th Name
+                  th Minute to walk
               - @studio.stations.each_with_index do |station, index|
                 tr
                   td #{station.name}
+                  td id="minute_to_walk_#{index}"
+                    = link_to "Can't Calculate. Refresh?", "javascript:setStationDuration(#{index}, #{station.latitude}, #{station.longitude})"
             .row.center-text
               = link_to t('button.add_station'), manage_stations_path, class: "btn btn-sign-up"
             hr
@@ -122,4 +130,48 @@
     var marker = new google.maps.Marker({
       position: position,
     })
-    marker.setMap(map)
+    marker.setMap(map);
+
+    function getRoute(start_pos, end_pos, element_id) {
+      var route = 1;
+      var directionsService = new google.maps.DirectionsService();
+      var request = {
+        origin: start_pos,
+        destination: end_pos,
+        travelMode: 'WALKING'
+      };
+      directionsService.route(request,function(response, status) {
+        if (status == 'OK') {
+          var result = response.routes[0].legs[0].duration.text;
+          var element = document.getElementById(element_id);
+          element.innerHTML = result;
+        }
+      });
+    }
+
+    function calcDuration(destination_latitude, destination_longitude, element_id) {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var start_position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          var end_position = new google.maps.LatLng(destination_latitude, destination_longitude);
+          getRoute(start_position, end_position, element_id);
+        });
+      } else {
+        console.log('Errors!!');
+      }
+    }
+
+    function setMinuteToWalk() {
+      var station_count = #{@studio.stations.count};
+      var latitudes = #{@studio.stations.map(&:latitude)};
+      var longitudes = #{@studio.stations.map(&:longitude)};
+      for (i = 0; i < station_count; i++) {
+        calcDuration(latitudes[i], longitudes[i], 'minute_to_walk_' + i);
+      }
+    }
+
+    setMinuteToWalk();
+
+    function setStationDuration(index, latitude, longitude) {
+      calcDuration(latitude, longitude, 'minute_to_walk_' + index);
+    }

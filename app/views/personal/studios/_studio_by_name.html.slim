@@ -1,22 +1,20 @@
 ul
   -('a'..'z').each do |letter|
-    -@users = User.where("lower(name) LIKE ? AND role_type=?", "#{letter}%", "Studio")
-    - if @users.count > 0
+    - studios = @studios.select { |s| s.name.downcase.start_with?(letter) }
+    - if studios.present?
       li
         h3.title #{letter.upcase}
         table.table.table-studio-by-name
           tr
-            th = t('static_text.index')
             th = Course.human_attribute_name('studio_name')
             th = User.human_attribute_name('address')
             th = User.human_attribute_name('contact_number')
-          - @users.each_with_index do |studio_user, stu_index|
+          - studios.each do |studio|
             tr
-              td #{stu_index}
               td
-                = link_to studio_user.name, personal_studio_path(studio_user.role)
-              td #{studio_user.address}
-              td #{studio_user.contact_number}
+                = link_to studio.name, personal_studio_path(studio.role)
+              td #{studio.address}
+              td #{studio.contact_number}
 
         / h3.title #{letter.upcase}
         / table.table.table-striped

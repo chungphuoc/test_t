@@ -18,6 +18,9 @@
 				var message_fb = $("#message_fb").val();
 				$("#checkout-form").prepend($("<input name='message_fb' type='hidden'>")
 													 .val(message_fb));
+				var paid_points = $("#points").val();
+				$("#checkout-form").prepend($("<input name='paid_points' type='hidden'>")
+													 .val(paid_points));
 				$("#bookCourse").click();
     	}
 			var handler = StripeCheckout.configure({

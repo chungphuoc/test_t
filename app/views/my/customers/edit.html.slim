@@ -1,5 +1,5 @@
 .row.zero-margin.main-profile-section
-  .col-lg-8.main-info-section.main-info-edit
+  .main-info-section.main-info-edit
     .row.zero-margin.center-text
       h1 = t('static_text.edit_profile')
     = form_for [:my, @customer], html: {class: "form-horizontal edit-profile"} do |f|
@@ -50,5 +50,3 @@
         = link_to my_customer_path, class: "btn btn-sign-up"
           span = t('button.back')
         = f.submit t('button.submit'), class: "btn btn-sign-up"
-  .col-lg-3.invite-friend-right
-    = render 'my/invite_friend'

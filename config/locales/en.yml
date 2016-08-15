@@ -123,7 +123,8 @@ en:
     stations: Stations
     exercises: Exercises
     facilities: Facilities
-    teachers: Instructor
+    options: Options
+    teachers: Instructors
     cover_img: Cover Image
     class_management: Class Management
     requested_stations: Requested Stations
@@ -144,6 +145,7 @@ en:
     course_type: Course types
     new_course_type: Create course type
     edit_course_type: Edit course type
+    add_new_option: Add new Option
   language: "English"
   error:
     access_denied: 'Access Denied'
@@ -172,6 +174,10 @@ en:
     facilities:
       updated: 'Your facilities has been successfully updated.'
       error: 'Can not update facilities.'
+    payable_options:
+      created: 'Your Payable Option has been successfully created'
+      destroyed: 'Your Payable Option has been successfully deleted.'
+      destroy_failed: 'Delete failed'
   personal:
     checkouts:
       checkout_success: 'Book class successful!'
@@ -304,9 +310,9 @@ en:
         days_of_week: Days of Week
         station: Station
         exercise: Exercise
-        teacher: Instructor
-        time: Time
+        teacher: Teacher
         date: Date
+        time: Time
       exercise:
         name: Name
         description: Description

@@ -110,26 +110,40 @@ function search_checkbox_click(checkbox, type) {
   }
   input.value = array_value.join('/');
 }
+// calculate total cost
+function change_price() {
+  var total = parseInt($("#course_tuition").attr('value'));
+  // add options
+  $('.option-price').each(function() {
+    if ($(this).attr('data-selected') == "1") {
+      total += parseInt($(this).attr('data-price'));
+    }
+  });
+  // pay by points
+  var point = $("#points");
+  var minus_points = point.val() ? parseInt(point.val()) : 0;
+  total -= minus_points;
+  // change text total
+  var total_tag = $("#total-cost");
+  total_tag.attr('data-price', total);
+  total_tag.text(total + ' ' + total_tag.attr('data-currency'));
+}
 
 function add_option_checkout(option_id, checkbox) {
   if ($(checkbox).is(':checked')) {
     var price = $("#option-price-" + option_id);
-    var total = $("#total-cost");
-    var cost = parseInt(total.attr('data-price')) + parseInt(price.attr('data-price'));
-    total.text(cost + ' ' + total.attr('data-currency'));
-    total.attr('data-price', cost);
     price.css('text-decoration', 'none');
+    price.attr('data-selected', 1);
+    change_price();
     $("#checkout-form")
       .append($("<input name='payable_option[]' type='hidden'>")
                   .val(option_id)
                   .attr('id', 'payable_option_' + option_id));
   } else {
     var price = $("#option-price-" + option_id);
-    var total = $("#total-cost");
-    var cost = parseInt(total.attr('data-price')) - parseInt(price.attr('data-price'));
-    total.text(cost + ' ' + total.attr('data-currency'));
-    total.attr('data-price', cost);
     price.css('text-decoration', 'line-through');
+    price.attr('data-selected', 0);
+    change_price();
     $('#payable_option_' + option_id).remove();
   }
 }
@@ -156,4 +170,18 @@ function slider_change(type) {
   }
   document.getElementById('max_' + type).value = max;
   document.getElementById('min_' + type).value = min;
+}
+
+function check_valid_point(input_num) {
+  var input = $(input_num);
+  var min = parseInt(input.attr('min'));
+  var max = parseInt(input.attr('max'));
+  var old_val = input.val() ? parseInt(input.val()) : 0;
+
+  if (old_val > max) {
+    input.val(max);
+  } else if (old_val < min) {
+    input.val(min);
+  }
+  change_price();
 }

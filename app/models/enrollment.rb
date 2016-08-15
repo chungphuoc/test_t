@@ -8,6 +8,7 @@ class Enrollment < ActiveRecord::Base
   validates_uniqueness_of :customer_id, scope: [:course_id, :join_date], message: 'Class has been booked!'
   validate :course_is_open, on: :create
   validate :num_slot_less_than_maximum, on: :create
+  validate :pay_by_points, on: :create
 
   delegate :studio, to: :course
   delegate :name, to: :course
@@ -81,18 +82,44 @@ class Enrollment < ActiveRecord::Base
   end
 
   def total_cost
-    course.tuition + options.inject(0) { |a, e| a + e.price }
+    course.tuition + options.inject(0) { |a, e| a + e.price } - paid_points
   end
 
-  def self.find_enrollment_by_month(month_year = {})
+  def self.find_enrollment_by_month(month_year = {}, studio = nil)
     month = month_year[:month]
     year = month_year[:year]
     return nil if month.nil? || year.nil?
+    result = nil
     if month.to_i == 0
+      result = Enrollment.where('extract(year from enrollments.created_at) = ?', year)
+    else
+      result = Enrollment.where(
+        'extract(year from enrollments.created_at) = ? AND extract(month from enrollments.created_at) = ?',
+        year,
+        month
+      )
+    end
+    unless studio.nil?
+      result = result.joins(:course).where('courses.studio_id = ?', studio.id)
+    end
+    result
+  end
+
+  def self.find_enrollment_by_year(year = nil, studio = nil)
+    return nil if year.nil?
+    if studio.nil?
       Enrollment.where('extract(year from created_at) = ?', year)
     else
-      Enrollment.where('extract(year from created_at) = ? AND extract(month from created_at) = ?',
-                       year, month)
+      studio.enrollments.where('extract(year from created_at) = ?', year)
+    end
+  end
+
+  def pay_by_points
+    if (customer.point - paid_points) < 0
+      errors.add(:course_id, 'Invalid point of payment.')
+    else
+      new_points = customer.point - paid_points
+      customer.update_attributes(point: new_points)
     end
   end
 end

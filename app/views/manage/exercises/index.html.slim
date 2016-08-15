@@ -1,10 +1,11 @@
 .row.zero-margin.center-text.title
   h1 = t('static_text.exercises')
-= form_tag manage_exercises_path, method: :put do
-  .row
-    - Exercise.all.each do |exercise|
-      .col-lg-2
-        .checkbox.checkbox-success
-          = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, @exercise_ids.include?(exercise.id), name: 'exercise_ids[]'
-          = label_tag "exercise_ids[#{exercise.id}]",exercise.name
-  = submit_tag t('button.update'), class: "btn btn-sign-up"
+.checkbox-style
+  = form_tag manage_exercises_path, method: :put do
+    .row
+      - Exercise.all.each do |exercise|
+        .col-lg-3.no-padding
+          .checkbox-success.element
+            = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, @exercise_ids.include?(exercise.id), name: 'exercise_ids[]'
+            = label_tag "exercise_ids[#{exercise.id}]",exercise.name
+    = submit_tag t('button.update'), class: "btn btn-sign-up"

@@ -21,9 +21,9 @@ ja:
     my_page: 'マイページ'
     name_my_page: '%{name}の私のページ'
     my_classes: 私のクラス
-    payment_management: 支払い　管理
-    class_management: クラス　管理
-    class_calendar: クラスのカレンダー
+    payment_management: 支払い管理
+    class_management: クラス管理
+    class_calendar: クラス　スケジュール
     search_class: クラス　検索
     booked_class: 予約済みクラス
     passed_class: 過去のクラス
@@ -54,9 +54,9 @@ ja:
     book: 予約
     is_booked: 予約されています
     register: 登録
-    login: ログイン中
+    login: ログイン
     sign_in_with: でサインイン
-    remember_me: 私を覚えてますか
+    remember_me: パスワード保存
     manage_course_type: コースタイプを管理
   static_text:
     home: ホーム
@@ -75,7 +75,7 @@ ja:
     calories_burnt: カロリー消費
     search_class: クラス　検索
     station: 駅
-    exercise: 運動
+    exercise: クラス
     favourite_class: お気に入り
     daily: 今日
     weekly: 今週
@@ -83,9 +83,9 @@ ja:
     basic_info: 基本インフォ
     invite_friend: 友達を招待
     name: 名前
-    email: メール
+    email: メールアドレス
     password: パスワード
-    password_confirmation: パスワードを認証する
+    password_confirmation: パスワード再度入力
     message: メッセージ
     contact_number: 電話番号
     address: 住所
@@ -95,7 +95,7 @@ ja:
       female: 女性
     birthday: お誕生日
     receive_sms: sms
-    edit_profile: プロファイル編集
+    edit_profile: プロフィールの編集
     class_schedule: クラス　スケジュール
     action: アクション
     index: インデックス
@@ -105,6 +105,7 @@ ja:
     facilities: ファシリティ
     teachers: インストラクター
     cover_img: 写真
+    options: オプション
     class_management: クラス　管理
     requested_stations: 要求されたステーション
     approved_stations: 承認された駅
@@ -124,6 +125,7 @@ ja:
     course_type: コースの種類
     new_course_type: コースタイプを作成します。
     edit_course_type: 編集コースタイプ
+    add_new_option: 新しいオプションを追加
   language: '日本語'
   activerecord:
     errors:

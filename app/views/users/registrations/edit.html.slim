@@ -35,7 +35,7 @@
       .error-text
         = resource.errors[:current_password].to_sentence
     .actions
-      = f.submit "Update", class: "btn btn-primary btn-sign-in"
+      = f.submit "Update", class: "btn btn-sign-in"
     //= link_to "Back", :back
     - if current_user.customer?
       = link_to my_customer_path, title: "back", class: "back-button" do
