@@ -14,7 +14,7 @@ table.table.table-striped
       td #{enrollment.created_at.strftime("%H:%M:%S")}
       td #{enrollment.course_name}
       td #{enrollment.studio.name}
-      td #{enrollment.course.tuition}
+      td #{enrollment.total_cost}
       td #{enrollment.course.currency}
 h4.total-price Total price: #{@total_payment}
 = paginate @enrollments
