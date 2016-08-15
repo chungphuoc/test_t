@@ -7,28 +7,13 @@ class Manage::CoursesController < Manage::BaseController
       @courses = current_user.courses
       if params[:start_date]
         start_date = begin
-                       Date.strptime(params[:start_date], '%d-%m-%Y')
+                       Date.strptime(params[:from], '%d-%m-%Y')
                      rescue ArgumentError
                        nil
                      end
         @courses = course_query.courses_by_date(start_date) if start_date
       end
-      events_class = %w(event-info event-special)
-      @courses = @courses.collect do |course|
-        start_date = convert_time(course.start_date, course.start_time)
-        title = template_course(course)
-        {
-          id: course.id,
-          title: title,
-          tmpls_day: template_day(course),
-          tmpls_week: template_week(course),
-          name: course.name,
-          url: manage_course_path(course),
-          class: events_class.sample,
-          start: start_date,
-          end: start_date.to_i + 2.hours.in_milliseconds
-        }
-      end
+      @courses = CourseCalendar.new(@courses, lambda { |x| manage_course_path(x) }).result
       @result = { success: '1', result: @courses }.to_json
       @has_slidebar = false
       format.html { render :index, layout: 'studio' }
@@ -117,6 +102,17 @@ class Manage::CoursesController < Manage::BaseController
     dt.strftime('%Q')
   end
 
+  def join_dates(start_date, days)
+    days = days + days.collect{|d| d + 7}
+    newdays = days.collect do |day|
+      newday = start_date.beginning_of_week + (day - 1).days
+      if start_date.wday <= day
+        newday
+      end
+    end
+    newdays.compact
+  end
+
   def prepare_course
     @course = Course.find(params[:id])
   end
@@ -126,51 +122,6 @@ class Manage::CoursesController < Manage::BaseController
                                    :description, :rating, :kcal, :num_slot,
                                    :tuition, :start_time, :end_time, :start_date,
                                    :teacher_id, :station_id, :exercise_id,
-                                   :days_of_week => [])
-  end
-
-  def template_course(course)
-    "<div class='course-calendar'>" \
-    "<img src='#{course.cover_img}'>" \
-    "<div class='info-course'>" \
-    "<b>#{course.name}</b>" \
-    "<br><i>Teacher: #{course.teacher.name}</i>" \
-    "<br><i>Studio: #{course.studio.name}</i>" \
-    "<br><i>Station: #{course.station.name}</i>" \
-    "<br><i>Price: #{course.tuition} #{course.currency}</i>" \
-    '</div></div>'.html_safe
-  end
-
-  def template_day(course)
-    "<div class='course-calendar-day'>" \
-    "<img src='#{course.cover_img}'>" \
-    "<div class='info-course'>" \
-    "<div class='course-title'>" \
-    "<b>#{course.name}</b>" \
-    '</div>' \
-    "<div class='row'>" \
-    "<div class='col-xs-6'>" \
-    "<p>#{course.studio.name}</p>" \
-    "<p>#{course.teacher.name}</p>" \
-    "<p>#{course.station.name}</p>" \
-    '</div>' \
-    "<div class='col-xs-6'>" \
-    "<p>#{course.kcal} kcal</p>" \
-    "<p>#{course.tuition} usd</p>" \
-    '</div>' \
-    '</div>' \
-    '</div></div>'.html_safe
-  end
-
-  def template_week(course)
-    "<div class='course-calendar'>" \
-    "<img src='#{course.cover_img}'>" \
-    "<div class='info-course'>" \
-    "<b>#{course.name}</b>" \
-    "<br><i>Teacher: #{course.teacher.name}</i>" \
-    "<br><i>Studio: #{course.studio.name}</i>" \
-    "<br><i>Station: #{course.station.name}</i>" \
-    "<br><i>Open Slot: #{course.open_slot}</i>" \
-    '</div></div>'.html_safe
+                                   :repeatable, :days_of_week => [])
   end
 end

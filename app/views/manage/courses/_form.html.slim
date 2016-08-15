@@ -64,6 +64,13 @@
       .error-text
         = @course.errors[:station].to_sentence
   .form-group
+    .col-sm-10.col-sm-offset-2
+      .checkbox.checkbox-success
+        = f.check_box :repeatable, onchange: "show_days_of_week()"
+        = f.label :repeatable
+      .error-text
+        = @course.errors[:repeatable].to_sentence
+  .form-group.days_of_week
     label.control-label.col-sm-2 = f.label :days_of_week
     .col-sm-10
       = render 'shares/days_of_week_edit', f:f

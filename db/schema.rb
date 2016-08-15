@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810100504) do
+ActiveRecord::Schema.define(version: 20160815051249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20160810100504) do
     t.integer  "days_of_week",      default: [],                 array: true
     t.date     "full_dates",        default: [],                 array: true
     t.integer  "course_type_id"
+    t.boolean  "repeatable",        default: false
   end
 
   add_index "courses", ["days_of_week"], name: "index_courses_on_days_of_week", using: :gin

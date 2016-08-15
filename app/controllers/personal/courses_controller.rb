@@ -19,23 +19,8 @@ class Personal::CoursesController < Personal::BaseController
   def search
     respond_to do |format|
       @favourite_studios = current_user.favourite_studios.includes(:studio)
-      @courses = CoursesSearchService.new(params).execute.page(params[:page])
-      events_class = %w(event-info event-special)
-      @courses = @courses.collect do |course|
-        start_date = convert_time(course.start_date, course.start_time)
-        title = template_course(course)
-        {
-          id: course.id,
-          title: title,
-          tmpls_day: template_day(course),
-          tmpls_week: title,
-          name: course.name,
-          url: personal_course_path(course),
-          class: events_class.sample,
-          start: start_date,
-          end: start_date.to_i + 2.hours.in_milliseconds
-        }
-      end
+      @courses = CoursesSearchService.new(params).execute.page(params[:page]).per(100)
+      @courses = CourseCalendar.new(@courses, lambda { |x| personal_course_path(x) }).result
       @result = { success: '1', result: @courses }.to_json
       format.html { render :search_result, layout: 'personal_background' }
       format.json { render json: @result }
@@ -66,50 +51,5 @@ class Personal::CoursesController < Personal::BaseController
     else
       courses.where(status: Course.statuses[:active]).limit(limit)
     end
-  end
-
-  def convert_time(start_date, start_time)
-    dt = DateTime.new(
-      start_date.year,
-      start_date.month,
-      start_date.day,
-      start_time.hour,
-      start_time.min,
-      start_time.sec
-    )
-    dt.strftime('%Q')
-  end
-
-  def template_course(course)
-    "<div class='course-calendar'>" \
-    "<img src='#{course.cover_img}'>" \
-    "<div class='info-course'>" \
-    "<b>#{course.name}</b>" \
-    "<br><i>Teacher: #{course.teacher_name}</i>" \
-    "<br><i>Studio: #{course.studio_name}</i>" \
-    "<br><i>Station: #{course.station_name}</i>" \
-    "<br><i>Price: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" \
-    '</div></div>'.html_safe
-  end
-
-  def template_day(course)
-    "<div class='course-calendar-day'>" \
-    "<img src='#{course.cover_img}'>" \
-    "<div class='info-course'>" \
-    "<div class='course-title'>" \
-    "<b>#{course.name}</b>" \
-    '</div>' \
-    "<div class='row'>" \
-    "<div class='col-xs-6'>" \
-    "<p>#{course.studio_name}</p>" \
-    "<p>#{course.teacher_name}</p>" \
-    "<p>#{course.station_name}</p>" \
-    '</div>' \
-    "<div class='col-xs-6'>" \
-    "<p>#{course.kcal} kcal</p>" \
-    "<p>#{course.tuition} usd</p>" \
-    '</div>' \
-    '</div>' \
-    '</div></div>'.html_safe
   end
 end
