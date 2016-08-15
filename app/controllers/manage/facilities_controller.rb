@@ -4,7 +4,7 @@ class Manage::FacilitiesController < Manage::BaseController
   end
 
   def update
-    if @studio.update_attributes(facility: params[:facilities]||[])
+    if @studio.update_attributes(facility: params[:facilities] || [])
       set_flash_message :success, :updated
     else
       set_flash_message :error, :error
