@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
+    @term = Term.first
     super
   end
 
@@ -14,7 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.provider = params[:provider] if params[:provider].present?
     resource.uid = params[:uid] if params[:uid].present?
     begin
-      ActiveRecord::Base.transaction  do
+      ActiveRecord::Base.transaction do
         if params[:user_type] == 'customer'
           @customer = Customer.new
           resource.role = @customer

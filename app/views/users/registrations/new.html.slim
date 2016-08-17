@@ -38,8 +38,10 @@
     - if session["devise.facebook_data"]
       = hidden_field_tag :provider, session["devise.facebook_data"]["provider"]
       = hidden_field_tag :uid, session["devise.facebook_data"]["uid"]
+    = render 'modal_term_condition', f: f
     .form-group
-      = f.submit t('button.register'), class: "btn btn-sign-up btn-register"
+      button.btn.btn-primary.btn-sign-in.btn-register type="button" data-toggle="modal" data-target="#termconditionModal"
+        = t('button.register')
     - if controller_name != 'sessions'
       = link_to t('static_text.already_have_an_account'), new_session_path(resource_name)
     = render "users/shared/links"
