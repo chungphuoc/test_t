@@ -15,15 +15,6 @@
     .number
       span.min 0
       span.max 1000
-= form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
-  .select-group
-    - if exercise_ids
-      - exercise_ids.each do | id |
-        = hidden_field_tag "exercise_ids[]", id
-  .select-group
-    - if station_ids
-      - station_ids.each do | id |
-        = hidden_field_tag "station_ids[]", id
   .calories-group
     = hidden_field_tag 'max_kcal', kcal_max
     = hidden_field_tag 'min_kcal', kcal_min
