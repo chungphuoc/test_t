@@ -58,6 +58,7 @@ ja:
     sign_in_with: でサインイン
     remember_me: パスワード保存
     manage_course_type: コースタイプを管理
+    repeatable: 繰り返し可能な
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
