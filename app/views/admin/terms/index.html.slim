@@ -1,8 +1,18 @@
+#admin_term_index
 h1 Term & Conditions
-= link_to "Edit", edit_admin_term_path(@term), class: "btn btn-primary"
 hr
-p
-	| #{@term.content.html_safe}
+ul.nav.nav-tabs.nav-justified
+  li.active#btn-customer role="presentation"
+    = link_to 'Customer', "javascript:show_term_customer();"
+  li#btn-studio role="presentation"
+    = link_to 'Studio', "javascript:show_term_studio();"
+ul.list-term
+  - @terms.each do |term|
+    li id="term_#{term.user_type}"
+      p = link_to "Edit", edit_admin_term_path(term), class: "btn btn-primary"
+      p.term-content = term.content.html_safe
+
+
 
 
 
