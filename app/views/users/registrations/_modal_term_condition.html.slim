@@ -1,0 +1,25 @@
+#termconditionModal.modal.fade role="dialog"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button"  ×
+        h3.modal-title.title
+          = t('static_text.term_condition')
+      .modal-body id='model-body'
+        #term-condition.max-height-term-condition
+          section.title
+            h1#intro TONED. Terms of Use Agreement
+            h3#last-revision Latest Revision: #{@term.updated_at.strftime("%d %B %Y")}
+          section.main-contents
+            | #{@term.content.html_safe}
+        .row
+          .col-lg-4
+          .col-lg-4
+            .form-group
+              .checkbox-style
+                .element.element-hover
+                  = check_box_tag 'agree_term_condition', '', false, onclick: "click_box_agree(this);"
+                  = label_tag 'agree_term_condition', t('static_text.i_agree')
+          .col-lg-4
+        .form-group#button-submit
+          = f.submit t('button.submit'), class: "btn btn-register btn-sign-up", disabled: true

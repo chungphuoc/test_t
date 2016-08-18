@@ -55,7 +55,7 @@ ja:
     is_booked: 予約されています
     register: 登録
     login: ログイン
-    sign_in_with: でサインイン
+    sign_in_with: "%{provider}でサインイン"
     remember_me: パスワード保存
   static_text:
     home: ホーム
@@ -121,6 +121,8 @@ ja:
       customer: 顧客
     already_have_an_account: すでにアカウントをお持ちですか？
     forgot_your_password: パスワードをお忘れですか？
+    term_condition: 利用規約
+    i_agree: 同意します
     add_new_option: 新しいオプションを追加
   language: '日本語'
   activerecord:

@@ -75,7 +75,7 @@ en:
     is_booked: is Booked
     register: Register
     login: Login
-    sign_in_with: Sign in with
+    sign_in_with: "Sign in with %{provider}"
     remember_me: Remember me
   static_text:
     home: Home
@@ -141,6 +141,8 @@ en:
       customer: Customer
     already_have_an_account: Already have an account?
     forgot_your_password: Forgot your password?
+    term_condition: Terms and Conditions
+    i_agree: I agree
     add_new_option: Add new Option
   language: "English"
   error:
