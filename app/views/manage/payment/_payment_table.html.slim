@@ -1,12 +1,12 @@
 table.table.table-striped
   tr
     th
-    th Date
-    th Time
-    th Class name
-    th User name
-    th Amount
-    th Currency
+    th = Enrollment.human_attribute_name('date')
+    th = Course.human_attribute_name('time')
+    th = Enrollment.human_attribute_name('course_name')
+    th = Enrollment.human_attribute_name('customer_name')
+    th = Enrollment.human_attribute_name('amount')
+    th = Course.human_attribute_name('currency')
   - @enrollments.each_with_index do |enrollment, index|
     tr
       td #{index + 1}

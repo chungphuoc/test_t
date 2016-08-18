@@ -32,7 +32,7 @@ ja:
     studio_list: スタジオ　リスト
     search: 検索
     edit_profile: プロファイル編集
-    edit_account: アカウントの編集
+    edit_account: アカウント編集
     detail: 詳細
     new_class: 新しいクラス
     all_class: すべてのクラス
@@ -133,6 +133,13 @@ ja:
     add_new_option: 新しいオプションを追加
     price: 価格
     payable_options: 追加オプション
+    instruction:
+      leave_password_blank: メールアドレスを変更しない場合は空欄にしてください
+      need_password: パスワード変更には現在のパスワードが必要です
+    password:
+      new:  新しいパスワード
+      confirmation: パスワード再度確認
+      current: 現在のパスワード
   language: '日本語'
   activerecord:
     errors:
@@ -178,9 +185,11 @@ ja:
           paid: 支払済
           cancel: キャンセル
           passed: 通る
-        course_name: クラス名
-        customer_name: ユーザ名
+        course_name: クラス
+        customer_name: ユーザー
         studio_name: スタジオ名
+        date: 日付
+        amount: 値段
       course:
         name: 名前
         cover_img: 表紙画像
@@ -200,12 +209,12 @@ ja:
         exercise_name: エクササイズの名前
         station_name: 駅名
         status: 状態
-        tuition: 授業料
+        tuition: 値段
         currency: 通貨
-        days_of_week: 平日
+        days_of_week: 曜日
         station: 駅
-        exercise: 運動
-        teacher: 先生
+        exercise: クラス
+        teacher: インストラクター
         time: 時間
         date: 日
       exercise:
