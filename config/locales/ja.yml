@@ -55,7 +55,7 @@ ja:
     is_booked: 予約されています
     register: 登録
     login: ログイン
-    sign_in_with: でサインイン
+    sign_in_with: "%{provider}でサインイン"
     remember_me: パスワード保存
     manage_course_type: コースタイプを管理
     repeatable: 繰り返し可能な
@@ -126,6 +126,8 @@ ja:
     course_type: コースの種類
     new_course_type: コースタイプを作成します。
     edit_course_type: 編集コースタイプ
+    term_condition: 利用規約
+    i_agree: 同意します
     add_new_option: 新しいオプションを追加
   language: '日本語'
   activerecord:

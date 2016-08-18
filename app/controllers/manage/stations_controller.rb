@@ -49,13 +49,18 @@ class Manage::StationsController < Manage::BaseController
 
   def prepare_requested_station
     @station = @studio.requested_stations.requested.find_by_id(params[:id])
-    unless @station
-      set_flash_message :notice, :access_denied, scope: :error
-      redirect_to manage_stations_path
-    end
+    return if @station
+    set_flash_message :notice, :access_denied, scope: :error
+    redirect_to manage_stations_path
   end
 
   def station_params
-    params.require(:station).permit(:name, :location, :latitude, :longitude, translations_attributes: [:id, :locale, :name]).merge(status: :requested)
+    params.require(:station).permit(
+      :name,
+      :location,
+      :latitude,
+      :longitude,
+      translations_attributes: [:id, :locale, :name]
+    ).merge(status: :requested)
   end
 end

@@ -28,7 +28,7 @@ class Manage::PaymentController < Manage::BaseController
 
   def cal_total_payment(enrollments)
     return 0 if enrollments.nil?
-    enrollments.map { |enrollment| enrollment.course.tuition }.inject(0, :+)
+    enrollments.map(&:total_cost).inject(0, :+)
   end
 
   def filter_params

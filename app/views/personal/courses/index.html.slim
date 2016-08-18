@@ -4,6 +4,7 @@
     h1.title Welcome to TONED
     #search-box
       = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
+        = hidden_field_tag :locale, I18n.locale
         .row
           .col-lg-10
             .select-group

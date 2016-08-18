@@ -1,8 +1,8 @@
 class Manage::EnrollmentsController < Manage::BaseController
   def index
     @enrollments = current_user.enrollments
-                              .includes(:course, :customer)
-                              .page(params[:page])
+                               .includes(:course, :customer)
+                               .page(params[:page])
     @has_slidebar = false
   end
 
@@ -27,10 +27,13 @@ class Manage::EnrollmentsController < Manage::BaseController
 
   def by_join_date
     if params[:course_id] && params[:join_date] && params[:status]
-      @enrollments = current_user.enrollments.where(join_date: params[:join_date], course_id: params[:course_id], status: Enrollment.statuses[params[:status]]).page(params[:page])
+      @enrollments = current_user.enrollments
+                                 .where(join_date: params[:join_date],
+                                        course_id: params[:course_id],
+                                        status: Enrollment.statuses[params[:status]]).page(params[:page])
     else
       @enrollments = []
     end
-    render 'enrollment_table', layout: false 
+    render 'enrollment_table', layout: false
   end
 end
