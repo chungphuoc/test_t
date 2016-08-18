@@ -124,6 +124,8 @@ ja:
     term_condition: 利用規約
     i_agree: 同意します
     add_new_option: 新しいオプションを追加
+    price: 価格
+    payable_options: Payable Option
   language: '日本語'
   activerecord:
     errors:

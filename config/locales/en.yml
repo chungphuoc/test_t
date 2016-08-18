@@ -144,6 +144,8 @@ en:
     term_condition: Terms and Conditions
     i_agree: I agree
     add_new_option: Add new Option
+    price: Price
+    payable_options: Payable Option
   language: "English"
   error:
     access_denied: 'Access Denied'
