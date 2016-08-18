@@ -597,6 +597,6 @@ a.cal-event-week {
   border-color: #4cd1bc !important;
 }
 
-.cal-custom-day [class*="cal-cell"]:first-child {
-  background-color: #e488e0;
+.cal-custom-day .cal-day-choosed {
+  background-color: #2ecc71;
 }
