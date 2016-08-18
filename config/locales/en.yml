@@ -78,6 +78,8 @@ en:
     sign_in_with: "Sign in with %{provider}"
     remember_me: Remember me
     payable_options: Payable Options
+    manage_course_type: Mange course type
+    repeatable: Only one time
   static_text:
     home: Home
     contact_us: Contact Us
@@ -142,6 +144,9 @@ en:
       customer: Customer
     already_have_an_account: Already have an account?
     forgot_your_password: Forgot your password?
+    course_type: Course types
+    new_course_type: Create course type
+    edit_course_type: Edit course type
     term_condition: Terms and Conditions
     i_agree: I agree
     add_new_option: Add new Option

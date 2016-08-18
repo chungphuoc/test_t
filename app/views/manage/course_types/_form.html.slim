@@ -1,0 +1,10 @@
+= form_for [:manage, @course_type], :html => {:class => 'form-horizontal'} do |f|
+  .form-group
+    label.control-label.col-sm-2 = f.label :type
+    .col-sm-10
+      = f.text_field :name, class: 'form-control', required: ""
+      .error-text
+        = @course_type.errors[:name].to_sentence
+  .form-group
+    .row.center-text
+      = f.submit t('button.submit'), class: 'btn btn-sign-up'

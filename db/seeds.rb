@@ -8,6 +8,7 @@ Customer.delete_all
 Studio.delete_all
 User.delete_all
 PayableOption.delete_all
+CourseType.delete_all
 
 puts ('create Admin account...')
 admin = Admin.create!
@@ -255,91 +256,93 @@ studio_goldenowl.services.create!(exercise_id: exercise10.id)
 studio_goldenowl.services.create!(exercise_id: exercise11.id)
 studio_goldenowl.services.create!(exercise_id: exercise12.id)
 
+puts ('Create studio Course type...')
+studio.course_types.create!(name: 'Yoga Course')
+studio.course_types.create!(name: 'Gym Course')
+studio.course_types.create!(name: 'Swim Course')
+studio.course_types.create!(name: 'Soc Course')
+studio.course_types.create!(name: 'Spring Yoga')
+studio.course_types.create!(name: 'Summer Gym')
+studio_goldenowl.course_types.create!(name: 'Winter Soc')
+studio_goldenowl.course_types.create!(name: 'City Yoga')
+studio_goldenowl.course_types.create!(name: 'Oversea Doc')
+studio_goldenowl.course_types.create!(name: 'Demo Gym')
+studio_goldenowl.course_types.create!(name: 'Pro Swim')
+studio_goldenowl.course_types.create!(name: 'Basic Bad')
+
 puts ('create Courses...')
-course1 = Course.create!(name: 'Yoga Course', num_slot: 10,
+course1 = Course.create!(course_type: studio.course_types[0], num_slot: 10,
               cover_img: Rails.root.join('app/assets/images/yoga1.jpg').open,
-              phone_number: '1234567890', website: 'http://course1.com',
               description: 'no description1', start_time: Time.now,
               end_time: 1.hour.from_now, start_date:  20.days.from_now, teacher: teacher1,
               station: station1, exercise: exercise1, studio: studio,
               tuition: 100.0, currency: 'JPY', kcal: 40, days_of_week: [1])
-course2 = Course.create!(name: 'Gym Course', num_slot: 20,
+course2 = Course.create!(course_type: studio.course_types[1], num_slot: 20,
               cover_img: Rails.root.join('app/assets/images/yoga2.jpg').open,
-              phone_number: '1234567890', website: 'http://course2.com',
               description: 'no description2', start_time: Time.now,
               end_time: 2.hour.from_now, start_date: 30.days.from_now, teacher: teacher2,
               station: station2, exercise: exercise2, studio: studio,
               tuition: 200.0, currency: 'JPY', kcal: 60, days_of_week: [1, 3, 5])
-course3 = Course.create!(name: 'Swim Course', num_slot: 30,
+course3 = Course.create!(course_type: studio.course_types[2], num_slot: 30,
               cover_img: Rails.root.join('app/assets/images/yoga3.jpg').open,
-              phone_number: '1234567890', website: 'http://course3.com',
               description: 'no description3', start_time: Time.now,
               end_time: 3.hour.from_now, start_date: 40.days.from_now, teacher: teacher3,
               station: station3, exercise: exercise3, studio: studio,
-              tuition: 300.0, currency: 'JPY', kcal: 80, days_of_week: [2, 4])
-course4 = Course.create!(name: 'Soc Course', num_slot: 40,
+              tuition: 300.0, currency: 'JPY', kcal: 80, days_of_week: [2, 6])
+course4 = Course.create!(course_type: studio.course_types[3], num_slot: 40,
               cover_img: Rails.root.join('app/assets/images/yoga4.jpg').open,
-              phone_number: '1234567890', website: 'http://course4.com',
               description: 'no description4', start_time: Time.now,
               end_time: 4.hour.from_now, start_date: 50.days.from_now, teacher: teacher4,
               station: station4, exercise: exercise4, studio: studio,
-              tuition: 400.0, currency: 'JPY', kcal: 100, days_of_week: [2])
-course5 = Course.create!(name: 'Spring Yoga', num_slot: 10,
+              tuition: 400.0, currency: 'JPY', kcal: 100, days_of_week: [2, 4, 6])
+course5 = Course.create!(course_type: studio.course_types[4], num_slot: 10,
               cover_img: Rails.root.join('app/assets/images/yoga5.jpg').open,
-              phone_number: '1234567890', website: 'http://course1.com',
               description: 'no description1', start_time: Time.now,
               end_time: 5.hour.from_now, start_date: 60.days.from_now, teacher: teacher5,
               station: station5, exercise: exercise5, studio: studio,
               tuition: 500.0, currency: 'JPY', kcal: 120, days_of_week: [2, 4, 6])
-course6 = Course.create!(name: 'Summer Gym', num_slot: 20,
+course6 = Course.create!(course_type: studio.course_types[5], num_slot: 20,
               cover_img: Rails.root.join('app/assets/images/yoga6.jpg').open,
-              phone_number: '1234567890', website: 'http://course2.com',
               description: 'no description2', start_time: Time.now,
               end_time: 6.hour.from_now, start_date: 70.days.from_now, teacher: teacher6,
               station: station6, exercise: exercise6, studio: studio,
-              tuition: 600.0, currency: 'JPY', kcal: 140, days_of_week: [3, 5])
-course7 = Course.create!(name: 'Winter Soc', num_slot: 30,
+              tuition: 600.0, currency: 'JPY', kcal: 140, days_of_week: [2, 4, 6])
+course7 = Course.create!(course_type: studio_goldenowl.course_types[0], num_slot: 30,
               cover_img: Rails.root.join('app/assets/images/yoga7.jpg').open,
-              phone_number: '1234567890', website: 'http://course3.com',
               description: 'no description3', start_time: Time.now,
               end_time: 7.hour.from_now, start_date: 35.days.from_now, teacher: teacher7,
               station: station7, exercise: exercise7, studio: studio_goldenowl,
-              tuition: 700.0, currency: 'JPY', kcal: 160, days_of_week: [1])
-course8 = Course.create!(name: 'City Yoga', num_slot: 40,
+              tuition: 700.0, currency: 'JPY', kcal: 160, days_of_week: [2, 4])
+course8 = Course.create!(course_type: studio_goldenowl.course_types[1], num_slot: 40,
               cover_img: Rails.root.join('app/assets/images/yoga8.jpg').open,
-              phone_number: '1234567890', website: 'http://course4.com',
               description: 'no description4', start_time: Time.now,
               end_time: 8.hour.from_now, start_date: 45.days.from_now, teacher: teacher8,
               station: station8, exercise: exercise8, studio: studio_goldenowl,
-              tuition: 800.0, currency: 'JPY', kcal: 180, days_of_week: [2])
-course9 = Course.create!(name: 'Oversea Doc', num_slot: 10,
+              tuition: 800.0, currency: 'JPY', kcal: 180, days_of_week: [1, 2])
+course9 = Course.create!(course_type: studio_goldenowl.course_types[2], num_slot: 10,
               cover_img: Rails.root.join('app/assets/images/yoga9.jpg').open,
-              phone_number: '1234567890', website: 'http://course1.com',
               description: 'no description1', start_time: Time.now,
               end_time: 9.hour.from_now, start_date: 55.days.from_now, teacher: teacher9,
               station: station9, exercise: exercise9, studio: studio_goldenowl,
-              tuition: 900.0, currency: 'JPY', kcal: 200, days_of_week: [3, 7])
-course10 = Course.create!(name: 'Demo Gym', num_slot: 20,
+              tuition: 900.0, currency: 'JPY', kcal: 200, days_of_week: [4, 6])
+course10 = Course.create!(course_type: studio_goldenowl.course_types[3], num_slot: 20,
               cover_img: Rails.root.join('app/assets/images/yoga10.jpg').open,
-              phone_number: '1234567890', website: 'http://course2.com',
               description: 'no description2', start_time: Time.now,
               end_time: 10.hour.from_now, start_date: 65.days.from_now, teacher: teacher10,
               station: station10, exercise: exercise10, studio: studio_goldenowl,
-              tuition: 150.0, currency: 'JPY', kcal: 220, days_of_week: [4])
-course11 = Course.create!(name: 'Pro Swim', num_slot: 30,
+              tuition: 150.0, currency: 'JPY', kcal: 220, days_of_week: [3, 5])
+course11 = Course.create!(course_type: studio_goldenowl.course_types[4], num_slot: 30,
               cover_img: Rails.root.join('app/assets/images/yoga11.jpg').open,
-              phone_number: '1234567890', website: 'http://course3.com',
               description: 'no description3', start_time: Time.now,
               end_time: 11.hour.from_now, start_date: 75.days.from_now, teacher: teacher11,
               station: station11, exercise: exercise11, studio: studio_goldenowl,
-              tuition: 160.0, currency: 'JPY', kcal: 240, days_of_week: [5])
-course12 = Course.create!(name: 'Basic Bad', num_slot: 40,
+              tuition: 160.0, currency: 'JPY', kcal: 240, days_of_week: [3, 4])
+course12 = Course.create!(course_type: studio_goldenowl.course_types[5], num_slot: 40,
               cover_img: Rails.root.join('app/assets/images/yoga12.jpg').open,
-              phone_number: '1234567890', website: 'http://course4.com',
               description: 'no description4', start_time: Time.now,
               end_time: 12.hour.from_now, start_date: 85.days.from_now, teacher: teacher12,
               station: station12, exercise: exercise12, studio: studio_goldenowl,
-              tuition: 170.0, currency: 'JPY', kcal: 260, days_of_week: [1, 2, 3, 4, 5])
+              tuition: 170.0, currency: 'JPY', kcal: 260, days_of_week: [1, 2])
 
 # customer_user.enrollments.create!(course_id: course1.id)
 # customer_user.enrollments.create!(course_id: course2.id)

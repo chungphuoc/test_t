@@ -1,0 +1,17 @@
+.row.zero-margin.center-text.title
+  h1 = t('static_text.classes')
+  table.table.table-stripped
+    td colspan="5"
+      = link_to t('static_text.new_class'), new_manage_course_path, class: 'btn btn-sign-up'
+      = link_to t('button.manage_course_type'), manage_course_types_path, class: 'btn btn-sign-in'
+  - @course_types.each do |course_type|
+    h3.title #{course_type.name}
+    table.table.table-stripped
+      tr
+        th = t('static_text.name')
+        th = t('activerecord.attributes.course.date')
+        th = t('activerecord.attributes.course.time')
+        th = t('static_text.station')
+        th = t('static_text.action')
+      = render course_type.courses
+  = paginate @course_types

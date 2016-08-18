@@ -1,13 +1,11 @@
 FactoryGirl.define do
   factory :course do
-    name
-    phone_number '0123456789'
+    association :course_type
     num_slot 10
     start_date Date.current
     association :teacher, factory: :teacher
     association :station, factory: :station
     association :exercise, factory: :exercise
-    website Faker::Internet.url
     kcal 10
     tuition 10
     days_of_week [1]

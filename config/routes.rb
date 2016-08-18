@@ -155,6 +155,7 @@ Rails.application.routes.draw do
       collection do
         get :booked
         get :past
+        get :all
       end
       member do
         put :close
@@ -178,6 +179,7 @@ Rails.application.routes.draw do
     resources :facilities, only: [:index] do
       put :update, on: :collection
     end
+    resources :course_types
     resources :payable_options, only: [:index, :create, :destroy]
   end
 end
