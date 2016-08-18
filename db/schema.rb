@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809073056) do
+ActiveRecord::Schema.define(version: 20160815051249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,11 +68,15 @@ ActiveRecord::Schema.define(version: 20160809073056) do
   add_index "course_categories", ["category_id"], name: "index_course_categories_on_category_id", using: :btree
   add_index "course_categories", ["course_id"], name: "index_course_categories_on_course_id", using: :btree
 
-  create_table "courses", force: :cascade do |t|
+  create_table "course_types", force: :cascade do |t|
     t.string   "name"
+    t.integer  "studio_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
     t.string   "cover_img"
-    t.string   "phone_number"
-    t.string   "website"
     t.text     "description"
     t.decimal  "rating"
     t.decimal  "kcal"
@@ -93,6 +97,8 @@ ActiveRecord::Schema.define(version: 20160809073056) do
     t.integer  "booked_slot"
     t.integer  "days_of_week",      default: [],                 array: true
     t.date     "full_dates",        default: [],                 array: true
+    t.integer  "course_type_id"
+    t.boolean  "repeatable",        default: false
   end
 
   add_index "courses", ["days_of_week"], name: "index_courses_on_days_of_week", using: :gin
@@ -155,12 +161,6 @@ ActiveRecord::Schema.define(version: 20160809073056) do
     t.integer  "customer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "featured_courses", force: :cascade do |t|
-    t.integer  "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "option_enrollments", force: :cascade do |t|

@@ -1,0 +1,6 @@
+tr
+  td
+    = course_type.name
+  td
+    = link_to t('button.edit'), edit_manage_course_type_path(course_type), class: 'btn btn-sign-in'
+    = link_to t('button.delete'), manage_course_type_path(course_type), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sign-up'

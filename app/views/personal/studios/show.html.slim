@@ -29,9 +29,9 @@
         = image_tag @studio.cover_img
       .col-lg-4
         h3.title Description
-        p #{@studio.description}
+        p.body #{@studio.description}
         .row.left-text
-            ul.studio-detail
+            ul.studio-detail.body
               li
                 span.glyphicon.glyphicon-map-marker
                 span #{@studio.address}

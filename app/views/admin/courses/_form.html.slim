@@ -10,18 +10,6 @@
     .col-lg-10
       = f.file_field :cover_img
   .form-group
-    = f.label :phone_number, class: 'control-label col-sm-2'
-    .col-lg-10
-      = f.text_field :phone_number, class: "form-control"
-      .error-text
-          = @course.errors[:phone_number].to_sentence
-  .form-group
-    = f.label :website, class: 'control-label col-sm-2'
-    .col-lg-10
-      = f.text_field :website, class: "form-control"
-      .error-text
-          = @course.errors[:website].to_sentence
-  .form-group
     = f.label :num_slot, class: 'control-label col-sm-2'
     .col-lg-10
       = f.number_field :num_slot, class: "form-control", required: ""

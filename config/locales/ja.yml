@@ -57,6 +57,8 @@ ja:
     login: ログイン
     sign_in_with: "%{provider}でサインイン"
     remember_me: パスワード保存
+    manage_course_type: コースタイプを管理
+    repeatable: 繰り返し可能な
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
@@ -121,6 +123,9 @@ ja:
       customer: 顧客
     already_have_an_account: すでにアカウントをお持ちですか？
     forgot_your_password: パスワードをお忘れですか？
+    course_type: コースの種類
+    new_course_type: コースタイプを作成します。
+    edit_course_type: 編集コースタイプ
     term_condition: 利用規約
     i_agree: 同意します
     add_new_option: 新しいオプションを追加

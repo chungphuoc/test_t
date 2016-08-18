@@ -6,12 +6,10 @@
       .text-center
         h1.studio-name.gray = current_user.name
       .list-group
-          = link_to manage_courses_path, class: "#{ (controller_name == 'courses')? 'item-active list-group-item' : 'list-group-item'}" do
-            i.glyphicon.glyphicon-calendar
-              span = t('button.schedule')
+          = link_to all_manage_courses_path, class: "#{ (controller_name == 'courses')? 'item-active list-group-item' : 'list-group-item'}" do
+            i.glyphicon.glyphicon-th-list
+              span = t('static_text.classes')
           end
-          // = link_to 'Booked Classes', booked_manage_courses_path, class: 'list-group-item'
-          // = link_to 'Past Classes', past_manage_courses_path, class: 'list-group-item'
           = link_to manage_contracts_path, class: "#{ (controller_name == 'contracts')? 'item-active list-group-item' : 'list-group-item'}" do
             i.glyphicon.glyphicon-user
               span = t('button.teachers')
