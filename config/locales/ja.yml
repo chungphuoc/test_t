@@ -45,8 +45,8 @@ ja:
     schedule: スケジュール
     teachers: 先生
     exercises: エクササイズ
-    stations: ステーション
-    facilities: 施設
+    stations: 駅
+    facilities: ファシリティー
     payments: 支払い
     featured_courses: おすすめコース
     event_courses: イベント
@@ -57,6 +57,7 @@ ja:
     login: ログイン
     sign_in_with: "%{provider}でサインイン"
     remember_me: パスワード保存
+    payable_options: 追加オプション
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
@@ -125,7 +126,7 @@ ja:
     i_agree: 同意します
     add_new_option: 新しいオプションを追加
     price: 価格
-    payable_options: Payable Option
+    payable_options: 追加オプション
   language: '日本語'
   activerecord:
     errors:

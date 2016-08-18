@@ -6,12 +6,6 @@
       .text-center
         h1.studio-name.gray = current_user.name
       .list-group
-          = link_to manage_courses_path, class: "#{ (controller_name == 'courses')? 'item-active list-group-item' : 'list-group-item'}" do
-            i.glyphicon.glyphicon-calendar
-              span = t('button.schedule')
-          end
-          // = link_to 'Booked Classes', booked_manage_courses_path, class: 'list-group-item'
-          // = link_to 'Past Classes', past_manage_courses_path, class: 'list-group-item'
           = link_to manage_contracts_path, class: "#{ (controller_name == 'contracts')? 'item-active list-group-item' : 'list-group-item'}" do
             i.glyphicon.glyphicon-user
               span = t('button.teachers')
@@ -28,7 +22,7 @@
             i.glyphicon.glyphicon-compressed
               span = t('button.facilities')
           end
-          = link_to manage_payment_index_path, class: "#{ (controller_name == 'payment')? 'item-active list-group-item' : 'list-group-item'}" do
-            i.glyphicon.glyphicon-usd
-              span = t('button.payments')
+          = link_to manage_payable_options_path, class: "#{ (controller_name == 'payable_options')? 'item-active list-group-item' : 'list-group-item'}" do
+            i.glyphicon.glyphicon-glass
+              span = t('button.payable_options')
           end
