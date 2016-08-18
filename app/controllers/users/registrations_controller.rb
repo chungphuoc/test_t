@@ -5,7 +5,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    @term = Term.first
+    @term = {
+      studio: Term.studio_term_condition,
+      customer: Term.customer_term_condition
+    }
     super
   end
 

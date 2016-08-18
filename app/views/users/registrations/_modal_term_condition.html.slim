@@ -1,17 +1,17 @@
-#termconditionModal.modal.fade role="dialog"
+.modal.fade role="dialog" id="termconditionModal_#{term.user_type}"
   .modal-dialog
     .modal-content
       .modal-header
-        button.close data-dismiss="modal" type="button"  ×
+        button.close data-dismiss="modal" type="button" ×
         h3.modal-title.title
           = t('static_text.term_condition')
       .modal-body id='model-body'
         #term-condition.max-height-term-condition
           section.title
             h1#intro TONED. Terms of Use Agreement
-            h3#last-revision Latest Revision: #{@term.updated_at.strftime("%d %B %Y")}
+            h3#last-revision Latest Revision: #{term.updated_at.strftime("%d %B %Y")}
           section.main-contents
-            | #{@term.content.html_safe}
+            | #{term.content.html_safe}
         .row
           .col-lg-4
           .col-lg-4
