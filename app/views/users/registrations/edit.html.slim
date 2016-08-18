@@ -15,27 +15,27 @@
         = resource.unconfirmed_email
     .form-group
       = f.label :password
-        i leave blank if you do not want to change it
+        i = t('edit_account_form.leave_it_blank')
         br
-      = f.password_field :password, class: "form-control", autocomplete: "off", placeholder: "new password"
+      = f.password_field :password, class: "form-control", autocomplete: "off", placeholder: t('edit_account_form.new_password')
       .error-text
         = resource.errors[:password].to_sentence
     .form-group
-      = f.label :password_confirmation
+      = f.label :password_confirmation, t('edit_account_form.password_confirmation')
       br
-      = f.password_field :password_confirmation, class: "form-control", autocomplete: "off", placeholder: "confirm new password"
+      = f.password_field :password_confirmation, class: "form-control", autocomplete: "off", placeholder: t('edit_account_form.confirm_new_password')
       .error-text
         = resource.errors[:password_confirmation].to_sentence
     .form-group
-      = f.label :current_password
+      = f.label :current_password, t('edit_account_form.current_password')
       br
-      i we need your current password to confirm your changes
+      i = t('edit_account_form.we_need_current_password')
       br
-      = f.password_field :current_password, class: "form-control", autocomplete: "off", placeholder: "current password"
+      = f.password_field :current_password, class: "form-control", autocomplete: "off", placeholder: t('edit_account_form.current_password')
       .error-text
         = resource.errors[:current_password].to_sentence
     .actions
-      = f.submit "Update", class: "btn btn-sign-in"
+      = f.submit t('button.update'), class: "btn btn-sign-in"
     //= link_to "Back", :back
     - if current_user.customer?
       = link_to my_customer_path, title: "back", class: "back-button" do

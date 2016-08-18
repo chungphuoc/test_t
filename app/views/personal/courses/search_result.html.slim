@@ -22,7 +22,7 @@
                                                               exercise_ids: exercise_ids)
           button.btn.btn-sign-in type="button" data-toggle="modal" data-target="#checkboxStationModal" +
         .col-sm-4.exercise
-          h4 Activities
+          h4 = t('static_text.activities')
           #exercise-names
             - if exercise_ids
               - Exercise.where(id: exercise_ids).each do |exercise|

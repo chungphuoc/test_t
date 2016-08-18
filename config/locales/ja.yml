@@ -3,7 +3,7 @@ ja:
   button:
     get_started: '今すぐ登録！'
     edit: '編集'
-    update: '更新'
+    update: '編集'
     delete: '削除'
     send: '送信'
     add: 加えます
@@ -31,8 +31,8 @@ ja:
     favourite_studio: お気に入りスタジオ
     studio_list: スタジオリスト
     search: 検索
-    edit_profile: プロファイル編集
-    edit_account: アカウントの編集
+    edit_profile: プロフィール写真
+    edit_account: アカウント編集
     detail: 詳細
     new_class: 新しいクラス
     all_class: すべてのクラス
@@ -131,6 +131,14 @@ ja:
     add_new_option: 新しいオプションを追加
     time: 時間
     calories: カロリー
+    activities: クラス
+  edit_account_form:
+    leave_it_blank: メールアドレスを変更しない場合は空欄にしてください
+    new_password: 新しいパスワード
+    password_confirmation: パスワードの確認
+    confirm_new_password: 新しいパスワードを確認
+    current_password: 現在のパスワード
+    we_need_current_password: パスワード変更には現在のパスワードが必要です
   language: '日本語'
   activerecord:
     errors:
@@ -205,7 +213,7 @@ ja:
         exercise: 運動
         teacher: 先生
         time: 時間
-        date: 日
+        date: 日付
       exercise:
         name: 名前
         description: 説明
