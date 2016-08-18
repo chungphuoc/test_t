@@ -1,24 +1,21 @@
 table.table.table-striped.table-booked-class
   tr
-    th
-    th = Course.human_attribute_name('cover_img')
-    th = Course.human_attribute_name('name')
-    th = Course.human_attribute_name('start_date')
-    th = Course.human_attribute_name('start_time')
-    th = Course.human_attribute_name('end_time')
+    th = t('activerecord.attributes.enrollment.course_name')
+    th = t('activerecord.attributes.course.date')
+    th = t('activerecord.attributes.course.time')
+    th = t('activerecord.attributes.course.station')
+    th = t('activerecord.attributes.course.kcal')
     th = Enrollment.human_attribute_name('status')
     - if rating
       th Rating
     th = t('static_text.action')
   - @enrollments.each_with_index do |enrollment, index|
     tr.booked-row-classes
-      td #{index + 1}
-      td
-        = image_tag enrollment.cover_img
       td #{enrollment.course_name}
       td #{enrollment.start_date}
-      td #{enrollment.start_time.strftime("%I:%M %p")}
-      td #{enrollment.end_time.strftime("%I:%M %p")}
+      td #{enrollment.start_time.strftime("%I:%M %p")} - #{enrollment.end_time.strftime("%I:%M %p")}
+      td #{enrollment.course.station_name}
+      td #{enrollment.kcal} #{t('activerecord.attributes.course.kcal')}
       td id="status_#{enrollment.id}" = t("activerecord.attributes.enrollment.statuses.#{enrollment.status}")
       - if rating
         td

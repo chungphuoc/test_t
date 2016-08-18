@@ -41,6 +41,9 @@
   font-weight: bold;
   margin-right: 0;
   padding-right: 0 !important;
+  &:hover {
+    color: #fbc584 !important;
+  }
 }
 
 .btn-contact {
@@ -116,8 +119,8 @@
       color: #dbf5f1;
     }
     .btn-get-started{
-      padding: 8px 18px !important;
-      font-size: 24px;
+      padding: 15px 35px !important;
+      font-size: 25px;
       margin-top: 40px;
       color: #676767 !important;
     }
@@ -332,7 +335,7 @@
   }
   .app-title{
     color: #dfdfdf;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
   }
   .copy-right .about-us{

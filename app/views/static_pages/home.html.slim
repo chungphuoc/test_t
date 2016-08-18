@@ -17,7 +17,7 @@
           = link_to personal_courses_path, class: "btn btn-sign-up btn-get-started"
             span = t('button.get_started')
         - else
-          button.btn.btn-sign-up = t('button.get_started')
+          button.btn.btn-sign-up.btn-get-started = t('button.get_started')
       - else
         = link_to new_user_registration_path, class: "btn btn-sign-up btn-get-started"
             span = t('button.get_started')
@@ -32,11 +32,11 @@
   hr
   .section.container.instruction
     .row
-      .col-lg-4.text-center
+      .col-xs-4.text-center
         = image_tag 'screenshot/homepage.png'
-      .col-lg-4.text-center
+      .col-xs-4.text-center
         = image_tag 'screenshot/sign-up.png'
-      .col-lg-4.text-center
+      .col-xs-4.text-center
         = image_tag 'screenshot/user.png'
   .section.introduction
     .row.align-center

@@ -1,6 +1,6 @@
 .slider-bar
   .time
-    h4 Time
+    h4 = t('static_text.time')
     - minute_min = string_to_minutes(params[:min_time]) || 0
     - minute_max = string_to_minutes(params[:max_time]) || 24 * 60
     input id="time-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1440" data-slider-step="30" data-slider-time="true" data-slider-value="[#{minute_min},#{minute_max}]" onChange="slider_change('time');"
@@ -8,7 +8,7 @@
       span.min 00:00
       span.max 24:00
   .calories
-    h4 Calories
+    h4 = t('static_text.calories')
     - kcal_min = params[:min_kcal] || 0
     - kcal_max = params[:max_kcal] || 1000
     input id="kcal-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1000" data-slider-step="10" data-slider-value="[#{kcal_min}, #{kcal_max}]" onChange="slider_change('kcal');"
@@ -22,7 +22,7 @@
     = hidden_field_tag 'min_time', Time.at(minute_min * 60).utc.strftime("%H:%M:%S")
     = hidden_field_tag 'max_time', Time.at(minute_max * 60).utc.strftime("%H:%M:%S")
   .button-search
-    = submit_tag t('button.search'), class: 'btn btn-sign-up btn-search'
+    = submit_tag t('button.search'), class: 'btn btn-sign-in'
 
 = stylesheet_link_tag '/bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min'
 script src="/bower_components/underscore/underscore-min.js"

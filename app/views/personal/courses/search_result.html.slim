@@ -12,7 +12,7 @@
         .col-sm-4.search-by-time-calories
           = render 'slider_search', station_ids: station_ids, exercise_ids: exercise_ids
         .col-sm-4.station
-          h4 Areas
+          h4 = t('static_text.station')
           #station-names
             - if station_ids
               - Station.where(id: station_ids).each do |station|
@@ -20,9 +20,9 @@
                   = station.name
                   = link_to "✘", search_personal_courses_path(station_ids: station_ids - [station.id.to_s],
                                                               exercise_ids: exercise_ids)
-          button.btn.btn-sign-up.btn-search type="button" data-toggle="modal" data-target="#checkboxStationModal" +
+          button.btn.btn-sign-in type="button" data-toggle="modal" data-target="#checkboxStationModal" +
         .col-sm-4.exercise
-          h4 Activities
+          h4 = t('static_text.activities')
           #exercise-names
             - if exercise_ids
               - Exercise.where(id: exercise_ids).each do |exercise|
@@ -30,7 +30,7 @@
                   = exercise.name
                   = link_to "✘", search_personal_courses_path(station_ids: station_ids,
                                                               exercise_ids: exercise_ids - [exercise.id.to_s])
-          button.btn.btn-sign-up.btn-search type="button" data-toggle="modal" data-target="#checkboxExerciseModal" +
+          button.btn.btn-sign-in type="button" data-toggle="modal" data-target="#checkboxExerciseModal" +
         .col-sm-2
   .col-md-3.favorite-studio
     .h3
@@ -41,7 +41,7 @@
         li id="studio_#{favourite_studio.studio.id}"
           = check_box_tag "favourite_studio_#{favourite_studio.studio.id}", favourite_studio.studio.id
           = label_tag "favourite_studio_#{favourite_studio.studio.id}",favourite_studio.studio_name
-    button#remove-studio.btn.btn-primary onClick="remove_favorite_studios()" Remove
+    button#remove-studio.btn.btn-sign-in onClick="remove_favorite_studios()" Remove
   .col-md-9
     = render 'class_calendar'
 

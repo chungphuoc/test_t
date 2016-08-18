@@ -14,5 +14,5 @@
                     = check_box_tag "exercise_ids[#{exercise.id}]", exercise.id, params[:exercise_ids] && params[:exercise_ids].include?(exercise.id.to_s), name: 'exercise_ids[]'
                     = label_tag "exercise_ids[#{exercise.id}]", exercise.name
           .button-search
-            = submit_tag t('button.search'), class: 'btn-search'
+            = submit_tag t('button.search'), class: 'btn btn-sign-up'
       .modal-footer

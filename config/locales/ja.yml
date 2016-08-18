@@ -1,9 +1,8 @@
----
 ja:
   button:
     get_started: '今すぐ登録！'
     edit: '編集'
-    update: '更新'
+    update: '編集'
     delete: '削除'
     send: '送信'
     add: 加えます
@@ -19,19 +18,19 @@ ja:
     close: 閉じる
     re_open: 再び開きます
     my_page: 'マイページ'
-    name_my_page: '%{name}の私のページ'
+    name_my_page: '%{name}マイページ'
     my_classes: 私のクラス
     payment_management: 支払い管理
     class_management: クラス管理
     class_calendar: クラス　スケジュール
-    search_class: クラス　検索
+    search_class: 検索クラス
     booked_class: 予約済みクラス
     passed_class: 過去のクラス
     favourite_class: お気に入り
     favourite_studio: お気に入りスタジオ
-    studio_list: スタジオ　リスト
+    studio_list: スタジオリスト
     search: 検索
-    edit_profile: プロファイル編集
+    edit_profile: プロフィール写真
     edit_account: アカウント編集
     detail: 詳細
     new_class: 新しいクラス
@@ -49,9 +48,9 @@ ja:
     stations: 駅
     facilities: ファシリティー
     payments: 支払い
-    featured_courses: おすすめコース
-    event_courses: イベント
-    new_courses: 新しい
+    featured_courses: Featured class
+    event_courses: Event
+    new_courses: New
     book: 予約
     is_booked: 予約されています
     register: 登録
@@ -67,7 +66,7 @@ ja:
     about_us: '会社概要'
     features: 特徴
     featured_class: '人気のクラス'
-    feedback_text: 'フィードバック'
+    message_course: コメント、スタジオに依頼...
     feedback:
       name: 名前
       title: タイトル
@@ -99,7 +98,7 @@ ja:
     birthday: お誕生日
     receive_sms: sms
     edit_profile: プロフィールの編集
-    class_schedule: クラス　スケジュール
+    class_schedule: 時間割
     action: アクション
     index: インデックス
     classes: クラス
@@ -114,7 +113,7 @@ ja:
     approved_stations: 承認された駅
     request_new_station: 新しい局に要求
     new_class: 新しいクラス
-    studio_list: スタジオ　リスト
+    studio_list: スタジオリスト
     shower: シャワー
     locker: ロッカー
     rental: レンタル
@@ -131,6 +130,9 @@ ja:
     term_condition: 利用規約
     i_agree: 同意します
     add_new_option: 新しいオプションを追加
+    time: 時間
+    calories: カロリー
+    activities: クラス
     price: 価格
     payable_options: 追加オプション
     instruction:
@@ -216,7 +218,7 @@ ja:
         exercise: クラス
         teacher: インストラクター
         time: 時間
-        date: 日
+        date: 日付
       exercise:
         name: 名前
         description: 説明

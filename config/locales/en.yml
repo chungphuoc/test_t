@@ -69,7 +69,7 @@ en:
     stations: Stations
     facilities: Facilities
     payments: Payments
-    featured_courses: Featured Courses
+    featured_courses: Featured class
     event_courses: Event
     new_courses: New
     book: Book
@@ -87,7 +87,7 @@ en:
     about_us: About Us
     features: Features
     featured_class: Featured Class
-    feedback_text: Feedback
+    message_course: Comment, request to studio ...
     feedback:
       name: Your name
       title: title
@@ -151,6 +151,9 @@ en:
     term_condition: Terms and Conditions
     i_agree: I agree
     add_new_option: Add new Option
+    time: Time
+    calories: Calories
+    activities: Activities
     price: Price
     payable_options: Payable Option
     instruction:
