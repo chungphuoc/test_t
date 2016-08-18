@@ -17,21 +17,21 @@
       = f.label :password
         i = t('static_text.instruction.leave_password_blank')
         br
-      = f.password_field :password, class: "form-control", autocomplete: "off", placeholder: t('static_text.password.new')
+      = f.password_field :password, class: "form-control", autocomplete: "off", placeholder: t('static_text.password_form.new')
       .error-text
         = resource.errors[:password].to_sentence
     .form-group
-      = f.label :password_confirmation, t('static_text.password.confirmation')
+      = f.label :password_confirmation, t('static_text.password_form.confirmation')
       br
-      = f.password_field :password_confirmation, class: "form-control", autocomplete: "off", placeholder: t('static_text.password.confirmation')
+      = f.password_field :password_confirmation, class: "form-control", autocomplete: "off", placeholder: t('static_text.password_form.confirmation')
       .error-text
         = resource.errors[:password_confirmation].to_sentence
     .form-group
-      = f.label :current_password, t('static_text.password.current')
+      = f.label :current_password, t('static_text.password_form.current')
       br
       i = t('static_text.instruction.need_password')
       br
-      = f.password_field :current_password, class: "form-control", autocomplete: "off", placeholder: t('static_text.password.current')
+      = f.password_field :current_password, class: "form-control", autocomplete: "off", placeholder: t('static_text.password_form.current')
       .error-text
         = resource.errors[:current_password].to_sentence
     .actions

@@ -159,7 +159,7 @@ en:
     instruction:
       leave_password_blank: leave blank if you do not want to change it
       need_password: we need your current password to confirm your changes
-    password:
+    password_form:
       new: new password
       confirmation: password confirmation
       current: current password

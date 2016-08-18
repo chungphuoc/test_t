@@ -138,7 +138,7 @@ ja:
     instruction:
       leave_password_blank: メールアドレスを変更しない場合は空欄にしてください
       need_password: パスワード変更には現在のパスワードが必要です
-    password:
+    password_form:
       new:  新しいパスワード
       confirmation: パスワード再度確認
       current: 現在のパスワード
