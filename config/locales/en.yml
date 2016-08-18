@@ -63,6 +63,7 @@ en:
     search_by_name: Search By Name
     search_by_station: Search By Station
     schedule: Schedule
+    classes: Classes
     teachers: Teachers
     exercises: Exercises
     stations: Stations
@@ -77,8 +78,9 @@ en:
     login: Login
     sign_in_with: "Sign in with %{provider}"
     remember_me: Remember me
+    payable_options: Payable Options
     manage_course_type: Mange course type
-    repeatable: Repeatable
+    repeatable: Only one time
   static_text:
     home: Home
     contact_us: Contact Us
@@ -149,6 +151,15 @@ en:
     term_condition: Terms and Conditions
     i_agree: I agree
     add_new_option: Add new Option
+    price: Price
+    payable_options: Payable Option
+    instruction:
+      leave_password_blank: leave blank if you do not want to change it
+      need_password: we need your current password to confirm your changes
+    password:
+      new: new password
+      confirmation: password confirmation
+      current: current password
   language: "English"
   error:
     access_denied: 'Access Denied'
@@ -289,6 +300,8 @@ en:
         course_name: Class Name
         customer_name: User Name
         studio_name: Studio Name
+        date: Date
+        amount: Amount
       course:
         name: Name
         cover_img: Cover image
@@ -313,7 +326,7 @@ en:
         days_of_week: Days of Week
         station: Station
         exercise: Exercise
-        teacher: Teacher
+        teacher: Instructor
         date: Date
         time: Time
       exercise:
