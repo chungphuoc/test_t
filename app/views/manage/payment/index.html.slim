@@ -1,5 +1,5 @@
 .row.zero-margin.center-text
-    h1 Payment management
+    h1 = t('button.payment_management')
 .row.zero-margin.paymet-section
   .col-lg-2.time-section
     = select_year(Date.today, {start_year: 2015, end_year: Time.now.year}, { class: 'form-control', onchange: "change_year_payment()"})
