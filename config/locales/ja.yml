@@ -143,6 +143,11 @@ ja:
       new:  新しいパスワード
       confirmation: パスワード再度確認
       current: 現在のパスワード
+  calendar:
+    year: 年
+    month: 月
+    week: 週間
+    day: 日
   language: '日本語'
   activerecord:
     errors:

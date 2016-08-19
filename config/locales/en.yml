@@ -164,6 +164,11 @@ en:
       new: new password
       confirmation: password confirmation
       current: current password
+  calendar:
+    year: year
+    month: month
+    week: week
+    day: day
   language: "English"
   error:
     access_denied: 'Access Denied'
