@@ -5,11 +5,12 @@ class PaymentService
   end
 
   def save_payment_info(params, enrollment)
+    byebug
     customer = Stripe::Customer.create(email: @user.email,
                                        source: params[:source])
     begin
     charge = Stripe::Charge.create(customer: customer.id,
-                                   amount: enrollment.total_cost * 100,
+                                   amount: enrollment.total_cost,
                                    description: params[:course_name] + ', ' + params[:studio_name],
                                    currency: enrollment.course.currency)
     rescue Stripe::CardError => e
@@ -17,7 +18,12 @@ class PaymentService
       err  = body[:error]
       return { error: err[:message] }
     end
-    return nil
+    # check correct payment
+    if charge.amount != enrollment.total_cost
+      return { error: 'Have problems in your payment' }
+    else
+      return nil
+    end
   end
 
   def update_customer_info(params)
