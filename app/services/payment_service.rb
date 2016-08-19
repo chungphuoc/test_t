@@ -18,12 +18,7 @@ class PaymentService
       err  = body[:error]
       return { error: err[:message] }
     end
-    # check correct payment
-    if charge.amount != enrollment.total_cost
-      return { error: 'Have problems in your payment' }
-    else
-      return nil
-    end
+    return nil
   end
 
   def update_customer_info(params)
