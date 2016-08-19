@@ -60,6 +60,7 @@ ja:
     payable_options: 追加オプション
     manage_course_type: コースタイプを管理
     repeatable: 何度も
+    remove: 削除します
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'

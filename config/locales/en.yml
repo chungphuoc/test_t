@@ -81,6 +81,7 @@ en:
     payable_options: Payable Options
     manage_course_type: Mange course type
     repeatable: Many times
+    remove: Remove
   static_text:
     home: Home
     contact_us: Contact Us

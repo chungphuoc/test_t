@@ -1,6 +1,10 @@
 (function($) {
   "use strict";
   var params = window.location.search.replace("?", "");
+  var language = params.split("&")
+                       .filter(function(x) { return x.startsWith("locale"); })[0]
+                       .replace("locale=", "");
+  language = language == "en" ? 'en-US' : 'ja-JP';
   var options = {
     events_source: '/my/courses/search.json?' + params,
     view: 'day',
@@ -28,7 +32,8 @@
       months: {
         general: 'label'
       }
-    }
+    },
+    language: language
   };
 
   var calendar = $('#calendar').calendar(options);
