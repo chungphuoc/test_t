@@ -9,8 +9,9 @@ class PaymentService
     customer = Stripe::Customer.create(email: @user.email,
                                        source: params[:source])
     begin
+    weight = enrollment.course.currency.downcase = 'usd' ? 100 : 1
     charge = Stripe::Charge.create(customer: customer.id,
-                                   amount: enrollment.total_cost,
+                                   amount: enrollment.total_cost * weight,
                                    description: params[:course_name] + ', ' + params[:studio_name],
                                    currency: enrollment.course.currency)
     rescue Stripe::CardError => e
