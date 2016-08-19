@@ -1,18 +1,19 @@
 #admin_term_index
-h1 Term & Conditions
-hr
-ul.nav.nav-tabs.nav-justified
-  li.active#btn-customer role="presentation"
-    = link_to 'Customer', "javascript:show_term_customer();"
-  li#btn-studio role="presentation"
-    = link_to 'Studio', "javascript:show_term_studio();"
-ul.list-term
-  - @terms.each do |term|
-    li id="term_#{term.user_type}"
-      p = link_to "Edit", edit_admin_term_path(term), class: "btn btn-primary"
-      p.term-content = term.content.html_safe
-
-
-
-
-
+  h1 Terms & Conditions
+  hr
+  ul.nav.nav-tabs.nav-justified.list-button
+    li.active#button_term_customer role="presentation"
+      = link_to 'Customer', "javascript:show_term('customer');"
+    li#button_term_studio role="presentation"
+      = link_to 'Studio', "javascript:show_term('studio');"
+  ul.list-term
+    - @terms.each do |term|
+      li id="term_#{term.user_type}"
+        p = link_to "Edit", edit_admin_term_path(term), class: "btn btn-primary"
+        .term-content
+          #term-condition
+            section.title
+              h1#intro TONED. Terms of Use Agreement
+              h3#last-revision Latest Revision: #{term.updated_at.strftime("%d %B %Y")}
+            section.main-contents
+              | #{term.content.html_safe}
