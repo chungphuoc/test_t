@@ -164,6 +164,8 @@ en:
       new: new password
       confirmation: password confirmation
       current: current password
+    map: Map
+    attend_date: Attend date
   calendar:
     year: year
     month: month
@@ -311,6 +313,7 @@ en:
         studio_name: Studio Name
         date: Date
         amount: Amount
+        total_cost: Total cost
       course:
         name: Name
         cover_img: Cover image

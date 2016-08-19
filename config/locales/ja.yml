@@ -143,6 +143,8 @@ ja:
       new:  新しいパスワード
       confirmation: パスワード再度確認
       current: 現在のパスワード
+    map: 地図
+    attend_date: 日付に出席
   calendar:
     year: 年
     month: 月
@@ -198,6 +200,7 @@ ja:
         studio_name: スタジオ名
         date: 日付
         amount: 値段
+        total_cost: 総費用
       course:
         name: 名前
         cover_img: 表紙画像
