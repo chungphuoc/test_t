@@ -5,7 +5,6 @@ class PaymentService
   end
 
   def save_payment_info(params, enrollment)
-    byebug
     customer = Stripe::Customer.create(email: @user.email,
                                        source: params[:source])
     begin
