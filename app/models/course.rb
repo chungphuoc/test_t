@@ -20,6 +20,7 @@ class Course < ActiveRecord::Base
   validates :station, presence: true
   validates :exercise, presence: true
   validates :course_type, presence: true
+  validate :start_must_be_before_end_time
 
   delegate :name, to: :course_type
   delegate :name, to: :teacher, prefix: true
@@ -52,9 +53,7 @@ class Course < ActiveRecord::Base
     end
     newdays = days.collect do |day|
       newday = Date.today.beginning_of_week + day.days
-      if Date.today.wday < day
-        [newday.strftime('%a, %m-%d-%y'), newday]
-      end
+      [newday.strftime('%a, %m-%d-%y'), newday] if Date.today.wday < day
     end
     newdays.compact
   end
@@ -73,7 +72,6 @@ class Course < ActiveRecord::Base
     results = results.where(exercise_id: params[:exercise_ids]) if params[:exercise_ids]
     results = search_by_calories(results, params)
     results = search_by_time(results, params)
-
     results
   end
 
@@ -106,11 +104,8 @@ class Course < ActiveRecord::Base
   end
 
   def is_booked(user)
-    if user.customer?
-      enrollments.exists?(customer_id: user.role.id)
-    else
-      return false
-    end
+    return false unless user.customer?
+    enrollments.exists?(customer_id: user.role.id)
   end
 
   def self.find_course_by_category(category_name)
@@ -120,5 +115,12 @@ class Course < ActiveRecord::Base
 
   def open_slot
     num_slot - enrollments_count
+  end
+
+  private
+
+  def start_must_be_before_end_time
+    valid = start_time && end_time && start_time < end_time
+    errors.add(:start_time, 'must be before end time') unless valid
   end
 end
