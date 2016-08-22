@@ -56,14 +56,14 @@ en:
     detail: Detail
     new_class: New Class
     all_class: All Classes
-    add_teacher: Add Teacher
+    add_teacher: Add Instructor
     add_station: Add Station
     add_facility: Add Facility
     add_payable_option: Add option
     search_by_name: Search By Name
     search_by_station: Search By Station
     schedule: Schedule
-    teachers: Teachers
+    teachers: Instructors
     exercises: Exercises
     stations: Stations
     facilities: Facilities
@@ -158,9 +158,9 @@ en:
     ja: Japanese
   manage:
     contracts:
-      added: 'Teacher has been successfully added.'
-      updated: 'Teacher has been successfully updated.'
-      removed: 'Teacher has been successfully removed.'
+      added: 'Instructors has been successfully added.'
+      updated: 'Instructors has been successfully updated.'
+      removed: 'Instructors has been successfully removed.'
     courses:
       created: 'Course has been successfully created'
       updated: 'Course has been successfully updated'
@@ -202,8 +202,8 @@ en:
       destroyed: 'Station has been successfully deleted'
       destroy_failed: 'Delete station failed'
     contracts:
-      created: 'Teacher has been successfully added.'
-      destroyed: 'Teacher has been successfully deleted.'
+      created: 'Instructors has been successfully added.'
+      destroyed: 'Instructors has been successfully deleted.'
       destroy_failed: 'Delete teacher failed'
     courses:
       created: 'Class has been successfully added'
@@ -234,9 +234,9 @@ en:
       destroyed: 'Studio has been successfully destroyed'
       destroy_failed: 'Delete studio failed'
     teachers:
-      created: 'Teacher has been successfully created'
-      updated: 'Teacher has been successfully updated'
-      destroyed: 'Teacher has been successfully destroyed'
+      created: 'Instructors has been successfully created'
+      updated: 'Instructors has been successfully updated'
+      destroyed: 'Instructors has been successfully destroyed'
       destroy_failed: 'Delete teacher failed'
     course_categories:
       destroyed: 'Remove successfully'
@@ -303,7 +303,7 @@ en:
         start_date: Start Date
         created_at: Created At
         updated_at: Updated At
-        teacher_name: Teacher Name
+        teacher_name: Instructor Name
         studio_name: Studio Name
         exercise_name: Exercise Name
         station_name: Station Name
@@ -313,7 +313,7 @@ en:
         days_of_week: Days of Week
         station: Station
         exercise: Exercise
-        teacher: Teacher
+        teacher: Instructor
         date: Date
         time: Time
       exercise:
@@ -344,8 +344,8 @@ en:
       book_number: Booking number
       reserved: RESERVED
       join_date: Join date
-      teacher: Teacher
-      tuition: Tuition
+      teacher: Instructor
+      tuition: Price
       options: Options
       studio: Studio
       name: Name

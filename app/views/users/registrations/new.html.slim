@@ -34,7 +34,7 @@
       - resource.errors.messages[:password_confirmation].each do |msg|
         p.error-text #{msg}
     .form-group
-      = select_tag :user_type, options_for_select(User.user_type), class: "form-control", onChange: "select_change(this);"
+      = select_tag :user_type, options_for_select(User.user_type), class: "form-control"
     - if session["devise.facebook_data"]
       = hidden_field_tag :provider, session["devise.facebook_data"]["provider"]
       = hidden_field_tag :uid, session["devise.facebook_data"]["uid"]
