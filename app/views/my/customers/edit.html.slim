@@ -27,6 +27,8 @@
           .col-lg-10
             = image_tag @customer.user.avatar, class: 'image_preview', alt: "No preview"
             = user_form.file_field :avatar
+            - if @customer.user.errors.messages[:avatar]
+              p.error-text #{@customer.user.errors.messages[:avatar][0]}
       .form-group
         = f.label :gender, class: 'control-label col-sm-2'
         .col-lg-10

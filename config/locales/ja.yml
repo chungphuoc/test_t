@@ -18,7 +18,7 @@ ja:
     close: 閉じる
     re_open: 再び開きます
     my_page: 'マイページ'
-    name_my_page: '%{name}マイページ'
+    name_my_page: '%{name}のページ'
     my_classes: 私のクラス
     payment_management: 支払い管理
     class_management: クラス管理
