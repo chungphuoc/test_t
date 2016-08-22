@@ -117,7 +117,7 @@ en:
       male: Male
       female: Female
     birthday: Birthday
-    receive_sms: Receive Message
+    receive_sms: Receive SMS
     edit_profile: Edit Profile
     class_schedule: Class Schedule
     action: Action
@@ -163,7 +163,16 @@ en:
       new: new password
       confirmation: password confirmation
       current: current password
+    phone: Phone number
+    welcome: "Welcome to %{name}"
+    search_class: Searching classes
+    result: "%{count} results"
   language: "English"
+  contact_us:
+    contact: Contact
+    para:
+      p1: Let us know your feed back!
+      p2: "we would %{love} to hear how you feel about our service."
   error:
     access_denied: 'Access Denied'
     error: 'Error!'

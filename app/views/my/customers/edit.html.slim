@@ -34,14 +34,11 @@
         .col-lg-10
           = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control"
       .form-group
-        = f.label :receive_sms, class: 'control-label col-sm-2'
+        = f.label :receive_sms, t('static_text.receive_sms'), class: 'control-label col-sm-2'
         .col-lg-10
-          .radio-button-inline
-            = f.radio_button :receive_sms, true, checked: true
-            = f.label :receive_sms, "Yes"
-          .radio-button-inline
-            = f.radio_button :receive_sms, false
-            = f.label :receive_sms, "No"
+          .checkbox.checkbox-info
+            = f.check_box :receive_sms
+            = f.label :receive_sms, t('static_text.receive_sms')
       .form-group.date_select
         = f.label :birthday, class: 'control-label col-sm-2'
         .col-lg-10

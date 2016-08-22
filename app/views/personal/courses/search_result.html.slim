@@ -1,7 +1,7 @@
 .search-result
   .search-info
-    .h1 Class Search
-    h4 #{@courses.count} result
+    .h1 = t('static_text.search_class')
+    h4 #{t('static_text.result', count: @courses.count)}
     = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
       = hidden_field_tag :locale, I18n.locale
       = render 'modal_stations'
