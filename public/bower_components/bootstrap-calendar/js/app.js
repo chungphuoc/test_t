@@ -1,9 +1,10 @@
 (function($) {
   "use strict";
   var params = window.location.search.replace("?", "");
+  var mode_view = document.getElementById('mode_view').value;
   var options = {
     events_source: '/my/courses/search.json?' + params,
-    view: 'day',
+    view: mode_view,
     tmpl_path: '/bower_components/bootstrap-calendar/tmpls/',
     tmpl_cache: false,
     onAfterEventsLoad: function(events) {
