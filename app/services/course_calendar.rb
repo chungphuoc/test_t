@@ -63,10 +63,10 @@ class CourseCalendar
     "<img src='#{course.cover_img}'>" \
     "<div class='info-course'>" \
     "<b>#{course.name}</b>" \
-    "<br><i>Teacher: #{course.teacher_name}</i>" \
-    "<br><i>Studio: #{course.studio_name}</i>" \
-    "<br><i>Station: #{course.station_name}</i>" \
-    "<br><i>Price: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" \
+    "<br><i>#{Course.human_attribute_name('teacher')}: #{course.teacher_name}</i>" \
+    "<br><i>#{Course.human_attribute_name('studio')}: #{course.studio_name}</i>" \
+    "<br><i>#{Course.human_attribute_name('station')}: #{course.station_name}</i>" \
+    "<br><i>#{Course.human_attribute_name('tuition')}: #{number_with_delimiter(course.tuition)} #{course.currency}</i>" \
     '</div></div>'.html_safe
   end
 

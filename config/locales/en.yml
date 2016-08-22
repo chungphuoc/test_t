@@ -172,9 +172,9 @@ en:
     ja: Japanese
   manage:
     contracts:
-      added: 'Instructors has been successfully added.'
-      updated: 'Instructors has been successfully updated.'
-      removed: 'Instructors has been successfully removed.'
+      added: 'Instructor has been successfully added.'
+      updated: 'Instructor has been successfully updated.'
+      removed: 'Instructor has been successfully removed.'
     courses:
       created: 'Course has been successfully created'
       updated: 'Course has been successfully updated'
@@ -216,8 +216,8 @@ en:
       destroyed: 'Station has been successfully deleted'
       destroy_failed: 'Delete station failed'
     contracts:
-      created: 'Instructors has been successfully added.'
-      destroyed: 'Instructors has been successfully deleted.'
+      created: 'Instructor has been successfully added.'
+      destroyed: 'Instructor has been successfully deleted.'
       destroy_failed: 'Delete teacher failed'
     courses:
       created: 'Class has been successfully added'
@@ -248,9 +248,9 @@ en:
       destroyed: 'Studio has been successfully destroyed'
       destroy_failed: 'Delete studio failed'
     teachers:
-      created: 'Instructors has been successfully created'
-      updated: 'Instructors has been successfully updated'
-      destroyed: 'Instructors has been successfully destroyed'
+      created: 'Instructor has been successfully created'
+      updated: 'Instructor has been successfully updated'
+      destroyed: 'Instructor has been successfully destroyed'
       destroy_failed: 'Delete teacher failed'
     course_categories:
       destroyed: 'Remove successfully'
