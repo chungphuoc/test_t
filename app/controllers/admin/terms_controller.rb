@@ -27,6 +27,6 @@ class Admin::TermsController < Admin::BaseController
   end
 
   def check_exist_term_and_condition
-    @term = Term.create(content: 'default') if Term.count == 0
+    @term = Term.create_default if Term.count == 0
   end
 end
