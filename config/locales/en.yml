@@ -332,6 +332,8 @@ en:
         teacher: Instructor
         date: Date
         time: Time
+        class_name: Class name
+        open_slot: Open slot
       exercise:
         name: Name
         description: Description
