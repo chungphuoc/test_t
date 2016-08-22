@@ -2,12 +2,14 @@ class Personal::EnrollmentsController < Personal::BaseController
   def index
     @enrollments = EnrollmentsQuery.new(current_user)
                                    .by_statuses(params[:statuses] || [])
+                                   .order(created_at: :desc)
                                    .page params[:page]
   end
 
   def classes
     @enrollments = EnrollmentsQuery.new(current_user)
                                    .by_statuses(params[:statuses] || [])
+                                   .order(created_at: :desc)
                                    .page params[:page]
     render 'classes', layout: false
   end

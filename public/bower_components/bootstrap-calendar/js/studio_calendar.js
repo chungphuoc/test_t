@@ -4,7 +4,7 @@
 
   var options = {
     events_source: '/manage/courses.json?' + params,
-    view: 'day',
+    view: 'week',
     tmpl_path: '/bower_components/bootstrap-calendar/tmpls/',
     tmpl_cache: false,
     onAfterEventsLoad: function(events) {
