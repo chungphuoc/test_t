@@ -7,4 +7,5 @@
         = @course_type.errors[:name].to_sentence
   .form-group
     .row.center-text
-      = f.submit t('button.submit'), class: 'btn btn-sign-up'
+    	= link_to t('button.cancel'), :back, class: 'btn btn-sign-in'
+    	= f.submit t('button.submit'), class: 'btn btn-sign-up'
