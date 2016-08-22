@@ -18,9 +18,9 @@
     .form-group.left-inner-addon
       i.glyphicon.glyphicon-envelope
       - if session["devise.facebook_data"]
-        = f.text_field :email, value: session["devise.facebook_data"]["info"]["email"], required: "", class: "form form-control"
+        = f.email_field :email, value: session["devise.facebook_data"]["info"]["email"], required: "", class: "form form-control"
       -else
-        = f.text_field :email, class: "form form-control", required: "", placeholder: t('static_text.email')
+        = f.email_field :email, class: "form form-control", required: "", placeholder: t('static_text.email')
       - resource.errors.messages[:email].each do |msg|
         p.error-text #{msg}
     .form-group.left-inner-addon
@@ -41,7 +41,7 @@
     = render 'modal_term_condition', f: f, term: @term[:studio]
     = render 'modal_term_condition', f: f, term: @term[:customer]
     .form-group
-      button.btn.btn-primary.btn-sign-in.btn-register#button-register type="button" data-toggle="modal" data-target="#termconditionModal_studio"
+      button.btn.btn-primary.btn-sign-in.btn-register#button-register type="button" onClick="open_modal();"
         = t('button.register')
     - if controller_name != 'sessions'
       = link_to t('static_text.already_have_an_account'), new_session_path(resource_name)
