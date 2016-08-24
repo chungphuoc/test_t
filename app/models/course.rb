@@ -20,7 +20,7 @@ class Course < ActiveRecord::Base
   validates :station, presence: true
   validates :exercise, presence: true
   validates :course_type, presence: true
-  validate :start_must_be_before_end_time
+  # validate :start_must_be_before_end_time
 
   delegate :name, to: :course_type
   delegate :name, to: :teacher, prefix: true
