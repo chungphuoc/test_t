@@ -4,10 +4,10 @@
   /   button.btn.btnbtn-primary data-calendar-nav="today" Today
   /   button.btn.btn-primary data-calendar-nav="next" Next
   .btn-group.pull-right.nav-calendar
-    button.btn.btn-calendar data-calendar-view="year" onClick="change_view_mode('year');" Year
-    button.btn.btn-calendar data-calendar-view="month" onClick="change_view_mode('month');" month
-    button.btn.btn-calendar data-calendar-view="week" onClick="change_view_mode('week');" week
-    button.btn.btn-calendar data-calendar-view="day" onClick="change_view_mode('day');" day
+    button.btn.btn-calendar data-calendar-view="year" onClick="change_view_mode('year');" = t('calendar.year')
+    button.btn.btn-calendar data-calendar-view="month" onClick="change_view_mode('month');" = t('calendar.month')
+    button.btn.btn-calendar data-calendar-view="week" onClick="change_view_mode('week');" = t('calendar.week')
+    button.btn.btn-calendar data-calendar-view="day" onClick="change_view_mode('day');" = t('calendar.day')
   #customer-date-title
     h3
 br
@@ -19,5 +19,7 @@ br
 script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
 script src="/bower_components/underscore/underscore-min.js"
 script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+- if I18n.locale == :ja
+  script src="/bower_components/bootstrap-calendar/js/language/ja-JP.js"
 script src="/bower_components/bootstrap-calendar/js/calendar.js"
 script src="/bower_components/bootstrap-calendar/js/app.js"

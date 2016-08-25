@@ -46,7 +46,7 @@ function remove_favorite_studios() {
   });
   $.ajax({
     url: '/my/favourite_studios/remove_more',
-    method: 'POST',    
+    method: 'POST',
     beforeSend: function(xhr) {
       xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]')
          .attr('content'))
@@ -124,12 +124,13 @@ function change_price() {
   var minus_points = point.val() ? parseInt(point.val()) : 0;
   total -= minus_points;
   // change text total
-  var total_tag = $("#total-cost");
+  var total_tag = $("#total-cost, .course-tuition");
   total_tag.attr('data-price', total);
   total_tag.text(total + ' ' + total_tag.attr('data-currency'));
 }
 
 function add_option_checkout(option_id, checkbox) {
+  var checkboxes = document.getElementsByClassName("payable_options_" + option_id);
   if ($(checkbox).is(':checked')) {
     var price = $("#option-price-" + option_id);
     price.css('text-decoration', 'none');
@@ -139,12 +140,18 @@ function add_option_checkout(option_id, checkbox) {
       .append($("<input name='payable_option[]' type='hidden'>")
                   .val(option_id)
                   .attr('id', 'payable_option_' + option_id));
+    for (var i = 0; i < checkboxes.length; i++){
+      checkboxes[i].checked = true;
+    }
   } else {
     var price = $("#option-price-" + option_id);
     price.css('text-decoration', 'line-through');
     price.attr('data-selected', 0);
     change_price();
     $('#payable_option_' + option_id).remove();
+    for (var i = 0; i < checkboxes.length; i++){
+      checkboxes[i].checked = false;
+    }
   }
 }
 

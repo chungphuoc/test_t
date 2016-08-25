@@ -8,21 +8,15 @@
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Start Date
+              b = t('activerecord.attributes.course.date')
           .col-lg-6
             p #{@course.start_date}
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Start time
+              b = t('activerecord.attributes.course.time')
           .col-lg-6
-            p #{@course.start_time.strftime("%I:%M %p")}
-        .row
-          .col-lg-3.col-lg-offset-2
-            p
-              b End time
-          .col-lg-6
-            p #{@course.end_time.strftime("%I:%M %p")}
+            p #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
         hr
         .row
           .col-lg-3.col-lg-offset-2
@@ -30,19 +24,20 @@
               b = t('static_text.price')
           .col-lg-6
             p#course_tuition value="#{@course.tuition}" + #{@course.tuition} #{@course.currency}
-        .row.payable-option-checkout
-          - @course.options.each do |option|
-            .col-lg-4.col-lg-offset-1
-              label
-                input.checkbox-option type="checkbox" onClick="add_option_checkout(#{option.id},this)"
-                span #{option.name}
-            .col-lg-6
-              p class="option-price" id="option-price-#{option.id}" data-price="#{option.price}" data-selected='0' + #{option.price} #{option.currency}
+        .payable-option-checkout
+          h4 = t('static_text.payable_options')
+          .checkbox-style
+            - @course.options.each do |option|
+              .checkbox-success.element.element-hover.no-border.payable-element
+                = check_box_tag "payable_options_#{option.id}", option.id, false, onClick: "add_option_checkout(#{option.id},this);", class: "checkbox-option payable_options_#{option.id}"
+                = label_tag "payable_options_#{option.id}" do
+                  span.float-left = option.name.capitalize
+                  span.option-price.float-right id="option-price-#{option.id}" data-price="#{option.price}" data-selected='0' + #{option.price} #{option.currency}
         hr
         .row
           .col-lg-3.col-lg-offset-2
             p
-             b Points
+             b = t('activerecord.attributes.customer.point')
           .col-lg-6
             span -
             = number_field_tag :points, 0, min:0 , max: [current_user.role.point, @course.tuition].min, oninput: 'check_valid_point(this)'
@@ -53,14 +48,14 @@
         .row
           .col-lg-3.col-lg-offset-2
             p
-             b Total cost
+             b = t('activerecord.attributes.enrollment.total_cost')
           .col-lg-6
             p#total-cost data-currency='#{@course.currency}' data-price='#{@course.tuition}' #{@course.tuition} #{@course.currency}
         hr
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Attend Date
+              b = t('static_text.attend_date')
           .col-lg-7
             = render "personal/checkouts/checkout_btn"
           //   button.btn.btn-default data-dismiss="modal" type="button"  Cancel
@@ -92,16 +87,15 @@
                 h4.head #{@course.start_date}
               .col-lg-4
                 h4.head #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
-
               .col-lg-4
                 h4.head #{@course.kcal} #{t('activerecord.attributes.course.kcal')}
           h4.course-tuition #{@course.tuition} #{@course.currency}
     .row.payable_option
-      ul
+      ul.checkbox-style
         - @course.studio.options.each do |option|
-          li
-            i.fa.fa-check
-            | #{option.name}: #{option.price} #{option.currency}
+          li.payable-info-element.checkbox-success.element.element-hover.no-border
+            = check_box_tag "payable_options_#{option.id}", option.id, false, onClick: "add_option_checkout(#{option.id},this);", class: "checkbox-option payable_options_#{option.id}"
+            = label_tag "payable_options_#{option.id}", "#{option.name.capitalize}: #{option.price} #{option.currency}"
     .row.zero-margin.center-text
       .col-lg-8.cover-section
         = image_tag @course.cover_img

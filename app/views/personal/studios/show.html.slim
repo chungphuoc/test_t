@@ -9,13 +9,13 @@
       .row.center-text.zero-margin.body
         .col-lg-8.col-lg-offset-2
           .col-lg-4
-            h4.title Studio Address
+            h4.title = t('static_text.address')
             p.info #{@studio.address}
           .col-lg-4
-            h4.title Studio Phone
+            h4.title = t('activerecord.attributes.course.phone_number')
             p.info #{@studio.contact_number}
           .col-lg-4
-            h4.title Website
+            h4.title = t('activerecord.attributes.studio.website')
             p.info #{@studio.website}
     .row.payable_option
       ul 
@@ -27,7 +27,7 @@
       .col-lg-8.cover-section
         = image_tag @studio.cover_img
       .col-lg-4
-        h3.title Description
+        h3.title = t('activerecord.attributes.studio.description')
         p.body #{@studio.description}
         .row.left-text
             ul.studio-detail.body
@@ -43,7 +43,7 @@
     hr
     .row.zero-margin.center-text
       .col-lg-4
-        h2 Map
+        h2 = t('static_text.map')
         .map-wrapper style="width: 100%"
           .map#js_google_map style="height: 300px"
       .col-lg-8

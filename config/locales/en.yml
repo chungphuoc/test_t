@@ -80,7 +80,8 @@ en:
     remember_me: Remember me
     payable_options: Payable Options
     manage_course_type: Mange course type
-    repeatable: Only one time
+    repeatable: Many times
+    remove: Remove
   static_text:
     home: Home
     contact_us: Contact Us
@@ -167,6 +168,13 @@ en:
     welcome: "Welcome to %{name}"
     search_class: Searching classes
     result: "%{count} results"
+    map: Map
+    attend_date: Attend date
+  calendar:
+    year: year
+    month: month
+    week: week
+    day: day
   language: "English"
   contact_us:
     contact: Contact
@@ -314,6 +322,7 @@ en:
         studio_name: Studio Name
         date: Date
         amount: Amount
+        total_cost: Total cost
       course:
         name: Name
         cover_img: Cover image

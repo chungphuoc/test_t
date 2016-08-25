@@ -60,6 +60,8 @@ ja:
     payable_options: 追加オプション
     manage_course_type: コースタイプを管理
     repeatable: 繰り返し可能な
+    repeatable: 何度も
+    remove: 削除します
     _yes: 'はい'
     _no: 'いいえ'
   static_text:
@@ -148,6 +150,13 @@ ja:
     welcome: "%{name}へようこそ"
     search_class: クラスの検索
     result: "%{count}の結果"
+    map: 地図
+    attend_date: 日付に出席
+  calendar:
+    year: 年
+    month: 月
+    week: 週間
+    day: 日
   language: '日本語'
   contact_us:
     contact: コンタクト
@@ -249,6 +258,7 @@ ja:
         studio_name: スタジオ名
         date: 日付
         amount: 値段
+        total_cost: 総費用
       course:
         name: 名前
         cover_img: 表紙画像
