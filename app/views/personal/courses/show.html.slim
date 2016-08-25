@@ -73,16 +73,6 @@
             .col-lg-8.col-lg-offset-2
               .col-lg-4
                 h4
-                  span.head #{t('activerecord.attributes.course.station')}:
-                  span.body-content #{@course.station_name}
-              .col-lg-4
-                h4
-                  span.head #{t('static_text.user_type.studio')}:
-                  span.body-content #{@course.studio.name}
-              .col-lg-4
-                h4
-                  span.head #{t('activerecord.attributes.course.teacher')}:
-                  span.body-content #{@course.teacher_name}
                   p.head = Course.human_attribute_name('station')
                   p.body-content #{@course.station_name}
               .col-lg-4
