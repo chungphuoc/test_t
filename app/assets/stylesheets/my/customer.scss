@@ -37,6 +37,7 @@
             font-weight: bold;
             color: #64d7c6;
             text-align: center;
+            word-break: break-all;
         }
         .point-calories{
             text-align: center;
@@ -134,6 +135,8 @@
                 border-bottom: 2px solid #DCC8F6;
                 text-align: left;
                 font-size: 15px;
+            }
+            td {
                 word-break: break-word;
             }
         }

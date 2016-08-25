@@ -27,7 +27,7 @@
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Price
+              b = t('static_text.price')
           .col-lg-6
             p#course_tuition value="#{@course.tuition}" + #{@course.tuition} #{@course.currency}
         .row.payable-option-checkout
@@ -70,8 +70,6 @@
     .basic-info
       .row.center-text.title
         h2 #{@course.name}
-      .row.zero-margin.center-text
-        = rating_for @course, "quality", disable_after_rate: false, enable_half: true
       .row.zero-margin.center-text.body
         .container
           .row

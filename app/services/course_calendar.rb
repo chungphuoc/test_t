@@ -58,7 +58,7 @@ class CourseCalendar
 
   def template_course(course)
     "<div class='course-calendar'>" \
-    "<img src='#{course.cover_img}'>" \
+    "<img src='#{course.cover_img.thumb}'>" \
     "<div class='info-course'>" \
     "<b>#{course.name}</b>" \
     "<br><i>#{Course.human_attribute_name('teacher')}: #{course.teacher_name}</i>" \
@@ -83,7 +83,7 @@ class CourseCalendar
     "<p>#{course.station_name}</p>" \
     '</div>' \
     "<div class='col-xs-6'>" \
-    "<p>#{course.kcal} kcal</p>" \
+    "<p>#{course.kcal} cal</p>" \
     "<p>#{course.tuition} usd</p>" \
     '</div>' \
     '</div>' \

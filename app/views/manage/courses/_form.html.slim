@@ -84,5 +84,5 @@
         = @course.errors[:exercise].to_sentence
   .form-group
     .row.center-text
+      = link_to t('button.cancel'), all_manage_courses_path, class: 'btn btn-sign-in'
       = f.submit t('button.submit'), class: 'btn btn-sign-up'
-end
