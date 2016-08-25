@@ -38,7 +38,7 @@
   .form-group.date_select
     label.control-label.col-sm-2 = f.label :date
     .col-sm-10
-      = f.date_select :start_date, class: 'form-control datepicker'
+      = f.date_select :start_date, class: 'form-control'
       .error-text
         = @course.errors[:start_date].to_sentence
   .form-group.time_select

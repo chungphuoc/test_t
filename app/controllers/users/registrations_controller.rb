@@ -1,11 +1,11 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
+  before_action :term_condition, only: [:new, :create]
   layout 'devise'
 
   # GET /resource/sign_up
   def new
-    @term = Term.first
     super
   end
 
@@ -65,6 +65,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def registration_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def term_condition
+    @term = {
+      studio: Term.studio_term_condition,
+      customer: Term.customer_term_condition
+    }
   end
 
   protected

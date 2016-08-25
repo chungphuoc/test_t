@@ -1,5 +1,6 @@
 class Manage::CoursesController < Manage::BaseController
   before_action :prepare_course, only: [:show, :edit, :update, :destroy, :close, :reopen]
+  before_action :no_slidebar, only: [:new, :create, :show]
 
   def index
     respond_to do |format|
@@ -7,7 +8,7 @@ class Manage::CoursesController < Manage::BaseController
                                                :course_type,
                                                station: [:translations],
                                                studio: [:user])
-      @courses = CourseCalendar.new(@courses, ->(x) { manage_course_path(x) }).result
+      @courses = CourseCalendar.new(@courses, ->(x) { manage_course_path(x) }).result('studio')
       @result = { success: '1', result: @courses }.to_json
       @has_slidebar = false
       format.html { render :index, layout: 'studio' }
@@ -16,7 +17,6 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def new
-    @has_slidebar = false
     @course = @studio.courses.new
   end
 
@@ -32,7 +32,6 @@ class Manage::CoursesController < Manage::BaseController
   end
 
   def show
-    @has_slidebar = false
   end
 
   def edit
@@ -78,11 +77,11 @@ class Manage::CoursesController < Manage::BaseController
 
   def all
     @course_types = @studio.course_types.includes(:courses)
-                                        .page(params[:page])
-                                        .per(5)
+                           .page(params[:page]).per(5)
   end
 
   private
+
   def prepare_course
     @course = Course.find(params[:id])
   end
@@ -93,5 +92,9 @@ class Manage::CoursesController < Manage::BaseController
                                    :tuition, :start_time, :end_time, :start_date,
                                    :teacher_id, :station_id, :exercise_id,
                                    :repeatable, :days_of_week => [])
+  end
+
+  def no_slidebar
+    @has_slidebar = false
   end
 end

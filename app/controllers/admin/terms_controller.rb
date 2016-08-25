@@ -2,15 +2,15 @@ class Admin::TermsController < Admin::BaseController
   before_action :check_exist_term_and_condition
 
   def index
-    @term = Term.first
+    @terms = Term.all
   end
 
   def edit
-    @term = Term.first
+    @term = Term.find(params[:id])
   end
 
   def update
-    @term = Term.first
+    @term = Term.find(params[:id])
     if @term.update_attributes(term_params)
       set_flash_message :success, :updated
       redirect_to admin_terms_path
@@ -27,6 +27,6 @@ class Admin::TermsController < Admin::BaseController
   end
 
   def check_exist_term_and_condition
-    @term = Term.create(content: 'default') if Term.count == 0
+    @term = Term.create_default if Term.count == 0
   end
 end
