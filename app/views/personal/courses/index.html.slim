@@ -1,7 +1,7 @@
 .background-search
   = image_tag asset_path('yoga.jpg')
   #search-frame
-    h1.title Welcome to TONED
+    h1.title = t('static_text.welcome', name: 'TONED')
     #search-box
       = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
         = hidden_field_tag :locale, I18n.locale

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
                              length: { minimum: 10, maximum: 12 },
                              on: :update
   validates :address, length: { minimum: 20, maximum: 120 }, on: :update
-  validates :name, length: { minimum: 3, maximum: 60 }
+  validates :name, length: { minimum: 3, maximum: 30 }
   belongs_to :role, polymorphic: true
   delegate :enrollments, to: :role
   delegate :courses, to: :role
@@ -60,6 +60,7 @@ class User < ActiveRecord::Base
 
   def shortcut_name
     name.split
+        .take(3)
         .inject('') { |a, e| a << e[0, 1].upcase }
   end
 end

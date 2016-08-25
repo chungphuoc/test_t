@@ -6,6 +6,6 @@
       = text_area_tag :message, "", class: "form-control txt-message", placeholder: t('static_text.message'), required: "", rows: '3'
     
     .form-group
-      = text_field_tag :email, "", class: "form-control txt-message txt-email", placeholder: t('static_text.email'), required: ""
+      = email_field_tag :email, "", class: "form-control txt-message txt-email", placeholder: t('static_text.email'), required: ""
 = submit_tag t('button.send'), class: "btn btn-primary btn-send", form: 'invite_friend'
 

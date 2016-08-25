@@ -19,13 +19,10 @@
 /         = render 'shares/feedback'
 #contact-us
   section.introduction-title.container
-    h1.center-text Contact
-    h4.center-text Let us know your feed back!
+    h1.center-text = t('contact_us.contact')
+    h4.center-text = t('contact_us.para.p1')
     h4.center-text
-      span We would
-      span.heart-icon
-        i.fa.fa-heart aria-hidden="true"
-      span to hear how you feel about our service.
+      | #{t('contact_us.para.p2', love: "<span class='heart-icon'><i aria-hidden='true' class='fa fa-heart'></i></span>").html_safe}
   section.feedback.container
     .row
       .col-lg-2
@@ -36,17 +33,17 @@
               p
                 span.icon
                   i.fa.fa-phone aria-hidden="true"
-                span.content phone #
+                span.content #{t('static_text.phone')} #
             li.address
               p
                 span.icon
                   i.fa.fa-map-marker aria-hidden="true"
-                span.content address
+                span.content #{t('static_text.address')}
             li.email
               p
                 span.icon
                   i.fa.fa-envelope-o aria-hidden="true"
-                span.content Email
+                span.content #{t('static_text.email')}
       .col-lg-5
         .feedback-form
           = render 'shares/feedback'
