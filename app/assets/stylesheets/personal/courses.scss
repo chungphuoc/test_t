@@ -58,6 +58,21 @@
         clear: both;
         padding-bottom: 10px;
       }
+      .payable-info-element {
+        label {
+          padding-left: 45px !important;
+          font-size: 25px !important;
+
+          &:before {
+            height: 24px !important;
+            width: 24px !important;
+          }
+
+          &:after {
+            font-size: 34px !important;
+          }
+        }
+      }
     }
     .facilities{
       margin: 10px 0px;
@@ -336,6 +351,21 @@
   }
   label {
     cursor: pointer;
+  }
+  .payable-element {
+    width: 60%;
+    margin: auto;
+
+    label {
+      font-size: 15px !important;
+      &:before {
+        height: 15px !important;
+        width: 15px !important;
+      }
+      &:after {
+        font-size: 21px !important;
+      }
+    }
   }
 }
 #total-cost {

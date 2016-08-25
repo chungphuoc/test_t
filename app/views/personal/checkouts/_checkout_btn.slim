@@ -12,37 +12,37 @@
     script src="https://checkout.stripe.com/checkout.js"
     button id="purchase" Purchase
     javascript:
-    	var callback = function(token) {
-				$("#checkout-form").prepend($("<input name='source' type='hidden'>")
-													 .val(token.id));
-				var message_fb = $("#message_fb").val();
-				$("#checkout-form").prepend($("<input name='message_fb' type='hidden'>")
-													 .val(message_fb));
-				var paid_points = $("#points").val();
-				$("#checkout-form").prepend($("<input name='paid_points' type='hidden'>")
-													 .val(paid_points));
-				$("#bookCourse").click();
-    	}
-			var handler = StripeCheckout.configure({
-			  key: '#{Rails.configuration.stripe[:publishable_key]}',
-			  locale: 'auto',
-			  token: function(token) {
-					callback(token);
-			  }
-			});
+      var callback = function(token) {
+        $("#checkout-form").prepend($("<input name='source' type='hidden'>")
+                           .val(token.id));
+        var message_fb = $("#message_fb").val();
+        $("#checkout-form").prepend($("<input name='message_fb' type='hidden'>")
+                           .val(message_fb));
+        var paid_points = $("#points").val();
+        $("#checkout-form").prepend($("<input name='paid_points' type='hidden'>")
+                           .val(paid_points));
+        $("#bookCourse").click();
+      }
+      var handler = StripeCheckout.configure({
+        key: '#{Rails.configuration.stripe[:publishable_key]}',
+        locale: 'auto',
+        token: function(token) {
+          callback(token);
+        }
+      });
 
-		  $('#purchase').on('click', function(e) {
-		    // Open Checkout with further options:
-		    handler.open({
-		      name: 'TONED',
-		      amount: $("#total-cost").attr('data-price'),
-		      currency: '#{@course.currency}',
-		      email: '#{current_user.email}'
-		    });
-		    e.preventDefault();
-		  });
+      $('#purchase').on('click', function(e) {
+        // Open Checkout with further options:
+        handler.open({
+          name: 'TONED',
+          amount: $("#total-cost").attr('data-price'),
+          currency: '#{@course.currency}',
+          email: '#{current_user.email}'
+        });
+        e.preventDefault();
+      });
 
-		  // Close Checkout on page navigation:
-		  $(window).on('popstate', function() {
-		    handler.close();
-		  });
+      // Close Checkout on page navigation:
+      $(window).on('popstate', function() {
+        handler.close();
+      });
