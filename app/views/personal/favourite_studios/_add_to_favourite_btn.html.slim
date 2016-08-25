@@ -1,12 +1,8 @@
 .add-to-fav-item
   - if user.customer?
     - if  FavouriteStudio.added?(user, studio_id)
-      = link_to remove_personal_favourite_studios_path(customer_id: user.role_id, studio_id: studio_id), method: :post, remote: true do
-        button.btn-fav-cancel
-          i.fa.fa-heart
-      end
+      = link_to remove_personal_favourite_studios_path(customer_id: user.role_id, studio_id: studio_id), method: :post, remote: true, class: 'btn-fav-cancel' do
+        i.fa.fa-heart
     - else
-      = link_to add_personal_favourite_studios_path(studio_id: studio_id), method: :post, remote: true do
-        button.btn-fav-add
-          i.fa.fa-heart-o
-      end
+      = link_to add_personal_favourite_studios_path(studio_id: studio_id), method: :post, remote: true, class: 'btn-fav-add' do
+        i.fa.fa-heart-o

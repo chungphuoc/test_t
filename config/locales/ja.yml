@@ -18,7 +18,7 @@ ja:
     close: 閉じる
     re_open: 再び開きます
     my_page: 'マイページ'
-    name_my_page: '%{name}マイページ'
+    name_my_page: '%{name}のページ'
     my_classes: 私のクラス
     payment_management: 支払い管理
     class_management: クラス管理
@@ -59,8 +59,11 @@ ja:
     remember_me: パスワード保存
     payable_options: 追加オプション
     manage_course_type: コースタイプを管理
+    repeatable: 繰り返し可能な
     repeatable: 何度も
     remove: 削除します
+    _yes: 'はい'
+    _no: 'いいえ'
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
@@ -97,7 +100,7 @@ ja:
       male: 男性
       female: 女性
     birthday: お誕生日
-    receive_sms: sms
+    receive_sms: SMSを受信
     edit_profile: プロフィールの編集
     class_schedule: 時間割
     action: アクション
@@ -143,6 +146,10 @@ ja:
       new:  新しいパスワード
       confirmation: パスワード再度確認
       current: 現在のパスワード
+    phone: 電話番号
+    welcome: "%{name}へようこそ"
+    search_class: クラスの検索
+    result: "%{count}の結果"
     map: 地図
     attend_date: 日付に出席
   calendar:
@@ -151,6 +158,57 @@ ja:
     week: 週間
     day: 日
   language: '日本語'
+  contact_us:
+    contact: コンタクト
+    para:
+      p1: "私たちはあなたのフィードバックを知ってみましょう！"
+      p2: "私たちは、あなたが私たちのサービスについてどのように感じているか聞くこと%{love}だろう。"
+  error:
+    access_denied: 'アクセスが拒否されました'
+    error: 'エラー！'
+  locale_name:
+    en: 英語
+    ja: 日本語
+  manage:
+    contracts:
+      added: '教師は正常に追加されました。'
+      updated: '教師は正常に更新されました。'
+      removed: '教師は正常に削除されました。'
+    courses:
+      created: 'コースは正常に作成されました'
+      updated: 'コースは正常に更新されました'
+      destroyed: 'コースが正常に破壊されています'
+      closed: 'コースは正常にクローズされました'
+      reopened: 'コースが正常にリニューアルオープンされました'
+    exercises:
+      updated: '運動リストは正常に更新されました。'
+    stations:
+      created: 'あなたのステーションリクエストが正常に送信されました。'
+      updated: 'あなたのステーションの要求が正常に更新されました。'
+      destroyed: 'あなたのステーションの要求が正常に削除されました。'
+      updated_listing: 'ステーションリストは正常に更新されました。'
+    facilities:
+      updated: 'あなたの設備が正常に更新されました。'
+      error: '施設を更新することはできません。'
+    payable_options:
+      created: 'あなたの買掛金オプションが正常に作成されました'
+      destroyed: 'あなたの買掛金オプションは正常に削除されました。'
+      destroy_failed: '削除に失敗しました'
+  personal:
+    checkouts:
+      checkout_success: '予約クラスに成功！'
+    enrollments:
+      created: 'クラスが正常に追加されました。'
+  my:
+    customers:
+      updated: 'あなたのプロファイルが正常に更新されました。'
+    studios:
+      updated: 'あなたのスタジオには、正常に更新されました。'
+  invite_friends:
+    sent: '招待状は、正常に送信しました！'
+    error: '招待状を送信することはできません！'
+  static_pages:
+    feedback: 'あなたのフィードバックを送信しました。'
   activerecord:
     errors:
       messages:

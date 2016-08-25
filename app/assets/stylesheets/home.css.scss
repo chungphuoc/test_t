@@ -382,11 +382,38 @@
 }
 .flash-wrapper{
   position: absolute;
-  top: 0px;
+  top: 15px;
   left: 20px;
   width: 200px;
+  word-wrap: break-word;
   z-index: 2000;
+  -webkit-animation: seconds 1.0s forwards;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-delay: 5s;
+  animation: seconds 1.0s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 4s;
 }
+
+@-webkit-keyframes seconds {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: -9999px; 
+  }
+}
+@keyframes seconds {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    left: -9999px; 
+  }
+}
+
 .main-section{
   min-height: 100vh;
   padding-top: 50px;
