@@ -30,7 +30,7 @@
               label
                 input.checkbox-option type="checkbox" onClick="add_option_checkout(#{option.id},this)"
                 span #{option.name}
-            .col-lg-6  
+            .col-lg-6
               p class="option-price" id="option-price-#{option.id}" data-price="#{option.price}" data-selected='0' + #{option.price} #{option.currency}
         hr
         .row
@@ -38,7 +38,7 @@
             p
              b = t('activerecord.attributes.customer.point')
           .col-lg-6
-            span - 
+            span -
             = number_field_tag :points, 0, min:0 , max: [current_user.role.point, @course.tuition].min, oninput: 'check_valid_point(this)'
             span  #{@course.currency}
             br
@@ -72,6 +72,7 @@
             .col-lg-8.col-lg-offset-2
               .col-lg-4
                 h4
+<<<<<<< HEAD
                   span.head #{t('activerecord.attributes.course.station')}:
                   span.body-content #{@course.station_name}
               .col-lg-4
@@ -82,6 +83,18 @@
                 h4
                   span.head #{t('activerecord.attributes.course.teacher')}:
                   span.body-content #{@course.teacher_name}
+=======
+                  p.head = Course.human_attribute_name('station')
+                  p.body-content #{@course.station_name}
+              .col-lg-4
+                h4
+                  p.head = Course.human_attribute_name('studio')
+                  p.body-content #{@course.studio.name}
+              .col-lg-4
+                h4
+                  p.head = Course.human_attribute_name('teacher')
+                  p.body-content #{@course.teacher_name}
+>>>>>>> master
           .row
             .col-lg-8.col-lg-offset-2
               .col-lg-4
@@ -90,11 +103,11 @@
                 h4.head #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
               .col-lg-4
                 h4.head #{@course.kcal} #{t('activerecord.attributes.course.kcal')}
-          h4.course-tuition #{@course.tuition} #{@course.currency}   
+          h4.course-tuition #{@course.tuition} #{@course.currency}
     .row.payable_option
-      ul 
+      ul
         - @course.studio.options.each do |option|
-          li 
+          li
             i.fa.fa-check
             | #{option.name}: #{option.price} #{option.currency}
     .row.zero-margin.center-text

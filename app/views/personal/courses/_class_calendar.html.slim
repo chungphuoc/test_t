@@ -4,10 +4,10 @@
   /   button.btn.btnbtn-primary data-calendar-nav="today" Today
   /   button.btn.btn-primary data-calendar-nav="next" Next
   .btn-group.pull-right.nav-calendar
-    button.btn.btn-calendar data-calendar-view="year" = t('calendar.year')
-    button.btn.btn-calendar data-calendar-view="month" = t('calendar.month')
-    button.btn.btn-calendar data-calendar-view="week" = t('calendar.week')
-    button.btn.btn-calendar data-calendar-view="day" = t('calendar.day')
+    button.btn.btn-calendar data-calendar-view="year" onClick="change_view_mode('year');" = t('calendar.year')
+    button.btn.btn-calendar data-calendar-view="month" onClick="change_view_mode('month');" = t('calendar.month')
+    button.btn.btn-calendar data-calendar-view="week" onClick="change_view_mode('week');" = t('calendar.week')
+    button.btn.btn-calendar data-calendar-view="day" onClick="change_view_mode('day');" = t('calendar.day')
   #customer-date-title
     h3
 br

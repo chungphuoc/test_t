@@ -2,15 +2,16 @@
   .search-info
     .h1 Class Search
     h4 #{@courses.count} result
-    = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get
+    = form_tag search_personal_courses_path, class: 'form-horizontal', method: :get, id: 'search_class'
       = hidden_field_tag :locale, I18n.locale
+      = hidden_field_tag :mode_view, params[:mode_view] || 'day'
       = render 'modal_stations'
       = render 'modal_exercises'
       .row.info
         - station_ids = params[:station_ids]
         - exercise_ids = params[:exercise_ids]
         .col-sm-4.search-by-time-calories
-          = render 'slider_search', station_ids: station_ids, exercise_ids: exercise_ids
+          = render 'slider_search'
         .col-sm-4.station
           h4 = t('static_text.station')
           #station-names
@@ -18,8 +19,7 @@
               - Station.where(id: station_ids).each do |station|
                 span
                   = station.name
-                  = link_to "✘", search_personal_courses_path(station_ids: station_ids - [station.id.to_s],
-                                                              exercise_ids: exercise_ids)
+                  = link_to "✘", "javascript:search_remove_element('station_ids_#{station.id}')"
           button.btn.btn-sign-in type="button" data-toggle="modal" data-target="#checkboxStationModal" +
         .col-sm-4.exercise
           h4 = t('static_text.activities')
@@ -28,8 +28,7 @@
               - Exercise.where(id: exercise_ids).each do |exercise|
                 span
                   = exercise.name
-                  = link_to "✘", search_personal_courses_path(station_ids: station_ids,
-                                                              exercise_ids: exercise_ids - [exercise.id.to_s])
+                  = link_to "✘", "javascript:search_remove_element('exercise_ids_#{exercise.id}')"
           button.btn.btn-sign-in type="button" data-toggle="modal" data-target="#checkboxExerciseModal" +
         .col-sm-2
   .col-md-3.favorite-studio
