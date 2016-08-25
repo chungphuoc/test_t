@@ -41,7 +41,7 @@
   }
 }
 .navigation{
-  font-family: 'Abel';
+  font-family: Abel, Arial, Helvetica;
   font-size: 16px;
   .menu-dropdow{
     .dropdown-toggle{
@@ -104,7 +104,7 @@ $avatar-size: 40px;
     text-align: center;
     line-height: $avatar-size;
     font-size: $avatar-size / 2;
-    font-family: 'Abel';
+    font-family: Abel, Arial, Helvetica;
     color: #3b3b3b;
   }
 }

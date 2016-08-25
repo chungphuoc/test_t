@@ -80,7 +80,8 @@ en:
     remember_me: Remember me
     payable_options: Payable Options
     manage_course_type: Mange course type
-    repeatable: Only one time
+    repeatable: Many times
+    remove: Remove
   static_text:
     home: Home
     contact_us: Contact Us
@@ -163,6 +164,13 @@ en:
       new: new password
       confirmation: password confirmation
       current: current password
+    map: Map
+    attend_date: Attend date
+  calendar:
+    year: year
+    month: month
+    week: week
+    day: day
   language: "English"
   error:
     access_denied: 'Access Denied'
@@ -305,6 +313,7 @@ en:
         studio_name: Studio Name
         date: Date
         amount: Amount
+        total_cost: Total cost
       course:
         name: Name
         cover_img: Cover image

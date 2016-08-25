@@ -1,16 +1,4 @@
 <%
-	var weekday =new Array(7);
-	weekday[0]="Sunday";
-	weekday[1]="Monday";
-	weekday[2]="Tuesday";
-	weekday[3]="Wednesday";
-	weekday[4]="Thursday";
-	weekday[5]="Friday";
-	weekday[6]="Saturday";
-
-	function getDayofWeek(num) {
-	  return weekday[num];
-	}
 	var days_of_week = new Date(start);
 	days_of_week.setDate(days_of_week.getDate() - days_of_week.getDay());
 
@@ -20,7 +8,7 @@
 	<div class="cal-row-fluid cal-row-head cal-custom-day">
 		<% _.each(days_name, function(name) { %>
 			<% let choosed = days_of_week.getDate() == start.getDate() ? 'cal-day-choosed' : '' %>
-			<div class="cal-cell1 <%= cal._getDayClass('week', days_of_week) %> <%= choosed %>" data-toggle="tooltip" title="<%= cal._getHolidayName(days_of_week) %>"><%= getDayofWeek(days_of_week.getDay()) %><br>
+			<div class="cal-cell1 <%= cal._getDayClass('week', days_of_week) %> <%= choosed %>" data-toggle="tooltip" title="<%= cal._getHolidayName(days_of_week) %>"><%= name %><br>
 				<small><span data-cal-date="<%= days_of_week.getFullYear() %>-<%= days_of_week.getMonthFormatted() %>-<%= days_of_week.getDateFormatted() %>" data-cal-view="day"><%= days_of_week.getDate() %> <%= cal.locale['ms' + days_of_week.getMonth()] %></span></small>
 			</div>
 			<% days_of_week.setDate(days_of_week.getDate() + 1); %>

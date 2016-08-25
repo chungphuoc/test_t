@@ -8,26 +8,20 @@
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Start Date
+              b = t('activerecord.attributes.course.date')
           .col-lg-6
             p #{@course.start_date}
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Start time
+              b = t('activerecord.attributes.course.time')
           .col-lg-6
-            p #{@course.start_time.strftime("%I:%M %p")}
-        .row
-          .col-lg-3.col-lg-offset-2
-            p
-              b End time
-          .col-lg-6
-            p #{@course.end_time.strftime("%I:%M %p")}
+            p #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
         hr
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Price
+              b = t('activerecord.attributes.course.tuition')
           .col-lg-6
             p#course_tuition value="#{@course.tuition}" + #{@course.tuition} #{@course.currency}
         .row.payable-option-checkout
@@ -42,7 +36,7 @@
         .row
           .col-lg-3.col-lg-offset-2
             p
-             b Points
+             b = t('activerecord.attributes.customer.point')
           .col-lg-6
             span -
             = number_field_tag :points, 0, min:0 , max: [current_user.role.point, @course.tuition].min, oninput: 'check_valid_point(this)'
@@ -53,14 +47,14 @@
         .row
           .col-lg-3.col-lg-offset-2
             p
-             b Total cost
+             b = t('activerecord.attributes.enrollment.total_cost')
           .col-lg-6
             p#total-cost data-currency='#{@course.currency}' data-price='#{@course.tuition}' #{@course.tuition} #{@course.currency}
         hr
         .row
           .col-lg-3.col-lg-offset-2
             p
-              b Attend Date
+              b = t('static_text.attend_date')
           .col-lg-7
             = render "personal/checkouts/checkout_btn"
           //   button.btn.btn-default data-dismiss="modal" type="button"  Cancel
@@ -78,6 +72,18 @@
             .col-lg-8.col-lg-offset-2
               .col-lg-4
                 h4
+<<<<<<< HEAD
+                  span.head #{t('activerecord.attributes.course.station')}:
+                  span.body-content #{@course.station_name}
+              .col-lg-4
+                h4
+                  span.head #{t('static_text.user_type.studio')}:
+                  span.body-content #{@course.studio.name}
+              .col-lg-4
+                h4
+                  span.head #{t('activerecord.attributes.course.teacher')}:
+                  span.body-content #{@course.teacher_name}
+=======
                   p.head = Course.human_attribute_name('station')
                   p.body-content #{@course.station_name}
               .col-lg-4
@@ -88,13 +94,13 @@
                 h4
                   p.head = Course.human_attribute_name('teacher')
                   p.body-content #{@course.teacher_name}
+>>>>>>> master
           .row
             .col-lg-8.col-lg-offset-2
               .col-lg-4
                 h4.head #{@course.start_date}
               .col-lg-4
                 h4.head #{@course.start_time.strftime("%I:%M %p")} - #{@course.end_time.strftime("%I:%M %p")}
-
               .col-lg-4
                 h4.head #{@course.kcal} #{t('activerecord.attributes.course.kcal')}
           h4.course-tuition #{@course.tuition} #{@course.currency}

@@ -59,7 +59,8 @@ ja:
     remember_me: パスワード保存
     payable_options: 追加オプション
     manage_course_type: コースタイプを管理
-    repeatable: 繰り返し可能な
+    repeatable: 何度も
+    remove: 削除します
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
@@ -142,6 +143,13 @@ ja:
       new:  新しいパスワード
       confirmation: パスワード再度確認
       current: 現在のパスワード
+    map: 地図
+    attend_date: 日付に出席
+  calendar:
+    year: 年
+    month: 月
+    week: 週間
+    day: 日
   language: '日本語'
   activerecord:
     errors:
@@ -192,6 +200,7 @@ ja:
         studio_name: スタジオ名
         date: 日付
         amount: 値段
+        total_cost: 総費用
       course:
         name: 名前
         cover_img: 表紙画像
