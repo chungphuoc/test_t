@@ -18,9 +18,9 @@
     .form-group.left-inner-addon
       i.glyphicon.glyphicon-envelope
       - if session["devise.facebook_data"]
-        = f.text_field :email, value: session["devise.facebook_data"]["info"]["email"], required: "", class: "form form-control"
+        = f.email_field :email, value: session["devise.facebook_data"]["info"]["email"], required: "", class: "form form-control"
       -else
-        = f.text_field :email, class: "form form-control", required: "", placeholder: t('static_text.email')
+        = f.email_field :email, class: "form form-control", required: "", placeholder: t('static_text.email')
       - resource.errors.messages[:email].each do |msg|
         p.error-text #{msg}
     .form-group.left-inner-addon
@@ -34,13 +34,14 @@
       - resource.errors.messages[:password_confirmation].each do |msg|
         p.error-text #{msg}
     .form-group
-      = select_tag :user_type, options_for_select(User.user_type), {class: "form-control"}
+      = select_tag :user_type, options_for_select(User.user_type), class: "form-control"
     - if session["devise.facebook_data"]
       = hidden_field_tag :provider, session["devise.facebook_data"]["provider"]
       = hidden_field_tag :uid, session["devise.facebook_data"]["uid"]
-    = render 'modal_term_condition', f: f
+    = render 'modal_term_condition', f: f, term: @term[:studio]
+    = render 'modal_term_condition', f: f, term: @term[:customer]
     .form-group
-      button.btn.btn-primary.btn-sign-in.btn-register type="button" data-toggle="modal" data-target="#termconditionModal"
+      button.btn.btn-primary.btn-sign-in.btn-register#button-register type="button" onClick="open_modal();"
         = t('button.register')
     - if controller_name != 'sessions'
       = link_to t('static_text.already_have_an_account'), new_session_path(resource_name)

@@ -1,0 +1,17 @@
+#admin_term_index {
+  .list-term {
+    list-style: none;
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 20px;
+
+    #term_studio {
+      display: none;
+    }
+
+    .term-content {
+      height: 500px;
+      overflow-y: auto;
+    }
+  }
+}

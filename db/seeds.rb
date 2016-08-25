@@ -354,5 +354,5 @@ puts 'create BackgroundImages....'
 BackgroundImage.create_homepage
 
 puts 'create Terms & conditions'
-Term.create!(content: 'Default')
+Term.create_default
 

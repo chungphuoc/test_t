@@ -7,7 +7,7 @@ class Manage::CoursesController < Manage::BaseController
                                                :course_type,
                                                station: [:translations],
                                                studio: [:user])
-      @courses = CourseCalendar.new(@courses, ->(x) { manage_course_path(x) }).result
+      @courses = CourseCalendar.new(@courses, ->(x) { manage_course_path(x) }).result('studio')
       @result = { success: '1', result: @courses }.to_json
       @has_slidebar = false
       format.html { render :index, layout: 'studio' }
