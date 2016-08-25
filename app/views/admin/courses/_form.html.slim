@@ -2,9 +2,9 @@
   .form-group
     = f.label :name, class: 'control-label col-sm-2'
     .col-lg-10
-      = f.text_field :name, class: "form-control", required: ""
+      = f.select :course_type_id, options_from_collection_for_select(@course.studio.course_types, :id, :name, @course.course_type.id), { prompt: 'Select course type' }, { class: 'form-control' }
       .error-text
-          = @course.errors[:name].to_sentence
+        = @course.errors[:course_type].to_sentence
   .form-group
     = f.label :cover_img, class: 'control-label col-sm-2'
     .col-lg-10

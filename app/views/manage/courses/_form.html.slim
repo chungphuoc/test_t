@@ -2,7 +2,7 @@
   .form-group
     label.control-label.col-sm-2 = f.label :course_type
     .col-sm-10
-      = f.select :course_type_id, options_from_collection_for_select(@studio.course_types, :id, :name), { prompt: 'Select course type' }, { class: 'form-control' }
+      = f.select :course_type_id, options_from_collection_for_select(@studio.course_types, :id, :name, @course.course_type.id), { prompt: 'Select course type' }, { class: 'form-control' }
       .error-text
         = @course.errors[:course_type].to_sentence
   .form-group

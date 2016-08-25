@@ -163,12 +163,6 @@ ActiveRecord::Schema.define(version: 20160818064132) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "featured_courses", force: :cascade do |t|
-    t.integer  "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "option_enrollments", force: :cascade do |t|
     t.integer  "option_id"
     t.integer  "enrollment_id"
