@@ -1,10 +1,13 @@
 (function($) {
   "use strict";
   var params = window.location.search.replace("?", "");
-
+  var language = params.split("&")
+                       .filter(function(x) { return x.startsWith("locale"); })[0]
+                       .replace("locale=", "");
+  language = language == "en" ? 'en-US' : 'ja-JP';
   var options = {
     events_source: '/manage/courses.json?' + params,
-    view: 'week',
+    view: 'day',
     tmpl_path: '/bower_components/bootstrap-calendar/tmpls/',
     tmpl_cache: false,
     onAfterEventsLoad: function(events) {
@@ -29,7 +32,8 @@
       months: {
         general: 'label'
       }
-    }
+    },
+    language: language
   };
 
   var calendar = $('#calendar').calendar(options);
