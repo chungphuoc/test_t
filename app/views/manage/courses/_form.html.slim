@@ -2,7 +2,7 @@
   .form-group
     label.control-label.col-sm-2 = f.label :course_type
     .col-sm-10
-      = f.select :course_type_id, options_from_collection_for_select(@studio.course_types, :id, :name, @course.course_type.id), { prompt: 'Select course type' }, { class: 'form-control' }
+      = f.select :course_type_id, options_from_collection_for_select(@studio.course_types, :id, :name, @course.course_type.nil? ? nil : @course.course_type.id), { prompt: 'Select course type' }, { class: 'form-control' }
       .error-text
         = @course.errors[:course_type].to_sentence
   .form-group
@@ -58,11 +58,14 @@
       .error-text
         = @course.errors[:teacher].to_sentence
   .form-group
-    label.control-label.col-sm-2 = f.label :station
+    label.control-label.col-sm-2 = f.label :stations
     .col-sm-10
-      = f.select :station_id, options_from_collection_for_select(@studio.stations, :id,  :name), { prompt: 'Select station'}, { class: 'form-control' }
+      = f.collection_check_boxes :station_ids, @studio.stations.all, :id, :name do |s|
+        .checkbox.checkbox-success
+          = s.check_box
+          = s.label
       .error-text
-        = @course.errors[:station].to_sentence
+        = @course.errors[:stations].to_sentence
   .form-group
     .col-sm-10.col-sm-offset-2
       .checkbox.checkbox-success

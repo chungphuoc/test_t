@@ -6,7 +6,7 @@ tr
   td
     | #{course.start_time.strftime("%H:%M")} - #{course.end_time.strftime("%H:%M")}
   td
-  	= course.station_name
+  	= course.full_station_names
   td
     = link_to t('button.edit'), edit_manage_course_path(course), class: 'btn btn-sign-in'
     = link_to t('button.delete'), manage_course_path(course), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sign-up'

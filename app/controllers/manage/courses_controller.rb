@@ -6,7 +6,7 @@ class Manage::CoursesController < Manage::BaseController
     respond_to do |format|
       @courses = current_user.courses.includes(:teacher,
                                                :course_type,
-                                               station: [:translations],
+                                               stations: [:translations],
                                                studio: [:user])
       @courses = CourseCalendar.new(@courses, ->(x) { manage_course_path(x) }).result('studio')
       @result = { success: '1', result: @courses }.to_json
@@ -90,8 +90,8 @@ class Manage::CoursesController < Manage::BaseController
     params.require(:course).permit(:course_type_id, :cover_img, :phone_number, :website,
                                    :description, :rating, :kcal, :num_slot,
                                    :tuition, :start_time, :end_time, :start_date,
-                                   :teacher_id, :station_id, :exercise_id,
-                                   :repeatable, :days_of_week => [])
+                                   :teacher_id, :exercise_id,
+                                   :repeatable, :days_of_week => [], :station_ids => [])
   end
 
   def no_slidebar
