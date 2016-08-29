@@ -121,7 +121,10 @@
   - location = @studio.stations.collect {|s| {name: s.name, lat: s.latitude, lng: s.longitude} }
   script src="//maps.googleapis.com/maps/api/js"
   javascript:
-    var locations = #{raw(location.to_json)} || {name: 'default', lat: 0, lng: 0}
+    var locations = #{raw(location.to_json)}
+    if (locations.length == 0) {
+      locations = [{name: 'default', lat: 0, lng: 0}]
+    }
     var position = new google.maps.LatLng(locations[0].lat, locations[0].lng)
     var mapProp = {
       center: position,
