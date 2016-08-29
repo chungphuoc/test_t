@@ -54,9 +54,10 @@ class Admin::CoursesController < Admin::BaseController
   def change_studio
     @studio = Studio.find(params[:studio_id])
     if @studio
-      @station_options = @studio.stations.collect { |station| [station.name, station.id] }
+      @station_options = @studio.stations.all
       @teacher_options = @studio.teachers.collect { |teacher| [teacher.name, teacher.id] }
       @exercise_options = @studio.exercises.collect { |exercise| [exercise.name, exercise.id] }
+      @course_type_options = @studio.course_types.collect { |course_type| [course_type.name, course_type.id] }
     else
       @station_options = @teacher_options = @exercise_options = []
     end
@@ -69,6 +70,10 @@ class Admin::CoursesController < Admin::BaseController
   end
 
   def course_params
-    params.require(:course).permit(:name, :cover_img, :phone_number, :website, :description, :kcal, :num_slot, :start_time, :end_time, :start_date, :teacher_id, :station_id, :studio_id, :exercise_id, :tuition, :currency, :days_of_week => [])
+    params.require(:course).permit(:name, :cover_img, :phone_number,
+                                  :website, :description, :kcal, :num_slot,
+                                  :start_time, :end_time, :start_date, :teacher_id,
+                                  :studio_id, :exercise_id, :tuition,:currency,
+                                  :repeatable, :days_of_week => [],:station_ids => [])
   end
 end

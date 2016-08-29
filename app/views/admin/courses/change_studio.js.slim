@@ -1,9 +1,12 @@
-|$("#course_station_id").empty().append(
-  "#{j  render('station_option', options: @station_options, type: 'station')}"
+|$("#course_stations").empty().append(
+  "#{j  render('station_check_options', stations: @station_options)}"
 |);
 |$("#course_teacher_id").empty().append(
   "#{j  render('station_option', options: @teacher_options, type: 'teacher')}"
 |);
 |$("#course_exercise_id").empty().append(
   "#{j  render('station_option', options: @exercise_options, type: 'exercise')}"
+|);
+|$("#course_course_type_id").empty().append(
+  "#{j  render('station_option', options: @course_type_options, type: 'course_type')}"
 |);
