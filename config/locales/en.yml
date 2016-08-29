@@ -198,6 +198,10 @@ en:
       destroyed: 'Course has been successfully destroyed'
       closed: 'Course has been successfully closed'
       reopened: 'Course has been successfully reopened'
+    course_types:
+      created: 'Course types has been successfully created.'
+      updated: 'Course types has been successfully updated.'
+      removed: 'Course types has been successfully removed.'
     exercises:
       updated: 'Exercise listing has been successfully updated.'
     stations:
@@ -408,11 +412,3 @@ en:
       sologan: A new way of booking exercises classes!!
       benefit: "You can earn %{point} pointed by signing up now!!"
       feature: Start booking classes fast and easy.
-
-
-
-
-
-
-
-

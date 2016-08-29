@@ -180,6 +180,10 @@ ja:
       destroyed: 'コースが正常に破壊されています'
       closed: 'コースは正常にクローズされました'
       reopened: 'コースが正常にリニューアルオープンされました'
+    course_types:
+      created: 'コースの種類が正常に作成されました。'
+      updated: 'コースの種類が正常に更新されました。'
+      removed: 'コースの種類が正常に削除されました。'
     exercises:
       updated: '運動リストは正常に更新されました。'
     stations:
