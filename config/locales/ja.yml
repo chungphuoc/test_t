@@ -116,6 +116,7 @@ ja:
     requested_stations: 要求されたステーション
     approved_stations: 承認された駅
     request_new_station: 新しい局に要求
+    edit_request_station: 編集要求
     new_class: 新しいクラス
     studio_list: スタジオリスト
     shower: シャワー
@@ -303,6 +304,8 @@ ja:
         updated_at: で更新
       station:
         name: 名前
+        en_name: 英語名
+        jp_name: 和名
         location: ロケーション
         created_at: で作成されました
         updated_at: で更新
@@ -313,7 +316,9 @@ ja:
         name: 名前
         created_at: で作成されました
         updated_at: で更新
-
+      payable_options:
+        name: 名前
+        price: 価格
 
 
   date:
