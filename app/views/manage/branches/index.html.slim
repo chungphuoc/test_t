@@ -1,0 +1,15 @@
+.row.zero-margin.center-text.title
+  h1 = t('static_text.branches')
+table.table.table-stripped
+  tr
+    th = t('static_text.stations')
+    th = t('activerecord.attributes.course.min_walk')
+    th Action
+  - @branches.each do |branch|
+    tr 
+      td = branch.name
+      td = branch._min_walk
+      td
+        = link_to t('button.edit'), edit_manage_branch_path(branch), class: 'btn btn-sign-up'
+.row.zero-margin.center-text
+  = link_to t('button.back'), manage_stations_path, class: 'btn btn-sign-in'

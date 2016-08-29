@@ -1,0 +1,15 @@
+= form_for [:manage, @branch], html: { class: 'form-horizontal'} do |f|
+  .form-group
+    .col-sm-2
+      = f.label :station, t('static_text.station')
+    .col-sm-10
+      = f.text_field :station, value: @branch.name, class: 'form-control',readonly: true
+  .form-group
+    .col-sm-2
+      = f.label :min_walk, t('activerecord.attributes.station.min_walk')
+    .col-sm-10
+      = f.number_field :min_walk, class: 'form-control', min: 0, placeholder: 'minutes', required: true
+  .col-sm-10.col-sm-offset-2
+    .form-group
+      = link_to t('button.back'), manage_branches_path, class: 'btn btn-sign-in'
+      = f.submit t('button.submit'), class: 'btn btn-sign-up'

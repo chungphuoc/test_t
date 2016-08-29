@@ -82,6 +82,7 @@ en:
     manage_course_type: Mange course type
     repeatable: Many times
     remove: Remove
+    manage_branches: Manage branches
   static_text:
     home: Home
     contact_us: Contact Us
@@ -170,6 +171,7 @@ en:
     result: "%{count} results"
     map: Map
     attend_date: Attend date
+    branches: Branches
   calendar:
     year: year
     month: month
@@ -371,6 +373,7 @@ en:
         latitude: Latitude
         longitude: Longitude
         status: Status
+        min_walk: Minutes to walk
       teacher:
         name: Name
         created_at: Created At

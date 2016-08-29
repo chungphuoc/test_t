@@ -64,6 +64,7 @@ ja:
     remove: 削除します
     _yes: 'はい'
     _no: 'いいえ'
+    manage_branches: 枝を管理
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
@@ -152,6 +153,7 @@ ja:
     result: "%{count}の結果"
     map: 地図
     attend_date: 日付に出席
+    branches: 支店
   calendar:
     year: 年
     month: 月
@@ -305,6 +307,7 @@ ja:
         latitude: 緯度
         longitude: 経度
         status: 状態
+        min_walk: 分は歩いて
       teacher:
         name: 名前
         created_at: で作成されました
