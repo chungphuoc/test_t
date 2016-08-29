@@ -10,7 +10,7 @@
       tr
         td = option.name.capitalize
         td = "#{option.price} #{option.currency}"
-        td = link_to 'Delete', manage_payable_option_path(id: option.id), method: :delete, class: 'btn btn-sign-in'
+        td = link_to t('button.delete'), manage_payable_option_path(id: option.id), method: :delete, class: 'btn btn-sign-in'
   .col-lg-2
   .col-lg-8
     h3.text-center = t('static_text.add_new_option')
@@ -18,11 +18,11 @@
       = form_for @payable_option, url: manage_payable_options_path, method: :post do |f|
         .table-form
           .input
-            = f.text_field :name, placeholder: 'Name', class: 'form-control'
-            = f.number_field :price, placeholder: 'Price', class: 'form-control'
+            = f.text_field :name, placeholder: t('activerecord.attributes.payable_options.name'), class: 'form-control'
+            = f.number_field :price, placeholder: t('activerecord.attributes.payable_options.price'), class: 'form-control'
           .errors-text
             - @payable_option.errors.full_messages.each do |error_message|
               p = error_message
           .add.text-center
-            = f.submit :submit, value: 'Add', class: 'btn btn-sign-up'
+            = f.submit :submit, value: t('button.add'), class: 'btn btn-sign-up'
   .col-lg-2
