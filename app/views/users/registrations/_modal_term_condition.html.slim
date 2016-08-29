@@ -18,8 +18,8 @@
             .form-group
               .checkbox-style
                 .element.element-hover
-                  = check_box_tag 'agree_term_condition', '', false, onclick: "click_box_agree(this);"
-                  = label_tag 'agree_term_condition', t('static_text.i_agree')
+                  = check_box_tag "agree_term_condition_#{term.user_type}", '', false, onclick: "click_box_agree(this, '#{term.user_type}');"
+                  = label_tag "agree_term_condition_#{term.user_type}", t('static_text.i_agree')
           .col-lg-4
-        .form-group#button-submit
+        .form-group id="submit_#{term.user_type}"
           = f.submit t('button.submit'), class: "btn btn-register btn-sign-up", disabled: true

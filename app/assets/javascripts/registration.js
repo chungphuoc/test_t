@@ -1,5 +1,5 @@
-function click_box_agree(checkbox){
-  var button = document.querySelector('#button-submit .btn-register');
+function click_box_agree(checkbox, user_type){
+  var button = document.querySelector('#submit_' + user_type  + ' .btn-register');
   if (checkbox.checked == true) {
     button.disabled = false;
   } else {
