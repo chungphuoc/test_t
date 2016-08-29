@@ -67,6 +67,12 @@
       .error-text
         = @course.errors[:stations].to_sentence
   .form-group
+    label.control-label.col-sm-2 = f.label :exercise
+    .col-sm-10
+      = f.select :exercise_id, options_from_collection_for_select(@studio.exercises, :id, :name), { prompt: 'Select exercise' }, class: 'form-control'
+      .error-text
+        = @course.errors[:exercise].to_sentence
+  .form-group
     .col-sm-10.col-sm-offset-2
       .checkbox.checkbox-success
         = f.check_box :repeatable, onchange: "show_days_of_week()"
@@ -79,12 +85,6 @@
       = render 'shares/days_of_week_edit', f:f
       .error-text
         = @course.errors[:days_of_week].to_sentence
-  .form-group
-    label.control-label.col-sm-2 = f.label :exercise
-    .col-sm-10
-      = f.select :exercise_id, options_from_collection_for_select(@studio.exercises, :id, :name), { prompt: 'Select exercise' }, class: 'form-control'
-      .error-text
-        = @course.errors[:exercise].to_sentence
   .form-group
     .row.center-text
       = link_to t('button.cancel'), all_manage_courses_path, class: 'btn btn-sign-in'
