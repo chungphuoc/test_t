@@ -391,6 +391,7 @@ en:
       dear: "Dear %{name}"
       cancelled: CANCELLED
       sign_up_now: Sign up now
+      welcome: "Welcome %{name}"
     booked:
       announcement: "%{customer} has already joined %{course} class."
       reserved:
@@ -408,6 +409,21 @@ en:
       sologan: A new way of booking exercises classes!!
       benefit: "You can earn %{point} pointed by signing up now!!"
       feature: Start booking classes fast and easy.
+    confirmation:
+      direction: "You can confirm your account email through the link below:"
+      confirm: Confirm my account
+    password_change:
+      direction: We're contacting you to notify you that your password has been changed
+    reset_password:
+      direction: Someone has requested a link to change your password. You can do this through the link below.
+      redirect: Change my password
+      suggestion:
+        p1: If you didn't request this, please ignore this email.
+        p2: Your password won't change until you access the link above and create a new one.
+    unlock:
+      intro: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+      direction: "Click the link below to unlock your account:"
+      redirect: Unlock my account
 
 
 
