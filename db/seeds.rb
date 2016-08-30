@@ -9,6 +9,7 @@ Studio.delete_all
 User.delete_all
 PayableOption.delete_all
 CourseType.delete_all
+Term.delete_all
 
 puts ('create Admin account...')
 admin = Admin.create!
