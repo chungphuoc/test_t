@@ -1,0 +1,8 @@
+p = t('email_content.static.dear', name: @resource.email)
+
+p = t('email_content.unlock.intro')
+
+p = t('email_content.unlock.direction')
+
+p
+  = link_to t('email_content.unlock.direction'), unlock_url(@resource, unlock_token: @token)

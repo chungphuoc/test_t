@@ -533,6 +533,7 @@ ja:
       dear: "親愛なる%{name}"
       cancelled: キャンセル
       sign_up_now: 今すぐ登録
+      welcome: "歓迎%{name}"
     booked:
       announcement: "%{customer}は、既に%{course}クラスに参加しています。"
       reserved:
@@ -550,3 +551,18 @@ ja:
       sologan: 予約の新しい方法は、クラスを行使します！
       benefit: "あなたは、%{point}が今まで署名することによって指さ獲得することができます！"
       feature: クラスは迅速かつ簡単に予約を開始します。
+    confirmation:
+      direction: あなたは、以下のリンクからアカウントのメールを確認することができます。
+      confirm: アカウントの確認
+    password_change:
+      direction: パスワードが変更されていることを私たちはあなたを通知するためにあなたを接触させています
+    reset_password:
+      direction: 誰かがパスワードを変更するためのリンクを要求しました。あなたは下のリンクを介してこれを行うことができます。
+      redirect: 私のパスワードを変更
+      suggestion:
+        p1: あなたがこれを要求していない場合は、このメールを無視してください。
+        p2: あなたのパスワードは、上記のリンクにアクセスするまで変更し、新しいものを作成しません。
+    unlock:
+      intro: アカウントが原因で失敗したログイン試行の過剰な数にロックされています。
+      direction: "アカウントのロックを解除するには、以下のリンクをクリックしてください："
+      redirect: アカウントのロックを解除

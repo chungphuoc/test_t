@@ -1,0 +1,6 @@
+p #{t('email_content.static.welcome', name: @email)}!
+
+p = t('email_content.confirmation.direction')
+
+p
+  = link_to t('email_content.confirmation.redirect'), confirmation_url(@resource, confirmation_token: @token)
