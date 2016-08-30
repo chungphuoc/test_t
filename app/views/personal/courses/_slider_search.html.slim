@@ -3,6 +3,7 @@
     h4 = t('static_text.time')
     - minute_min = string_to_minutes(params[:min_time]) || 0
     - minute_max = string_to_minutes(params[:max_time]) || 24 * 60
+    - minute_max = 24 * 60 if minute_max == 0
     input id="time-slider" type="text" data-provide="slider" class="span2" value="" data-slider-min="0" data-slider-max="1440" data-slider-step="30" data-slider-time="true" data-slider-value="[#{minute_min},#{minute_max}]" onChange="slider_change('time');"
     .number
       span.min 00:00
@@ -20,7 +21,9 @@
     = hidden_field_tag 'min_kcal', kcal_min
   .time-group
     = hidden_field_tag 'min_time', Time.at(minute_min * 60).utc.strftime("%H:%M:%S")
-    = hidden_field_tag 'max_time', Time.at(minute_max * 60).utc.strftime("%H:%M:%S")
+    - max_time = Time.at(minute_max * 60).utc.strftime("%H:%M:%S")
+    - max_time = max_time == "00:00:00" ? "24:00:00" : max_time
+    = hidden_field_tag 'max_time', max_time
   .button-search
     = submit_tag t('button.search'), class: 'btn btn-sign-in'
 
