@@ -4,31 +4,31 @@
       = f.fields_for :translations, translation do |trs|
         = trs.hidden_field :locale
         - if translation.locale.to_s == 'en'
-          = trs.label 'English Name', class: 'col-sm-2'
+          = trs.label t('activerecord.attributes.station.en_name'), class: 'control-label col-sm-2'
         -else
-          = trs.label 'Japanese Name', class: 'col-sm-2'
+          = trs.label t('activerecord.attributes.station.jp_name'), class: 'control-label col-sm-2'
         .col-sm-9
           = trs.text_field :name, class: 'form-control', required: ""
           .error-text
              = @station.errors['translations.name'].to_sentence
   .form-group
-    label.control-label.col-md-2 Location
+    label.control-label.col-md-2 = t('activerecord.attributes.station.location')
     .col-md-9
       = f.text_area :location, class: 'form-control'
       .error-text
         = @station.errors[:location].to_sentence
   .form-group
-    label.control-label.col-md-2 Latitude
+    label.control-label.col-md-2 = t('activerecord.attributes.station.latitude')
     .col-md-9
       = f.text_field :latitude, class: 'form-control'
       .error-text
         = @station.errors[:latitude].to_sentence
   .form-group
-    label.control-label.col-md-2 Longitude
+    label.control-label.col-md-2 = t('activerecord.attributes.station.longitude')
     .col-md-9
       = f.text_field :longitude, class: 'form-control'
       .error-text
         = @station.errors[:longitude].to_sentence
   .form-group
     .row.center-text
-      = f.submit 'Submit', class: "btn btn-sign-in"
+      = f.submit t('button.submit'), class: "btn btn-sign-in"

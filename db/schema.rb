@@ -69,6 +69,11 @@ ActiveRecord::Schema.define(version: 20160829024218) do
   add_index "course_categories", ["category_id"], name: "index_course_categories_on_category_id", using: :btree
   add_index "course_categories", ["course_id"], name: "index_course_categories_on_course_id", using: :btree
 
+  create_table "course_stations", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "station_id"
+  end
+
   create_table "course_types", force: :cascade do |t|
     t.string   "name"
     t.integer  "studio_id"
@@ -88,7 +93,6 @@ ActiveRecord::Schema.define(version: 20160829024218) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.integer  "teacher_id"
-    t.integer  "station_id"
     t.integer  "studio_id"
     t.integer  "exercise_id"
     t.integer  "enrollments_count", default: 0
@@ -162,12 +166,6 @@ ActiveRecord::Schema.define(version: 20160829024218) do
     t.integer  "customer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "featured_courses", force: :cascade do |t|
-    t.integer  "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "option_enrollments", force: :cascade do |t|

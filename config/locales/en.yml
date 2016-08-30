@@ -99,7 +99,7 @@ en:
     point: Point
     calories_burnt: Calories Burnt
     search_class: Search Class
-    station: Station
+    station: Stations
     exercise: Exercise
     favourite_class: Favourite Classes
     daily: Daily
@@ -135,6 +135,7 @@ en:
     requested_stations: Requested Stations
     approved_stations: Approved Stations
     request_new_station: request new station
+    edit_request_station: Edit request
     new_class: New Class
     studio_list: Studio List
     shower: Shower
@@ -200,6 +201,10 @@ en:
       destroyed: 'Course has been successfully destroyed'
       closed: 'Course has been successfully closed'
       reopened: 'Course has been successfully reopened'
+    course_types:
+      created: 'Course types has been successfully created.'
+      updated: 'Course types has been successfully updated.'
+      removed: 'Course types has been successfully removed.'
     exercises:
       updated: 'Exercise listing has been successfully updated.'
     stations:
@@ -367,6 +372,8 @@ en:
         updated_at: Updated At
       station:
         name: Name
+        en_name: English name
+        jp_name: Japanese name
         location: Location
         created_at: Created At
         updated_at: Updated At
@@ -378,6 +385,9 @@ en:
         name: Name
         created_at: Created At
         updated_at: Updated At
+      payable_options:
+        name: Name
+        price: Price
   email_content:
     static:
       book_number: Booking number
@@ -411,11 +421,3 @@ en:
       sologan: A new way of booking exercises classes!!
       benefit: "You can earn %{point} pointed by signing up now!!"
       feature: Start booking classes fast and easy.
-
-
-
-
-
-
-
-

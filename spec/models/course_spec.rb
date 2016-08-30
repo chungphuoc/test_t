@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Course, type: :model do
   it { should belong_to :teacher }
-  it { should belong_to :station }
+  it { should have_many :course_stations }
+  it { should have_many(:stations).through(:course_stations) }
   it { should belong_to :exercise }
   it { should belong_to :studio }
   it { should have_many :enrollments }
@@ -13,6 +14,6 @@ RSpec.describe Course, type: :model do
   it { should validate_presence_of :num_slot }
   it { should validate_presence_of :start_date }
   it { should validate_presence_of :teacher }
-  it { should validate_presence_of :station }
+  it { should validate_presence_of :stations }
   it { should validate_presence_of :exercise }
 end

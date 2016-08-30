@@ -1,4 +1,5 @@
-function change_view_mode(mode = 'day') {
+function change_view_mode() {
+	mode = mode || 'day';
   var mode_view = document.getElementById('mode_view');
   mode_view.value = mode;
 }

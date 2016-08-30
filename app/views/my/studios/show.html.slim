@@ -117,17 +117,34 @@
             h2.title.text-center Facilities
             = render 'facilities_box', disable: true
             hr
-
+  - location = @studio.stations.collect {|s| {name: s.name, lat: s.latitude, lng: s.longitude} }
   script src="//maps.googleapis.com/maps/api/js"
   javascript:
-    var position = new google.maps.LatLng(#{@studio.courses.first.station.latitude}, #{@studio.courses.first.station.longitude})
+    var locations = #{raw(location.to_json)}
+    if (locations.length == 0) {
+      locations = [{name: 'default', lat: 0, lng: 0}]
+    }
+    var position = new google.maps.LatLng(locations[0].lat, locations[0].lng)
     var mapProp = {
       center: position,
       zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     var map = new google.maps.Map(document.getElementById("js_google_map"), mapProp)
-    var marker = new google.maps.Marker({
-      position: position,
-    })
-    marker.setMap(map);
+    var infowindow = new google.maps.InfoWindow()
+    var bounds = new google.maps.LatLngBounds()
+
+    for (i = 0; i < locations.length; i++) {
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i].lat, locations[i].lng)
+      })
+      marker.setMap(map)
+      bounds.extend(marker.position);
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i].name)
+          infowindow.open(map, marker)
+        }
+      })(marker, i))
+    }
+    map.fitBounds(bounds);

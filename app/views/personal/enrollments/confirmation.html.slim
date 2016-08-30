@@ -43,7 +43,7 @@
 
 script src="//maps.googleapis.com/maps/api/js"
 javascript:
-  var position = new google.maps.LatLng(#{@course.station.latitude}, #{@course.station.longitude})
+  var position = new google.maps.LatLng(#{@course.stations.first.latitude}, #{@course.stations.first.longitude})
   var mapProp = {
     center: position,
     zoom: 16,

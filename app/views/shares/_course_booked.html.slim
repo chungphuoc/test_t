@@ -14,7 +14,7 @@ table.table.table-striped.table-booked-class
       td #{enrollment.course_name}
       td #{enrollment.start_date}
       td #{enrollment.start_time.strftime("%I:%M %p")} - #{enrollment.end_time.strftime("%I:%M %p")}
-      td #{enrollment.course.station_name}
+      td #{enrollment.course.full_station_names}
       td #{enrollment.kcal} #{t('activerecord.attributes.course.kcal')}
       td id="status_#{enrollment.id}" = t("activerecord.attributes.enrollment.statuses.#{enrollment.status}")
       - if rating
