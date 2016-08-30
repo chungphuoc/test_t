@@ -1,24 +1,11 @@
 <%
-	var weekday =new Array(7);
-	weekday[0]="Sunday";
-	weekday[1]="Monday";
-	weekday[2]="Tuesday";
-	weekday[3]="Wednesday";
-	weekday[4]="Thursday";
-	weekday[5]="Friday";
-	weekday[6]="Saturday";
-
-	function getDayofWeek(num) {
-	  return weekday[num];
-	}
-
 	var today = new Date();
 %>
 <div id="cal-day-box">
 	<div class="cal-row-fluid cal-row-head cal-custom-day">
 		<% _.each(days_name, function(name) { %>
 			<% let choosed = today.getDate() == start.getDate() ? 'cal-day-choosed' : '' %>
-			<div class="cal-cell1 <%= cal._getDayClass('week', today) %> <%= choosed %>" data-toggle="tooltip" title="<%= cal._getHolidayName(today) %>"><%= getDayofWeek(today.getDay()) %><br>
+			<div class="cal-cell1 <%= cal._getDayClass('week', today) %> <%= choosed %>" data-toggle="tooltip" title="<%= cal._getHolidayName(today) %>"><%= days_name[today.getDay()] %><br>
 				<small><span data-cal-date="<%= today.getFullYear() %>-<%= today.getMonthFormatted() %>-<%= today.getDateFormatted() %>" data-cal-view="day"><%= today.getDate() %> <%= cal.locale['ms' + today.getMonth()] %></span></small>
 			</div>
 			<% today.setDate(today.getDate() + 1); %>

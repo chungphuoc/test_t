@@ -65,6 +65,7 @@ ja:
     _yes: 'はい'
     _no: 'いいえ'
     manage_branches: 枝を管理
+    all: すべて
   static_text:
     home: ホーム
     contact_us: 'お問い合わせ'
@@ -155,6 +156,7 @@ ja:
     map: 地図
     attend_date: 日付に出席
     branches: 支店
+    total_income: 総収入
   calendar:
     year: 年
     month: 月
@@ -216,6 +218,12 @@ ja:
     error: '招待状を送信することはできません！'
   static_pages:
     feedback: 'あなたのフィードバックを送信しました。'
+    confirmation:
+      direction:
+        p1: メールアドレスを確認してください。TONEDの使用を開始するために、その電子メールで確認リンクをクリックします。
+        p2: "電子メールを受信しませんでしたか？ご迷惑メールフォルダを確認し、それをフィルタによって捕捉された可能性があります。あなたはまだそれが表示されない場合は、%{action}ことができます"
+      resend_email: 確認メールを再送信
+      back_to_home: ホームに戻ります
   activerecord:
     errors:
       messages:
@@ -322,8 +330,6 @@ ja:
       payable_options:
         name: 名前
         price: 価格
-
-
   date:
     abbr_day_names:
     - 日
@@ -334,7 +340,6 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    -
     - 1月
     - 2月
     - 3月
@@ -347,36 +352,6 @@ ja:
     - 10月
     - 11月
     - 12月
-    day_names:
-    - 日曜日
-    - 月曜日
-    - 火曜日
-    - 水曜日
-    - 木曜日
-    - 金曜日
-    - 土曜日
-    formats:
-      default: "%Y/%m/%d"
-      long: "%Y年%m月%d日(%a)"
-      short: "%m/%d"
-    month_names:
-    -
-    - 1月
-    - 2月
-    - 3月
-    - 4月
-    - 5月
-    - 6月
-    - 7月
-    - 8月
-    - 9月
-    - 10月
-    - 11月
-    - 12月
-    order:
-    - :year
-    - :month
-    - :day
   datetime:
     distance_in_words:
       about_x_hours:

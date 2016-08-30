@@ -83,6 +83,7 @@ en:
     repeatable: Many times
     remove: Remove
     manage_branches: Manage branches
+    all: All
   static_text:
     home: Home
     contact_us: Contact Us
@@ -173,6 +174,7 @@ en:
     map: Map
     attend_date: Attend date
     branches: Branches
+    total_income: Total income
   calendar:
     year: year
     month: month
@@ -234,6 +236,12 @@ en:
     error: 'Invitation can not be sent!'
   static_pages:
     feedback: 'Your feedback has been sent.'
+    confirmation:
+      direction:
+        p1: Please verify your email address. Click the confirmation link in that email to begin using Toned.
+        p2: "Didn’t receive the email? Check your Spam folder, it may have been caught by a filter. If you still don’t see it, you can %{action}"
+      resend_email: resend the confirmation email
+      back_to_home: Go back to home
   admin:
     branches:
       created: 'Station has been successfully added'
@@ -388,6 +396,28 @@ en:
       payable_options:
         name: Name
         price: Price
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Nov
+    - Oct
+    - Nov
+    - Dec
   email_content:
     static:
       book_number: Booking number
@@ -437,3 +467,4 @@ en:
       intro: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
       direction: "Click the link below to unlock your account:"
       redirect: Unlock my account
+

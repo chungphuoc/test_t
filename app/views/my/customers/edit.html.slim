@@ -32,7 +32,7 @@
       .form-group
         = f.label :gender, class: 'control-label col-sm-2'
         .col-lg-10
-          = f.select :gender, options_for_select(Customer.gender), {}, class: "form-control"
+          = f.select :gender, options_for_select(Customer.gender, @customer.gender), {}, class: "form-control"
       .form-group
         = f.label :receive_sms, t('static_text.receive_sms'), class: 'control-label col-sm-2'
         .col-lg-10

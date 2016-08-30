@@ -3,19 +3,19 @@
 .row.zero-margin.paymet-section
   .col-lg-2.time-section
     = select_year(Date.today, {start_year: 2015, end_year: Time.now.year}, { class: 'form-control', onchange: "change_year_payment()"})
-    button.btn.btn-sign-in.btn-month.btn-active onClick="change_month_payment(0, this)" All
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(1, this)" Jan
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(2, this)" Feb
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(3, this)" Mar
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(4, this)" Apr
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(5, this)" May
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(6, this)" Jun
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(7, this)" Jul
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(8, this)" Aug
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(9, this)" Nov
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(10, this)" Oct
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(11, this)" Sep
-    button.btn.btn-sign-in.btn-month onClick="change_month_payment(12, this)" Dec
+    button.btn.btn-sign-in.btn-month.btn-active onClick="change_month_payment(0, this)" = t('button.all')
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(1, this)" = t('date.abbr_month_names')[0]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(2, this)" = t('date.abbr_month_names')[1]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(3, this)" = t('date.abbr_month_names')[2]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(4, this)" = t('date.abbr_month_names')[3]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(5, this)" = t('date.abbr_month_names')[4]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(6, this)" = t('date.abbr_month_names')[5]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(7, this)" = t('date.abbr_month_names')[6]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(8, this)" = t('date.abbr_month_names')[7]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(9, this)" = t('date.abbr_month_names')[8]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(10, this)" = t('date.abbr_month_names')[9]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(11, this)" = t('date.abbr_month_names')[10]
+    button.btn.btn-sign-in.btn-month onClick="change_month_payment(12, this)" = t('date.abbr_month_names')[11]
   .col-lg-10
     br
     #payment-table
