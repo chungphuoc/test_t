@@ -13,7 +13,8 @@ function clear_active_button() {
   button.classList.remove('active');
 }
 
-function show_term(user_type = CUSTOMER){
+function show_term(user_type){
+  user_type = user_type || CUSTOMER;
   var customer = document.getElementById('term_customer');
   var studio = document.getElementById('term_studio');
   var button = document.getElementById('button_term_' + user_type);

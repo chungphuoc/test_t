@@ -2,6 +2,15 @@ h2 #{@category.titleize_name} Courses
 hr
 ul style="list-style-type:none"
   table.table.table-courses.table-course-admin
+    tr
+      th Index
+      th Cover Image
+      th Name
+      th Num Slot
+      th Time
+      th Date
+      th Price
+      th Action
     - @course_categories.each_with_index do |course_category, index|
       - course = course_category.course
       tr
@@ -9,12 +18,8 @@ ul style="list-style-type:none"
         td
           = image_tag course.cover_img
         td #{course.name}
-        td #{course.phone_number}
-        td
-          = link_to course.website
         td #{course.num_slot}
-        td #{course.start_time.strftime("%I:%M %p")}
-        td #{course.end_time.strftime("%I:%M %p")}
+        td #{course.start_time.strftime("%I:%M %p")} - #{course.end_time.strftime("%I:%M %p")}
         td #{course.start_date}
         td #{course.tuition}
         td

@@ -4,7 +4,8 @@ class Course < ActiveRecord::Base
   enum status: [:active, :inactive]
   mount_uploader :cover_img, ImageUploader
   belongs_to :teacher
-  belongs_to :station
+  has_many :course_stations
+  has_many :stations, through: :course_stations
   belongs_to :exercise
   belongs_to :studio
   has_many :enrollments, dependent: :destroy
@@ -17,19 +18,19 @@ class Course < ActiveRecord::Base
   validates :tuition, presence: true, numericality: { greater_than_or_equal_to: 0 }
   validates :start_date, presence: true
   validates :teacher, presence: true
-  validates :station, presence: true
+  validates :stations, presence: true
   validates :exercise, presence: true
   validates :course_type, presence: true
   # validate :start_must_be_before_end_time
 
   delegate :name, to: :course_type
   delegate :name, to: :teacher, prefix: true
-  delegate :location, to: :station, prefix: true
   delegate :name, to: :exercise, prefix: true
-  delegate :name, to: :station, prefix: true
   delegate :name, to: :studio, prefix: true
-  delegate :stations, :teachers, :exercises, to: :studio
+  # delegate :stations, :teachers, :exercises, to: :studio
   delegate :options, to: :studio
+
+  accepts_nested_attributes_for :course_stations, allow_destroy: true
 
   MAX_SCHEDULE = 2
 
@@ -68,7 +69,7 @@ class Course < ActiveRecord::Base
 
   def self.search(params = {})
     results = all
-    results = results.where(station_id: params[:station_ids]) if params[:station_ids]
+    results = results.joins(:course_stations).where(course_stations: {station_id: params[:station_ids]}) if params[:station_ids]
     results = results.where(exercise_id: params[:exercise_ids]) if params[:exercise_ids]
     results = search_by_calories(results, params)
     results = search_by_time(results, params)
@@ -115,6 +116,10 @@ class Course < ActiveRecord::Base
 
   def open_slot
     num_slot - enrollments_count
+  end
+
+  def full_station_names
+    stations.collect {|s| s.name }.join(', ')
   end
 
   private

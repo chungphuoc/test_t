@@ -61,10 +61,10 @@ class CourseCalendar
     "<img src='#{course.cover_img.thumb}'>" \
     "<div class='info-course'>" \
     "<b>#{course.name}</b>" \
-    "<br><i>#{Course.human_attribute_name('teacher')}: #{course.teacher_name}</i>" \
-    "<br><i>#{Course.human_attribute_name('studio')}: #{course.studio_name}</i>" \
-    "<br><i>#{Course.human_attribute_name('station')}: #{course.station_name}</i>" \
-    "<br><i>#{Course.human_attribute_name('tuition')}:" \
+    "<br><i>#{I18n.t('static_text.teachers')}: #{course.teacher_name}</i>" \
+    "<br><i>#{I18n.t('static_text.user_type.studio')}: #{course.studio_name}</i>" \
+    "<br><i>#{I18n.t('static_text.station')}: #{course.full_station_names}</i>" \
+    "<br><i>#{I18n.t('activerecord.attributes.course.tuition')}:" \
     "#{number_with_delimiter(course.tuition)} #{course.currency}</i>" \
     '</div></div>'.html_safe
   end
@@ -80,11 +80,13 @@ class CourseCalendar
     "<div class='col-xs-6'>" \
     "<p>#{course.studio_name}</p>" \
     "<p>#{course.teacher_name}</p>" \
-    "<p>#{course.station_name}</p>" \
     '</div>' \
     "<div class='col-xs-6'>" \
     "<p>#{course.kcal} cal</p>" \
     "<p>#{course.tuition} usd</p>" \
+    '</div>' \
+    "<div class='col-xs-12'>" \
+    "<p>#{course.full_station_names}</p>" \
     '</div>' \
     '</div>' \
     '</div></div>'.html_safe
@@ -95,10 +97,10 @@ class CourseCalendar
     "<img src='#{course.cover_img}'>" \
     "<div class='info-course'>" \
     "<b>#{course.name}</b>" \
-    "<br><i>#{Course.human_attribute_name('time')}: #{course.start_time.strftime('%H:%M')}</i>" \
-    "<br><i>#{Course.human_attribute_name('class_name')}: #{course.name}</i>" \
-    "<br><i>#{Course.human_attribute_name('teacher')}: #{course.teacher_name}</i>" \
-    "<br><i>#{Course.human_attribute_name('open_slot')}: #{course.open_slot}" \
+    "<br><i>#{I18n.t('activerecord.attributes.course.time')}: #{course.start_time.strftime('%H:%M')}</i>" \
+    "<br><i>#{I18n.t('activerecord.attributes.course.class_name')}: #{course.name}</i>" \
+    "<br><i>#{I18n.t('static_text.teachers')}: #{course.teacher_name}</i>" \
+    "<br><i>#{I18n.t('activerecord.attributes.course.open_slot')}: #{course.open_slot}" \
     '</div></div>'.html_safe
   end
 end
