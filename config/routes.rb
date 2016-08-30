@@ -148,6 +148,7 @@ Rails.application.routes.draw do
     resources :stations, except: :show do
       put :update, action: :update_listing, on: :collection
     end
+    resources :branches, only: [:index, :edit, :update]
     resources :exercises, only: :index do
       put :update, on: :collection
     end

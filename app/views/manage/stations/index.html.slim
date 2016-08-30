@@ -2,6 +2,7 @@
   .col-md-6
     .row.zero-margin.center-text.title
       h2 = t('static_text.stations')
+      = link_to t('button.manage_branches'), manage_branches_path, class: 'btn btn-sign-in'
     .checkbox-style
       = form_tag manage_stations_path, method: :put
         .row
