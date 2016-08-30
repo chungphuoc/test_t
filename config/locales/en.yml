@@ -82,6 +82,7 @@ en:
     manage_course_type: Mange course type
     repeatable: Many times
     remove: Remove
+    all: All
   static_text:
     home: Home
     contact_us: Contact Us
@@ -171,6 +172,7 @@ en:
     result: "%{count} results"
     map: Map
     attend_date: Attend date
+    total_income: Total income
   calendar:
     year: year
     month: month
@@ -385,6 +387,28 @@ en:
       payable_options:
         name: Name
         price: Price
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Nov
+    - Oct
+    - Nov
+    - Dec
   email_content:
     static:
       book_number: Booking number

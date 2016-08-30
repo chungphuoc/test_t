@@ -71,7 +71,7 @@
             = render 'my/invite_friend'
           hr
           .row.zero-margin
-            h2.title.text-center Payable Options
+            h2.title.text-center = t('button.payable_options')
             = render 'options_box', studio: @studio
 
         .col-lg-4.manage-section
@@ -115,7 +115,7 @@
               = link_to t('button.add_station'), manage_stations_path, class: "btn btn-sign-up"
             hr
           .row.zero-margin
-            h2.title.text-center Facilities
+            h2.title.text-center = t('static_text.facilities')
             = render 'facilities_box', disable: true
             hr
   - location = @studio.stations.collect {|s| {name: s.name, lat: s.latitude, lng: s.longitude} }
