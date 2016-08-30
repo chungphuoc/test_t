@@ -82,6 +82,7 @@ en:
     manage_course_type: Mange course type
     repeatable: Many times
     remove: Remove
+    manage_branches: Manage branches
     all: All
   static_text:
     home: Home
@@ -172,6 +173,7 @@ en:
     result: "%{count} results"
     map: Map
     attend_date: Attend date
+    branches: Branches
     total_income: Total income
   calendar:
     year: year
@@ -234,6 +236,12 @@ en:
     error: 'Invitation can not be sent!'
   static_pages:
     feedback: 'Your feedback has been sent.'
+    confirmation:
+      direction:
+        p1: Please verify your email address. Click the confirmation link in that email to begin using Toned.
+        p2: "Didn’t receive the email? Check your Spam folder, it may have been caught by a filter. If you still don’t see it, you can %{action}"
+      resend_email: resend the confirmation email
+      back_to_home: Go back to home
   admin:
     branches:
       created: 'Station has been successfully added'
@@ -380,6 +388,7 @@ en:
         latitude: Latitude
         longitude: Longitude
         status: Status
+        min_walk: Minutes to walk
       teacher:
         name: Name
         created_at: Created At
@@ -425,6 +434,7 @@ en:
       dear: "Dear %{name}"
       cancelled: CANCELLED
       sign_up_now: Sign up now
+      welcome: "Welcome %{name}"
     booked:
       announcement: "%{customer} has already joined %{course} class."
       reserved:
@@ -442,3 +452,19 @@ en:
       sologan: A new way of booking exercises classes!!
       benefit: "You can earn %{point} pointed by signing up now!!"
       feature: Start booking classes fast and easy.
+    confirmation:
+      direction: "You can confirm your account email through the link below:"
+      confirm: Confirm my account
+    password_change:
+      direction: We're contacting you to notify you that your password has been changed
+    reset_password:
+      direction: Someone has requested a link to change your password. You can do this through the link below.
+      redirect: Change my password
+      suggestion:
+        p1: If you didn't request this, please ignore this email.
+        p2: Your password won't change until you access the link above and create a new one.
+    unlock:
+      intro: Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+      direction: "Click the link below to unlock your account:"
+      redirect: Unlock my account
+
