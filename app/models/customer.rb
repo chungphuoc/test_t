@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-  has_one :user, as: :role
+  has_one :user, as: :role, dependent: :destroy
   has_many :enrollments, dependent: :destroy
   has_many :courses_enrollments, through: :enrollments, source: :course do
     def filter(statuses)

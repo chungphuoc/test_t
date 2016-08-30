@@ -4,6 +4,5 @@ class CreateCourseStations < ActiveRecord::Migration
     	t.belongs_to :course
     	t.belongs_to :station
     end
-    remove_column :courses, :station_id, :integer
   end
 end
